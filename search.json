@@ -1,10 +1,38 @@
 [
   {
+    "objectID": "6e.html",
+    "href": "6e.html",
+    "title": "Mathématiques — 6e",
+    "section": "",
+    "text": "Les cours de l’année, dans l’ordre du programme. Chaque cours a son site (texte, figures qui bougent, coups de pouce pour les exercices, autoévaluation) et son PDF.\n\nExponentielles et logarithmes\nCours & exercices — 6e, 4 périodes (6UAA4)\npas encore en ligne (site-url manquante dans typweb.toml)\n\nMise à jour : 29/09/2026"
+  },
+  {
     "objectID": "5e.html",
     "href": "5e.html",
     "title": "Mathématiques — 5e",
     "section": "",
-    "text": "Les cours de l’année, dans l’ordre du programme. Chaque cours a son site (texte, figures qui bougent, coups de pouce pour les exercices, autoévaluation) et son PDF.\n\nStatistique à deux variables\nCours & exercices — 5e, 4 périodes (5UAA1)\npas encore en ligne (site-url manquante dans typweb.toml)\n\n\nLes suites\nCours & exercices — 5e, 4 périodes (5UAA2)\nLe cours en ligne · PDF — version élève · PDF — avec le corrigé · S’autoévaluer\n\n\nLimites et asymptotes\nCours & exercices — 5e, 4 périodes (5UAA3)\nLe cours en ligne · PDF — version élève · PDF — avec le corrigé · S’autoévaluer\n\nMise à jour : 29/09/2026"
+    "text": "Les cours de l’année, dans l’ordre du programme. Chaque cours a son site (texte, figures qui bougent, coups de pouce pour les exercices, autoévaluation) et son PDF.\n\nStatistique à deux variables\nCours & exercices — 5e, 4 périodes (5UAA1)\npas encore en ligne (site-url manquante dans typweb.toml)\n\n\nStatistiques à deux variables\n5UAA1 · Cours & exercices — 5e, 4 périodes (5UAAx)\nLe cours en ligne · PDF — version élève\n\n\nLes suites\nCours & exercices — 5e, 4 périodes (5UAA2)\nLe cours en ligne · PDF — version élève · PDF — avec le corrigé · S’autoévaluer\n\n\nLimites et asymptotes\nCours & exercices — 5e, 4 périodes (5UAA3)\nLe cours en ligne · PDF — version élève · PDF — avec le corrigé · S’autoévaluer\n\nMise à jour : 29/09/2026"
+  },
+  {
+    "objectID": "preview/index.html",
+    "href": "preview/index.html",
+    "title": "Quentin Lambotte",
+    "section": "",
+    "text": "Professeur de mathématiques, Institut des Ursulines, Mons."
+  },
+  {
+    "objectID": "preview/index.html#mes-cours",
+    "href": "preview/index.html#mes-cours",
+    "title": "Quentin Lambotte",
+    "section": "Mes cours",
+    "text": "Mes cours\n\n(aucun cours trouvé)"
+  },
+  {
+    "objectID": "preview/index.html#contact",
+    "href": "preview/index.html#contact",
+    "title": "Quentin Lambotte",
+    "section": "Contact",
+    "text": "Contact\nPar la plateforme de l’école."
   },
   {
     "objectID": "index.html",
@@ -23,6 +51,48 @@
   {
     "objectID": "index.html#contact",
     "href": "index.html#contact",
+    "title": "Quentin Lambotte",
+    "section": "Contact",
+    "text": "Contact\nPar la plateforme de l’école."
+  },
+  {
+    "objectID": "publier/index.html",
+    "href": "publier/index.html",
+    "title": "Quentin Lambotte",
+    "section": "",
+    "text": "Professeur de mathématiques, Institut des Ursulines, Mons."
+  },
+  {
+    "objectID": "publier/index.html#mes-cours",
+    "href": "publier/index.html#mes-cours",
+    "title": "Quentin Lambotte",
+    "section": "Mes cours",
+    "text": "Mes cours\n\n(aucun cours trouvé)"
+  },
+  {
+    "objectID": "publier/index.html#contact",
+    "href": "publier/index.html#contact",
+    "title": "Quentin Lambotte",
+    "section": "Contact",
+    "text": "Contact\nPar la plateforme de l’école."
+  },
+  {
+    "objectID": "help/index.html",
+    "href": "help/index.html",
+    "title": "Quentin Lambotte",
+    "section": "",
+    "text": "Professeur de mathématiques, Institut des Ursulines, Mons."
+  },
+  {
+    "objectID": "help/index.html#mes-cours",
+    "href": "help/index.html#mes-cours",
+    "title": "Quentin Lambotte",
+    "section": "Mes cours",
+    "text": "Mes cours\n\n(aucun cours trouvé)"
+  },
+  {
+    "objectID": "help/index.html#contact",
+    "href": "help/index.html#contact",
     "title": "Quentin Lambotte",
     "section": "Contact",
     "text": "Contact\nPar la plateforme de l’école."

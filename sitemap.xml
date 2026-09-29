@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://qlambotte.github.io/6e.html</loc>
+    <lastmod>2026-09-29T16:05:20.635Z</lastmod>
+  </url>
+  <url>
     <loc>https://qlambotte.github.io/5e.html</loc>
-    <lastmod>2026-09-29T10:02:04.888Z</lastmod>
+    <lastmod>2026-09-29T10:22:29.035Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qlambotte.github.io/preview/index.html</loc>
+    <lastmod>2026-09-29T10:23:53.518Z</lastmod>
   </url>
   <url>
     <loc>https://qlambotte.github.io/index.html</loc>
     <lastmod>2026-09-29T10:02:04.901Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qlambotte.github.io/publier/index.html</loc>
+    <lastmod>2026-09-29T16:05:39.665Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qlambotte.github.io/help/index.html</loc>
+    <lastmod>2026-09-29T16:05:31.912Z</lastmod>
   </url>
 </urlset>
