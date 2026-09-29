@@ -1,0 +1,38 @@
+---
+title: "Mathématiques — 5e"
+---
+
+
+<!-- GÉNÉRÉ par typweb portail à partir des typweb.toml des cours : NE PAS ÉDITER. -->
+
+
+Les cours de l'année, dans l'ordre du programme. Chaque cours a son site (texte, figures qui bougent, coups de pouce pour les exercices, autoévaluation) et son PDF.
+
+
+
+::: {.cours-carte}
+**Statistique à deux variables**
+
+[Cours & exercices — 5e, 4 périodes (5UAA1)]{.cours-meta}
+
+*pas encore en ligne (site-url manquante dans typweb.toml)*
+:::
+
+::: {.cours-carte}
+[Les suites](https://qlambotte.github.io/suites-cours/){.cours-titre}
+
+[Cours & exercices — 5e, 4 périodes (5UAA2)]{.cours-meta}
+
+[Le cours en ligne](https://qlambotte.github.io/suites-cours/) · [PDF — version élève](https://qlambotte.github.io/suites-cours/suites.pdf) · [PDF — avec le corrigé](https://qlambotte.github.io/suites-cours/suites-corrige.pdf) · [S'autoévaluer](https://qlambotte.github.io/suites-cours/autoeval.html)
+:::
+
+::: {.cours-carte}
+[Limites et asymptotes](https://qlambotte.github.io/limites-cours/){.cours-titre}
+
+[Cours & exercices — 5e, 4 périodes (5UAA3)]{.cours-meta}
+
+[Le cours en ligne](https://qlambotte.github.io/limites-cours/) · [PDF — version élève](https://qlambotte.github.io/limites-cours/limites.pdf) · [PDF — avec le corrigé](https://qlambotte.github.io/limites-cours/limites-corrige.pdf) · [S'autoévaluer](https://qlambotte.github.io/limites-cours/autoeval.html)
+:::
+
+
+[Mise à jour : 29/09/2026]{.cours-maj}

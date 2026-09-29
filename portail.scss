@@ -1,0 +1,8 @@
+/*-- scss:defaults --*/
+/*-- scss:rules --*/
+.cours-carte { border: 1px solid var(--card-brd); background: var(--card-bg); border-radius: 10px;
+  padding: .9rem 1.1rem; margin: 1rem 0; }
+.cours-carte p { margin: .15rem 0; }
+.cours-titre { font-family: "Roboto Slab", Georgia, serif; font-size: 1.25rem; font-weight: 700; text-decoration: none; }
+.cours-meta { color: var(--muted); font-size: .92rem; }
+.cours-maj { color: var(--muted); font-size: .85rem; }
