@@ -10,10 +10,6 @@ website:
     left:
       - href: index.qmd
         text: Accueil
-      - href: 5e.qmd
-        text: "5e"
-      - href: 6e.qmd
-        text: "6e"
 
 lang: fr
 

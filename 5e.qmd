@@ -19,6 +19,14 @@ Les cours de l'année, dans l'ordre du programme. Chaque cours a son site (texte
 :::
 
 ::: {.cours-carte}
+[Statistiques à deux variables](https://qlambotte.github.io/stats2v-cours/){.cours-titre}
+
+[5UAA1 · Cours & exercices — 5e, 4 périodes (5UAAx)]{.cours-meta}
+
+[Le cours en ligne](https://qlambotte.github.io/stats2v-cours/) · [PDF — version élève](https://qlambotte.github.io/stats2v-cours/stats2v.pdf)
+:::
+
+::: {.cours-carte}
 [Les suites](https://qlambotte.github.io/suites-cours/){.cours-titre}
 
 [Cours & exercices — 5e, 4 périodes (5UAA2)]{.cours-meta}
