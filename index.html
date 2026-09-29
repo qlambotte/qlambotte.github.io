@@ -88,10 +88,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content page-columns page-full column-page" id="quarto-document-content">
 <!-- GÉNÉRÉ par typweb portail : NE PAS ÉDITER. -->
 <aside class="pt-barre">
-  <a class="pt-ini" href="index.html" aria-label="Accueil">QL</a>
-  <div class="pt-id"><p class="pt-nom">Quentin Lambotte</p><p class="pt-fct">Professeur de mathématiques<br>Institut des Ursulines, Mons</p></div>
-  <nav class="pt-nav"><a href="index.html" data-page="index">Accueil</a><a href="5e.html" data-page="5e">5e</a><a href="6e.html" data-page="6e">6e</a><a href="index.html#contact" data-page="contact">Contact</a></nav>
-  <div class="pt-pied"></div>
+  <div class="pt-id"><p class="pt-nom"><a href="index.html">Quentin Lambotte</a></p><a class="pt-gh" href="https://github.com/qlambotte" title="GitHub" aria-label="GitHub"><svg viewbox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a><p class="pt-fct">Professeur de mathématiques aux Écoles de Religieuses Ursulines de Mons</p><p class="pt-fct">Adjoint pédagogique à l'UMONS (FMPB)</p></div>
+  <nav class="pt-nav"><a href="index.html" data-page="index">Accueil</a><div class="pt-groupe">Ursulines</div><a class="pt-sous" href="5e.html" data-page="5e">5e GT/TT</a><a class="pt-sous" href="6e.html" data-page="6e">6e GT/TT</a><div class="pt-groupe">UMONS</div><a class="pt-sous" href="umons.html" data-page="umons">Bac 1 — IMSV</a><a href="index.html#contact" data-page="contact">Contact</a></nav>
+  <div class="pt-pied">Année 2026–2027</div>
 </aside>
 <script>
 (function () {
@@ -99,13 +98,24 @@ ul.task-list li input[type="checkbox"] {
   document.querySelectorAll(".pt-nav a").forEach(function (a) {
     if (a.dataset.page === p && !(p === "index" && location.hash === "#contact")) a.classList.add("on");
   });
+  // adresses électroniques : décodées dans le navigateur, jamais en clair dans la page
+  var M = {"ursulines": "ZWIuc25vbS1zZW5pbHVzcnVAZXR0b2JtYWwubml0bmV1cQ==", "umons": "ZWIuY2Euc25vbXVAZXR0b2JtYWwubml0bmV1cQ=="};
+  function remplir() {
+    document.querySelectorAll("[data-mail]").forEach(function (el) {
+      var c = M[el.dataset.mail]; if (!c || el.dataset.fait) return;
+      var adr = atob(c).split("").reverse().join("");
+      var a = document.createElement("a"); a.href = "mai" + "lto:" + adr; a.textContent = adr;
+      el.textContent = ""; el.appendChild(a); el.dataset.fait = "1";
+    });
+  }
+  if (document.readyState !== "loading") remplir(); else document.addEventListener("DOMContentLoaded", remplir);
 })();
 </script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Quentin Lambotte</h1>
-<p class="subtitle lead">Professeur de mathématiques</p>
+<p class="subtitle lead">Professeur de mathématiques aux Écoles de Religieuses Ursulines de Mons · Adjoint pédagogique à l’UMONS (FMPB)</p>
 </div>
 
 
@@ -123,16 +133,24 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- Ta page de présentation : écrite à la main, jamais écrasée par typweb. -->
-<p>Professeur de mathématiques, Institut des Ursulines, Mons.</p>
 <section id="mes-cours" class="level2">
 <h2 data-anchor-id="mes-cours">Mes cours</h2>
+<p><strong>Écoles de Religieuses Ursulines de Mons</strong></p>
 <ul>
-<li><a href="./5e.html">Mathématiques — 5e</a></li>
+<li><a href="./5e.html">Cours de 5e GT/TT</a></li>
+<li><a href="./6e.html">Cours de 6e GT/TT</a></li>
+</ul>
+<p><strong>UMONS</strong> — Faculté de Médecine, Pharmacie et Sciences biomédicales</p>
+<ul>
+<li><a href="./umons.html">Introduction mathématique aux sciences de la vie</a> (bac 1 pharmacie, sciences biomédicales, biologie)</li>
 </ul>
 </section>
 <section id="contact" class="level2">
 <h2 data-anchor-id="contact">Contact</h2>
-<p>Par la plateforme de l’école.</p>
+<ul>
+<li>Ursulines : <span data-mail="ursulines">adresse affichée par le navigateur</span></li>
+<li>UMONS : <span data-mail="umons">adresse affichée par le navigateur</span></li>
+</ul>
 
 
 </section>
