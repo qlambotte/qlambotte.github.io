@@ -1,0 +1,88 @@
+/* portail.css — style « épure » du portail (copié par typweb portail : ne pas éditer la copie)
+   Blanc et noir, titres en Palatino, un accent ocre ; menu à gauche. */
+:root {
+  --encre: #111;
+  --gris: #555;
+  --filet: #e3e3e3;
+  --acc: #c28a1b;
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", P052, Georgia, serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, "TeX Gyre Heros", "Nimbus Sans", sans-serif;
+  --barre: 260px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #fff; color: var(--encre); font: 17px/1.6 var(--serif); }
+a { color: var(--encre); }
+.pt-barre a, .pt-barre a:hover { text-decoration: none !important; }
+.pt-nom { color: var(--encre); }
+
+/* ---- menu à gauche ---- */
+.pt-barre { position: fixed; top: 0; left: 0; bottom: 0; width: var(--barre); border-right: 2px solid var(--encre);
+  padding: 40px 30px; background: #fff; overflow-y: auto; }
+.pt-ini { width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid var(--encre); display: flex;
+  align-items: center; justify-content: center; font-size: 22px; letter-spacing: .04em; text-decoration: none; }
+.pt-nom { font-size: 22px; font-weight: 700; margin: 18px 0 0; line-height: 1.2; }
+.pt-fct { font: 14px/1.5 var(--sans); color: var(--gris); margin: 6px 0 34px; }
+.pt-nav a { display: block; font: 13px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #777;
+  padding: 9px 0; border-top: 1px solid var(--filet); text-decoration: none; }
+.pt-nav a:hover, .pt-nav a.on { color: var(--encre); }
+.pt-nav a.on::before { content: ""; display: inline-block; width: 14px; height: 2px; background: var(--acc);
+  vertical-align: middle; margin-right: 10px; }
+.pt-pied { position: absolute; bottom: 30px; left: 30px; right: 30px; font: 12px var(--sans); color: #888; }
+
+/* ---- contenu (Quarto) ---- */
+#quarto-content, main.content, .page-columns { margin: 0; }
+#quarto-content { margin-left: var(--barre); }
+main.content { max-width: 1060px; padding: 40px 56px 60px; }
+#title-block-header { margin: 18px 0 30px; }
+h1, h2, h3, .title { font-family: var(--serif); font-weight: 400; }
+#title-block-header .title { font-size: 64px; line-height: 1; margin: 0; }
+#title-block-header .subtitle { font: 16px/1.5 var(--sans); color: var(--gris); margin-top: 12px; }
+main.content h2 { font-size: 28px; border-top: 2px solid var(--encre); border-bottom: 0; padding-top: 12px; margin-top: 36px; }
+main.content a { text-decoration: underline; text-decoration-color: var(--acc); text-underline-offset: 4px; }
+
+/* ---- page d'année ---- */
+.pt-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin: 18px 0 40px; }
+.pt-h1 { font: 400 76px/.95 var(--serif); margin: 0; }
+.pt-h1 span { color: var(--acc); }
+.pt-hero p { font: 15px/1.6 var(--sans); color: var(--gris); margin: 0; }
+.pt-grille { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
+.pt-carte { border-top: 2px solid var(--encre); padding-top: 16px; }
+.pt-code { font: 700 12px var(--sans); letter-spacing: .12em; }
+.pt-fig { color: var(--encre); }
+.pt-fig svg { width: 100%; height: auto; display: block; margin: 4px 0 14px; }
+.pt-acc { stroke: var(--acc); fill: none; }
+.pt-accf { fill: var(--acc); stroke: none; }
+.pt-titre { font-size: 24px; line-height: 1.15; margin: 4px 0 6px; border: 0; padding: 0; }
+main.content .pt-titre { border: 0; padding: 0; margin-top: 4px; }
+main.content .pt-titre a { text-decoration: none; }
+main.content .pt-titre a:hover { text-decoration: underline; text-decoration-color: var(--acc); }
+.pt-resume { margin: 0 0 12px; color: var(--gris); font-size: 15px; }
+.pt-liens { font: 14px var(--sans); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.pt-liens a:first-child { font-weight: 700; }
+.pt-bientot { color: #888; font-style: italic; }
+.pt-avenir .pt-fig { opacity: .45; }
+.pt-maj { font: 12px var(--sans); color: #888; margin-top: 48px; }
+
+/* ---- téléphone ---- */
+@media (max-width: 800px) {
+  .pt-barre { position: static; width: auto; border-right: 0; border-bottom: 2px solid var(--encre); padding: 20px 18px;
+    display: grid; grid-template-columns: auto 1fr; gap: 0 14px; align-items: center; }
+  .pt-ini { width: 44px; height: 44px; font-size: 16px; }
+  .pt-nom { margin: 0; font-size: 18px; }
+  .pt-fct { margin: 0; font-size: 12px; }
+  .pt-nav { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 14px; }
+  .pt-nav a { border: 0; padding: 0; }
+  .pt-pied { display: none; }
+  #quarto-content { margin-left: 0; }
+  main.content { padding: 24px 18px; }
+  .pt-hero { grid-template-columns: 1fr; gap: 14px; margin: 4px 0 26px; }
+  .pt-h1, #title-block-header .title { font-size: 52px; }
+  .pt-grille { grid-template-columns: 1fr; gap: 26px; }
+  .pt-carte { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 0 16px; }
+  .pt-code { grid-column: 1 / -1; margin-bottom: 6px; }
+  .pt-fig svg { margin: 0; }
+  .pt-titre { font-size: 21px; margin-top: 0; }
+  .pt-liens { grid-column: 1 / -1; margin-top: 6px; }
+}
+@media print { .pt-barre { display: none; } #quarto-content { margin-left: 0; } }

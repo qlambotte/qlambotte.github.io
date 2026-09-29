@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -40,18 +39,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-73b0ff3878a4e6fc3716dc69a6aaefa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f524027be93599f796b2f3914ccb1af8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-75b01f25e13ac502baf91b06dd2680e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -73,62 +71,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-<script>
-// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
-(function () {
-  try {
-    var t = localStorage.getItem('imsv-theme');
-    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
-  } catch (e) {}
-})();
-</script>
 
 
+<link rel="stylesheet" href="portail.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Quentin Lambotte — mathématiques</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Recherche"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Accueil</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./5e.html"> 
-<span class="menu-text">5e</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./6e.html"> 
-<span class="menu-text">6e</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
+<!-- GÉNÉRÉ par typweb portail : NE PAS ÉDITER. -->
+<aside class="pt-barre">
+  <a class="pt-ini" href="index.html" aria-label="Accueil">QL</a>
+  <div class="pt-id"><p class="pt-nom">Quentin Lambotte</p><p class="pt-fct">Professeur de mathématiques<br>Institut des Ursulines, Mons</p></div>
+  <nav class="pt-nav"><a href="index.html" data-page="index">Accueil</a><a href="5e.html" data-page="5e">5e</a><a href="6e.html" data-page="6e">6e</a><a href="index.html#contact" data-page="contact">Contact</a></nav>
+  <div class="pt-pied"></div>
+</aside>
+<script>
+(function () {
+  var p = location.pathname.split("/").pop().replace(".html", "") || "index";
+  document.querySelectorAll(".pt-nav a").forEach(function (a) {
+    if (a.dataset.page === p && !(p === "index" && location.hash === "#contact")) a.classList.add("on");
+  });
+})();
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -138,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -153,13 +125,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- Ta page de présentation : écrite à la main, jamais écrasée par typweb. -->
 <p>Professeur de mathématiques, Institut des Ursulines, Mons.</p>
 <section id="mes-cours" class="level2">
-<h2 class="anchored" data-anchor-id="mes-cours">Mes cours</h2>
+<h2 data-anchor-id="mes-cours">Mes cours</h2>
 <ul>
 <li><a href="./5e.html">Mathématiques — 5e</a></li>
 </ul>
 </section>
 <section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<h2 data-anchor-id="contact">Contact</h2>
 <p>Par la plateforme de l’école.</p>
 
 
@@ -168,13 +140,6 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
