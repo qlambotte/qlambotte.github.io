@@ -1,0 +1,320 @@
+{
+ "format": 1,
+ "cours": "Fonctions exponentielles et logarithmes",
+ "uaa": "6UAA4",
+ "annee": "6e",
+ "cle": "exp-log",
+ "empreinte": "fixture0001",
+ "genere": "2026-10-12",
+ "elements": [
+  {
+   "id": "6UAA4.exponentielle",
+   "type": "chapitre",
+   "titre": "Chapitre 1. La fonction exponentielle",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.croissance-exponentielle",
+   "type": "section",
+   "titre": "Croissance exponentielle : situations",
+   "parent": "6UAA4.exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/1-croissance-exponentielle.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.def.001",
+   "type": "definition",
+   "titre": "Definition 1.1 (fixture)",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/1-croissance-exponentielle.html#6UAA4.def.001",
+   "num": "1.1",
+   "page": 11
+  },
+  {
+   "id": "6UAA4.prop.001",
+   "type": "propriete",
+   "titre": "Propriete 1.1 (fixture)",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/1-croissance-exponentielle.html#6UAA4.prop.001",
+   "num": "1.1",
+   "page": 12
+  },
+  {
+   "id": "6UAA4.proprietes-puissances",
+   "type": "section",
+   "titre": "Propriétés des puissances",
+   "parent": "6UAA4.exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/2-proprietes-puissances.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1 (fixture)",
+   "parent": "6UAA4.proprietes-puissances",
+   "etiquettes": [],
+   "ancre": "ch1/2-proprietes-puissances.html#6UAA4.rem.001",
+   "num": "1.1",
+   "page": 13
+  },
+  {
+   "id": "6UAA4.exm.001",
+   "type": "exemple",
+   "titre": "Exemple 1.1 (fixture)",
+   "parent": "6UAA4.proprietes-puissances",
+   "etiquettes": [],
+   "ancre": "ch1/2-proprietes-puissances.html#6UAA4.exm.001",
+   "num": "1.1",
+   "page": 14
+  },
+  {
+   "id": "6UAA4.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "6UAA4.proprietes-puissances",
+   "etiquettes": [],
+   "ancre": "ch1/2-proprietes-puissances.html#6UAA4.ex.001",
+   "num": "1.1",
+   "page": 13
+  },
+  {
+   "id": "6UAA4.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "6UAA4.proprietes-puissances",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1/2-proprietes-puissances.html#6UAA4.ex.002",
+   "num": "1.2",
+   "page": 14
+  },
+  {
+   "id": "6UAA4.fonction-exponentielle",
+   "type": "section",
+   "titre": "Fonction exponentielle : définition",
+   "parent": "6UAA4.exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/3-fonction-exponentielle.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.act.001",
+   "type": "activite",
+   "titre": "Activite 1.1 (fixture)",
+   "parent": "6UAA4.fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/3-fonction-exponentielle.html#6UAA4.act.001",
+   "num": "1.1",
+   "page": 15
+  },
+  {
+   "id": "6UAA4.def.002",
+   "type": "definition",
+   "titre": "Definition 1.2 (fixture)",
+   "parent": "6UAA4.fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/3-fonction-exponentielle.html#6UAA4.def.002",
+   "num": "1.2",
+   "page": 16
+  },
+  {
+   "id": "6UAA4.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "6UAA4.fonction-exponentielle",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1/3-fonction-exponentielle.html#6UAA4.ex.003",
+   "num": "1.3",
+   "page": 15
+  },
+  {
+   "id": "6UAA4.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "6UAA4.fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1/3-fonction-exponentielle.html#6UAA4.ex.004",
+   "num": "1.4",
+   "page": 16
+  },
+  {
+   "id": "6UAA4.logarithme",
+   "type": "chapitre",
+   "titre": "Chapitre 2. Le logarithme",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.logarithme-definition",
+   "type": "section",
+   "titre": "Logarithme : définition",
+   "parent": "6UAA4.logarithme",
+   "etiquettes": [],
+   "ancre": "ch2/1-logarithme-definition.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.prop.002",
+   "type": "propriete",
+   "titre": "Propriete 2.2 (fixture)",
+   "parent": "6UAA4.logarithme-definition",
+   "etiquettes": [],
+   "ancre": "ch2/1-logarithme-definition.html#6UAA4.prop.002",
+   "num": "2.2",
+   "page": 17
+  },
+  {
+   "id": "6UAA4.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 2.2 (fixture)",
+   "parent": "6UAA4.logarithme-definition",
+   "etiquettes": [],
+   "ancre": "ch2/1-logarithme-definition.html#6UAA4.rem.002",
+   "num": "2.2",
+   "page": 18
+  },
+  {
+   "id": "6UAA4.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "6UAA4.logarithme-definition",
+   "etiquettes": [],
+   "ancre": "ch2/1-logarithme-definition.html#6UAA4.ex.005",
+   "num": "2.1",
+   "page": 17
+  },
+  {
+   "id": "6UAA4.equations-exponentielles",
+   "type": "section",
+   "titre": "Équations exponentielles",
+   "parent": "6UAA4.logarithme",
+   "etiquettes": [],
+   "ancre": "ch2/2-equations-exponentielles.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.exm.002",
+   "type": "exemple",
+   "titre": "Exemple 2.2 (fixture)",
+   "parent": "6UAA4.equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch2/2-equations-exponentielles.html#6UAA4.exm.002",
+   "num": "2.2",
+   "page": 19
+  },
+  {
+   "id": "6UAA4.act.002",
+   "type": "activite",
+   "titre": "Activite 2.2 (fixture)",
+   "parent": "6UAA4.equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch2/2-equations-exponentielles.html#6UAA4.act.002",
+   "num": "2.2",
+   "page": 20
+  },
+  {
+   "id": "6UAA4.exercices",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "6UAA4.logarithme",
+   "etiquettes": [],
+   "ancre": "ch2/3-exercices.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "6UAA4.exercices",
+   "etiquettes": [],
+   "ancre": "ch2/3-exercices.html#6UAA4.ex.006",
+   "num": "2.2",
+   "page": 26
+  },
+  {
+   "id": "6UAA4.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "6UAA4.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2/3-exercices.html#6UAA4.ex.007",
+   "num": "2.3",
+   "page": 27
+  },
+  {
+   "id": "6UAA4.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "6UAA4.exercices",
+   "etiquettes": [],
+   "ancre": "ch2/3-exercices.html#6UAA4.ex.008",
+   "num": "2.4",
+   "page": 28
+  },
+  {
+   "id": "6UAA4.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "6UAA4.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2/3-exercices.html#6UAA4.ex.009",
+   "num": "2.5",
+   "page": 29
+  },
+  {
+   "id": "6UAA4.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "6UAA4.exercices",
+   "etiquettes": [],
+   "ancre": "ch2/3-exercices.html#6UAA4.ex.010",
+   "num": "2.6",
+   "page": 30
+  },
+  {
+   "id": "6UAA4.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "6UAA4.exercices",
+   "etiquettes": [],
+   "ancre": "ch2/3-exercices.html#6UAA4.ex.011",
+   "num": "2.7",
+   "page": 31
+  },
+  {
+   "id": "6UAA4.q.fct-racines-produit",
+   "type": "qcm",
+   "titre": "Question d'autoévaluation (fixture)",
+   "parent": "6UAA4.autoeval",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  }
+ ],
+ "retires": []
+}

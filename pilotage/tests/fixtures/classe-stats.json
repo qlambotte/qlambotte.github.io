@@ -1,0 +1,85 @@
+{
+ "schema": "typweb-classe/1",
+ "genere": "2026-10-12",
+ "uaa": "5UAA1",
+ "cle": "stats2v",
+ "cours": "Statistique à deux variables",
+ "annee": "5e",
+ "index_empreinte": "fixture0001",
+ "qcm": [
+  {
+   "id": "5UAA1.c.001",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Un coefficient de corrélation $r=-0{,}9$ indique…",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "pas de lien",
+     "erreur": "r négatif = absence",
+     "retour": "Piège : r négatif = absence."
+    },
+    {
+     "r": "une forte relation décroissante",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "une relation croissante",
+     "erreur": "signe",
+     "retour": "Piège : signe."
+    },
+    {
+     "r": "une causalité",
+     "erreur": "corrélation ≠ causalité",
+     "retour": "Piège : corrélation ≠ causalité."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA1.c.002",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "$r$ vaut au plus…",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "$100$",
+     "erreur": "pourcentage",
+     "retour": "Piège : pourcentage."
+    },
+    {
+     "r": "$0$",
+     "erreur": "défaut",
+     "retour": "Piège : défaut."
+    },
+    {
+     "r": "$1$ en valeur absolue",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$2$",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  }
+ ],
+ "exercices": {
+  "generateurs": 1,
+  "empreinte": "fixture",
+  "lots": []
+ },
+ "ecartees": []
+}

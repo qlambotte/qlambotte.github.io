@@ -1,0 +1,82 @@
+/* pilotage.css — style de la page de pilotage : reprend portail.css et la maquette v3
+   (blanc et noir, Palatino, accent ocre, filets noirs, boutons à angles droits). Pas de gris de texte
+   trop clair : la page est projetée. */
+:root{
+  --encre:#111; --gris:#444; --filet:#d4d4d4; --acc:#c28a1b; --accbg:#fbf3e0;
+  --serif:"Palatino Linotype",Palatino,"Book Antiqua","TeX Gyre Pagella","URW Palladio L",P052,Georgia,serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,"TeX Gyre Heros","Nimbus Sans",sans-serif;
+  --barre:240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--encre);font:18px/1.55 var(--serif)}
+a{color:var(--encre)}
+[hidden]{display:none!important}
+.cache{position:absolute;left:-9999px}
+/* ---- barre latérale ---- */
+.pt-barre{position:fixed;top:0;left:0;bottom:0;width:var(--barre);border-right:2px solid var(--encre);padding:34px 26px;background:#fff;overflow-y:auto}
+.pt-nom{font-size:24px;font-weight:700;margin:0;line-height:1.2}
+.pt-fct{font:15px/1.45 var(--sans);color:var(--gris);margin:6px 0 8px}
+.pt-id{margin-bottom:24px}
+.etiquettes{margin:0;display:flex;gap:6px;flex-wrap:wrap}
+.puce{display:inline-block;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--encre);padding:2px 8px}
+.puce.on{background:var(--encre);color:#fff}
+.puce.alerte{border-color:var(--acc);background:var(--accbg)}
+.pt-nav a{display:block;font:14px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gris);padding:11px 0;border-top:1px solid var(--filet);text-decoration:none}
+.pt-nav a:hover,.pt-nav a:focus-visible{color:var(--encre)}
+.pt-pied{position:absolute;bottom:26px;left:26px;right:26px;display:flex;gap:8px;flex-wrap:wrap}
+/* ---- contenu ---- */
+main{margin-left:var(--barre);max-width:calc(1100px + var(--barre));padding:34px 44px 70px}
+.titre{font-weight:400;font-size:68px;line-height:1;margin:6px 0 0}
+.sous{font:17px/1.5 var(--sans);color:var(--gris);margin:12px 0 0}
+.choix{font:16px var(--sans);margin:14px 0 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.alerte{border:2px solid var(--encre);border-left:8px solid var(--acc);background:var(--accbg);padding:12px 16px;font:16px/1.5 var(--sans);margin:0 0 18px}
+.alerte ul{margin:6px 0 0;padding-left:20px}
+h2.sec{font-size:28px;font-weight:400;border-top:2px solid var(--encre);padding-top:12px;margin:40px 0 14px}
+/* ---- cartes ---- */
+.grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 38px;margin-top:30px}
+.carte{border-top:2px solid var(--encre);padding-top:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.carte.large{grid-column:1/-1}
+.code{font:700 13px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.carte h3{font-size:26px;line-height:1.15;font-weight:400;margin:0}
+.sub{font:15px/1.45 var(--sans);color:var(--gris)}
+.ligne{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ressort{flex:1}
+button,select,textarea,input{font:16px var(--sans);color:var(--encre);background:#fff;border:2px solid var(--encre);border-radius:0;padding:9px 16px;min-height:44px}
+button,.bouton{cursor:pointer}
+button:hover,.bouton:hover{background:var(--accbg)}
+.bouton{display:inline-block;font:16px var(--sans);color:var(--encre);border:2px solid var(--encre);padding:9px 16px;min-height:44px;text-decoration:none;background:#fff}
+button.primaire,.bouton.primaire{background:var(--encre);color:#fff;font-weight:700}
+button.primaire:hover,.bouton.primaire:hover{background:#333}
+button.petit{padding:4px 12px;font-size:14px;min-height:36px}
+button[disabled],.bouton[aria-disabled=true]{opacity:.45;cursor:not-allowed}
+button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+textarea{width:100%;min-height:96px;resize:vertical;font:17px/1.5 var(--serif)}
+.q{border-top:1px solid var(--encre);padding:9px 0;display:grid;gap:4px}
+.q .tete{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.q .texte{font-size:18px}
+.chip{display:inline-block;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--encre);padding:1px 7px}
+.chip.acc{border-color:var(--acc);background:var(--accbg)}
+.arret{border-left:5px solid var(--acc);padding:6px 14px;background:var(--accbg)}
+.iro{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--filet);padding:10px 0;font:17px var(--sans)}
+.iro .j{font-weight:700}
+.iro .j.proche{border-bottom:3px solid var(--acc)}
+/* ---- aperçu du cours ---- */
+.bloc{border-top:1px solid var(--filet);padding:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.bloc.chap{border-top:2px solid var(--encre);margin-top:14px;font-weight:700}
+.bloc.cur{background:var(--accbg);margin:0 -10px;padding:8px 10px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--encre);color:#fff;font:16px var(--sans);padding:12px 20px;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90vw;text-align:center;z-index:50}
+.toast.on{opacity:1}
+/* la couche prof ajoute un bandeau flottant : inutile ici, la page en tient lieu */
+.tw-prof{display:none!important}
+@media (max-width:900px){
+  .pt-barre{position:static;width:auto;border-right:0;border-bottom:2px solid var(--encre);padding:16px 18px}
+  .pt-id{margin-bottom:10px}
+  .pt-nav{display:flex;flex-wrap:wrap;gap:2px 18px}
+  .pt-nav a{border:0;padding:6px 0}
+  .pt-pied{position:static;margin-top:10px}
+  main{margin-left:0;padding:22px 18px 60px}
+  .titre{font-size:54px}
+  .grille{grid-template-columns:1fr;gap:28px}
+}
+@media print{.pt-barre,.toast{display:none}main{margin-left:0}}

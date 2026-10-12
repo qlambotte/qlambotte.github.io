@@ -1,0 +1,874 @@
+{
+ "schema": "typweb-classe/1",
+ "genere": "2026-10-12",
+ "uaa": "5UAA3",
+ "cle": "limites",
+ "cours": "Limites et asymptotes",
+ "annee": "5e",
+ "index_empreinte": "fixture0001",
+ "qcm": [
+  {
+   "id": "5UAA3.c.001",
+   "usage": "comprehension",
+   "sur": "5UAA3.limites-gauche-droite",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Soit $f(x) = 1/(x-2)$. Que vaut la limite à gauche en 2 ?",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$+\\infty$",
+     "erreur": "signe oublié",
+     "retour": "Piège : signe oublié."
+    },
+    {
+     "r": "$-\\infty$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$0$",
+     "erreur": "confusion avec l'infini",
+     "retour": "Piège : confusion avec l'infini."
+    },
+    {
+     "r": "n'existe pas",
+     "erreur": "limite confondue avec la valeur",
+     "retour": "Piège : limite confondue avec la valeur."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.002",
+   "usage": "comprehension",
+   "sur": "5UAA3.definition",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Une limite en $a$ dépend de $f(a)$ ?",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "Oui toujours",
+     "erreur": "limite = valeur",
+     "retour": "Piège : limite = valeur."
+    },
+    {
+     "r": "Seulement à gauche",
+     "erreur": "latéralité",
+     "retour": "Piège : latéralité."
+    },
+    {
+     "r": "Non",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "Seulement si $f(a)$ existe",
+     "erreur": "domaine",
+     "retour": "Piège : domaine."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.003",
+   "usage": "comprehension",
+   "sur": "5UAA3.en-valeur-interdite",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Point creux ou asymptote ?",
+   "bonne": 3,
+   "options": [
+    {
+     "r": "Toujours une asymptote",
+     "erreur": "règle c/0",
+     "retour": "Piège : règle c/0."
+    },
+    {
+     "r": "Toujours un point creux",
+     "erreur": "0/0",
+     "retour": "Piège : 0/0."
+    },
+    {
+     "r": "Impossible à dire",
+     "erreur": "abandon",
+     "retour": "Piège : abandon."
+    },
+    {
+     "r": "Cela dépend de la factorisation",
+     "erreur": null,
+     "retour": null
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.004",
+   "usage": "comprehension",
+   "sur": "5UAA3.asymptote-oblique",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 2,
+   "enonce": "Quand y a-t-il une asymptote oblique ?",
+   "bonne": 0,
+   "options": [
+    {
+     "r": "Degré num = degré den + 1",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "Degré num = degré den",
+     "erreur": "horizontale",
+     "retour": "Piège : horizontale."
+    },
+    {
+     "r": "Degré num < degré den",
+     "erreur": "horizontale en 0",
+     "retour": "Piège : horizontale en 0."
+    },
+    {
+     "r": "Toujours",
+     "erreur": "généralisation",
+     "retour": "Piège : généralisation."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.005",
+   "usage": "comprehension",
+   "sur": "5UAA3.rappels",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Domaine de $\\sqrt{x}$ ?",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$\\mathbb{R}$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$[0;+\\infty[$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$]0;+\\infty[$",
+     "erreur": "bord",
+     "retour": "Piège : bord."
+    },
+    {
+     "r": "$]-\\infty;0]$",
+     "erreur": "signe",
+     "retour": "Piège : signe."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.006",
+   "usage": "comprehension",
+   "sur": "5UAA3.trou-dans-graphique",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Un trou en $x=1$ signifie…",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "$f(1)=0$",
+     "erreur": "confusion",
+     "retour": "Piège : confusion."
+    },
+    {
+     "r": "pas de limite",
+     "erreur": "limite",
+     "retour": "Piège : limite."
+    },
+    {
+     "r": "$f(1)$ non défini",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "asymptote",
+     "erreur": "asymptote",
+     "retour": "Piège : asymptote."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.007",
+   "usage": "echauffement",
+   "sur": "5UAA3.limites-gauche-droite",
+   "role": "precedent",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "$\\lim_{x\\to 2^-} \\frac{1}{x-2}$ ?",
+   "bonne": 3,
+   "options": [
+    {
+     "r": "$+\\infty$",
+     "erreur": "signe",
+     "retour": "Piège : signe."
+    },
+    {
+     "r": "$0$",
+     "erreur": "infini",
+     "retour": "Piège : infini."
+    },
+    {
+     "r": "$2$",
+     "erreur": "valeur",
+     "retour": "Piège : valeur."
+    },
+    {
+     "r": "$-\\infty$",
+     "erreur": null,
+     "retour": null
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.008",
+   "usage": "echauffement",
+   "sur": "5UAA3.definition",
+   "role": "precedent",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Quel nombre la fonction approche-t-elle ?",
+   "bonne": 0,
+   "options": [
+    {
+     "r": "La limite",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$f(a)$",
+     "erreur": "valeur",
+     "retour": "Piège : valeur."
+    },
+    {
+     "r": "$a$",
+     "erreur": "confusion",
+     "retour": "Piège : confusion."
+    },
+    {
+     "r": "$0$",
+     "erreur": "défaut",
+     "retour": "Piège : défaut."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.009",
+   "usage": "echauffement",
+   "sur": "5UAA3.en-valeur-interdite",
+   "role": "precedent",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "$\\lim_{x\\to 3}\\frac{x^2-9}{x-3}$ ?",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$0$",
+     "erreur": "0/0",
+     "retour": "Piège : 0/0."
+    },
+    {
+     "r": "$6$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "n'existe pas",
+     "erreur": "forme",
+     "retour": "Piège : forme."
+    },
+    {
+     "r": "$\\infty$",
+     "erreur": "règle c/0",
+     "retour": "Piège : règle c/0."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.010",
+   "usage": "echauffement",
+   "sur": "5UAA3.fonctions-rationnelles",
+   "role": "precedent",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Quand une fraction est-elle nulle ?",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "Toujours",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "Dénominateur nul",
+     "erreur": "inversion",
+     "retour": "Piège : inversion."
+    },
+    {
+     "r": "Quand son numérateur l'est (dénominateur non nul)",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "Jamais",
+     "erreur": "défaut",
+     "retour": "Piège : défaut."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.011",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "prerequis",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Factoriser $x^2 - 9$",
+   "bonne": 3,
+   "options": [
+    {
+     "r": "$(x-3)^2$",
+     "erreur": "carré",
+     "retour": "Piège : carré."
+    },
+    {
+     "r": "$(x+3)^2$",
+     "erreur": "carré",
+     "retour": "Piège : carré."
+    },
+    {
+     "r": "$x(x-9)$",
+     "erreur": "mise en évidence",
+     "retour": "Piège : mise en évidence."
+    },
+    {
+     "r": "$(x-3)(x+3)$",
+     "erreur": null,
+     "retour": null
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.012",
+   "usage": "echauffement",
+   "sur": "5UAA3.recherche-algebrique-domaine-fonction",
+   "role": "prerequis",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Domaine de $1/(x-2)$ ?",
+   "bonne": 0,
+   "options": [
+    {
+     "r": "$\\mathbb{R}\\setminus\\{2\\}$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$\\mathbb{R}$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$\\{2\\}$",
+     "erreur": "complément",
+     "retour": "Piège : complément."
+    },
+    {
+     "r": "$]2;+\\infty[$",
+     "erreur": "bord",
+     "retour": "Piège : bord."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.013",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "prerequis",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Résoudre $2x+3=11$",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$x=7$",
+     "erreur": "signe",
+     "retour": "Piège : signe."
+    },
+    {
+     "r": "$x=4$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$x=14$",
+     "erreur": "produit",
+     "retour": "Piège : produit."
+    },
+    {
+     "r": "$x=8$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA3.c.014",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "prerequis",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Simplifier $\\frac{x^2-x}{x}$",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "$x$",
+     "erreur": "simplification partielle",
+     "retour": "Piège : simplification partielle."
+    },
+    {
+     "r": "$x^2-1$",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    },
+    {
+     "r": "$x-1$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$-1$",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  }
+ ],
+ "exercices": {
+  "generateurs": 1,
+  "empreinte": "fixture",
+  "lots": [
+   {
+    "soustype": "factoriser.trinome.5e",
+    "genre": "factoriser",
+    "niveau": "5e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "factoriser.trinome.5e:0000",
+      "enonce": "Exercice factoriser.trinome.5e variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0001",
+      "enonce": "Exercice factoriser.trinome.5e variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0002",
+      "enonce": "Exercice factoriser.trinome.5e variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0003",
+      "enonce": "Exercice factoriser.trinome.5e variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0004",
+      "enonce": "Exercice factoriser.trinome.5e variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0005",
+      "enonce": "Exercice factoriser.trinome.5e variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0006",
+      "enonce": "Exercice factoriser.trinome.5e variante 6 : $x^2 - 11x + 10$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0007",
+      "enonce": "Exercice factoriser.trinome.5e variante 7 : $x^2 - 12x + 11$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   },
+   {
+    "soustype": "factoriser.evidence",
+    "genre": "factoriser",
+    "niveau": "5e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "factoriser.evidence:0000",
+      "enonce": "Exercice factoriser.evidence variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0001",
+      "enonce": "Exercice factoriser.evidence variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0002",
+      "enonce": "Exercice factoriser.evidence variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0003",
+      "enonce": "Exercice factoriser.evidence variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0004",
+      "enonce": "Exercice factoriser.evidence variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0005",
+      "enonce": "Exercice factoriser.evidence variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0006",
+      "enonce": "Exercice factoriser.evidence variante 6 : $x^2 - 11x + 10$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.evidence:0007",
+      "enonce": "Exercice factoriser.evidence variante 7 : $x^2 - 12x + 11$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   },
+   {
+    "soustype": "developper.distrib",
+    "genre": "developper",
+    "niveau": "5e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "developper.distrib:0000",
+      "enonce": "Exercice developper.distrib variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.distrib:0001",
+      "enonce": "Exercice developper.distrib variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.distrib:0002",
+      "enonce": "Exercice developper.distrib variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.distrib:0003",
+      "enonce": "Exercice developper.distrib variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.distrib:0004",
+      "enonce": "Exercice developper.distrib variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.distrib:0005",
+      "enonce": "Exercice developper.distrib variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   },
+   {
+    "soustype": "resoudre.deuxieme_degre.5e",
+    "genre": "resoudre",
+    "niveau": "5e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "resoudre.deuxieme_degre.5e:0000",
+      "enonce": "Exercice resoudre.deuxieme_degre.5e variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "resoudre.deuxieme_degre.5e:0001",
+      "enonce": "Exercice resoudre.deuxieme_degre.5e variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "resoudre.deuxieme_degre.5e:0002",
+      "enonce": "Exercice resoudre.deuxieme_degre.5e variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "resoudre.deuxieme_degre.5e:0003",
+      "enonce": "Exercice resoudre.deuxieme_degre.5e variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "resoudre.deuxieme_degre.5e:0004",
+      "enonce": "Exercice resoudre.deuxieme_degre.5e variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "resoudre.deuxieme_degre.5e:0005",
+      "enonce": "Exercice resoudre.deuxieme_degre.5e variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   },
+   {
+    "soustype": "factoriser.trinome.6e",
+    "genre": "factoriser",
+    "niveau": "6e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "factoriser.trinome.6e:0000",
+      "enonce": "Exercice factoriser.trinome.6e variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0001",
+      "enonce": "Exercice factoriser.trinome.6e variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0002",
+      "enonce": "Exercice factoriser.trinome.6e variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0003",
+      "enonce": "Exercice factoriser.trinome.6e variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0004",
+      "enonce": "Exercice factoriser.trinome.6e variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0005",
+      "enonce": "Exercice factoriser.trinome.6e variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   }
+  ]
+ },
+ "ecartees": []
+}

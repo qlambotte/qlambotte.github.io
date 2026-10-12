@@ -1,0 +1,153 @@
+{
+ "schema": "typweb-classe/1",
+ "genere": "2026-10-12",
+ "uaa": "5UAA2",
+ "cle": "suites",
+ "cours": "Suites",
+ "annee": "5e",
+ "index_empreinte": "fixture0001",
+ "qcm": [
+  {
+   "id": "5UAA2.c.001",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Terme général d'une suite arithmétique de raison $r$ ?",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$u_n = u_0 r^n$",
+     "erreur": "géométrique",
+     "retour": "Piège : géométrique."
+    },
+    {
+     "r": "$u_n = u_0 + nr$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$u_n = nr$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$u_n=u_0+r$",
+     "erreur": "oubli de n",
+     "retour": "Piège : oubli de n."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA2.c.002",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Raison de 3 ; 7 ; 11 ?",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "$3$",
+     "erreur": "premier terme",
+     "retour": "Piège : premier terme."
+    },
+    {
+     "r": "$7$",
+     "erreur": "terme",
+     "retour": "Piège : terme."
+    },
+    {
+     "r": "$4$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$5$",
+     "erreur": "moyenne",
+     "retour": "Piège : moyenne."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA2.c.003",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Suite géométrique : $u_{n+1}/u_n$ est…",
+   "bonne": 3,
+   "options": [
+    {
+     "r": "nul",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    },
+    {
+     "r": "égal à $n$",
+     "erreur": "confusion",
+     "retour": "Piège : confusion."
+    },
+    {
+     "r": "croissant",
+     "erreur": "confusion",
+     "retour": "Piège : confusion."
+    },
+    {
+     "r": "constant",
+     "erreur": null,
+     "retour": null
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "5UAA2.c.004",
+   "usage": "comprehension",
+   "sur": null,
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Question de compréhension (non utilisée)",
+   "bonne": 0,
+   "options": [
+    {
+     "r": "Oui",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "Non",
+     "erreur": "x",
+     "retour": "Piège : x."
+    },
+    {
+     "r": "Peut-être",
+     "erreur": "y",
+     "retour": "Piège : y."
+    },
+    {
+     "r": "Jamais",
+     "erreur": "z",
+     "retour": "Piège : z."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  }
+ ],
+ "exercices": {
+  "generateurs": 1,
+  "empreinte": "fixture",
+  "lots": []
+ },
+ "ecartees": []
+}

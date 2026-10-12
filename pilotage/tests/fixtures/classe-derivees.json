@@ -1,0 +1,85 @@
+{
+ "schema": "typweb-classe/1",
+ "genere": "2026-10-12",
+ "uaa": "6UAA2",
+ "cle": "derivees",
+ "cours": "Dérivées",
+ "annee": "6e",
+ "index_empreinte": "fixture0001",
+ "qcm": [
+  {
+   "id": "6UAA2.c.001",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Dérivée de $x^3$ ?",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$x^2$",
+     "erreur": "exposant",
+     "retour": "Piège : exposant."
+    },
+    {
+     "r": "$3x^2$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$3x$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$x^4/4$",
+     "erreur": "primitive",
+     "retour": "Piège : primitive."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "6UAA2.c.002",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "espace",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Dérivée d'une constante ?",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "$1$",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    },
+    {
+     "r": "la constante",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$0$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$x$",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  }
+ ],
+ "exercices": {
+  "generateurs": 1,
+  "empreinte": "fixture",
+  "lots": []
+ },
+ "ecartees": []
+}

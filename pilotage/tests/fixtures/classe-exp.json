@@ -1,0 +1,372 @@
+{
+ "schema": "typweb-classe/1",
+ "genere": "2026-10-12",
+ "uaa": "6UAA4",
+ "cle": "exp-log",
+ "cours": "Fonctions exponentielles et logarithmes",
+ "annee": "6e",
+ "index_empreinte": "fixture0001",
+ "qcm": [
+  {
+   "id": "6UAA4.c.001",
+   "usage": "echauffement",
+   "sur": "6UAA4.proprietes-puissances",
+   "role": "precedent",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Simplifier $2^3\\cdot 2^4$",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$4^7$",
+     "erreur": "base multipliée",
+     "retour": "Piège : base multipliée."
+    },
+    {
+     "r": "$2^7$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$2^{12}$",
+     "erreur": "produit des exposants",
+     "retour": "Piège : produit des exposants."
+    },
+    {
+     "r": "$4^{12}$",
+     "erreur": "tout multiplié",
+     "retour": "Piège : tout multiplié."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "6UAA4.c.002",
+   "usage": "echauffement",
+   "sur": "6UAA4.fonction-exponentielle",
+   "role": "precedent",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "$5^0$ vaut",
+   "bonne": 2,
+   "options": [
+    {
+     "r": "$0$",
+     "erreur": "exposant nul",
+     "retour": "Piège : exposant nul."
+    },
+    {
+     "r": "$5$",
+     "erreur": "base",
+     "retour": "Piège : base."
+    },
+    {
+     "r": "$1$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "n'existe pas",
+     "erreur": "défaut",
+     "retour": "Piège : défaut."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "6UAA4.c.003",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "prerequis",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Résoudre $2x+3=11$",
+   "bonne": 3,
+   "options": [
+    {
+     "r": "$x=7$",
+     "erreur": "signe",
+     "retour": "Piège : signe."
+    },
+    {
+     "r": "$x=14$",
+     "erreur": "produit",
+     "retour": "Piège : produit."
+    },
+    {
+     "r": "$x=8$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$x=4$",
+     "erreur": null,
+     "retour": null
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "6UAA4.c.004",
+   "usage": "echauffement",
+   "sur": null,
+   "role": "prerequis",
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "Propriétés des puissances à exposant entier : $a^{-n}$ =",
+   "bonne": 0,
+   "options": [
+    {
+     "r": "$1/a^n$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$-a^n$",
+     "erreur": "signe",
+     "retour": "Piège : signe."
+    },
+    {
+     "r": "$a^n$",
+     "erreur": "oubli",
+     "retour": "Piège : oubli."
+    },
+    {
+     "r": "$-n a$",
+     "erreur": "confusion",
+     "retour": "Piège : confusion."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  },
+  {
+   "id": "6UAA4.c.005",
+   "usage": "comprehension",
+   "sur": "6UAA4.logarithme-definition",
+   "role": null,
+   "objectif": "A2",
+   "niveau": 1,
+   "enonce": "$\\log_2 8$ vaut",
+   "bonne": 1,
+   "options": [
+    {
+     "r": "$4$",
+     "erreur": "erreur",
+     "retour": "Piège : erreur."
+    },
+    {
+     "r": "$3$",
+     "erreur": null,
+     "retour": null
+    },
+    {
+     "r": "$16$",
+     "erreur": "produit",
+     "retour": "Piège : produit."
+    },
+    {
+     "r": "$2$",
+     "erreur": "base",
+     "retour": "Piège : base."
+    }
+   ],
+   "verif": null,
+   "tags": []
+  }
+ ],
+ "exercices": {
+  "generateurs": 1,
+  "empreinte": "fixture",
+  "lots": [
+   {
+    "soustype": "factoriser.trinome.6e",
+    "genre": "factoriser",
+    "niveau": "6e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "factoriser.trinome.6e:0000",
+      "enonce": "Exercice factoriser.trinome.6e variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0001",
+      "enonce": "Exercice factoriser.trinome.6e variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0002",
+      "enonce": "Exercice factoriser.trinome.6e variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0003",
+      "enonce": "Exercice factoriser.trinome.6e variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0004",
+      "enonce": "Exercice factoriser.trinome.6e variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.6e:0005",
+      "enonce": "Exercice factoriser.trinome.6e variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   },
+   {
+    "soustype": "developper.double",
+    "genre": "developper",
+    "niveau": "6e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "developper.double:0000",
+      "enonce": "Exercice developper.double variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.double:0001",
+      "enonce": "Exercice developper.double variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.double:0002",
+      "enonce": "Exercice developper.double variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.double:0003",
+      "enonce": "Exercice developper.double variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.double:0004",
+      "enonce": "Exercice developper.double variante 4 : $x^2 - 9x + 8$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "developper.double:0005",
+      "enonce": "Exercice developper.double variante 5 : $x^2 - 10x + 9$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   },
+   {
+    "soustype": "factoriser.trinome.5e",
+    "genre": "factoriser",
+    "niveau": "5e",
+    "version": 1,
+    "variantes": [
+     {
+      "graine": "factoriser.trinome.5e:0000",
+      "enonce": "Exercice factoriser.trinome.5e variante 0 : $x^2 - 5x + 4$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0001",
+      "enonce": "Exercice factoriser.trinome.5e variante 1 : $x^2 - 6x + 5$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0002",
+      "enonce": "Exercice factoriser.trinome.5e variante 2 : $x^2 - 7x + 6$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     },
+     {
+      "graine": "factoriser.trinome.5e:0003",
+      "enonce": "Exercice factoriser.trinome.5e variante 3 : $x^2 - 8x + 7$",
+      "etapes": [
+       "Étape 1",
+       "Étape 2"
+      ],
+      "reponse": "$(x - 1)(x - 4)$",
+      "verifie": true
+     }
+    ]
+   }
+  ]
+ },
+ "ecartees": []
+}

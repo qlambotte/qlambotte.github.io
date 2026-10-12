@@ -9,10 +9,26 @@
 # ============================================================
 
 [personne]
-nom      = "Quentin Lambotte"
-fonction = "Professeur de mathématiques"
-ecole    = "Institut des Ursulines, Mons"
-contact  = "Par la plateforme de l'école."
+nom       = "Quentin Lambotte"
+github    = "https://github.com/qlambotte"
+fonctions = [
+  "Professeur de mathématiques aux Écoles de Religieuses Ursulines de Mons",
+  "Adjoint pédagogique à l'UMONS (FMPB)",
+]
+contact   = "Par la plateforme de l'école."
+
+# Adresses électroniques : publiées encodées, reconstituées dans le navigateur
+# (les robots qui lisent la page n'y trouvent pas l'adresse en clair).
+# Dans index.qmd : <span data-mail="ursulines"></span>
+[[personne.contact-mail]]
+id      = "ursulines"
+libelle = "Ursulines"
+adresse = "quentin.lambotte@ursulines-mons.be"
+
+[[personne.contact-mail]]
+id      = "umons"
+libelle = "UMONS"
+adresse = "quentin.lambotte@umons.ac.be"
 
 [portail]
 titre    = "Quentin Lambotte — mathématiques"
@@ -21,3 +37,25 @@ racines  = [".."]                  # dossiers où chercher les typweb.toml
 annees   = ["5e", "6e"]            # ordre des pages d'année
 # titre-annee = "Mathématiques — %s"
 # intro-annee = "Les cours de l'année…"
+pied     = "Année 2026–2027"
+groupe-annees = "Ursulines"        # catégorie des pages 5e et 6e dans le menu
+
+# ---- Pages ajoutées à la main (hors typweb) ----
+[[page]]
+id      = "umons"
+libelle = "Bac 1 — IMSV"
+groupe  = "UMONS"
+titre   = "Cours à l'UMONS"
+intro   = "Bac 1 en pharmacie, sciences biomédicales et biologie (Faculté de Médecine, Pharmacie et Sciences biomédicales et Faculté des Sciences)."
+
+[[page.carte]]
+code   = "IMSV · Bac 1"
+titre  = "Introduction mathématique aux sciences de la vie"
+resume = "Exercices corrigés avec coups de pouce, et slides des séances"
+figure = "proies-predateurs"
+liens  = [["Exercices", "https://qlambotte.github.io/imsv-exos-2026/"],
+          ["Slides", "https://qlambotte.github.io/imsv-exos-2026/slides/"]]
+
+# ---- Page de pilotage de classe (P4) : dossier copié tel quel à la racine du site, hors menu ----
+[pilotage]
+dossier = "pilotage"
