@@ -38,7 +38,8 @@ des UAA déjà vues par la classe sont chargées d'après cette liste) ; changer
 Les effectifs de `config.json` sont à vérifier (20, valeur provisoire). Les classes et effectifs de `config.json`
 **remplacent** ceux de `prof-config.json` (la page les écrit dans le stockage local via `definirClasses`).
 
-Source isolée : `js/config.js › sourceFichier` (lecture) et `js/etat.js` (état). P5 remplacera l'un ou l'autre sans toucher au reste.
+Source isolée : `js/config.js › sourceFichier` (lecture) et `js/etat.js` (état). Avec la synchronisation (P5, ci-dessous), la
+configuration est lue d'abord dans `config/pilotage.json` du dépôt privé quand l'appareil est configuré.
 
 ## Détection de la classe
 
@@ -92,6 +93,29 @@ le journal brut est lu en lecture seule, les boutons d'écriture sont inactifs.
 « Exporter l'état » télécharge `etat-pilotage-AAAA-MM-JJ.json` (même format que « Exporter les marques ») ; « Importer » fusionne
 sans doublon ni perte.
 
+## Synchronisation avec le dépôt privé (P5)
+
+Sauvegarde et historique de l'état dans le dépôt privé `suivi-classes`, sans serveur (API REST de GitHub, jeton « fine-grained »
+limité à ce dépôt). **Rien n'est actif tant qu'aucun jeton n'est configuré sur l'appareil.** Mise en place :
+`typweb/doc/mise-en-place-depot.md` ; fonctionnement détaillé : `typweb/doc/couche-prof.md` (« Synchronisation »).
+
+- **Pastille d'état** (barre latérale, toujours visible) : « Synchro : Synchronisé », « À synchroniser (n) », « Hors ligne · n en
+  attente », « Erreur : … », « Jeton verrouillé », « non configurée ». Un clic ouvre le panneau : détail (dépôt, appareil, file, lots
+  connus, dernier envoi, dernière erreur et prochain essai), « Synchroniser maintenant », « Restaurer depuis le dépôt » (fusionne tous
+  les lots, avec compte rendu : événements, classes, dates), « Envoyer la configuration du site vers le dépôt ».
+- **Configuration de l'appareil** : jeton (champ masqué, jamais dans l'adresse), dépôt (`compte/suivi-classes`), nom de l'appareil
+  (libre : « tablette »), « Tester la connexion » (dépôt accessible et privé, droit d'écriture, jeton limité à ce seul dépôt, jeton
+  « classique » refusé), « Enregistrer et activer » (n'enregistre que si le test réussit, vide le champ du jeton, active le mode prof
+  sur l'appareil), chiffrement facultatif du jeton par phrase secrète, « Oublier ce jeton ».
+- **Quand ça part** : toutes les 5 minutes si connecté, au retour du réseau, quand la page est masquée, à la fin du créneau de la classe
+  (fin de séance), à la demande. Les échecs sont repris avec un délai croissant ; l'usage en classe n'attend jamais le réseau.
+- **Configuration** (`config/pilotage.json` du dépôt) : lue au démarrage ; si elle est valide elle l'emporte sur `config.json` du site
+  (modifier l'horaire depuis le PC = éditer ce fichier dans le dépôt). Hors ligne, la dernière copie gardée sur la tablette sert.
+- **Export / import** (« Exporter l'état », « Importer ») : conservés comme dernier recours. Un import alimente la file de synchronisation
+  (sans doublon).
+- **Fichiers** : `js/sync.js` (copie **identique** de `typweb/site/js/sync.js`, à recopier si celui-ci change : un test le vérifie),
+  `js/synchro-ui.js` (interface). `sw.js` (version `pilotage-v2`) les garde pour le hors ligne.
+
 ## Hors ligne
 
 `sw.js` (service worker, portée `/pilotage/`) garde la page, `config.json`, et tout fichier du même domaine déjà lu (`prof.js`,
@@ -107,6 +131,7 @@ sans doublon ni perte.
 
 ```bash
 node --test tests/unit.test.js                 # logique pure (config, horaire, tirage, journal, devoirs, façade)
+python3 -m unittest tests/test_synchro.py -v   # synchronisation (P5) : vraie page + faux serveur GitHub (typweb/tests/fake-github.js ; Node requis)
 python3 -m unittest tests/test_pilotage.py -v  # navigateur (TYPWEB_JS=… pour un autre dossier de prof.js) (Playwright, Chromium) : vraie couche prof, hors ligne, import/export
 python3 tests/captures_pilotage.py [DOSSIER]   # captures tablette 1180×820 et portrait
 node tests/fixtures/generer.js                 # régénère les fixtures (index.json / classe.json fictifs)

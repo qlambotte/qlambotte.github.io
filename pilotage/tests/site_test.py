@@ -30,7 +30,7 @@ def construire_cours(racine, dossier, uaa, titre, index, classe):
     os.makedirs(os.path.join(base, "js"), exist_ok=True)
     os.makedirs(os.path.join(base, "prof-classe"), exist_ok=True)
     for f in os.listdir(TYPWEB_JS):
-        if f.startswith(("prof", "vote")):
+        if f.startswith(("prof", "vote", "sync")):
             shutil.copy(os.path.join(TYPWEB_JS, f), os.path.join(base, "js", f))
     # ancienne configuration du site : des classes que la page de pilotage ne connaît pas (preuve d'indépendance)
     with open(os.path.join(base, "js", "prof-config.json"), "w") as f:

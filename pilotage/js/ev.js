@@ -1,5 +1,5 @@
 /* ev.js — lecture du journal d'événements (typweb.prof.v1, schéma 1 ou 2), fonctions pures.
-   Mêmes règles que prof.js (couche prof) : état = dernier événement vu/annule par (classe, élément).
+   Mêmes règles que prof.js (couche prof) : état = dernier événement vu/annule par (classe, élément), dans l'ordre (t, d, id).
    Ne lit ni n'écrit aucun stockage : reçoit le tableau d'événements. */
 (function (root, fabrique) {
   var m = fabrique(typeof require === "function" ? require("./outils.js") : root.Pilotage.outils);
@@ -8,13 +8,18 @@
 })(typeof window !== "undefined" ? window : this, function (O) {
   "use strict";
 
+  // Ordre total (t, appareil, id), identique à prof.js : le plus grand gagne, quel que soit l'ordre du tableau (P5).
+  function cmpEv(a, b) {
+    var da = String(a.d || ""), db = String(b.d || "");
+    return a.t - b.t || (da < db ? -1 : da > db ? 1 : 0) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  }
   // { élément: { t, jour } } des éléments « vus » ; si `avant` (ms) : état reconstitué à cet instant.
   function etat(ev, classe, fuseau, avant) {
     var dernier = {}, out = {};
     (ev || []).forEach(function (e) {
       if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule")) return;
       if (avant !== undefined && !(e.t < avant)) return;
-      dernier[e.el] = e;
+      if (!dernier[e.el] || cmpEv(e, dernier[e.el]) > 0) dernier[e.el] = e;
     });
     Object.keys(dernier).forEach(function (el) {
       if (dernier[el].a === "vu") out[el] = { t: dernier[el].t, jour: O.jourDe(dernier[el].t, fuseau) };
@@ -93,7 +98,7 @@
     });
     return s;
   }
-  return { etat: etat, dansCours: dansCours, dernier: dernier, seance: seance, jours: jours, uaaDe: uaaDe,
+  return { cmpEv: cmpEv, etat: etat, dansCours: dansCours, dernier: dernier, seance: seance, jours: jours, uaaDe: uaaDe,
            uaasVues: uaasVues, echauffements: echauffements, poses: poses, aReprendre: aReprendre,
            grainesUtilisees: grainesUtilisees };
 });

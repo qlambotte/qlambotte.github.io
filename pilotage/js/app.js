@@ -332,6 +332,7 @@
     setInterval(function () {                                         // le créneau peut changer pendant que la page reste ouverte
       var c = H.detecter(A.config, maintenant());
       if (new URLSearchParams(location.search).get("maintenant")) return;
+      if (A.creneau && !c && window.typwebSync && window.typwebSync.estConfigure()) window.typwebSync.finSeance();   // fin de séance : sauvegarde (P5)
       var manuel = stock(function (s) { return sessionStorage.getItem(CLE_MANUEL); });
       if (!manuel && c && c.classe !== A.code) location.reload();
       A.creneau = c; rendreEntete();
@@ -340,7 +341,7 @@
 
   function afficherErreurs(erreurs) {
     var z = $("#erreur-config"); vider(z); z.hidden = false;
-    z.appendChild(el("b", "", "config.json : " + erreurs.length + " problème(s) à corriger"));
+    z.appendChild(el("b", "", "Configuration : " + erreurs.length + " problème(s) à corriger"));
     var ul = el("ul"); erreurs.forEach(function (e) { ul.appendChild(el("li", "", e)); }); z.appendChild(ul);
     $("#entete").hidden = true; $("#grille").hidden = true;
   }
@@ -350,7 +351,7 @@
     if ("serviceWorker" in navigator && !options.sansSW) navigator.serviceWorker.register("sw.js").catch(function () {});
     return (options.source || C.sourceFichier).charger().then(function (brut) {
       var v = C.valider(brut);
-      if (!v.ok) { afficherErreurs(v.erreurs); return; }
+      if (!v.ok) { afficherErreurs(v.erreurs); if (Pi.synchro) Pi.synchro.init({ sync: window.typwebSync, toast: toast, source: C.sourceFichier, seul: true }); return; }
       A.config = v.config; choisirClasse();
       A.cours = C.coursEnCours(classeCfg());
       // cours dont on charge la couche prof : celui de la classe, sinon le premier cours connu (journal, export)
@@ -362,9 +363,11 @@
         return chargerBanquesVues();
       }).then(function () {
         brancher(); rendreTout(); A.pret = true; window.PilotageEtat = A;
+        if (Pi.synchro) Pi.synchro.init({ etat: A.etat, sync: window.typwebSync, toast: toast, source: C.sourceFichier,
+          rendre: function () { A.tir.res = null; rendreTout(); }, jour: jourCourant });
         document.documentElement.setAttribute("data-pret", "1");
       });
-    }, function (e) { afficherErreurs(["Impossible de lire config.json : " + e.message]); });
+    }, function (e) { afficherErreurs(["Impossible de lire la configuration : " + e.message]); });
   }
   Pi.app = { init: init, etat: A };
   if (!window.PILOTAGE_MANUEL) init();

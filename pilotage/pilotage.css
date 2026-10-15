@@ -67,6 +67,23 @@ textarea{width:100%;min-height:96px;resize:vertical;font:17px/1.5 var(--serif)}
 .bloc.cur{background:var(--accbg);margin:0 -10px;padding:8px 10px}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--encre);color:#fff;font:16px var(--sans);padding:12px 20px;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90vw;text-align:center;z-index:50}
 .toast.on{opacity:1}
+/* ---- synchronisation (P5) ---- */
+.puce.sync{cursor:pointer;background:#fff;text-transform:none;letter-spacing:.02em;font-size:12px;text-align:left;max-width:100%;white-space:normal;min-height:0;padding:3px 8px}
+.puce.sync[data-etat=synchronise]{background:var(--encre);color:#fff}
+.puce.sync[data-etat=a-synchroniser],.puce.sync[data-etat=hors-ligne],.puce.sync[data-etat=verrouille],.puce.sync[data-etat=en-cours]{border-color:var(--acc);background:var(--accbg)}
+.puce.sync[data-etat=erreur]{border-width:3px;background:var(--accbg);font-weight:700}
+.synchro{border-top:2px solid var(--encre);margin-top:40px;padding-top:14px}
+.synchro h2.sec{border-top:0;margin-top:0;padding-top:0}
+.synchro .bloc-sync{display:grid;gap:10px;margin:0 0 18px;max-width:640px}
+.synchro label{display:grid;gap:4px;font:15px var(--sans)}
+.synchro input[type=text],.synchro input[type=password]{width:100%}
+.synchro label.case{display:flex;gap:10px;align-items:center}
+.synchro input[type=checkbox]{min-height:0;width:22px;height:22px}
+.synchro ul.detail{margin:0;padding-left:20px;font:15px/1.5 var(--sans)}
+.synchro .etape{font:15px var(--sans)}
+.synchro .etape::before{content:"✓ ";font-weight:700}
+.synchro .etape.ko::before{content:"✗ ";color:var(--encre);background:var(--accbg)}
+.synchro .rapport{border-left:5px solid var(--acc);background:var(--accbg);padding:8px 14px;font:16px/1.5 var(--sans)}
 /* la couche prof ajoute un bandeau flottant : inutile ici, la page en tient lieu */
 .tw-prof{display:none!important}
 @media (max-width:900px){
