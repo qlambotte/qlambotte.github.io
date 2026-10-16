@@ -10,11 +10,32 @@
       "coursEnCours": "5UAA3",
       "cours": [
         {
+          "uaa": "5UAA1",
+          "titre": "Statistiques à deux variables",
+          "url": "https://qlambotte.github.io/stats2v-cours/",
+          "index": "index.json"
+        },
+        {
+          "uaa": "5UAA2",
+          "titre": "Les suites",
+          "url": "https://qlambotte.github.io/suites-cours/",
+          "index": "index.json"
+        },
+        {
           "uaa": "5UAA3",
           "titre": "Limites et asymptotes",
           "url": "https://qlambotte.github.io/limites-cours/",
           "index": "index.json"
+        },
+        {
+          "uaa": "5UAA5",
+          "titre": "Fonctions trigonométriques",
+          "url": "https://qlambotte.github.io/trigo-cours/",
+          "index": "index.json"
         }
+      ],
+      "_a_venir": [
+        "5UAA4 Dérivées : pas encore de notes (dossier 5UAA4-dérivée vide)"
       ]
     },
     {
@@ -22,7 +43,25 @@
       "niveau": "6e",
       "effectif": 20,
       "coursEnCours": null,
-      "cours": []
+      "cours": [
+        {
+          "uaa": "6UAA1",
+          "titre": "Probabilités",
+          "url": "https://qlambotte.github.io/proba-cours/",
+          "index": "index.json"
+        },
+        {
+          "uaa": "6UAA4",
+          "titre": "Exponentielles et logarithmes",
+          "url": "https://qlambotte.github.io/exp-log-cours/",
+          "index": "index.json"
+        }
+      ],
+      "_a_venir": [
+        "Intégrales : pas encore de notes",
+        "Lois de probabilité : pas encore de notes",
+        "Géométrie dans l'espace : pas encore de notes"
+      ]
     }
   ],
   "creneaux": [],
