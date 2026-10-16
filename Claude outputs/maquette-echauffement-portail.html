@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette – Écran d'échauffement (version allégée)</title>
+<style>
+:root{
+  --encre:#111; --gris:#555; --filet:#e3e3e3; --acc:#c28a1b; --accbg:#fbf3e0;
+  --serif:"Palatino Linotype",Palatino,"Book Antiqua","TeX Gyre Pagella","URW Palladio L",P052,Georgia,serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,"TeX Gyre Heros","Nimbus Sans",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--encre);font:18px/1.55 var(--serif);min-height:100vh;display:flex;flex-direction:column}
+/* haut : presque rien */
+.top{display:flex;align-items:center;gap:16px;padding:16px 32px;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.top .sp{flex:1}
+.dots{display:flex;gap:10px}
+.dot{width:14px;height:14px;border:2px solid var(--encre);border-radius:50%}
+.dot.done{background:var(--encre)}
+.dot.now{background:var(--acc)}
+button{font:14px var(--sans);color:var(--encre);background:#fff;border:2px solid var(--encre);border-radius:0;padding:9px 20px;cursor:pointer}
+button:hover{background:var(--accbg)}
+button.primary{background:var(--encre);color:#fff;font-weight:700}
+button.primary:hover{background:#333}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.lien{border:0;background:none;padding:6px 4px;text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px;font:13px var(--sans);letter-spacing:0;text-transform:none;font-weight:400}
+/* scène */
+main{flex:1;width:100%;max-width:1000px;margin:0 auto;padding:10px 40px 30px}
+.role{font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:18px}
+h1{font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1.18;margin:0 0 44px}
+.math{font-style:italic}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:34px 56px}
+@media(max-width:700px){.opts{grid-template-columns:1fr}}
+.opt{display:flex;align-items:baseline;gap:20px;border-top:2px solid var(--encre);padding-top:12px;transition:opacity .25s}
+.opt .l{font-size:44px;line-height:1}
+.opt .t{font-size:32px;line-height:1.2}
+.revealed .opt{opacity:.35}
+.revealed .opt.good{opacity:1;background:var(--accbg);border-top:6px solid var(--acc);margin:0 -14px;padding:10px 14px 12px}
+.revealed .opt.good .t::after{content:" ✓"}
+/* explication */
+.why{display:none;margin-top:34px;font:20px/1.5 var(--sans);max-width:46em}
+.revealed .why{display:block}
+.pieges{display:none;margin-top:14px;font:15px/1.5 var(--sans);color:var(--gris)}
+.pieges.on{display:block}
+.pieges div{padding:4px 0}
+/* exercice */
+.enonce{font-size:clamp(40px,5.6vw,72px);line-height:1.2;margin:10px 0 40px}
+.corr{display:none;border-left:4px solid var(--acc);background:var(--accbg);padding:14px 22px;max-width:40em}
+.revealed .corr{display:block}
+.corr .step{font-size:26px;line-height:1.55}
+.corr .rep{font-size:32px;margin-top:6px}
+.tm{font:700 30px var(--sans);margin-left:14px}
+/* bilan rapide */
+.bilan{display:none;margin-top:30px;gap:10px;flex-wrap:wrap;align-items:center;font:15px var(--sans)}
+.revealed .bilan{display:flex}
+.bilan button.on{background:var(--encre);color:#fff;font-weight:700}
+/* pied : une seule action principale */
+.foot{display:flex;align-items:center;gap:16px;padding:16px 32px;border-top:2px solid var(--encre)}
+.foot .sp{flex:1}
+/* bilan final */
+.ligne{display:grid;grid-template-columns:2rem 1fr auto auto;gap:6px 20px;align-items:baseline;border-top:1px solid var(--filet);padding:16px 0}
+.ligne:first-of-type{border-top:2px solid var(--encre)}
+.ligne .num{font-size:26px}
+.ligne .q{font-size:21px}
+.ligne .pc{font:700 22px var(--sans)}
+.ligne .rev{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;border-bottom:2px solid var(--acc)}
+.note{margin-top:22px;font:15px/1.5 var(--sans);color:var(--gris)}
+.hide-teacher .teacher{display:none}
+</style>
+</head>
+<body>
+<div class="top teacher">
+  <span>Échauffement · 5GT-A</span>
+  <span class="sp"></span>
+  <span class="dots" id="dots" aria-label="Progression"></span>
+  <span class="sp"></span>
+  <button class="lien" id="quit">Quitter</button>
+</div>
+
+<main id="stage"></main>
+
+<div class="foot teacher">
+  <button class="lien" id="prev">← Précédent</button>
+  <button class="lien" id="focus" title="Masque la barre et le pied (Échap pour revenir)">Mode projeté</button>
+  <span class="sp"></span>
+  <button class="primary" id="go">Révéler la réponse</button>
+</div>
+
+<script>
+const ITEMS=[
+ {type:'qcm', role:'Séance précédente · Limites', correct:'A',
+  enonce:'Que vaut la limite à gauche en 2 de <span class="math">1/(x − 2)</span> ?',
+  opts:[['A','−∞'],['B','+∞'],['C','0'],['D','La limite n\'existe pas']],
+  why:'À gauche de 2, x − 2 est négatif et tend vers 0 : le quotient tend vers −∞.',
+  pieges:['B : gauche et droite confondues (+∞ est la limite à droite).','C : « petit au dénominateur » mal interprété.','D : les limites latérales diffèrent, mais celle de gauche existe.']},
+ {type:'qcm', role:'Prérequis · Algèbre', correct:'B',
+  enonce:'Factoriser <span class="math">x² − 9</span>.',
+  opts:[['A','(x − 3)²'],['B','(x − 3)(x + 3)'],['C','(x + 3)²'],['D','x(x − 9)']],
+  why:'Différence de carrés : a² − b² = (a − b)(a + b), avec a = x et b = 3.',
+  pieges:['A : carré d\'une différence, qui donne x² − 6x + 9.','C : carré d\'une somme, qui donne x² + 6x + 9.','D : mise en évidence erronée, x(x − 9) = x² − 9x.']},
+ {type:'ex', role:'Algèbre · Équations',
+  enonce:'Résoudre dans ℝ : <span class="math">x² − 5x + 6 = 0</span>',
+  steps:['Deux nombres de somme 5 et de produit 6 : 2 et 3.','x² − 5x + 6 = (x − 2)(x − 3) = 0','x = 2 ou x = 3'],
+  rep:'S = {2 ; 3}'}
+];
+const BIL=['Presque tous','Environ la moitié','Peu'];
+const PCT=[85,50,20];
+const SEUIL=70;
+const st=ITEMS.map(()=>({revealed:false,bilan:null,pieges:false}));
+let cur=0;
+const $=s=>document.querySelector(s);
+
+function render(){
+  $('#dots').innerHTML=ITEMS.concat([{}]).map((_,i)=>`<span class="dot ${i<cur?'done':i===cur?'now':''}"></span>`).join('');
+  $('#prev').style.visibility = cur===0?'hidden':'visible';
+  const stage=$('#stage');
+  if(cur>=ITEMS.length){
+    stage.className='';
+    stage.innerHTML=`<div class="role">Échauffement terminé</div><h1>Bilan</h1>`+
+      ITEMS.map((it,i)=>{const b=st[i].bilan,p=b===null?null:PCT[b];
+        return `<div class="ligne"><span class="num">${i+1}</span><span class="q">${it.enonce.replace(/<[^>]+>/g,'')}</span><span class="pc">${p===null?'–':BIL[b]}</span><span>${p!==null&&p<SEUIL?'<span class="rev">à reprendre</span>':''}</span></div>`}).join('')+
+      `<p class="note">Les questions à reprendre reviendront plus souvent dans les prochains échauffements de cette classe.</p>`;
+    $('#go').textContent='Ouvrir le cours';
+    return;
+  }
+  const it=ITEMS[cur], s=st[cur];
+  stage.className=s.revealed?'revealed':'';
+  let h=`<div class="role">${it.role} · ${cur+1} sur ${ITEMS.length}</div>`;
+  if(it.type==='qcm'){
+    h+=`<h1>${it.enonce}</h1><div class="opts">`+
+      it.opts.map(([k,t])=>`<div class="opt ${k===it.correct?'good':''}"><span class="l">${k}</span><span class="t math">${t}</span></div>`).join('')+`</div>
+      <div class="why">${it.why}<div><button class="lien" id="pg">${s.pieges?'Masquer les pièges':'Voir les pièges'}</button></div>
+      <div class="pieges ${s.pieges?'on':''}">${it.pieges.map(x=>`<div>${x}</div>`).join('')}</div></div>`;
+  } else {
+    h+=`<div class="enonce">${it.enonce}</div>
+      <div class="teacher" style="margin-bottom:26px"><button class="lien" id="tmgo">Minuteur 2:00</button><span class="tm" id="tm"></span></div>
+      <div class="corr">${it.steps.map(x=>`<div class="step math">${x}</div>`).join('')}<div class="rep">${it.rep}</div></div>`;
+  }
+  h+=`<div class="bilan teacher"><span>Combien ont réussi ?</span>`+
+     BIL.map((x,k)=>`<button data-b="${k}" class="${s.bilan===k?'on':''}">${x}</button>`).join('')+`</div>`;
+  stage.innerHTML=h;
+  $('#go').textContent = !s.revealed ? (it.type==='qcm'?'Révéler la réponse':'Afficher la correction') : (cur===ITEMS.length-1?'Bilan →':'Suivant →');
+  document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{st[cur].bilan=+b.dataset.b;render()});
+  const pg=$('#pg'); if(pg) pg.onclick=()=>{st[cur].pieges=!st[cur].pieges;render()};
+  const g=$('#tmgo'); if(g) g.onclick=()=>{let t=120;clearInterval(window._t);window._t=setInterval(()=>{t--;$('#tm').textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0');if(t<=0)clearInterval(window._t)},1000)};
+}
+function main(){
+  if(cur>=ITEMS.length){alert('→ Ouvre le cours au point d\'arrêt');return}
+  const s=st[cur];
+  if(!s.revealed){s.revealed=true;render()} else {cur++;render()}
+}
+$('#go').onclick=main;
+$('#prev').onclick=()=>{if(cur>0){cur--;render()}};
+$('#focus').onclick=()=>document.body.classList.toggle('hide-teacher');
+$('#quit').onclick=()=>alert('→ Retour à la page de classe');
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'){e.preventDefault();main()}
+  else if(e.key==='ArrowRight'&&cur<ITEMS.length){cur++;render()}
+  else if(e.key==='ArrowLeft'&&cur>0){cur--;render()}
+  else if(e.key==='Escape'){document.body.classList.remove('hide-teacher')}
+});
+render();
+</script>
+</body>
+</html>

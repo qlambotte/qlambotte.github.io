@@ -19,14 +19,19 @@ python3 typweb/typweb.py portail ../portail --publier
 Les cours doivent avoir été reconstruits **une fois** avec le `prof.js` et le `vote.js` à jour (fonctions ajoutées
 ci-dessous) : c'est la seule reconstruction nécessaire, et elle ne dépend d'aucune classe.
 
-## Configuration : `config.json`
+## Configuration : `config/pilotage.json` (dépôt privé) et `config.json` (site public)
 
-Modifiable à la main ; validé au chargement (erreurs listées une par une, avec le chemin du champ).
+**Depuis la relecture d'octobre 2026**, la configuration complète (horaire, locaux, congés, interros) vit seulement dans le
+dépôt privé `suivi-classes/config/pilotage.json`, lu avec le jeton (copie gardée pour le hors-ligne). Le `config.json` publié
+avec la page ne contient plus que les classes et leurs cours (pas d'horaire, de local ni d'interro : un élève pourrait le lire) ;
+sans jeton configuré, la page fonctionne donc sans détection d'horaire. Les tests utilisent `tests/fixtures/config-horaire.json`.
+
+Validée au chargement (erreurs listées une par une, avec le chemin du champ).
 
 | Clé | Contenu |
 |---|---|
 | `fuseau` | fuseau horaire (`Europe/Brussels`) |
-| `classes[]` | `code`, `niveau` (`5e`/`6e`), `effectif`, `coursEnCours` (UAA), `cours[]` : `uaa`, `titre`, `url` (terminée par `/`), `index` et `classe` (adresses relatives à `url`) |
+| `classes[]` | `code`, `niveau` (`5e`/`6e`), `effectif`, `coursEnCours` (UAA), `cours[]` : `uaa`, `titre`, `url` (terminée par `/`), `index` (adresse relative à `url`) ; `classe` facultatif (ancienne banque publiée : la banque est lue dans le dépôt privé, `banques/<UAA>/classe.json`) |
 | `creneaux[]` | `jour` (lundi…samedi), `debut`, `fin` (`HH:MM`), `classe`, `local` ; même horaire chaque semaine |
 | `conges[]` | `"AAAA-MM-JJ"` ou `{ "du", "au", "motif" }` ; aucun créneau détecté ces jours-là |
 | `interros[]` | `date`, `classe`, `uaa`, `type` ; rappels seulement (les passées disparaissent) |
@@ -44,7 +49,11 @@ configuration est lue d'abord dans `config/pilotage.json` du dépôt privé quan
 ## Détection de la classe
 
 Créneau en cours = de **15 minutes avant le début à 10 minutes après la fin** (bornes comprises), heure de `fuseau`, hors congés.
-Sinon : « Hors créneau », prochaine séance (jour, heure, local) et classe mémorisée ou classe de la prochaine séance.
+Deux cours qui se suivent : un cours **en cours** l'emporte toujours ; la classe suivante n'est détectée qu'à la fin du premier
+(jamais 15 min avant). La page ne se recharge jamais pendant qu'un écran de vote est ouvert.
+Sinon : « Hors créneau », prochaine séance (jour, heure, local) ; la classe proposée est celle de la prochaine séance du jour si
+elle commence dans l'heure, sinon la classe mémorisée.
+Changer la classe ici change la classe active des onglets du cours ouverts sur la tablette : ils l'affichent (avis noir et blanc).
 Le sélecteur de classe reste toujours disponible ; un choix manuel prime jusqu'à la fermeture de l'onglet.
 Aide aux essais : `?maintenant=2026-10-15T10:00+02:00` simule l'heure, `?classe=5TTy` force la classe.
 
@@ -122,6 +131,25 @@ limité à ce dépôt). **Rien n'est actif tant qu'aucun jeton n'est configuré 
 `vote*.js`, `index.json`, `classe.json`) : réseau d'abord (4 s), sinon copie. `js/donnees.js` garde en plus une copie des
 `index.json` et `classe.json` (Cache API) : si le service worker manque, les données restent lisibles. Indicateur discret
 « hors ligne » ; jamais d'erreur bloquante. Première visite : ouvrir la page une fois avec une connexion.
+
+## Lecture des cartes (P7) : `scan.html`
+
+Page pour le **smartphone** (`<compte>.github.io/pilotage/scan.html`, lien « Lire les cartes » dans la barre) : caméra,
+détection ArUco (`js/lecteur-aruco.js`), une carte est retenue quand la même lettre est lue sur trois images de suite.
+« Afficher le QR » : QR des votes (`js/qr-code.js`, `js/qr-votes.js`) et le même code en clair dessous. Sur la tablette :
+écran de vote → « Par carte » → « Lire le QR » (ou « Taper un code »). Rien n'est enregistré ni envoyé ; aucun nom.
+`js/lecteur-aruco.js`, `js/qr-code.js`, `js/qr-votes.js` et `js/sync.js` sont des copies de typweb (identiques :
+`typweb/outils/verifier_copies.py`).
+
+## Point d'arrêt
+
+« Reprendre ici » et le « de … à … » du journal suivent l'élément vu **le plus avancé** dans le cours (ordre de `index.json`),
+pas le dernier touché. « Point d'arrêt ici » sur une section antérieure retire, après confirmation, les ✓ situés plus loin.
+
+## Avis
+
+Sous l'en-tête : les données indisponibles (banque, index) et une couche prof de cours trop ancienne (cours à reconstruire et
+publier) sont signalées au lieu d'être ignorées.
 
 ## Modules à venir
 

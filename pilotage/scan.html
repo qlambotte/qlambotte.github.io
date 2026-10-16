@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Lecture des cartes</title>
+<style>
+  /* style du portail : encre, ocre ; pas de gris pâle (lisible au soleil et projeté) */
+  :root { --encre: #111; --acc: #c28a1b; --accbg: #fbf3e0; --serif: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", P052, Georgia, serif;
+          --sans: "Helvetica Neue", Helvetica, Arial, "TeX Gyre Heros", "Nimbus Sans", sans-serif; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--encre); font: 17px/1.4 var(--sans); }
+  header, main { max-width: 760px; margin: 0 auto; padding: 0 14px; }
+  header { padding-top: 10px; }
+  h1 { font: 400 1.35rem/1.2 var(--serif); margin: 0 0 4px; }
+  .sous { font-size: .92rem; margin: 0 0 8px; }
+  button { font: inherit; color: var(--encre); background: #fff; border: 2px solid var(--encre); border-radius: 6px; padding: 10px 14px; min-height: 48px; cursor: pointer; }
+  button.principal { background: var(--encre); color: #fff; }
+  button.acc { border-color: var(--acc); background: var(--accbg); }
+  button:disabled { opacity: .5; }
+  .rang { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; }
+  #scene { position: relative; background: #000; border-radius: 6px; overflow: hidden; margin: 8px 0; }
+  #ecran { display: block; width: 100%; height: auto; }
+  #video { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  #vide { color: #fff; padding: 36px 16px; text-align: center; }
+  #bilan { font-size: 1.15rem; font-variant-numeric: tabular-nums; margin: 6px 0; }
+  #bilan b { font-size: 1.4rem; }
+  #grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 4px; margin: 8px 0 14px; }
+  .c { border: 2px solid var(--encre); border-radius: 4px; padding: 3px 0; text-align: center; font-variant-numeric: tabular-nums; }
+  .c .n { font-size: .8rem; display: block; }
+  .c .l { font-size: 1.3rem; font-weight: 700; display: block; min-height: 1.6rem; }
+  .c.lue { background: var(--encre); color: #fff; }
+  .c.doute { border-style: dashed; }
+  .msg { padding: 8px 10px; border-left: 5px solid var(--acc); background: var(--accbg); margin: 8px 0; font-size: .95rem; }
+  #qr { position: fixed; inset: 0; background: #fff; z-index: 10; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 12px; padding: 14px; }
+  #qr[hidden] { display: none; }
+  #qrImg { width: min(92vw, 70vh); height: min(92vw, 70vh); }
+  #qrImg svg { width: 100%; height: 100%; display: block; }
+  #qrCode { font: 700 1.25rem/1.35 ui-monospace, Menlo, Consolas, monospace; text-align: center; word-break: break-word; max-width: 92vw; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lecture des cartes</h1>
+  <p class="sous">Sur le smartphone : vise la classe, attends que chaque carte soit lue, puis « Afficher le QR » ; la tablette le lit dans l'écran de vote
+    (« Par carte » → « Lire le QR »). Rien n'est enregistré ni envoyé : les images restent en mémoire, aucun nom n'apparaît.</p>
+</header>
+<main>
+  <div class="rang">
+    <button id="bCam" class="principal" type="button">Ouvrir la caméra</button>
+    <button id="bQr" class="acc" type="button" disabled>Afficher le QR</button>
+    <button id="bRaz" type="button">Nouvelle question</button>
+  </div>
+  <div id="msg" class="msg" role="status" hidden></div>
+  <div id="scene"><video id="video" playsinline muted></video><canvas id="ecran" width="16" height="9"></canvas><div id="vide">Caméra fermée.</div></div>
+  <p id="bilan"><b id="nb">0</b> carte(s) lue(s) · A <b id="nA">0</b> · B <b id="nB">0</b> · C <b id="nC">0</b> · D <b id="nD">0</b></p>
+  <div id="grille" aria-label="Cartes lues (numéro et lettre)"></div>
+  <p class="sous">Une carte est retenue quand la même lettre est lue sur trois images de suite ; un élève qui change d'avis : la dernière lettre stable l'emporte.
+    Une case en pointillés : lettre encore hésitante.</p>
+</main>
+<div id="qr" hidden role="dialog" aria-label="QR des votes">
+  <div id="qrImg"></div>
+  <div id="qrCode"></div>
+  <button id="bFermer" class="principal" type="button">Retour à la caméra</button>
+</div>
+<script src="js/lecteur-aruco.js"></script>
+<script src="js/qr-code.js"></script>
+<script src="js/qr-votes.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var video = $("video"), ecran = $("ecran"), ctx = ecran.getContext("2d", { willReadFrequently: true });
+  var detecteur = window.LecteurAruco.creer({}), flux = null, actif = false, gris = null, verrou = null;
+  var STABLE = 3, NB_MAX = 50;
+  var etat = {};            // numéro → { lettre (retenue), cand, k (images de suite) }
+
+  function message(t) { var m = $("msg"); m.hidden = !t; m.textContent = t || ""; }
+  function lues() { var o = {}; Object.keys(etat).forEach(function (n) { if (etat[n].lettre) o[n] = etat[n].lettre; }); return o; }
+  function afficher() {
+    var o = lues(), t = { A: 0, B: 0, C: 0, D: 0 }, n = 0, g = $("grille");
+    Object.keys(o).forEach(function (k) { t[o[k]]++; n++; });
+    $("nb").textContent = n; "ABCD".split("").forEach(function (l) { $("n" + l).textContent = t[l]; });
+    $("bQr").disabled = !n;
+    g.textContent = "";
+    Object.keys(etat).map(Number).sort(function (a, b) { return a - b; }).forEach(function (k) {
+      var e = etat[k], d = document.createElement("div");
+      d.className = "c" + (e.lettre ? " lue" : "") + (e.cand && e.cand !== e.lettre ? " doute" : "");
+      d.innerHTML = '<span class="n">' + k + '</span><span class="l">' + (e.lettre || "·") + "</span>";
+      g.appendChild(d);
+    });
+  }
+  function noter(dets) {
+    var vus = {};
+    dets.forEach(function (d) {
+      if (d.id < 0 || d.id >= NB_MAX || vus[d.id]) return;
+      vus[d.id] = 1;
+      var e = etat[d.id] || (etat[d.id] = { lettre: null, cand: null, k: 0 });
+      if (d.lettre === e.cand) e.k++; else { e.cand = d.lettre; e.k = 1; }
+      if (e.k >= STABLE && e.lettre !== e.cand) { e.lettre = e.cand; if (navigator.vibrate) { try { navigator.vibrate(15); } catch (x) {} } }
+    });
+  }
+  function arreter() {
+    actif = false;
+    if (flux) { flux.getTracks().forEach(function (t) { t.stop(); }); flux = null; }
+    video.srcObject = null;
+    if (verrou) { try { verrou.release(); } catch (e) {} verrou = null; }
+    $("vide").hidden = false; $("bCam").textContent = "Ouvrir la caméra";
+  }
+  async function ouvrir() {
+    if (flux) { arreter(); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { message("Caméra indisponible : ouvre cette page en https dans un navigateur récent."); return; }
+    try {
+      flux = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } } });
+    } catch (e) { message("Caméra refusée ou introuvable (" + (e && e.name) + ") : autorise-la dans les réglages du navigateur."); return; }
+    message("");
+    video.srcObject = flux;
+    try { await video.play(); } catch (e) {}
+    try { if (navigator.wakeLock) verrou = await navigator.wakeLock.request("screen"); } catch (e) {}
+    await new Promise(function (ok) { if (video.videoWidth) ok(); else video.onloadedmetadata = ok; });
+    $("vide").hidden = true; $("bCam").textContent = "Fermer la caméra";
+    actif = true; boucle();
+  }
+  function boucle() {
+    if (!actif) return;
+    if (video.requestVideoFrameCallback) video.requestVideoFrameCallback(image); else requestAnimationFrame(image);
+  }
+  function image() {
+    if (!actif) return;
+    if (video.readyState < 2) { boucle(); return; }
+    var w = video.videoWidth, h = video.videoHeight;
+    if (ecran.width !== w || ecran.height !== h) { ecran.width = w; ecran.height = h; }
+    ctx.drawImage(video, 0, 0, w, h);
+    var data = ctx.getImageData(0, 0, w, h).data;
+    if (!gris || gris.length !== w * h) gris = new Uint8Array(w * h);
+    window.LecteurAruco.versGris(data, w, h, gris);
+    var dets = detecteur.detecter(gris, w, h);
+    dessiner(dets, w);
+    noter(dets); afficher();
+    boucle();
+  }
+  function dessiner(dets, w) {
+    var fs = Math.max(18, Math.round(w / 45));
+    ctx.font = "bold " + fs + "px sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    dets.forEach(function (d) {
+      var c = d.coins, k;
+      ctx.beginPath(); ctx.moveTo(c[0].x, c[0].y); for (k = 1; k < 4; k++) ctx.lineTo(c[k].x, c[k].y); ctx.closePath();
+      ctx.lineWidth = Math.max(3, w / 300); ctx.strokeStyle = "#c28a1b"; ctx.stroke();
+      var t = d.id + " " + d.lettre, tw = ctx.measureText(t).width;
+      ctx.fillStyle = "#fff"; ctx.fillRect(d.centre.x - tw / 2 - 6, d.centre.y - fs * 0.7, tw + 12, fs * 1.4);
+      ctx.fillStyle = "#111"; ctx.fillText(t, d.centre.x, d.centre.y);
+    });
+  }
+  function montrerQr() {
+    var o = lues(), texte = window.QrVotes.encoder({ cartes: o });
+    $("qrImg").innerHTML = window.QrCode.svg(texte, { correction: "M", marge: 4 });
+    $("qrCode").textContent = texte.split(";")[2].split(",").join(" ");          // code à taper si la tablette ne lit pas les QR
+    $("qr").hidden = false;
+  }
+  $("bCam").addEventListener("click", ouvrir);
+  $("bQr").addEventListener("click", montrerQr);
+  $("bFermer").addEventListener("click", function () { $("qr").hidden = true; });
+  $("bRaz").addEventListener("click", function () { etat = {}; afficher(); $("qr").hidden = true; });
+  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") arreter(); });
+  afficher();
+  window.PilotageScan = { noter: function (d) { noter(d); afficher(); }, lues: lues, texteQr: function () { return window.QrVotes.encoder({ cartes: lues() }); } };   // pour les tests
+})();
+</script>
+</body>
+</html>

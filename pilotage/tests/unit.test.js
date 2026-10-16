@@ -1,10 +1,16 @@
 const test = require("node:test"), assert = require("node:assert/strict");
-const { O, C, H, E, T, JN, ET, config, indexL, banques, ev, t, ids, J, X } = require("./aide.js");
+const { O, C, H, E, T, JN, ET, config, configPublique, indexL, banques, ev, t, ids, J, X } = require("./aide.js");
 const cfg = config.config;
 const instant = iso => new Date(iso);
 
 /* ---------------- configuration ---------------- */
-test("config.json livré est valide et contient l'horaire", () => {
+test("config.json publié : valide, sans horaire, ni locaux, ni interros, ni chemin de banque", () => {
+  assert.equal(configPublique.ok, true, configPublique.erreurs.join("\n"));
+  const c = configPublique.config;
+  assert.equal(c.creneaux.length, 0); assert.equal(c.interros.length, 0);
+  c.classes.forEach(k => (k.cours || []).forEach(x => assert.equal(x.classe, undefined, "banque publiée : " + x.uaa)));
+});
+test("horaire de test (fixture, même contenu que le dépôt privé) : valide et complet", () => {
   assert.equal(config.ok, true, config.erreurs.join("\n"));
   assert.equal(cfg.creneaux.length, 4);
   assert.deepEqual(cfg.classes.map(c => [c.code, c.niveau, c.effectif]), [["5TTy", "5e", 20], ["6TTi", "6e", 20]]);
@@ -317,4 +323,42 @@ test("façade : sans couche prof → lecture seule du journal brut, aucune écri
   assert.equal(f.importer("{}").ok, false);
   assert.equal(f.vote(), null);
   assert.deepEqual(JSON.parse(mem["typweb.prof.v1"]).ev, [{ id: "a" }], "journal intact");
+});
+
+
+/* ---------- corrections de la relecture (oct. 2026) ---------- */
+test("annulation d'un ✓ « revu » : la marque de la séance précédente réapparaît (annule avec ref)", () => {
+  const lundi = ev("2026-10-12T10:30+02:00", "5TTy", "5UAA3.x");
+  const jeudi = ev("2026-10-15T10:30+02:00", "5TTy", "5UAA3.x");
+  const corr = ev("2026-10-15T10:31+02:00", "5TTy", "5UAA3.x", "annule", { ref: jeudi.id });
+  const s = E.etat([lundi, jeudi, corr], "5TTy", O.FUSEAU);
+  assert.deepEqual(Object.keys(s), ["5UAA3.x"]); assert.equal(s["5UAA3.x"].jour, "2026-10-12");
+  // ancien format (annule sans ref) : l'élément est retiré
+  assert.deepEqual(E.etat([lundi, jeudi, ev("2026-10-15T10:32+02:00", "5TTy", "5UAA3.x", "annule")], "5TTy", O.FUSEAU), {});
+  // état reconstitué avant l'annulation : la référence n'agit pas encore
+  assert.equal(E.etat([lundi, jeudi, corr], "5TTy", O.FUSEAU, t("2026-10-15T10:30:30+02:00"))["5UAA3.x"].jour, "2026-10-15");
+});
+test("point d'arrêt : l'élément le plus AVANCÉ dans le cours, pas le dernier touché (révision d'un chapitre précédent)", () => {
+  const el = indexL.elements.filter(e => indexL.marquable(e)).map(e => e.id);
+  const loin = el[el.length - 5], tot = el[2];
+  const e = [ev("2026-10-15T10:20+02:00", "5TTy", loin), ev("2026-10-15T11:40+02:00", "5TTy", tot)];
+  const s = E.etat(e, "5TTy", O.FUSEAU);
+  assert.equal(E.dernier(s, "5UAA3", undefined, indexL.pos).el, loin);
+  assert.equal(E.dernier(s, "5UAA3").el, tot);                                // sans index : le plus récent
+  const b = JN.bornes(ctxJ(e));
+  assert.equal(b.fin.el, loin);
+});
+test("deux cours qui se suivent : la classe suivante n'est détectée qu'à la fin du premier", () => {
+  const c2 = Object.assign({}, cfg, { creneaux: [
+    { jour: "jeudi", debut: "10:10", fin: "11:50", classe: "5TTy", local: "a" },
+    { jour: "jeudi", debut: "11:50", fin: "13:30", classe: "6TTi", local: "b" }] });
+  const at = h => H.detecter(c2, instant("2026-10-15T" + h + ":00+02:00")).classe;
+  assert.equal(at("11:35"), "5TTy"); assert.equal(at("11:49"), "5TTy");
+  assert.equal(at("11:50"), "6TTi"); assert.equal(at("13:40"), "6TTi");
+  assert.equal(at("09:56"), "5TTy");
+});
+test("configuration : le champ « classe » d'un cours est facultatif (banque lue dans le dépôt privé)", () => {
+  const r = C.valider({ classes: [{ code: "A", niveau: "5e", effectif: 3, coursEnCours: "5UAA3", cours: [{ uaa: "5UAA3", titre: "t", url: "https://a.b/c/", index: "index.json" }] }], creneaux: [] });
+  assert.equal(r.ok, true, r.erreurs.join("\n"));
+  assert.equal(C.valider({ classes: [{ code: "A", niveau: "5e", effectif: 3, cours: [{ uaa: "5UAA3", titre: "t", url: "https://a.b/c/", index: "i", classe: "" }] }], creneaux: [] }).ok, false);
 });

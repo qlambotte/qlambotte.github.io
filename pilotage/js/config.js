@@ -41,9 +41,11 @@
       else cours.forEach(function (k, j) {
         var q = p + ".cours[" + j + "]";
         if (!estObjet(k)) { err.push(q + " : un objet { uaa, titre, url, index, classe } est attendu."); return; }
-        ["uaa", "titre", "url", "index", "classe"].forEach(function (champ) {
+        ["uaa", "titre", "url", "index"].forEach(function (champ) {
           if (typeof k[champ] !== "string" || !k[champ].trim()) err.push(q + "." + champ + " : texte non vide attendu.");
         });
+        // « classe » (banque publiée avec le site) est facultatif : la banque est lue dans le dépôt privé (banques/<UAA>/)
+        if (k.classe !== undefined && (typeof k.classe !== "string" || !k.classe.trim())) err.push(q + ".classe : texte non vide attendu (ou champ absent).");
         if (typeof k.url === "string" && !/^https?:\/\/.+\/$/.test(k.url)) err.push(q + ".url : adresse complète terminée par « / » attendue (exemple : https://qlambotte.github.io/limites-cours/).");
         if (typeof k.uaa === "string") { if (uaas.indexOf(k.uaa) >= 0) err.push(q + ".uaa : « " + k.uaa + " » apparaît deux fois."); uaas.push(k.uaa); }
       });

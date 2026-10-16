@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette – Page de classe (style portail)</title>
+<style>
+/* Tokens et règles repris de portail.css : blanc et noir, Palatino, un accent ocre, menu à gauche */
+:root{
+  --encre:#111; --gris:#555; --filet:#e3e3e3; --acc:#c28a1b; --accbg:#fbf3e0;
+  --serif:"Palatino Linotype",Palatino,"Book Antiqua","TeX Gyre Pagella","URW Palladio L",P052,Georgia,serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,"TeX Gyre Heros","Nimbus Sans",sans-serif;
+  --barre:260px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--encre);font:17px/1.6 var(--serif)}
+a{color:var(--encre)}
+/* menu à gauche */
+.pt-barre{position:fixed;top:0;left:0;bottom:0;width:var(--barre);border-right:2px solid var(--encre);padding:40px 30px;background:#fff;overflow-y:auto}
+.pt-nom{font-size:22px;font-weight:700;margin:0;line-height:1.2}
+.pt-fct{font:14px/1.45 var(--sans);color:var(--gris);margin:6px 0 8px}
+.pt-id{margin-bottom:26px}
+.pt-nav a{display:block;font:13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#777;padding:9px 0;border-top:1px solid var(--filet);text-decoration:none}
+.pt-nav a:hover{color:var(--encre)}
+.pt-pied{position:absolute;bottom:30px;left:30px;right:30px;font:12px var(--sans);color:#888}
+.sync{display:inline-block;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--encre);padding:2px 8px}
+.sync.pending{border-color:var(--acc);color:var(--encre);background:var(--accbg)}
+/* contenu */
+main{margin-left:var(--barre);max-width:calc(1060px + var(--barre));padding:40px 56px 60px}
+.titre{font-weight:400;font-size:64px;line-height:1;margin:18px 0 0}
+.sous{font:16px/1.5 var(--sans);color:var(--gris);margin:12px 0 0}
+.sim{font:12px var(--sans);color:#888;margin:22px 0 0}
+h2.sec{font-size:28px;font-weight:400;border-top:2px solid var(--encre);padding-top:12px;margin:40px 0 18px}
+/* cartes */
+.grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 40px;margin-top:34px}
+.carte{border-top:2px solid var(--encre);padding-top:16px;display:flex;flex-direction:column;gap:12px}
+.code{font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.carte h3{font-size:24px;line-height:1.15;font-weight:400;margin:0}
+.carte.large{grid-column:1/-1}
+.sub{font:14px/1.45 var(--sans);color:var(--gris)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button,select,textarea,input{font:14px var(--sans);color:var(--encre);background:#fff;border:2px solid var(--encre);border-radius:0;padding:7px 14px}
+button{cursor:pointer}
+button:hover{background:var(--accbg)}
+button.primary{background:var(--encre);color:#fff;font-weight:700}
+button.primary:hover{background:#333}
+button.small{padding:3px 10px;font-size:12px}
+button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+textarea{width:100%;min-height:100px;resize:vertical;font:15px/1.5 var(--serif)}
+.q{border-top:1px solid var(--encre);padding:8px 0;display:grid;gap:3px}
+.chip{display:inline-block;font:700 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--encre);padding:1px 7px}
+.chip.acc{border-color:var(--acc);background:var(--accbg)}
+.math{font-style:italic}
+.stop{border-left:4px solid var(--acc);padding:4px 14px;background:var(--accbg)}
+.iro{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--filet);padding:8px 0;font:15px var(--sans)}
+.dday{font-weight:700}
+.dday.soon{border-bottom:2px solid var(--acc)}
+/* aperçu du cours */
+.course{border-top:2px solid var(--encre)}
+.course .head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0}
+.blk{border-top:1px solid var(--filet);padding:10px 0}
+.blk.cur{background:var(--accbg);margin:0 -12px;padding:10px 12px}
+.blkhead{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.ex{display:flex;align-items:center;gap:10px;padding:5px 0 0 20px;flex-wrap:wrap;font-size:16px}
+.ex input[type=checkbox]{width:22px;height:22px;accent-color:var(--encre);padding:0}
+.fin{border:2px dashed var(--encre);padding:2px 10px;font:12px var(--sans);letter-spacing:.06em;cursor:pointer;background:#fff}
+.fin.here{border-style:solid;background:var(--encre);color:#fff;font-weight:700}
+.student .prof{display:none}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--encre);color:#fff;font:14px var(--sans);padding:10px 18px;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+@media (max-width:800px){
+  .pt-barre{position:static;width:auto;border-right:0;border-bottom:2px solid var(--encre);padding:20px 18px}
+  .pt-nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+  .pt-nav a{border:0;padding:0}
+  .pt-pied{display:none}
+  main{margin-left:0;padding:24px 18px}
+  .titre{font-size:52px}
+  .grille{grid-template-columns:1fr;gap:26px}
+}
+@media print{.pt-barre{display:none}main{margin-left:0}}
+</style>
+</head>
+<body>
+<aside class="pt-barre">
+  <div class="pt-id">
+    <p class="pt-nom">Page de classe</p>
+    <p class="pt-fct">Version prof · données fictives</p>
+    <span class="sync" id="sync">Synchronisé</span>
+  </div>
+  <nav class="pt-nav">
+    <a href="#c1">Échauffement</a>
+    <a href="#c2">Poursuivre le cours</a>
+    <a href="#c3">Journal de classe</a>
+    <a href="#c4">Devoirs</a>
+    <a href="#c5">Interros</a>
+    <a href="#course">Aperçu du cours</a>
+  </nav>
+  <div class="pt-pied"><button class="small" id="export" title="Télécharge l'état en un fichier JSON">Exporter l'état</button></div>
+</aside>
+
+<main>
+  <h1 class="titre" id="cls">–</h1>
+  <p class="sous" id="why"></p>
+  <p class="sim">
+    Maquette : simuler le moment
+    <select id="now"></select>
+    · changer de classe <select id="pick"></select>
+  </p>
+
+  <div class="grille">
+    <section class="carte" id="c1">
+      <div class="code">01 · Échauffement</div>
+      <h3>Trois questions pour démarrer</h3>
+      <div class="sub">Construit sur ce qui a déjà été vu : une question par rôle.</div>
+      <div id="wq"></div>
+      <div class="row"><button class="primary" id="launch">Lancer l'échauffement</button><button id="redraw">Tirer à nouveau</button></div>
+    </section>
+
+    <section class="carte" id="c2">
+      <div class="code">02 · Poursuivre le cours</div>
+      <h3>Reprendre où on s'est arrêté</h3>
+      <div class="stop" id="stop"></div>
+      <div class="row"><button class="primary" id="resume">Reprendre ici</button><button id="elsewhere">Choisir un autre endroit</button></div>
+      <div class="sub" id="lastsess"></div>
+    </section>
+
+    <section class="carte" id="c3">
+      <div class="code">03 · Journal de classe</div>
+      <h3>Entrée de la séance</h3>
+      <div class="sub" id="jdcsub"></div>
+      <textarea id="jdc" aria-label="Entrée du journal de classe"></textarea>
+      <div class="row"><button id="regen" class="small">↻ Régénérer</button><span style="flex:1"></span><button id="copyJdc" class="primary">Copier le journal</button></div>
+    </section>
+
+    <section class="carte" id="c4">
+      <div class="code">04 · Devoirs <span class="chip acc">champ séparé</span></div>
+      <h3>À faire à la maison</h3>
+      <div class="sub" id="hwsub"></div>
+      <textarea id="hw" aria-label="Devoirs" style="min-height:70px"></textarea>
+      <div class="row"><button id="regenHw" class="small">↻ Régénérer</button><span style="flex:1"></span><button id="copyHw" class="primary">Copier les devoirs</button></div>
+    </section>
+
+    <section class="carte large" id="c5">
+      <div class="code">05 · Interros planifiées</div>
+      <div id="iro"></div>
+      <div class="sub">Rappels uniquement : les documents d'interro restent dans le dépôt privé. D'autres modules pourront venir s'ajouter ici.</div>
+    </section>
+  </div>
+
+  <section class="course" id="course" aria-label="Aperçu du cours">
+    <div class="head">
+      <h2 class="sec" style="border:0;margin:0;padding:0" id="ctitle"></h2>
+      <span class="row"><span class="sub" id="viewlabel"></span><button class="small" id="toggleView">Aperçu version élève</button></span>
+    </div>
+    <div id="blocks"></div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const DAYS=['dim','lun','mar','mer','jeu','ven','sam'];
+const SCHEDULE=[
+  {j:1,d:'08:30',f:'09:20',c:'5GT-A'},
+  {j:2,d:'10:30',f:'11:20',c:'6TT-B'},
+  {j:4,d:'13:00',f:'13:50',c:'5GT-A'},
+  {j:5,d:'09:20',f:'10:10',c:'6TT-B'}
+];
+const NOWS=[
+  {l:'Lundi 12/10, 08:35',t:'2026-10-12T08:35'},
+  {l:'Mardi 13/10, 10:25',t:'2026-10-13T10:25'},
+  {l:'Mercredi 14/10, 11:00 (aucun cours)',t:'2026-10-14T11:00'}
+];
+const COURSES={
+ '5GT-A':{title:'5UAA3 · Limites et asymptotes',blocks:[
+  ['s1b1','Idée intuitive de limite',[]],
+  ['s1b2','Limite en un point : tableau de valeurs',[]],
+  ['s2b1','Limites à gauche et à droite',[['e1','1','Lire des limites sur un graphique',false],['e2','2','Limites latérales d\'une fonction par morceaux',true]]],
+  ['s2b2','Forme 0/0 : factorisation',[['e3','3','Lever l\'indétermination par factorisation',false],['e4','4','Limites de quotients de trinômes',false],['e5','5','Problème de modélisation',true]]],
+  ['s2b3','Asymptote verticale',[['e6','6','Trouver les asymptotes verticales',false],['e7','7','Tracer une courbe avec ses asymptotes',true]]],
+  ['s3b1','Limite en l\'infini',[]],['s3b2','Asymptote horizontale',[]],['s3b3','Asymptote oblique',[]]]},
+ '6TT-B':{title:'6UAA4 · Fonctions exponentielles et logarithmes',blocks:[
+  ['s1b1','Croissance exponentielle : situations',[]],
+  ['s1b2','Propriétés des puissances',[['e1','1','Simplifier des puissances',false]]],
+  ['s2b1','Fonction exponentielle : définition',[['e2','2','Comparer des taux de croissance',false],['e3','3','Étude d\'une population',true]]],
+  ['s2b2','Logarithme : définition',[['e4','4','Calculer des logarithmes',false]]],
+  ['s2b3','Équations exponentielles',[]]]}
+};
+const POOLS={
+ '5GT-A':{
+  precedent:[['5UAA3-q014','Limite à gauche en 2 de 1/(x − 2) ?'],['5UAA3-q015','lim (x→3) de (x² − 9)/(x − 3) ?']],
+  prerequis:[['5UAA0-q003','Factoriser x² − 9'],['5UAA0-q007','Domaine de définition de 1/(x − 2)']],
+  espace:[['5UAA2-q011','Terme général d\'une suite arithmétique'],['5UAA1-q006','Interpréter un coefficient de corrélation']]
+ },
+ '6TT-B':{
+  precedent:[['6UAA4-q004','Simplifier 2³ · 2⁴'],['6UAA4-q005','Valeur de 5⁰']],
+  prerequis:[['6UAA0-q012','Résoudre 2x + 3 = 11'],['6UAA0-q013','Propriétés des puissances à exposant entier']],
+  espace:[['6UAA2-q009','Dérivée de x³'],['6UAA1-q003','Limite de 1/x en +∞']]
+ }
+};
+const ROLES={precedent:'Séance précédente',prerequis:'Prérequis',espace:'Révision espacée'};
+const mk=(pointer,lastDate,lastFrom,interros)=>({pointer,lastDate,lastFrom,draw:{precedent:0,prerequis:0,espace:0},sessionFrom:null,sessionTo:null,done:new Set(),jdcDirty:false,hwDirty:false,interros});
+const state={
+ '5GT-A':mk('s2b2','jeu 08/10','s2b1',[{date:'2026-11-05',uaa:'5UAA3',type:'certificatif'},{date:'2026-12-10',uaa:'5UAA1–3',type:'bilan'}]),
+ '6TT-B':mk('s2b1','ven 09/10','s1b2',[{date:'2026-10-22',uaa:'6UAA4',type:'formatif'}])
+};
+
+const $=s=>document.querySelector(s);
+let cur='5GT-A', now=new Date(NOWS[0].t), studentView=false;
+const toMin=s=>{const [h,m]=s.split(':').map(Number);return h*60+m};
+const blocks=c=>COURSES[c].blocks;
+const idx=(c,id)=>blocks(c).findIndex(b=>b[0]===id);
+const bt=(c,id)=>blocks(c)[idx(c,id)]?.[1]||id;
+
+function detect(){
+  const m=now.getHours()*60+now.getMinutes();
+  const s=SCHEDULE.find(x=>x.j===now.getDay()&&m>=toMin(x.d)-10&&m<=toMin(x.f));
+  return s? {c:s.c,why:`Créneau ${s.d}–${s.f} détecté`} : null;
+}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2400)}
+function setSync(s){
+  const e=$('#sync');
+  if(s==='pending'){e.className='sync pending';e.textContent='À synchroniser'}
+  else {e.className='sync';e.textContent='Synchronisé'}
+}
+let syncT=null;
+function touch(){setSync('pending');clearTimeout(syncT);syncT=setTimeout(()=>setSync('ok'),1400)}
+
+function inRange(c,st){
+  if(st.sessionFrom===null) return [];
+  const a=idx(c,st.sessionFrom), b=st.sessionTo? idx(c,st.sessionTo) : a;
+  return blocks(c).slice(Math.min(a,b),Math.max(a,b)+1);
+}
+function jdcText(c,st){
+  const to=st.sessionTo;
+  const exs=[];
+  inRange(c,st).forEach(b=>b[2].forEach(e=>{if(st.done.has(e[0]))exs.push(e[1])}));
+  return `Échauffement : 3 QCM\nMatière : de « ${bt(c,st.sessionFrom)} » à ${to?'« '+bt(c,to)+' »':'… (en cours)'}\nExercices : ${exs.length?exs.join(', '):'–'}`;
+}
+function hwText(c,st){
+  if(!st.sessionTo) return '';
+  const l=[];
+  inRange(c,st).forEach(b=>b[2].forEach(e=>{if(e[3])l.push(`Exercice ${e[1]} : ${e[2]}`)}));
+  return l.join('\n');
+}
+
+function render(){
+  const st=state[cur], co=COURSES[cur];
+  if(st.sessionFrom===null) st.sessionFrom=st.pointer;
+  $('#cls').textContent=cur;
+  const d=detect();
+  $('#why').textContent = co.title.split(' · ')[1]+' · '+(d&&d.c===cur ? d.why : 'classe choisie à la main');
+  $('#pick').value=cur;
+
+  const pool=POOLS[cur];
+  $('#wq').innerHTML=Object.keys(ROLES).map(r=>{
+    const [id,t]=pool[r][st.draw[r]%pool[r].length];
+    return `<div class="q"><div class="row"><span class="chip">${ROLES[r]}</span><span class="sub">${id}</span><span style="flex:1"></span><button class="small" data-r="${r}">Remplacer</button></div><div class="math">${t}</div></div>`;
+  }).join('');
+  document.querySelectorAll('#wq button').forEach(b=>b.onclick=()=>{st.draw[b.dataset.r]++;render()});
+
+  $('#stop').innerHTML=`<b>${co.title}</b><br>Dernier point d'arrêt : <b>${bt(cur,st.pointer)}</b>`;
+  $('#lastsess').textContent=`Dernière séance : ${st.lastDate}, de « ${bt(cur,st.lastFrom)} » à « ${bt(cur,st.pointer)} ».`;
+
+  $('#jdcsub').textContent = st.sessionTo ? 'Séance terminée : à copier dans Cabanga.' : 'Séance en cours : se complète avec « J\'ai terminé ici » et les exercices cochés.';
+  if(!st.jdcDirty) $('#jdc').value=jdcText(cur,st);
+  const hw=hwText(cur,st);
+  $('#hwsub').textContent = st.sessionTo ? (hw?'Rempli depuis les exercices marqués « à la maison » dans la matière vue.':'Aucun exercice « à la maison » dans la matière vue.') : 'Se remplit à la fin de la séance, d\'après les exercices « à la maison » rencontrés.';
+  if(!st.hwDirty) $('#hw').value=hw;
+
+  const rows=[...st.interros].sort((a,b)=>a.date.localeCompare(b.date)).map(i=>{
+    const n=Math.ceil((new Date(i.date+'T08:00')-now)/86400000);
+    return `<div class="iro"><span>${i.date.split('-').reverse().join('/')} · ${i.uaa} · ${i.type}</span><span class="dday ${n<=14?'soon':''}">J−${n}</span></div>`;
+  });
+  $('#iro').innerHTML=rows.join('')||'<div class="sub">Aucune interro planifiée.</div>';
+
+  $('#course').classList.toggle('student',studentView);
+  $('#ctitle').textContent=co.title;
+  $('#viewlabel').textContent=studentView?'Vue élève : pas d\'outils de classe':'Vue prof';
+  $('#toggleView').textContent=studentView?'Retour à la version prof':'Aperçu version élève';
+  $('#blocks').innerHTML=blocks(cur).map(([id,t,exs])=>{
+    const isCur=id===st.pointer, isEnd=id===st.sessionTo;
+    return `<div class="blk ${isCur?'cur':''}"><div class="blkhead"><span>${t}${isCur?' <span class="chip acc prof">point d\'arrêt actuel</span>':''}</span>
+      <button class="fin prof ${isEnd?'here':''}" data-id="${id}">${isEnd?'Terminé ici ✓':'J\'ai terminé ici'}</button></div>`+
+      exs.map(e=>`<div class="ex"><input type="checkbox" class="prof" data-ex="${e[0]}" ${st.done.has(e[0])?'checked':''} ${e[3]?'disabled':''} aria-label="Fait en classe : exercice ${e[1]}">
+        <span>Exercice ${e[1]} : ${e[2]}</span>${e[3]?'<span class="chip acc">à faire à la maison</span>':''}</div>`).join('')+`</div>`;
+  }).join('');
+  document.querySelectorAll('.fin').forEach(b=>b.onclick=()=>{
+    st.sessionTo=b.dataset.id; st.pointer=b.dataset.id; touch(); render(); toast('Point d\'arrêt enregistré');
+  });
+  document.querySelectorAll('input[data-ex]').forEach(c=>c.onchange=()=>{
+    c.checked?st.done.add(c.dataset.ex):st.done.delete(c.dataset.ex); touch(); render();
+  });
+}
+
+function copy(el,msg){
+  const t=el.value;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast(msg),()=>{el.select();toast('Sélectionné : copie avec Ctrl+C')});
+}
+
+$('#pick').innerHTML=Object.keys(COURSES).map(c=>`<option>${c}</option>`).join('');
+$('#now').innerHTML=NOWS.map((n,i)=>`<option value="${i}">${n.l}</option>`).join('');
+$('#pick').onchange=e=>{cur=e.target.value;render()};
+$('#now').onchange=e=>{now=new Date(NOWS[+e.target.value].t);const d=detect();if(d)cur=d.c;render()};
+$('#jdc').oninput=()=>{state[cur].jdcDirty=true};
+$('#hw').oninput=()=>{state[cur].hwDirty=true};
+$('#regen').onclick=()=>{state[cur].jdcDirty=false;render()};
+$('#regenHw').onclick=()=>{state[cur].hwDirty=false;render()};
+$('#copyJdc').onclick=()=>copy($('#jdc'),'Journal copié');
+$('#copyHw').onclick=()=>copy($('#hw'),'Devoirs copiés');
+$('#launch').onclick=()=>toast('→ Ouvre l\'écran de vote, question 1/3');
+$('#redraw').onclick=()=>{Object.keys(state[cur].draw).forEach(r=>state[cur].draw[r]++);render()};
+$('#resume').onclick=()=>toast('→ Ouvre le cours à « '+bt(cur,state[cur].pointer)+' »');
+$('#elsewhere').onclick=()=>$('#course').scrollIntoView({behavior:'smooth'});
+$('#export').onclick=()=>toast('→ Télécharge l\'état (JSON) : sauvegarde de repli');
+$('#toggleView').onclick=()=>{studentView=!studentView;render()};
+
+const d0=detect(); if(d0)cur=d0.c;
+setSync('ok');
+render();
+</script>
+</body>
+</html>

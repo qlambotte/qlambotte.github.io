@@ -4,21 +4,18 @@ project:
   output-dir: _site
 
 website:
-  site-url: "https://qlambotte.github.io/"
   title: "Quentin Lambotte — mathématiques"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Accueil
+  site-url: "https://qlambotte.github.io/"
 
 lang: fr
 
 format:
   html:
     theme:
-      - cosmo
-      - theme.scss
-      - portail.scss
-    include-in-header:
-      - _includes/theme-init.html
+      - none
+    css: portail.css
+    include-before-body:
+      - _includes/portail-barre.html
     toc: false
+    anchor-sections: false
+    page-layout: full

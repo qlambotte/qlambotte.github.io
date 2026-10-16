@@ -173,6 +173,38 @@ class TestEchauffement(Base):
         self.assertTrue(self.page.locator(".tv-ecran").count() == 1)
         self.page.evaluate("() => window.typwebProf.vote.fermer()")
 
+    def test_formules_composees_sur_la_page_de_pilotage(self):
+        """La page de pilotage n'a pas de MathJax : vote.js le charge (copie locale du cours, js/mathjax/)."""
+        d = os.path.join(S.racine, "limites-cours", "js", "mathjax", "es5")
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "tex-chtml-full.js"), "w", encoding="utf-8") as f:     # MathJax factice
+            f.write("window.MathJax = Object.assign(window.MathJax || {}, { factice: true, typesetPromise: function (els) {"
+                    " (els || [document.body]).forEach(function (e) { e.querySelectorAll('.math').forEach(function (m) { m.setAttribute('data-mj', '1'); }); });"
+                    " return Promise.resolve(); } });")
+        self.graine(SEANCE_PREC()); self.ouvrir()
+        self.assertFalse(self.page.evaluate("() => !!window.MathJax"))
+        self.page.wait_for_function("() => window.typwebProf && window.typwebProf.vote && window.typwebProf.vote.ajouterBanque")
+        self.page.click("#ech-lancer")
+        self.page.wait_for_function("() => window.typwebProf.vote.ouvert()", timeout=10000)
+        self.page.wait_for_function("() => window.MathJax && window.MathJax.factice && document.querySelector('.tv-ecran .math[data-mj]')", timeout=15000)
+        self.page.evaluate("() => window.typwebProf.vote.fermer()")
+
+    def test_banque_plus_recente_que_la_copie_de_la_tablette(self):
+        """Copie de vote.js (moins de 12 h) sans les questions tirées : l'échauffement s'ouvre quand même."""
+        self.graine(SEANCE_PREC()); self.ouvrir()
+        self.page.evaluate("""async () => {
+            const b = { schema: 'typweb-classe/1', uaa: '5UAA3', qcm: [], exercices: { lots: [] } };
+            const c = await caches.open('typweb-prof-classe');
+            await c.put(location.origin + '/limites-cours/prof-classe/classe.json', new Response(JSON.stringify(b)));
+            localStorage.setItem('typweb.prof.classe.t.5UAA3', String(Date.now()));
+        }""")
+        self.ouvrir()
+        self.page.wait_for_function("() => window.typwebProf && window.typwebProf.vote && window.typwebProf.vote.ajouterBanque")
+        self.page.click("#ech-lancer")
+        self.page.wait_for_function("() => window.typwebProf.vote.ouvert()", timeout=10000)
+        self.assertEqual(self.page.locator(".tv-ecran.tv-message").count(), 0, "pas de message « introuvable »")
+        self.page.evaluate("() => window.typwebProf.vote.fermer()")
+
     def test_exercice_alterne(self):
         sans = ev("2026-10-08T10:05+02:00", "5TTy", "echauffement", "echauffement", sid="a", items=[{"id": "5UAA3.c.011", "type": "qcm"}, {"id": "5UAA3.c.007", "type": "qcm"}, {"id": "5UAA2.c.001", "type": "qcm"}])
         self.graine(SEANCE_PREC() + [sans]); self.ouvrir()
@@ -454,3 +486,27 @@ class TestCoucheProf(Base):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestLectureDesCartes(Base):
+    """Page de scan du smartphone (P7) : cartes retenues quand elles sont stables, QR et code à taper."""
+
+    def test_page_de_scan_cartes_stables_qr_et_code(self):
+        self.page.goto(S.url + "/pilotage/scan.html")
+        self.page.wait_for_function("() => window.PilotageScan && window.QrCode && window.QrVotes && window.LecteurAruco")
+        # trois images de suite : retenue ; une seule image avec une autre lettre : hésitante, la retenue reste
+        for _ in range(3):
+            self.page.evaluate("() => PilotageScan.noter([{ id: 12, lettre: 'C' }, { id: 3, lettre: 'A' }])")
+        self.page.evaluate("() => PilotageScan.noter([{ id: 12, lettre: 'D' }])")
+        self.assertEqual(self.page.evaluate("() => PilotageScan.lues()"), {"3": "A", "12": "C"})
+        self.page.evaluate("() => PilotageScan.noter([{ id: 99, lettre: 'A' }, { id: 99, lettre: 'A' }, { id: 99, lettre: 'A' }])")  # hors des cartes 0 à 49
+        self.assertEqual(self.page.evaluate("() => Object.keys(PilotageScan.lues())"), ["3", "12"])
+        self.page.evaluate("() => document.getElementById('bilan')")
+        self.page.click("#bQr")
+        self.assertTrue(self.page.is_visible("#qrImg svg"))
+        self.assertEqual(self.texte("#qrCode"), "3A 12C")
+        t = self.page.evaluate("() => PilotageScan.texteQr()")
+        self.assertEqual(self.page.evaluate("(t) => QrVotes.decoder(t).cartes", t), {"3": "A", "12": "C"})
+        self.page.click("#bFermer"); self.page.click("#bRaz")
+        self.assertEqual(self.page.evaluate("() => PilotageScan.lues()"), {})
+        self.assertTrue(self.page.is_disabled("#bQr"))

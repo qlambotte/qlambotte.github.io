@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette – Écran de vote (style portail)</title>
+<style>
+/* Tokens repris de portail.css : blanc et noir, Palatino, accent ocre */
+:root{
+  --encre:#111; --gris:#555; --filet:#e3e3e3; --acc:#c28a1b; --accbg:#fbf3e0;
+  --serif:"Palatino Linotype",Palatino,"Book Antiqua","TeX Gyre Pagella","URW Palladio L",P052,Georgia,serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,"TeX Gyre Heros","Nimbus Sans",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--encre);font:18px/1.55 var(--serif)}
+/* barre prof */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 24px;border-bottom:2px solid var(--encre)}
+.bar .tag{font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.bar .etat{font:12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.bar .sp{flex:1}
+.bar label{font:13px var(--sans);color:var(--gris)}
+button,input{font:14px var(--sans);color:var(--encre);background:#fff;border:2px solid var(--encre);border-radius:0;padding:7px 14px}
+button{cursor:pointer}
+button:hover{background:var(--accbg)}
+button.primary{background:var(--encre);color:#fff;font-weight:700}
+button.primary:hover{background:#333}
+button:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main{max-width:1180px;margin:0 auto;padding:30px 40px 50px}
+.ctx{font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:14px}
+h1{font-weight:400;font-size:clamp(30px,3.4vw,46px);line-height:1.15;margin:0 0 30px}
+.math{font-style:italic}
+/* options : cartes à filet supérieur comme sur le portail */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px}
+@media(max-width:760px){.opts{grid-template-columns:1fr}}
+.opt{border-top:2px solid var(--encre);padding-top:14px;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center}
+.opt .letter{font-weight:400;font-size:56px;line-height:1;min-width:1.1ch}
+.opt .txt{font-size:32px;line-height:1.2}
+.count{grid-column:1/-1;display:flex;align-items:center;gap:12px}
+.count button{width:46px;height:46px;padding:0;font-size:24px;line-height:1}
+.count .n{font:700 30px var(--sans);min-width:2.2ch;text-align:center}
+.count .pct{font:14px var(--sans);color:var(--gris);min-width:4ch}
+.bar-wrap{grid-column:1/-1}
+.track{height:16px;border:2px solid var(--encre);background:#fff}
+.fill{height:100%;width:0;background:var(--encre);transition:width .35s}
+.fb{grid-column:1/-1;display:none;font:15px/1.5 var(--sans);padding:10px 14px;border-left:4px solid var(--encre);margin-top:4px}
+.fb b{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.revealed .fb{display:block}
+.revealed .opt.good{border-top:8px solid var(--acc);background:var(--accbg);padding:12px 14px 14px;margin:0 -14px}
+.revealed .opt.good .fill{background:var(--acc)}
+.revealed .opt.good .fb{border-left-color:var(--acc)}
+.revealed .opt.bad .fb{border-left-style:dashed}
+.revealed .opt.bad.zero{opacity:.6}
+/* bilan */
+.summary{margin-top:34px;border-top:2px solid var(--encre);padding-top:16px;display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.summary .big{font:400 44px/1 var(--serif)}
+.summary .lbl{font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.hint{flex:1;min-width:260px;font:16px/1.5 var(--sans)}
+.hint b{border-bottom:2px solid var(--acc)}
+.teacher-note{margin-top:22px;border-left:4px solid var(--acc);background:var(--accbg);padding:10px 14px;font:15px/1.5 var(--sans)}
+.legend{margin-top:16px;font:13px var(--sans);color:var(--gris)}
+.kbd{font:12px ui-monospace,monospace;border:1px solid var(--encre);padding:0 5px}
+.hide-teacher .teacher{display:none}
+</style>
+</head>
+<body>
+<div class="bar teacher" role="toolbar" aria-label="Barre prof">
+  <span class="tag">Moment de vérification</span>
+  <span class="etat" id="status">Vote ouvert</span>
+  <span class="sp"></span>
+  <label>Élèves présents <input id="size" type="number" min="1" max="40" value="22" style="width:4.5em;padding:4px 8px"></label>
+  <button id="reset" title="Remet les compteurs à zéro (touche R)">Revote / remise à zéro</button>
+  <button id="reveal" class="primary" title="Touche Espace">Révéler la réponse</button>
+  <button id="focus" title="Masque la barre et les aides (Échap pour revenir)">Mode projeté</button>
+</div>
+
+<main id="q">
+  <div class="ctx">5UAA3 · Limites et asymptotes · Vérification 1/3</div>
+  <h1>Soit <span class="math">f(x) = (x² − 1)/(x − 1)</span>.<br>Que vaut <span class="math">lim<sub>x→1</sub> f(x)</span> ?</h1>
+
+  <div class="opts" id="opts"></div>
+
+  <div class="summary" id="summary">
+    <div><div class="big"><span id="tot">0</span> / <span id="sz">22</span></div><div class="lbl">votes comptés</div></div>
+    <div class="hint" id="hint">Compte les cartes levées, puis clique sur + pour chaque réponse.</div>
+  </div>
+
+  <div class="teacher-note teacher" id="tnote">
+    <b>Si moins de 70 % ont juste</b> : repasser par le graphique de <span class="math">f</span> (trou en <span class="math">x = 1</span>) avant de continuer, puis revoter.
+  </div>
+
+  <div class="legend teacher">Raccourcis : <span class="kbd">A</span> <span class="kbd">B</span> <span class="kbd">C</span> <span class="kbd">D</span> ajoutent un vote (avec <span class="kbd">Maj</span> : en retirent un) · <span class="kbd">Espace</span> révèle · <span class="kbd">R</span> remet à zéro · <span class="kbd">Échap</span> quitte le mode projeté.</div>
+</main>
+
+<script>
+const DATA = {
+  correct: "B",
+  threshold: 0.7,
+  options: [
+    {k:"A", t:"0", fb:"Erreur typique : substituer x = 1 au numérateur seulement (1 − 1 = 0) et oublier que le dénominateur s'annule aussi.", err:"Substitution partielle"},
+    {k:"B", t:"2", fb:"Forme 0/0 : on factorise x² − 1 = (x − 1)(x + 1), on simplifie, il reste x + 1 qui tend vers 2.", err:""},
+    {k:"C", t:"La limite n'existe pas", fb:"Erreur typique : « on ne peut pas diviser par 0 ». Mais la limite concerne les valeurs proches de 1, pas la valeur en 1.", err:"Limite confondue avec valeur en un point"},
+    {k:"D", t:"+∞", fb:"Erreur typique : dénominateur → 0 donc quotient → ∞. Ici le numérateur tend aussi vers 0 : c'est une forme indéterminée.", err:"Règle « c/0 » appliquée à 0/0"}
+  ]
+};
+const votes = {A:0,B:0,C:0,D:0};
+let revealed = false;
+const $ = s => document.querySelector(s);
+const optsEl = $('#opts');
+
+DATA.options.forEach(o=>{
+  const d = document.createElement('div');
+  d.className='opt'; d.dataset.k=o.k;
+  d.innerHTML = `
+    <div class="letter">${o.k}</div>
+    <div class="txt math">${o.t}</div>
+    <div class="count teacher">
+      <button aria-label="Retirer un vote pour ${o.k}" data-act="-">−</button>
+      <span class="n" id="n${o.k}">0</span>
+      <button aria-label="Ajouter un vote pour ${o.k}" data-act="+">+</button>
+      <span class="pct" id="p${o.k}"></span>
+    </div>
+    <div class="bar-wrap"><div class="track"><div class="fill" id="f${o.k}"></div></div></div>
+    <div class="fb"><b>${o.k===DATA.correct?'Bonne réponse':'Piège : '+o.err}</b>${o.fb}</div>`;
+  d.querySelectorAll('button').forEach(b=>b.onclick=()=>bump(o.k,b.dataset.act==='+'?1:-1));
+  optsEl.appendChild(d);
+});
+
+function total(){return Object.values(votes).reduce((a,b)=>a+b,0)}
+function bump(k,d){ votes[k]=Math.max(0,votes[k]+d); render(); }
+
+function render(){
+  const t = total(), size = +$('#size').value||1;
+  $('#tot').textContent=t; $('#sz').textContent=size;
+  const max = Math.max(1,t);
+  for(const k in votes){
+    $('#n'+k).textContent=votes[k];
+    const p = t? Math.round(100*votes[k]/t):0;
+    $('#p'+k).textContent = t? p+' %':'';
+    $('#f'+k).style.width = (t? 100*votes[k]/max:0)+'%';
+  }
+  document.querySelectorAll('.opt').forEach(o=>{
+    const k=o.dataset.k;
+    o.classList.toggle('good', revealed && k===DATA.correct);
+    o.classList.toggle('bad', revealed && k!==DATA.correct);
+    o.classList.toggle('zero', votes[k]===0);
+  });
+  $('#q').classList.toggle('revealed',revealed);
+  $('#status').textContent = revealed?'Réponse révélée':'Vote ouvert';
+  $('#reveal').textContent = revealed?'Masquer la réponse':'Révéler la réponse';
+  const h=$('#hint');
+  if(!t) h.textContent='Compte les cartes levées, puis clique sur + pour chaque réponse.';
+  else if(!revealed) h.textContent = t<size ? `Il manque ${size-t} vote(s).` : 'Tous les votes sont comptés : tu peux révéler.';
+  else {
+    const ok = votes[DATA.correct]/t;
+    h.innerHTML = `<b>${Math.round(100*ok)} % de réussite.</b> ` + (ok>=DATA.threshold
+      ? 'Seuil atteint : on peut avancer.'
+      : 'Sous le seuil de 70 % : discussion entre voisins, puis revote.');
+  }
+}
+
+$('#reveal').onclick=()=>{revealed=!revealed;render()};
+$('#reset').onclick=()=>{for(const k in votes)votes[k]=0;revealed=false;render()};
+$('#size').oninput=render;
+$('#focus').onclick=()=>{document.body.classList.toggle('hide-teacher')};
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  const k=e.key.toUpperCase();
+  if('ABCD'.includes(k)&&k.length===1){bump(k,e.shiftKey?-1:1)}
+  else if(e.code==='Space'){e.preventDefault();revealed=!revealed;render()}
+  else if(k==='R'){$('#reset').click()}
+  else if(k==='ESCAPE'){document.body.classList.remove('hide-teacher')}
+});
+render();
+</script>
+</body>
+</html>

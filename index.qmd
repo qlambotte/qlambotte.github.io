@@ -1,16 +1,22 @@
 ---
 title: "Quentin Lambotte"
-subtitle: "Professeur de mathématiques"
+subtitle: "Professeur de mathématiques aux Écoles de Religieuses Ursulines de Mons · Adjoint pédagogique à l'UMONS (FMPB)"
 ---
 
 <!-- Ta page de présentation : écrite à la main, jamais écrasée par typweb. -->
 
-Professeur de mathématiques, Institut des Ursulines, Mons.
-
 ## Mes cours
 
-- [Mathématiques — 5e](5e.qmd)
+**Écoles de Religieuses Ursulines de Mons**
 
-## Contact
+- [Cours de 5e GT/TT](5e.qmd)
+- [Cours de 6e GT/TT](6e.qmd)
 
-Par la plateforme de l'école.
+**UMONS** — Faculté de Médecine, Pharmacie et Sciences biomédicales
+
+- [Introduction mathématique aux sciences de la vie](umons.qmd) (bac 1 pharmacie, sciences biomédicales, biologie)
+
+## Contact {#contact}
+
+- Ursulines : <span data-mail="ursulines">adresse affichée par le navigateur</span>
+- UMONS : <span data-mail="umons">adresse affichée par le navigateur</span>

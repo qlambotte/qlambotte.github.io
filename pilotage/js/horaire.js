@@ -17,7 +17,9 @@
       .sort(function (a, b) { return O.minutes(a.debut) - O.minutes(b.debut); });
   }
   // Le créneau en cours (de 15 min avant le début à 10 min après la fin, bornes comprises), ou null.
-  // Si deux fenêtres se chevauchent : celui dont le début est le plus proche de l'instant.
+  // Si deux fenêtres se chevauchent : un cours EN COURS (entre son début et sa fin) l'emporte toujours, le plus
+  // récent s'il y en a deux ; sinon, celui dont le début est le plus proche. Deux cours qui se suivent : la classe
+  // suivante n'est détectée qu'à la fin du premier, jamais 15 min avant.
   function detecter(config, date) {
     var l = O.local(date, config.fuseau);
     if (estConge(config, l.ymd)) return null;
@@ -25,6 +27,11 @@
       return l.minutes >= O.minutes(s.debut) - AVANT && l.minutes <= O.minutes(s.fin) + APRES;
     });
     if (!cand.length) return null;
+    var enCours = cand.filter(function (s) { return l.minutes >= O.minutes(s.debut) && l.minutes < O.minutes(s.fin); });
+    if (enCours.length) {
+      enCours.sort(function (a, b) { return O.minutes(b.debut) - O.minutes(a.debut); });
+      return enCours[0];
+    }
     cand.sort(function (a, b) { return Math.abs(l.minutes - O.minutes(a.debut)) - Math.abs(l.minutes - O.minutes(b.debut)); });
     return cand[0];
   }

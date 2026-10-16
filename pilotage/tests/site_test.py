@@ -30,7 +30,7 @@ def construire_cours(racine, dossier, uaa, titre, index, classe):
     os.makedirs(os.path.join(base, "js"), exist_ok=True)
     os.makedirs(os.path.join(base, "prof-classe"), exist_ok=True)
     for f in os.listdir(TYPWEB_JS):
-        if f.startswith(("prof", "vote", "sync")):
+        if f.startswith(("prof", "vote", "sync", "qr")):
             shutil.copy(os.path.join(TYPWEB_JS, f), os.path.join(base, "js", f))
     # ancienne configuration du site : des classes que la page de pilotage ne connaît pas (preuve d'indépendance)
     with open(os.path.join(base, "js", "prof-config.json"), "w") as f:
@@ -58,7 +58,8 @@ def construire_cours(racine, dossier, uaa, titre, index, classe):
 
 
 def config_test(base_url, interros=None, conges=None):
-    c = json.load(open(os.path.join(PILOTAGE, "config.json"), encoding="utf-8"))
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fixtures", "config-horaire.json"), encoding="utf-8") as f:
+        c = json.load(f)                                # horaire de test (la config publiée n'en a plus)
     cours = lambda uaa, titre, d: {"uaa": uaa, "titre": titre, "url": "%s/%s/" % (base_url, d), "index": "index.json", "classe": "prof-classe/classe.json"}
     c["classes"][0]["cours"] = [cours("5UAA3", "Limites et asymptotes", "limites-cours"), cours("5UAA2", "Suites", "suites-cours"), cours("5UAA1", "Statistique à deux variables", "stats-cours")]
     c["classes"][1]["cours"] = [cours("6UAA4", "Fonctions exponentielles et logarithmes", "exp-cours")]

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pilotage de classe</title>
+<link rel="stylesheet" href="pilotage.css">
+</head>
+<body>
+<aside class="pt-barre">
+  <div class="pt-id">
+    <p class="pt-nom">Pilotage</p>
+    <p class="pt-fct">Version prof</p>
+    <p class="etiquettes"><span class="puce" id="hl" hidden>hors ligne</span> <span class="puce" id="modeprof">mode prof</span></p>
+  </div>
+  <nav class="pt-nav" aria-label="Sections de la page">
+    <a href="#c1">Échauffement</a>
+    <a href="#c2">Poursuivre le cours</a>
+    <a href="#c3">Journal de classe</a>
+    <a href="#c4">Devoirs</a>
+    <a href="#c5">Interros</a>
+  </nav>
+  <div class="pt-pied">
+    <button class="petit" id="exporter" type="button" title="Télécharge tout le journal en un fichier JSON">Exporter l'état</button>
+    <button class="petit" id="importer" type="button" title="Fusionne un fichier exporté dans le journal de cet appareil">Importer</button>
+    <input type="file" id="fichier" accept="application/json,.json" hidden>
+  </div>
+</aside>
+
+<main>
+  <div id="erreur-config" class="alerte" role="alert" hidden></div>
+  <header id="entete">
+    <h1 class="titre" id="classe-titre">–</h1>
+    <p class="sous" id="classe-sous"></p>
+    <p class="choix"><label for="choix-classe">Classe</label> <select id="choix-classe"></select> <span class="sous" id="prochaine"></span></p>
+  </header>
+
+  <div class="grille" id="grille">
+    <section class="carte" id="c1" aria-labelledby="t1">
+      <div class="code">01 · Échauffement</div>
+      <h3 id="t1">Trois questions pour démarrer</h3>
+      <div class="sub" id="ech-sub"></div>
+      <div id="ech-liste"></div>
+      <div class="ligne">
+        <button class="primaire" id="ech-lancer" type="button">Lancer l'échauffement</button>
+        <button id="ech-retirer" type="button">Tout retirer</button>
+        <button id="ech-refaire" type="button">Tirer à nouveau</button>
+      </div>
+      <div class="sub" id="ech-msg" role="status"></div>
+    </section>
+
+    <section class="carte" id="c2" aria-labelledby="t2">
+      <div class="code">02 · Poursuivre le cours</div>
+      <h3 id="t2">Reprendre où on s'est arrêté</h3>
+      <div class="arret" id="arret"></div>
+      <div class="ligne">
+        <a class="bouton primaire" id="reprendre" href="#">Reprendre ici</a>
+        <button id="ailleurs" type="button" aria-expanded="false" aria-controls="apercu">Choisir un autre endroit</button>
+      </div>
+      <div class="sub" id="derniere"></div>
+    </section>
+
+    <section class="carte" id="c3" aria-labelledby="t3">
+      <div class="code">03 · Journal de classe</div>
+      <h3 id="t3">Entrée de la séance</h3>
+      <div class="sub" id="jdc-sub">Calculé d'après les marques ✓ de la séance du jour.</div>
+      <textarea id="jdc" rows="4" aria-label="Entrée du journal de classe"></textarea>
+      <div class="ligne"><button class="petit" id="jdc-regen" type="button">↻ Régénérer</button><span class="ressort"></span><button class="primaire" id="jdc-copier" type="button">Copier le journal</button></div>
+    </section>
+
+    <section class="carte" id="c4" aria-labelledby="t4">
+      <div class="code">04 · Devoirs <span class="chip acc">champ séparé</span></div>
+      <h3 id="t4">À faire à la maison</h3>
+      <div class="sub" id="dev-sub"></div>
+      <textarea id="dev" rows="3" aria-label="Devoirs"></textarea>
+      <div class="ligne"><button class="petit" id="dev-regen" type="button">↻ Régénérer</button><button class="petit" id="dev-chapitre" type="button" hidden></button><span class="ressort"></span><button class="primaire" id="dev-copier" type="button">Copier les devoirs</button></div>
+    </section>
+
+    <section class="carte large" id="c5" aria-labelledby="t5">
+      <div class="code">05 · Interros planifiées</div>
+      <h3 id="t5" class="cache">Interros planifiées</h3>
+      <div id="interros"></div>
+      <div class="sub">Rappels seulement : les documents d'interro restent dans le dépôt privé.</div>
+    </section>
+
+    <section class="carte large" id="modules" aria-label="Modules à venir">
+      <div class="code">Modules</div>
+      <div id="modules-contenu" class="sub">Emplacement réservé aux prochains modules (sonomètre, lecture des cartes…).</div>
+    </section>
+  </div>
+
+  <section class="apercu" id="apercu" aria-label="Choisir un point d'arrêt" hidden>
+    <h2 class="sec">Fixer le point d'arrêt</h2>
+    <p class="sub" id="apercu-sub"></p>
+    <div id="apercu-liste"></div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/outils.js"></script>
+<script src="js/config.js"></script>
+<script src="js/horaire.js"></script>
+<script src="js/ev.js"></script>
+<script src="js/indexcours.js"></script>
+<script src="js/tirage.js"></script>
+<script src="js/journal.js"></script>
+<script src="js/etat.js"></script>
+<script src="js/donnees.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

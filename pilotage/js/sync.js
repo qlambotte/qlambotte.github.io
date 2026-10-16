@@ -158,11 +158,24 @@
         return Erreur("limite", "Limite de requêtes GitHub atteinte : nouvel essai automatique dans " + Math.max(Math.ceil(ms / 60000), 1) + " min.",
           { status: s, transitoire: true, reprise: ms });
       }
+      // 403 sans réponse JSON de GitHub : c'est un filtre (proxy, pare-feu de l'école), pas le jeton
+      if (s === 403 && !reponseGitHub(res)) return Erreur("filtre", "Accès à GitHub bloqué par le réseau (filtre ou pare-feu de l'école) : la file d'attente est conservée, nouvel essai automatique.", { status: s, transitoire: true });
       if (s === 403) return Erreur("portee", "Jeton refusé : droits insuffisants (il faut « Contents : lecture et écriture » sur ce seul dépôt)." + (msgGH ? " [" + msgGH + "]" : ""), { status: s });
       if (s === 404) return Erreur("introuvable", "Dépôt introuvable : vérifie son nom, ou le jeton n'a pas accès à ce dépôt.", { status: s });
       if (s === 409 || s === 422) return Erreur("conflit", "Conflit d'écriture dans le dépôt" + (msgGH ? " (" + msgGH + ")" : "") + " : nouvel essai automatique.", { status: s, transitoire: true });
       if (s >= 500) return Erreur("serveur", "GitHub est indisponible (HTTP " + s + ") : nouvel essai automatique.", { status: s, transitoire: true });
       return Erreur("http", "Réponse inattendue de GitHub (HTTP " + s + ")" + (msgGH ? " : " + msgGH : "") + (contexte ? " [" + contexte + "]" : ""), { status: s });
+    }
+    // La réponse vient-elle de l'API GitHub (et pas d'un portail Wi-Fi ou d'un filtre) ?
+    function reponseGitHub(res) {
+      if (res.headers("x-github-request-id")) return true;
+      var ct = String(res.headers("content-type") || "");
+      if (/json/i.test(ct)) { try { JSON.parse(res.texte || ""); return true; } catch (e) { return false; } }
+      return false;
+    }
+    function json(res, contexte) {                               // JSON d'une réponse 2xx, sinon erreur transitoire lisible
+      try { return JSON.parse(res.texte); }
+      catch (e) { throw Erreur("filtre", "Réponse illisible (portail Wi-Fi ou filtre de l'école ?)" + (contexte ? " [" + contexte + "]" : "") + " : nouvel essai automatique.", { transitoire: true }); }
     }
     // appel(methode, chemin, { corps, accept, etag, tolere:[statuts], jeton }) → { status, headers(nom), texte }
     async function appel(methode, chemin, o) {
@@ -310,7 +323,7 @@
         if (dep.status === 404) throw traduire(dep);
         throw Erreur("introuvable", "Branche « " + e.branche + " » introuvable dans le dépôt.", { status: 404 });
       }
-      var arb = JSON.parse(arbre.texte);
+      var arb = json(arbre, "liste des lots");
       bilan.tronque = !!arb.truncated;
       var fichiers = (arb.tree || []).filter(function (t) { return t.type === "blob" && RE_LOT.test(t.path); });
       bilan.lots = fichiers.length;
@@ -368,7 +381,7 @@
       if (!e.depot) throw Erreur("config", "Dépôt non configuré.");
       var r = await appel("GET", "/repos/" + e.depot + "/contents/" + CHEMIN_CONFIG + "?ref=" + encodeURIComponent(e.branche), { tolere: [404] });
       if (r.status === 404) return { texte: null, sha: null, change: false };
-      var j = JSON.parse(r.texte), texte = deB64(j.content || "");
+      var j = json(r, "configuration"), texte = deB64(j.content || "");
       var change = j.sha !== e.configSha;
       e.configSha = j.sha; sauverEtat(e);
       ecrire(CLE_CONFIG, texte);
@@ -380,15 +393,30 @@
       try { JSON.parse(texte); } catch (err) { throw Erreur("config", "La configuration n'est pas un JSON valide : rien n'est envoyé."); }
       var ex = await appel("GET", "/repos/" + e.depot + "/contents/" + CHEMIN_CONFIG + "?ref=" + encodeURIComponent(e.branche), { tolere: [404] });
       var corps = { message: "Configuration du pilotage", content: versB64(texte), branch: e.branche };
-      if (ex.status === 200) corps.sha = JSON.parse(ex.texte).sha;
+      if (ex.status === 200) corps.sha = json(ex, "configuration").sha;
       var r = await appel("PUT", "/repos/" + e.depot + "/contents/" + CHEMIN_CONFIG, { corps: corps });
-      var sha = JSON.parse(r.texte).content.sha;
+      var sha = json(r, "configuration").content.sha;
       e = chargerEtat(); e.configSha = sha; sauverEtat(e); ecrire(CLE_CONFIG, texte);
       return { sha: sha };
     }
 
+    /* ---------- lecture d'un fichier du dépôt (banques de classe : banques/<UAA>/classe.json) ---------- */
+    // → texte du fichier ; rejette (SyncErreur) s'il est absent, si le jeton manque ou si le réseau est coupé.
+    // Lecture seule, hors file d'attente : n'attend pas une synchronisation en cours.
+    async function lireFichierInterne(chemin) {
+      var e = chargerEtat();
+      if (!e.depot) throw Erreur("config", "Dépôt non configuré.");
+      if (!/^[A-Za-z0-9_.\/-]+$/.test(chemin) || chemin.indexOf("..") >= 0) throw Erreur("config", "Chemin invalide : " + chemin);
+      var r = await appel("GET", "/repos/" + e.depot + "/contents/" + encChemin(chemin) + "?ref=" + encodeURIComponent(e.branche),
+        { accept: "application/vnd.github.raw+json", tolere: [404] });
+      if (r.status === 404) throw Erreur("absent", "« " + chemin + " » n'existe pas dans le dépôt.", { status: 404 });
+      return r.texte;
+    }
+
     /* ---------- pilotage des opérations : erreurs, reprises, état ---------- */
     function noter(err) {
+      // une exception inattendue (pas une SyncErreur) n'est pas une erreur de configuration : on réessaie
+      if (!err || err.name !== "SyncErreur") err = Erreur("inconnue", "Erreur inattendue : " + (err && err.message ? err.message : String(err)) + " (nouvel essai automatique).", { transitoire: true });
       erreur = { code: err.code || "inconnue", message: cacher(err.message), quand: maintenant(), transitoire: !!err.transitoire };
       if (err.code === "reseau") { /* hors ligne : ce n'est pas une panne à afficher en rouge */ }
       if (err.transitoire) {
@@ -435,7 +463,7 @@
           if (!tok) throw Erreur("jeton", "Aucun jeton à tester.");
           if (/^gh[pousr]_/.test(tok)) { etape(false, "Jeton « classique » refusé : il donnerait accès à tous tes dépôts."); return { ok: false, etapes: etapes, erreur: "Jeton classique : crée un jeton fine-grained." }; }
           var r = await appel("GET", "/repos/" + depot, { jeton: tok });
-          var d = JSON.parse(r.texte);
+          var d = json(r, "dépôt");
           etape(true, "Dépôt « " + (d.full_name || depot) + " » accessible.");
           if (r.headers("x-oauth-scopes") !== null && r.headers("x-oauth-scopes") !== undefined) {
             etape(false, "Jeton « classique » (portées : " + (r.headers("x-oauth-scopes") || "aucune") + ") : refusé.");
@@ -446,7 +474,7 @@
           if (!etape(perm.push === true, perm.push === true ? "Droit d'écriture sur le contenu : oui." : "Pas de droit d'écriture : le jeton doit avoir « Contents : lecture et écriture ».")) return { ok: false, etapes: etapes, erreur: "Écriture refusée." };
           var u = await appel("GET", "/user/repos?per_page=5", { jeton: tok, tolere: [403] });
           if (u.status === 200) {
-            var liste = JSON.parse(u.texte);
+            var liste = json(u, "dépôts");
             if (!etape(liste.length === 1 && liste[0].full_name === d.full_name, liste.length === 1 && liste[0].full_name === d.full_name ? "Le jeton ne donne accès qu'à ce dépôt." : "Le jeton donne accès à d'autres dépôts : crée un jeton limité à « suivi-classes » seulement."))
               return { ok: false, etapes: etapes, erreur: "Jeton trop large." };
           } else etape(true, "Portée : liste des dépôts non vérifiable avec ce jeton (acceptable).");
@@ -523,6 +551,14 @@
       },
       configDepot: function (o) { return operation(function () { return configDepotInterne(o); }); },
       configLocale: function () { return lire(CLE_CONFIG); },
+      // Lit un fichier du dépôt privé (banque de classe…) ; rejette si indisponible. Ne touche pas à l'état affiché.
+      lireFichier: function (chemin) {
+        if (!configure()) return Promise.reject(Erreur("config", "Synchronisation non configurée sur cet appareil."));
+        if (!enLigne()) return Promise.reject(Erreur("reseau", "Hors ligne.", { transitoire: true }));
+        return lireFichierInterne(chemin);
+      },
+      // La couche prof liée (ou null) : la page de pilotage vérifie qu'elle est assez récente (P5).
+      couche: function () { return P; },
       publierConfig: function (texte) { return operation(function () { return publierConfigInterne(texte); }); },
       finSeance: function () { return api.synchroniser(); },
 

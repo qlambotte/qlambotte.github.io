@@ -14,11 +14,18 @@
     return a.t - b.t || (da < db ? -1 : da > db ? 1 : 0) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
   }
   // { élément: { t, jour } } des éléments « vus » ; si `avant` (ms) : état reconstitué à cet instant.
+  // Un « annule » qui porte `ref` annule ce « vu » seulement (la marque d'une séance précédente réapparaît) ;
+  // sans `ref` (ancien format), il retire l'élément. Même règle que prof.js › derniers.
   function etat(ev, classe, fuseau, avant) {
-    var dernier = {}, out = {};
+    var dernier = {}, out = {}, annules = {};
+    (ev || []).forEach(function (e) {
+      if (e && e.c === classe && e.a === "annule" && e.ref && (avant === undefined || e.t < avant)) annules[e.ref] = 1;
+    });
     (ev || []).forEach(function (e) {
       if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule")) return;
       if (avant !== undefined && !(e.t < avant)) return;
+      if (e.a === "annule" && e.ref) return;
+      if (e.a === "vu" && annules[e.id]) return;
       if (!dernier[e.el] || cmpEv(e, dernier[e.el]) > 0) dernier[e.el] = e;
     });
     Object.keys(dernier).forEach(function (el) {
@@ -27,14 +34,23 @@
     return out;
   }
   function dansCours(id, uaa) { return !uaa || id.indexOf(uaa + ".") === 0; }
-  function dernier(etatObj, uaa, jourMax) {            // { el, t } | null ; jourMax : exclu
+  // Point d'arrêt : l'élément vu le plus AVANCÉ dans le cours si `pos` ({ id: rang dans index.json }) est donné
+  // (revoir un élément d'un chapitre précédent ne fait pas reculer), sinon le plus récent. jourMax : exclu.
+  function dernier(etatObj, uaa, jourMax, pos) {        // { el, t, jour } | null
     var best = null;
     Object.keys(etatObj).forEach(function (el) {
       if (!dansCours(el, uaa)) return;
       if (jourMax && !(etatObj[el].jour < jourMax)) return;
-      if (!best || etatObj[el].t >= best.t) best = { el: el, t: etatObj[el].t, jour: etatObj[el].jour };
+      var p = pos ? (pos[el] === undefined ? -1 : pos[el]) : 0;
+      if (!best || p > best.p || (p === best.p && etatObj[el].t >= best.t)) best = { el: el, t: etatObj[el].t, jour: etatObj[el].jour, p: p };
     });
-    return best;
+    return best ? { el: best.el, t: best.t, jour: best.jour } : null;
+  }
+  // Élément le plus avancé d'une liste d'ids (ordre du cours) ; sans pos : le dernier de la liste.
+  function plusAvance(ids, pos) {
+    if (!ids.length) return null;
+    if (!pos) return ids[ids.length - 1];
+    return ids.reduce(function (a, b) { return (pos[b] === undefined ? -1 : pos[b]) >= (pos[a] === undefined ? -1 : pos[a]) ? b : a; });
   }
   function seance(etatObj, jour, uaa) {                // ids vus ce jour-là, dans l'ordre du marquage
     return Object.keys(etatObj).filter(function (el) { return etatObj[el].jour === jour && dansCours(el, uaa); })
@@ -98,7 +114,7 @@
     });
     return s;
   }
-  return { cmpEv: cmpEv, etat: etat, dansCours: dansCours, dernier: dernier, seance: seance, jours: jours, uaaDe: uaaDe,
+  return { cmpEv: cmpEv, etat: etat, dansCours: dansCours, dernier: dernier, plusAvance: plusAvance, seance: seance, jours: jours, uaaDe: uaaDe,
            uaasVues: uaasVues, echauffements: echauffements, poses: poses, aReprendre: aReprendre,
            grainesUtilisees: grainesUtilisees };
 });

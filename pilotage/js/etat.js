@@ -28,6 +28,9 @@
       fixerClasse: function (c) { if (P) P.fixerClasse(c); else if (stockage) { c ? stockage.setItem(CLE_CLASSE, c) : stockage.removeItem(CLE_CLASSE); } },
       definirClasses: function (liste) { return P && P.definirClasses ? P.definirClasses(liste) : false; },
       marquer: function (id, classe) { return P ? P.marquer(id, classe) : false; },
+      annuler: function (id, classe) { return P && P.annuler ? P.annuler(id, classe) : false; },
+      // La couche prof du cours est-elle assez récente (P5 : synchronisation, annulation ciblée, banque privée) ?
+      coucheAJour: function () { return !P || (Array.isArray(P.capacites) && P.capacites.indexOf("banque-privee") >= 0); },
       abonner: function (g) { return P ? P.abonner(g) : function () {}; },
       exporter: function () { return P && P.exporter ? P.exporter() : { format: "typweb.prof.v1", exporte: new Date().toISOString(), v: 2, ev: f.evenements() }; },
       importer: function (x) { return P && P.importer ? P.importer(x) : { ok: false, erreur: "couche prof indisponible : import impossible" }; },
