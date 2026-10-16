@@ -4,7 +4,7 @@
     "href": "umons.html",
     "title": "Quentin Lambotte — mathématiques",
     "section": "",
-    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\n\n\n\n\n\n\n\nCoursà l'UMONSBac 1 en pharmacie, sciences biomédicales et biologie (Faculté de Médecine, Pharmacie et Sciences biomédicales et Faculté des Sciences).\n\nIMSV · Bac 1Introduction mathématique aux sciences de la vieExercices corrigés avec coups de pouce, et slides des séancesExercicesSlides\n\nMise à jour : 12/10/2026"
+    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\n\n\n\n\n\n\n\nCoursà l'UMONSBac 1 en pharmacie, sciences biomédicales et biologie (Faculté de Médecine, Pharmacie et Sciences biomédicales et Faculté des Sciences).\n\nIMSV · Bac 1Introduction mathématique aux sciences de la vieExercices corrigés avec coups de pouce, et slides des séancesExercicesSlides\n\nMise à jour : 16/10/2026"
   },
   {
     "objectID": "help/index.html",
@@ -28,50 +28,22 @@
     "text": "Contact\nPar la plateforme de l’école."
   },
   {
-    "objectID": "pilotage/RAPPORT-P4.html",
-    "href": "pilotage/RAPPORT-P4.html",
-    "title": "Rapport de validation P4 — page de pilotage de classe",
-    "section": "",
-    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027"
-  },
-  {
-    "objectID": "pilotage/RAPPORT-P4.html#résultat",
-    "href": "pilotage/RAPPORT-P4.html#résultat",
-    "title": "Rapport de validation P4 — page de pilotage de classe",
-    "section": "Résultat",
-    "text": "Résultat\n\n\n\n\n\n\n\nContrôle\nRésultat\n\n\n\n\nTests unitaires (node --test tests/unit.test.js)\n38 / 38\n\n\nTests navigateur (python3 -m unittest tests/test_pilotage.py, Chromium, vraies prof.js et vote*.js patchées)\n39 / 39\n\n\nCaptures tablette 1180×820 et portrait 820×1180\ncaptures/ : créneau / hors créneau × avec / sans point d’arrêt, aperçu « autre endroit », 6TTi\n\n\nCours utilisé\nLimites (5UAA3), classe simulée 5TTy ; 6TTi avec 6UAA4 (données de test)\n\n\n\nCouvert : détection pour chacun des 4 créneaux aux bornes (−16 / −15 / début / fin / +10 / +11 min), hors créneau, week-end, congé (jour et période), passage à l’heure d’hiver (26/10/2026), fuseau indépendant de la machine ; tirage reproductible (graine) pour rien de vu, début de chapitre, après plusieurs séances, « à reprendre » (≥ 3× plus fréquent), ↻, alternance de l’exercice, niveau 5e/6e, banque pauvre ; journal (3 lignes, pluriels, aucun échauffement, aucune marque, annulation, revisite, isolation classe/cours) ; devoirs (exercices dans les sections, exercices groupés en fin de chapitre, format réglable) ; copie du journal et des devoirs séparées (presse-papiers) ; brouillons persistants ; interros (compte à rebours, passées et autres classes exclues) ; hors ligne (service worker, puis sans service worker avec copies Cache API/localStorage, puis donnée jamais consultée) ; export/import (restauration, fusion, aucun doublon, fichiers invalides, événements mal formés, uniquement des champs du schéma) ; configuration invalide (messages) ; clavier (Tab atteint les actions) ; texte ≥ 16 px, aucun gris de texte clair ; ajouts à prof.js/vote.js ; classes et effectifs de la page prioritaires sur prof-config.json du site (qui garde ses anciennes classes sans conséquence)."
-  },
-  {
-    "objectID": "pilotage/RAPPORT-P4.html#écarts-et-points-non-vérifiés-à-lire",
-    "href": "pilotage/RAPPORT-P4.html#écarts-et-points-non-vérifiés-à-lire",
-    "title": "Rapport de validation P4 — page de pilotage de classe",
-    "section": "Écarts et points non vérifiés (à lire)",
-    "text": "Écarts et points non vérifiés (à lire)\n\nDonnées : fixtures, pas le vrai site. Aucun site Limites construit ici (typst et quarto absents). La structure du vrai index.json (189 éléments) a été lue par résumé : 4 chapitres, 44 exercices, 18 maison, exercices regroupés en fin de chapitre 2 à 4 ; les fixtures la reproduisent. Les titres d’encadrés et la banque de classe (14 QCM, dont 8 d’échauffement) sont inventés. La vraie banque de Limites compte 8 QCM (rapport P3) : si aucun n’a usage: echauffement, la carte Échauffement sera vide (message explicite) jusqu’à P6.\nDevoirs et exercices regroupés. Dans les chapitres 2 à 4 de Limites, les exercices sont dans une section « Exercices » finale, donc jamais « dans la matière vue » : le champ Devoirs reste vide et un bouton propose les exercices maison du chapitre. Une règle plus fine demanderait un lien exercice → section de cours (champ à ajouter côté P0). À décider.\nTitres d’exercices. index.json ne donne que « Exercice 2.1 » : format par défaut Exercice {num} (le « :  » n’apparaît que si un titre descriptif existe).\nFormules. Les énoncés de la carte Échauffement sont un aperçu en texte (MathJax non chargé sur cette page) ; l’écran de vote, lui, compose les formules comme en P3.\nNon exécuté : typweb portail (le patch de moteur/portail.py est vérifié par compilation et par un test isolé de la liste de ressources, pas de bout en bout) ; la publication Quarto de pilotage/ (resources:) ; tout test sur une vraie tablette (tactile, plein écran, écran allumé) ; le service worker sur GitHub Pages (HTTPS, portée /pilotage/).\nReconstruction des cours. Nécessaire une seule fois pour embarquer le prof.js/vote.js à jour (4 fonctions ajoutées), pas à chaque changement de classe. Avant cette reconstruction, la page charge l’ancien prof.js du site : definirClasses manque et l’écriture/ l’import sont inactifs.\nAucun commit. Cette session n’a pas de shell sur ta machine : fichiers déposés dans tes dossiers, commits à faire (messages dans la réponse).\nLes effectifs de config.json (20) sont provisoires. 6TTi n’a pas de cours configuré (adresse du site de 6e inconnue).\nLes congés et interros de config.json sont vides (rien d’inventé)."
-  },
-  {
-    "objectID": "pilotage/RAPPORT-P4.html#fichiers-modifiés-hors-pilotage",
-    "href": "pilotage/RAPPORT-P4.html#fichiers-modifiés-hors-pilotage",
-    "title": "Rapport de validation P4 — page de pilotage de classe",
-    "section": "Fichiers modifiés hors pilotage/",
-    "text": "Fichiers modifiés hors pilotage/\ntypweb/site/js/prof.js (exporter, importer, definirClasses), typweb/site/js/vote.js (vote.ajouterBanque), typweb/doc/couche-prof.md, typweb/moteur/portail.py ([pilotage]), portail/portail.toml ([pilotage])."
-  },
-  {
-    "objectID": "preview/index.html",
-    "href": "preview/index.html",
+    "objectID": "publier/index.html",
+    "href": "publier/index.html",
     "title": "Quentin Lambotte",
     "section": "",
     "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\nProfesseur de mathématiques, Institut des Ursulines, Mons."
   },
   {
-    "objectID": "preview/index.html#mes-cours",
-    "href": "preview/index.html#mes-cours",
+    "objectID": "publier/index.html#mes-cours",
+    "href": "publier/index.html#mes-cours",
     "title": "Quentin Lambotte",
     "section": "Mes cours",
     "text": "Mes cours\n\n(aucun cours trouvé)"
   },
   {
-    "objectID": "preview/index.html#contact",
-    "href": "preview/index.html#contact",
+    "objectID": "publier/index.html#contact",
+    "href": "publier/index.html#contact",
     "title": "Quentin Lambotte",
     "section": "Contact",
     "text": "Contact\nPar la plateforme de l’école."
@@ -98,22 +70,22 @@
     "text": "Contact\n\nUrsulines : adresse affichée par le navigateur\nUMONS : adresse affichée par le navigateur"
   },
   {
-    "objectID": "publier/index.html",
-    "href": "publier/index.html",
+    "objectID": "preview/index.html",
+    "href": "preview/index.html",
     "title": "Quentin Lambotte",
     "section": "",
     "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\nProfesseur de mathématiques, Institut des Ursulines, Mons."
   },
   {
-    "objectID": "publier/index.html#mes-cours",
-    "href": "publier/index.html#mes-cours",
+    "objectID": "preview/index.html#mes-cours",
+    "href": "preview/index.html#mes-cours",
     "title": "Quentin Lambotte",
     "section": "Mes cours",
     "text": "Mes cours\n\n(aucun cours trouvé)"
   },
   {
-    "objectID": "publier/index.html#contact",
-    "href": "publier/index.html#contact",
+    "objectID": "preview/index.html#contact",
+    "href": "preview/index.html#contact",
     "title": "Quentin Lambotte",
     "section": "Contact",
     "text": "Contact\nPar la plateforme de l’école."
@@ -123,13 +95,13 @@
     "href": "5e.html",
     "title": "Quentin Lambotte — mathématiques",
     "section": "",
-    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\n\n\n\n\n\n\n\nCoursde 5e GT/TTPour chaque chapitre : le cours en ligne avec ses figures interactives et ses coups de pouce, les notes en PDF et une autoévaluation.\n\n5UAA1Statistique à deux variablesNuages de points, ajustement linéaire, corrélationLe coursPDF élève\n5UAA2Les suitesSuites arithmétiques et géométriques, convergenceLe coursPDF élèveCorrigéS'autoévaluer\n5UAA3Limites et asymptotesLimites, points creux, asymptotesLe coursPDF élèveCorrigéS'autoévaluer\n5UAA4DérivéesNombre dérivé, tangente, étude de fonctionsEn préparation\n5UAA5Fonctions trigonométriquesCercle trigonométrique, sinus et cosinus, périodicitéLe coursPDF élèveCorrigéExercices supplémentaires — chapitre 1Exercices supplémentaires — chapitre 2Exercices supplémentaires — chapitre 3Exercices supplémentaires — chapitre 4Exercices supplémentaires — chapitre 5Exercices supplémentaires — module dérivéesS'autoévaluer\n\nMise à jour : 12/10/2026"
+    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\n\n\n\n\n\n\n\nCoursde 5e GT/TTPour chaque chapitre : le cours en ligne avec ses figures interactives et ses coups de pouce, les notes en PDF et une autoévaluation.\n\n5UAA1Statistique à deux variablesNuages de points, ajustement linéaire, corrélationLe coursPDF élève\n5UAA2Les suitesSuites arithmétiques et géométriques, convergenceLe coursPDF élèveCorrigéS'autoévaluer\n5UAA3Limites et asymptotesLimites, points creux, asymptotesLe coursPDF élèveCorrigéS'autoévaluer\n5UAA4DérivéesNombre dérivé, tangente, étude de fonctionsEn préparation\n5UAA5Fonctions trigonométriquesCercle trigonométrique, sinus et cosinus, périodicitéLe coursPDF élèveCorrigéExercices supplémentaires — chapitre 1Exercices supplémentaires — chapitre 2Exercices supplémentaires — chapitre 3Exercices supplémentaires — chapitre 4Exercices supplémentaires — chapitre 5Exercices supplémentaires — module dérivéesS'autoévaluer\n\nMise à jour : 16/10/2026"
   },
   {
     "objectID": "6e.html",
     "href": "6e.html",
     "title": "Quentin Lambotte — mathématiques",
     "section": "",
-    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\n\n\n\n\n\n\n\nCoursde 6e GT/TTPour chaque chapitre : le cours en ligne avec ses figures interactives et ses coups de pouce, les notes en PDF et une autoévaluation.\n\n6UAA1ProbabilitésDénombrement, probabilités conditionnelles, indépendanceLe coursPDF élèveCorrigéExercices supplémentaires — chapitre 1Exercices supplémentaires — chapitre 2Exercices supplémentaires — chapitre 3CorrigéCorrigéCorrigéS'autoévaluer\n6UAA2Lois de probabilitéLoi binomiale, loi normaleEn préparation\n6UAA3IntégralesPrimitives, aires, intégrale définieEn préparation\n6UAA4Exponentielles et logarithmesCroissance exponentielle, logarithmes, échelles logarithmiquesLe coursPDF élèveCorrigéExercices supplémentaires (ch. 1)CorrigéS'autoévaluer\n6UAA5Géométrie analytique de l'espaceVecteurs, droites et plans dans l'espaceEn préparation\n\nMise à jour : 12/10/2026"
+    "text": "Quentin LambotteProfesseur de mathématiques aux Écoles de Religieuses Ursulines de MonsAdjoint pédagogique à l'UMONS (FMPB)\n  AccueilUrsulines5e GT/TT6e GT/TTUMONSBac 1 — IMSVContact\n  Année 2026–2027\n\n\n\n\n\n\n\nCoursde 6e GT/TTPour chaque chapitre : le cours en ligne avec ses figures interactives et ses coups de pouce, les notes en PDF et une autoévaluation.\n\n6UAA1ProbabilitésDénombrement, probabilités conditionnelles, indépendanceLe coursPDF élèveCorrigéExercices supplémentaires — chapitre 1Exercices supplémentaires — chapitre 2Exercices supplémentaires — chapitre 3CorrigéCorrigéCorrigéS'autoévaluer\n6UAA2Lois de probabilitéLoi binomiale, loi normaleEn préparation\n6UAA3IntégralesPrimitives, aires, intégrale définieEn préparation\n6UAA4Exponentielles et logarithmesCroissance exponentielle, logarithmes, échelles logarithmiquesLe coursPDF élèveCorrigéExercices supplémentaires (ch. 1)CorrigéS'autoévaluer\n6UAA5Géométrie analytique de l'espaceVecteurs, droites et plans dans l'espaceEn préparation\n\nMise à jour : 16/10/2026"
   }
 ]

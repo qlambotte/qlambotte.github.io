@@ -13,8 +13,12 @@
     var etatJour = E.etat(p.ev, p.classe, p.fuseau);
     var debutJour = jourVersMs(p.jour, p.fuseau);
     var etatAvant = E.etat(p.ev, p.classe, p.fuseau, debutJour);
-    var deb = E.dernier(etatAvant, p.uaa), liste = E.seance(etatJour, p.jour, p.uaa);
-    var fin = liste.length ? { el: liste[liste.length - 1], t: etatJour[liste[liste.length - 1]].t } : null;
+    var pos = p.index && p.index.pos;
+    // départ : le point le plus avancé avant la séance ; arrivée : le plus avancé vu pendant la séance
+    // (une définition revue en fin d'heure ne fait pas reculer le « à « … » »).
+    var deb = E.dernier(etatAvant, p.uaa, undefined, pos), liste = E.seance(etatJour, p.jour, p.uaa);
+    var finId = E.plusAvance(liste, pos);
+    var fin = finId ? { el: finId, t: etatJour[finId].t } : null;
     return { debut: deb, fin: fin, vusAujourdhui: liste };
   }
   // Début de la journée locale (ms) : on cherche l'instant où le jour local devient p.jour.
