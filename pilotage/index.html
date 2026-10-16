@@ -13,6 +13,7 @@
     <p class="pt-nom">Pilotage</p>
     <p class="pt-fct">Version prof</p>
     <p class="etiquettes"><span class="puce" id="hl" hidden>hors ligne</span> <span class="puce" id="modeprof">mode prof</span></p>
+    <p class="etiquettes"><button type="button" class="puce sync" id="sync-etat" aria-controls="synchro" aria-expanded="false" title="État de la sauvegarde dans le dépôt privé">Synchro…</button></p>
   </div>
   <nav class="pt-nav" aria-label="Sections de la page">
     <a href="#c1">Échauffement</a>
@@ -20,6 +21,7 @@
     <a href="#c3">Journal de classe</a>
     <a href="#c4">Devoirs</a>
     <a href="#c5">Interros</a>
+    <a href="scan.html" title="Sur le smartphone : lit les cartes de vote et affiche un QR que la tablette lit">Lire les cartes (smartphone)</a>
   </nav>
   <div class="pt-pied">
     <button class="petit" id="exporter" type="button" title="Télécharge tout le journal en un fichier JSON">Exporter l'état</button>
@@ -30,6 +32,7 @@
 
 <main>
   <div id="erreur-config" class="alerte" role="alert" hidden></div>
+  <div id="avis" class="alerte" role="status" hidden></div>
   <header id="entete">
     <h1 class="titre" id="classe-titre">–</h1>
     <p class="sous" id="classe-sous"></p>
@@ -90,6 +93,8 @@
     </section>
   </div>
 
+  <section class="synchro" id="synchro" aria-label="Synchronisation avec le dépôt privé" hidden></section>
+
   <section class="apercu" id="apercu" aria-label="Choisir un point d'arrêt" hidden>
     <h2 class="sec">Fixer le point d'arrêt</h2>
     <p class="sub" id="apercu-sub"></p>
@@ -98,6 +103,7 @@
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="js/sync.js"></script>
 <script src="js/outils.js"></script>
 <script src="js/config.js"></script>
 <script src="js/horaire.js"></script>
@@ -107,6 +113,7 @@
 <script src="js/journal.js"></script>
 <script src="js/etat.js"></script>
 <script src="js/donnees.js"></script>
+<script src="js/synchro-ui.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -71,7 +71,7 @@
   }
   function chargerCours(c) {
     if (!c) return Promise.resolve();
-    var banque = D.chargerJson(C.adresse(c, c.classe)).then(function (r) { if (r.copie) A.copies++; A.banques[c.uaa] = r.json; }, function (e) { A.notes.push("Banque de classe : " + e.message); });
+    var banque = D.chargerBanque(c, C.adresse).then(function (r) { if (r.copie) A.copies++; A.banques[c.uaa] = r.json; }, function (e) { A.notes.push("Banque de classe : " + e.message); });
     var idx = D.chargerJson(C.adresse(c, c.index)).then(function (r) { if (r.copie) A.copies++; A.indexBrut = r.json; }, function (e) { A.notes.push("Index du cours : " + e.message); });
     return Promise.all([banque, idx]).then(function () { A.index = X.creer(A.indexBrut); });
   }
@@ -81,7 +81,7 @@
     return Promise.all(vues.map(function (u) {
       var c = (cfg.cours || []).filter(function (k) { return k.uaa === u; })[0];
       if (!c || A.banques[u]) return null;
-      return D.chargerJson(C.adresse(c, c.classe)).then(function (r) { if (r.copie) A.copies++; A.banques[u] = r.json; }, function (e) { A.notes.push("Banque " + u + " : " + e.message); });
+      return D.chargerBanque(c, C.adresse).then(function (r) { if (r.copie) A.copies++; A.banques[u] = r.json; }, function (e) { A.notes.push("Banque " + u + " : " + e.message); });
     })).then(function () {
       var v = A.etat.vote();
       if (v && v.ajouterBanque) Object.keys(A.banques).forEach(function (u) { if (!A.cours || u !== A.cours.uaa) { try { v.ajouterBanque(A.banques[u]); } catch (e) {} } });
@@ -99,6 +99,9 @@
     if (p && codes.indexOf(p) >= 0) { A.code = p; A.auto = !!(cren && cren.classe === p); return; }
     if (manuel && codes.indexOf(manuel) >= 0) { A.code = manuel; A.auto = !!(cren && cren.classe === manuel); return; }
     if (cren) { A.code = cren.classe; A.auto = true; return; }
+    var bientot = H.prochaine(cfg, now);
+    if (bientot && bientot.ymd === O.jourDe(now, cfg.fuseau) &&
+        O.minutes(bientot.creneau.debut) - O.local(now, cfg.fuseau).minutes <= 60) { A.code = bientot.creneau.classe; return; }
     var memo = Pi.etat.classeMemorisee();
     if (memo && codes.indexOf(memo) >= 0) { A.code = memo; return; }
     var pro = H.prochaine(cfg, now);
@@ -126,10 +129,20 @@
     var prof = A.etat && A.etat.modeProf(), mp = $("#modeprof");
     mp.textContent = prof ? "mode prof : activé" : "mode prof : désactivé";
     mp.className = "puce " + (prof ? "on" : "alerte");
+    rendreAvis();
     var hl = !navigator.onLine || A.copies > 0;
     $("#hl").hidden = !hl;
     $("#hl").title = navigator.onLine ? "Données lues depuis la copie gardée sur cette tablette" : "Pas de réseau : la page fonctionne avec les copies locales";
     if (!cl) return;
+  }
+  function rendreAvis() {
+    var z = $("#avis"), l = A.notes.slice();
+    if (A.etat && !A.etat.coucheAJour()) l.unshift("Le cours " + (A.coursSource ? A.coursSource.titre : "") + " publie une couche prof trop ancienne " +
+      "(sans synchronisation ni banque privée) : reconstruis ce cours (typweb construire) et publie-le.");
+    if (A.etat && !A.etat.couche) l.unshift("Couche prof du cours non chargée (hors ligne à la première visite ?) : lecture seule.");
+    vider(z); z.hidden = !l.length;
+    if (!l.length) return;
+    var ul = el("ul"); l.forEach(function (t) { ul.appendChild(el("li", "", t)); }); z.appendChild(ul);
   }
   function sansCours(carteId, message) {
     var c = $(carteId); c.querySelectorAll("button, a.bouton, textarea").forEach(function (b) { if (b.tagName === "A") b.setAttribute("aria-disabled", "true"); else b.disabled = true; });
@@ -178,7 +191,9 @@
     var msg = $("#ech-msg"), vote = A.etat.vote();
     if (!A.tir.res || !A.tir.res.items.length) return;
     if (!vote) { msg.textContent = "Les écrans de vote ne sont pas chargés (couche prof indisponible ou hors ligne). Ouvre une page du cours avec une connexion, puis recharge."; return; }
-    if (vote.ajouterBanque) Object.keys(A.banques).forEach(function (u) { if (u !== A.cours.uaa) { try { vote.ajouterBanque(A.banques[u]); } catch (e) {} } });
+    // toutes les banques, y compris celle du cours : le tirage a été fait dans CES banques (plus fraîches que la
+    // copie gardée par vote.js) ; sinon une question ajoutée depuis la copie serait « introuvable ».
+    if (vote.ajouterBanque) Object.keys(A.banques).forEach(function (u) { try { vote.ajouterBanque(A.banques[u]); } catch (e) {} });
     try {
       var p = vote.start({ mode: "echauffement", items: T.versVote(A.tir.res.items), titre: "Échauffement", classe: A.code,
                            apres: function () { A.tir.res = null; A.tir.rempl = {}; rendreTout(); } });
@@ -198,7 +213,7 @@
     if (!A.cours) { zone.textContent = "Aucun cours configuré pour " + A.code + "."; lien.setAttribute("aria-disabled", "true"); lien.removeAttribute("href"); $("#ailleurs").disabled = true; return; }
     $("#ailleurs").disabled = !A.index || A.index.vide;
     lien.removeAttribute("aria-disabled");
-    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau), d = E.dernier(etat, A.cours.uaa);
+    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau), d = E.dernier(etat, A.cours.uaa, undefined, A.index && A.index.pos);
     zone.appendChild(el("b", "", A.cours.uaa + " · " + A.cours.titre)); zone.appendChild(document.createElement("br"));
     if (!d) {
       zone.appendChild(document.createTextNode("Aucun point d'arrêt : le cours n'est pas commencé avec cette classe."));
@@ -223,7 +238,7 @@
   function rendreApercu() {
     var zone = $("#apercu-liste"); vider(zone);
     if (!A.index || A.index.vide) return;
-    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau), d = E.dernier(etat, A.cours.uaa);
+    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau), d = E.dernier(etat, A.cours.uaa, undefined, A.index.pos);
     var courant = d && A.index.sectionDe(d.el);
     $("#apercu-sub").textContent = A.etat.couche ? "Touche « Point d'arrêt ici » : la classe est considérée comme arrivée à la fin de cette section (un ✓ est écrit sur son dernier élément)." : "Couche prof indisponible : lecture seule.";
     A.index.sectionsOrdonnees().forEach(function (s) {
@@ -232,7 +247,12 @@
       if (s.type === "section") {
         var b = el("button", "petit", courant && courant.id === s.id ? "Point d'arrêt actuel" : "Point d'arrêt ici"); b.type = "button"; b.disabled = !A.etat.couche;
         b.addEventListener("click", function () {
-          var cible = A.index.dernierMarquable(s.id) || s;
+          var cible = A.index.dernierMarquable(s.id) || s, pc = A.index.pos[cible.id];
+          // le point d'arrêt est l'élément vu le plus avancé : pour revenir en arrière, les marques au-delà sont retirées
+          var etatC = E.etat(A.etat.evenements(), A.code, A.config.fuseau);
+          var auDela = Object.keys(etatC).filter(function (id) { return E.dansCours(id, A.cours.uaa) && A.index.pos[id] > pc; });
+          if (auDela.length && !window.confirm("Le point d'arrêt recule : " + auDela.length + " marque(s) ✓ plus loin dans le cours seront retirées pour " + A.code + ". Continuer ?")) return;
+          auDela.forEach(function (id) { A.etat.annuler(id); });
           if (A.etat.marquer(cible.id)) toast("Point d'arrêt : " + s.titre); else toast("Écriture impossible (journal en lecture seule ?)");
         });
         ligne.appendChild(b);
@@ -332,15 +352,20 @@
     setInterval(function () {                                         // le créneau peut changer pendant que la page reste ouverte
       var c = H.detecter(A.config, maintenant());
       if (new URLSearchParams(location.search).get("maintenant")) return;
+      if (A.creneau && !c && window.typwebSync && window.typwebSync.estConfigure()) window.typwebSync.finSeance();   // fin de séance : sauvegarde (P5)
       var manuel = stock(function (s) { return sessionStorage.getItem(CLE_MANUEL); });
-      if (!manuel && c && c.classe !== A.code) location.reload();
+      var v = A.etat && A.etat.vote();
+      if (!manuel && c && c.classe !== A.code) {
+        if (v && v.ouvert && v.ouvert()) return;                     // écran de vote ouvert : on attend sa fermeture
+        location.reload();
+      }
       A.creneau = c; rendreEntete();
     }, 60000);
   }
 
   function afficherErreurs(erreurs) {
     var z = $("#erreur-config"); vider(z); z.hidden = false;
-    z.appendChild(el("b", "", "config.json : " + erreurs.length + " problème(s) à corriger"));
+    z.appendChild(el("b", "", "Configuration : " + erreurs.length + " problème(s) à corriger"));
     var ul = el("ul"); erreurs.forEach(function (e) { ul.appendChild(el("li", "", e)); }); z.appendChild(ul);
     $("#entete").hidden = true; $("#grille").hidden = true;
   }
@@ -350,7 +375,7 @@
     if ("serviceWorker" in navigator && !options.sansSW) navigator.serviceWorker.register("sw.js").catch(function () {});
     return (options.source || C.sourceFichier).charger().then(function (brut) {
       var v = C.valider(brut);
-      if (!v.ok) { afficherErreurs(v.erreurs); return; }
+      if (!v.ok) { afficherErreurs(v.erreurs); if (Pi.synchro) Pi.synchro.init({ sync: window.typwebSync, toast: toast, source: C.sourceFichier, seul: true }); return; }
       A.config = v.config; choisirClasse();
       A.cours = C.coursEnCours(classeCfg());
       // cours dont on charge la couche prof : celui de la classe, sinon le premier cours connu (journal, export)
@@ -362,9 +387,11 @@
         return chargerBanquesVues();
       }).then(function () {
         brancher(); rendreTout(); A.pret = true; window.PilotageEtat = A;
+        if (Pi.synchro) Pi.synchro.init({ etat: A.etat, sync: window.typwebSync, toast: toast, source: C.sourceFichier,
+          rendre: function () { A.tir.res = null; rendreTout(); }, jour: jourCourant });
         document.documentElement.setAttribute("data-pret", "1");
       });
-    }, function (e) { afficherErreurs(["Impossible de lire config.json : " + e.message]); });
+    }, function (e) { afficherErreurs(["Impossible de lire la configuration : " + e.message]); });
   }
   Pi.app = { init: init, etat: A };
   if (!window.PILOTAGE_MANUEL) init();

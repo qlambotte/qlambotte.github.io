@@ -41,9 +41,11 @@
       else cours.forEach(function (k, j) {
         var q = p + ".cours[" + j + "]";
         if (!estObjet(k)) { err.push(q + " : un objet { uaa, titre, url, index, classe } est attendu."); return; }
-        ["uaa", "titre", "url", "index", "classe"].forEach(function (champ) {
+        ["uaa", "titre", "url", "index"].forEach(function (champ) {
           if (typeof k[champ] !== "string" || !k[champ].trim()) err.push(q + "." + champ + " : texte non vide attendu.");
         });
+        // « classe » (banque publiée avec le site) est facultatif : la banque est lue dans le dépôt privé (banques/<UAA>/)
+        if (k.classe !== undefined && (typeof k.classe !== "string" || !k.classe.trim())) err.push(q + ".classe : texte non vide attendu (ou champ absent).");
         if (typeof k.url === "string" && !/^https?:\/\/.+\/$/.test(k.url)) err.push(q + ".url : adresse complète terminée par « / » attendue (exemple : https://qlambotte.github.io/limites-cours/).");
         if (typeof k.uaa === "string") { if (uaas.indexOf(k.uaa) >= 0) err.push(q + ".uaa : « " + k.uaa + " » apparaît deux fois."); uaas.push(k.uaa); }
       });
@@ -107,11 +109,38 @@
   function adresse(cours, chemin) { return new URL(chemin, cours.url).href; }
 
   // Source par défaut : config.json à côté de la page. Une copie est gardée sur l'appareil
-  // (utile si le service worker est indisponible). P5 : remplacer par une source du dépôt privé.
+  // (utile si le service worker est indisponible).
   var CLE_COPIE = "pilotage.config.copie";
+  // P5 : si la synchronisation est configurée, la copie du dépôt privé (config/pilotage.json) l'emporte quand elle est valide
+  // (modifiable depuis le PC) ; hors ligne, la dernière copie du dépôt gardée sur l'appareil sert ; sinon config.json du site.
+  // `origine` : "depot" | "depot-copie" | "site" | "copie" ; `refus` : erreurs de la copie du dépôt si elle a été écartée.
+  function depotAvant() {
+    var S = typeof window !== "undefined" ? window.typwebSync : null;
+    if (!S || !S.estConfigure || !S.estConfigure()) return Promise.resolve(null);
+    var local = function () { var t = S.configLocale(); return t ? { texte: t, origine: "depot-copie" } : null; };
+    var i = S.infos();
+    if (!i.jeton || i.verrouille || (typeof navigator !== "undefined" && navigator.onLine === false)) return Promise.resolve(local());
+    var delai = new Promise(function (res) { setTimeout(function () { res(null); }, 4000); });
+    var essai = S.configDepot().then(function (r) { return r && r.texte ? { texte: r.texte, origine: "depot" } : null; }, function () { return null; });
+    return Promise.race([essai, delai]).then(function (r) { return r || local(); });
+  }
   var sourceFichier = {
-    nom: "config.json",
+    nom: "config.json", origine: "site", refus: null,
     charger: function () {
+      return depotAvant().then(function (d) {
+        sourceFichier.refus = null;
+        if (d) {
+          var v = valider(d.texte);
+          if (v.ok) { try { localStorage.setItem(CLE_COPIE, d.texte); } catch (e) {} sourceFichier.origine = d.origine; return d.texte; }
+          sourceFichier.refus = v.erreurs;                      // copie du dépôt invalide : on garde la configuration du site
+        }
+        return chargerSite();
+      });
+    }
+  };
+  function chargerSite() {
+    sourceFichier.origine = "site";
+    return (function () {
       return fetch("config.json", { cache: "no-cache" }).then(function (r) {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.text();
@@ -121,10 +150,10 @@
       }, function (e) {
         var copie = null;
         try { copie = localStorage.getItem(CLE_COPIE); } catch (e2) {}
-        if (copie) return copie;
+        if (copie) { sourceFichier.origine = "copie"; return copie; }
         throw e;
       });
-    }
-  };
+    })();
+  }
   return { valider: valider, classe: classe, coursEnCours: coursEnCours, adresse: adresse, sourceFichier: sourceFichier };
 });

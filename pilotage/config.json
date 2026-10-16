@@ -1,25 +1,34 @@
 {
   "version": 1,
   "fuseau": "Europe/Brussels",
+  "_note": "Configuration PUBLIQUE minimale. L'horaire, les locaux, les congés et les interros sont dans le dépôt privé (suivi-classes/config/pilotage.json), lu avec le jeton de synchronisation.",
   "classes": [
     {
-      "code": "5TTy", "niveau": "5e", "effectif": 20, "coursEnCours": "5UAA3",
+      "code": "5TTy",
+      "niveau": "5e",
+      "effectif": 20,
+      "coursEnCours": "5UAA3",
       "cours": [
-        { "uaa": "5UAA3", "titre": "Limites et asymptotes", "url": "https://qlambotte.github.io/limites-cours/", "index": "index.json", "classe": "prof-classe/classe.json" }
+        {
+          "uaa": "5UAA3",
+          "titre": "Limites et asymptotes",
+          "url": "https://qlambotte.github.io/limites-cours/",
+          "index": "index.json"
+        }
       ]
     },
     {
-      "code": "6TTi", "niveau": "6e", "effectif": 20, "coursEnCours": null,
+      "code": "6TTi",
+      "niveau": "6e",
+      "effectif": 20,
+      "coursEnCours": null,
       "cours": []
     }
   ],
-  "creneaux": [
-    { "jour": "lundi",    "debut": "12:40", "fin": "14:20", "classe": "6TTi", "local": "1213" },
-    { "jour": "jeudi",    "debut": "10:10", "fin": "11:50", "classe": "5TTy", "local": "2407" },
-    { "jour": "vendredi", "debut": "11:00", "fin": "12:40", "classe": "6TTi", "local": "1211" },
-    { "jour": "vendredi", "debut": "14:20", "fin": "16:00", "classe": "5TTy", "local": "1204" }
-  ],
+  "creneaux": [],
   "conges": [],
   "interros": [],
-  "format": { "devoirs": "Exercice {num}[ : {titre}]" }
+  "format": {
+    "devoirs": "Exercice {num}[ : {titre}]"
+  }
 }
