@@ -136,8 +136,10 @@ limité à ce dépôt). **Rien n'est actif tant qu'aucun jeton n'est configuré 
 
 Page pour le **smartphone** (`<compte>.github.io/pilotage/scan.html`, lien « Lire les cartes » dans la barre) : caméra,
 détection ArUco (`js/lecteur-aruco.js`), une carte est retenue quand la même lettre est lue sur trois images de suite.
-« Afficher le QR » : QR des votes (`js/qr-code.js`, `js/qr-votes.js`) et le même code en clair dessous. Sur la tablette :
-écran de vote → « Par carte » → « Lire le QR » (ou « Taper un code »). Rien n'est enregistré ni envoyé ; aucun nom.
+Champ « Élèves présents » (gardé pour la journée) : le bilan affiche « n cartes lues sur P présents ».
+« Afficher le QR » : QR des votes et des présents (`js/qr-code.js`, `js/qr-votes.js`, format `TWV2`) et le même code en clair
+dessous (`P22 3A 12C`). Sur la tablette : écran de vote → « Par carte » → « Lire le QR » ; échauffement → zone « Cartes » →
+« Lire le QR » (ou « Taper un code »). Rien n'est envoyé ; aucun nom.
 `js/lecteur-aruco.js`, `js/qr-code.js`, `js/qr-votes.js` et `js/sync.js` sont des copies de typweb (identiques :
 `typweb/outils/verifier_copies.py`).
 

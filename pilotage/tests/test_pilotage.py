@@ -501,12 +501,21 @@ class TestLectureDesCartes(Base):
         self.assertEqual(self.page.evaluate("() => PilotageScan.lues()"), {"3": "A", "12": "C"})
         self.page.evaluate("() => PilotageScan.noter([{ id: 99, lettre: 'A' }, { id: 99, lettre: 'A' }, { id: 99, lettre: 'A' }])")  # hors des cartes 0 à 49
         self.assertEqual(self.page.evaluate("() => Object.keys(PilotageScan.lues())"), ["3", "12"])
-        self.page.evaluate("() => document.getElementById('bilan')")
+        # présents : saisis sur le smartphone, affichés avec les cartes lues, transmis dans le QR et le code
+        self.page.fill("#presents", "21"); self.page.click("#bPlus")
+        self.assertIn("2 carte(s) lue(s) sur 22 présent(s) (20 sans carte lue)", self.texte("#bilan"))
         self.page.click("#bQr")
         self.assertTrue(self.page.is_visible("#qrImg svg"))
-        self.assertEqual(self.texte("#qrCode"), "3A 12C")
+        self.assertEqual(self.texte("#qrCode"), "P22 3A 12C")
         t = self.page.evaluate("() => PilotageScan.texteQr()")
-        self.assertEqual(self.page.evaluate("(t) => QrVotes.decoder(t).cartes", t), {"3": "A", "12": "C"})
-        self.page.click("#bFermer"); self.page.click("#bRaz")
+        d = self.page.evaluate("(t) => QrVotes.decoder(t)", t)
+        self.assertEqual((d["cartes"], d["presents"]), ({"3": "A", "12": "C"}, 22))
+        self.page.click("#bFermer")
+        self.page.reload()                                                    # gardé pour la journée
+        self.page.wait_for_function("() => window.PilotageScan")
+        self.assertEqual(self.page.input_value("#presents"), "22")
+        for _ in range(3):
+            self.page.evaluate("() => PilotageScan.noter([{ id: 12, lettre: 'C' }, { id: 3, lettre: 'A' }])")
+        self.page.click("#bRaz")
         self.assertEqual(self.page.evaluate("() => PilotageScan.lues()"), {})
         self.assertTrue(self.page.is_disabled("#bQr"))
