@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Pilotage UMONS</title>
+<script src="../pilotage/js/theme.js"></script>
+<link rel="stylesheet" href="../pilotage/pilotage.css">
+<link rel="stylesheet" href="board.css">
+</head>
+<body>
+<!-- ================= vue principale ================= -->
+<div class="vue" id="vue-unif">
+  <header class="band">
+    <div class="b-outils">
+      <p class="marque">Pilotage UMONS</p>
+      <nav class="outils" aria-label="Outils">
+        <a class="ico" href="index.html"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9H4zM10 20v-6h4v6"/></svg></span><span class="il">Accueil</span></a>
+        <a class="ico" href="../pilotage/"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19"/></svg></span><span class="il">Ursulines</span></a>
+        <button class="ico" id="apparence" type="button" title="Jour, soir ou automatique"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/></svg></span><span class="il">Jour</span></button>
+        <a class="ico" id="ouvrir-reglages" href="#reglages"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span><span class="il">Réglages</span></a>
+      </nav>
+    </div>
+    <div class="b-classe">
+      <p class="date" id="sous-date">FMPB · bac 1</p>
+      <h1 class="titre" id="titre">–</h1>
+      <p class="puces" id="puces"></p>
+      <p class="prochaine" id="prochaine"></p>
+    </div>
+    <div class="b-droite">
+      <div class="temps" id="temps" hidden>
+        <svg viewBox="0 0 58 58" aria-hidden="true"><circle class="piste" cx="29" cy="29" r="24"/><circle class="arc" id="temps-arc" cx="29" cy="29" r="24" stroke-dasharray="0 151" transform="rotate(-90 29 29)"/></svg>
+        <div><div class="heure" id="heure"></div><div class="clair" id="reste"></div></div>
+      </div>
+      <div class="b-etat"><button type="button" class="pastille sync" id="sync-etat" title="Synchronisation avec le dépôt privé : ouvrir les réglages">Synchro…</button></div>
+    </div>
+  </header>
+  <div class="annonces">
+    <div id="avis" class="alerte" role="status" hidden></div>
+    <nav class="navjour" aria-label="Choisir le jour">
+      <button class="btn" id="jour-prec" type="button" aria-label="Jour précédent" title="Jour précédent">‹</button>
+      <input id="jour-date" type="date" aria-label="Date affichée">
+      <button class="btn" id="jour-suiv" type="button" aria-label="Jour suivant" title="Jour suivant">›</button>
+      <button class="btn t" id="jour-auj" type="button">Aujourd'hui</button>
+      <span class="doux" id="jour-rel"></span>
+    </nav>
+  </div>
+
+  <main class="grille m3">
+    <section class="carte" aria-labelledby="horaire-titre">
+      <div class="ent"><span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><div><h2 id="horaire-titre">Horaire du jour</h2><div class="doux" id="horaire-sub"></div></div></div>
+      <div class="tl" id="horaire"></div>
+    </section>
+
+    <div class="carte colonne">
+      <section aria-labelledby="c1">
+        <div class="ent"><span class="badge b-a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19"/></svg></span><div><h2 id="c1">Cours</h2><div class="doux">accès rapide</div></div></div>
+        <div class="rac" id="cours"></div>
+      </section>
+      <section aria-labelledby="w1">
+        <h3 class="sh" id="w1">Cette semaine</h3>
+        <div class="sem" id="semaine"></div>
+      </section>
+    </div>
+
+    <section class="carte" aria-labelledby="t1">
+      <div class="ent"><span class="badge b-ol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span><div><h2 id="t1">Tâches</h2><div class="doux" id="taches-sub"></div></div><button class="btn discret" id="taches-faites" type="button" title="Retire les tâches cochées">Effacer les faites</button></div>
+      <div class="liste" id="taches"></div>
+      <form class="ajout" id="ajout" autocomplete="off">
+        <input id="nv" type="text" maxlength="300" placeholder="Nouvelle tâche…" aria-label="Nouvelle tâche">
+        <input id="nv-date" type="date" aria-label="Échéance (facultative)">
+        <button class="btn p" type="submit">Ajouter</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- ================= vue « réglages » ================= -->
+<div class="vue" id="vue-reglages" hidden>
+  <header class="band band-r">
+    <a class="rond retour" id="fermer-reglages" href="#" aria-label="Retour au pilotage UMONS"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+    <div><p class="clair">Pilotage UMONS · sur cet appareil</p><h1 class="titre">Réglages</h1></div>
+  </header>
+  <main class="grille-r">
+    <section class="carte" aria-labelledby="r1">
+      <div class="ent"><span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><div><h2 id="r1">Horaire UMONS</h2><div class="doux">fichiers .ics exportés</div></div></div>
+      <p class="doux">Exporte ton agenda en .ics (Outlook : Fichier, Enregistrer le calendrier ; HPlanning : export iCal), puis choisis le fichier. Un nouvel import remplace l'ancien pour la même source.</p>
+      <div id="sources" class="liste"></div>
+    </section>
+    <section class="carte" aria-labelledby="r2">
+      <div class="ent"><span class="badge b-a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.6A3.3 3.3 0 0 0 7 18z"/></svg></span><div><h2 id="r2">Synchronisation</h2><div class="doux">dépôt privé, dossier unif/</div></div></div>
+      <div id="synchro" class="liste"></div>
+    </section>
+    <section class="carte" aria-labelledby="r3">
+      <div class="ent"><span class="badge b-ol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><div><h2 id="r3">Jalons et règles</h2><div class="doux">dates importantes saisies à la main</div></div></div>
+      <p class="doux">Les jalons (conseil de classe, remise de notes…) se saisissent dans le fichier <code>unif/jalons.json</code> du dépôt privé : <code>{ "jalons": [ { "date": "2026-11-06", "texte": "Conseil de classe 5TTy", "ecole": "urs" } ] }</code> (« ecole » : « urs » ou « unif »). Les événements « importants » se règlent dans <code>config.json</code> du site (mots-clés, catégories).</p>
+      <div class="doux" id="jalons-etat"></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../pilotage/js/outils.js"></script>
+<script src="../pilotage/js/horaire.js"></script>
+<script src="js/ics.js"></script>
+<script src="js/depot.js"></script>
+<script src="js/taches.js"></script>
+<script src="js/board.js"></script>
+<script src="js/unif.js"></script>
+</body>
+</html>

@@ -5,6 +5,22 @@ Page statique, ouverte sur la tablette : elle détecte la classe d'après l'hora
 et les interros planifiées. Publiée sur `qlambotte.github.io/pilotage/` (même domaine que les cours : le stockage
 local est partagé avec la couche prof). Aucune donnée d'élève : seulement des codes de classe et des identifiants d'éléments.
 
+## Présentation (charte « Ardoise et cuivre », 2026-10)
+
+- **Une page, deux vues.** Vue « classe » (par défaut) et vue « Réglages » (`…/pilotage/#reglages`) : même page, même état.
+  Le bandeau du haut porte le titre « Pilotage » et, en dessous, quatre icônes : **Réglages** (roue), **Scanner** (`scan.html`,
+  sur le smartphone), **Exporter**, **Importer**. Plus de menu latéral.
+- **Vue classe** : bandeau (date, classe, puces local · horaire · cours, anneau du temps de la séance, choix de la classe, pastille de
+  synchronisation) puis trois cartes : Échauffement (questions numérotées, rôle en couleur, bilan de la dernière fois en points de
+  couleur), Reprendre le cours (point d'arrêt, « Autre endroit » ouvre une feuille par-dessus la page, prochaines interros), Journal
+  de classe et devoirs. Sur une tablette en paysage (1180×820), **tout tient sur l'écran** ; en portrait, deux colonnes ; sur
+  smartphone, une colonne qui défile, le cours à reprendre en premier.
+- **Vue Réglages** : Synchronisation (`js/synchro-ui.js`), Clé de synchronisation (`js/cle-ui.js`), Cet appareil (`js/reglages.js` :
+  apparence, conservation des données, mode prof, export/import, classes et horaire).
+- **Apparence** : « Jour » (par défaut), « Soir » (sombre), « Automatique » (suit l'appareil) ; `js/theme.js`, choix gardé sur l'appareil.
+- **Couleurs** : l'ardoise structure et agit, le cuivre attire l'attention (temps, échéances, clé, révéler), l'olive confirme
+  (réussi, synchronisé). Textes à 4,5:1 au moins, en jour comme en soir (test `test_contraste_des_textes_jour_et_soir`).
+
 ## Installation (option A : intégrée au portail)
 
 `portail.toml` contient `[pilotage] dossier = "pilotage"`. `typweb portail` ajoute alors à `_quarto.yml` (généré) les
@@ -108,8 +124,8 @@ Sauvegarde et historique de l'état dans le dépôt privé `suivi-classes`, sans
 limité à ce dépôt). **Rien n'est actif tant qu'aucun jeton n'est configuré sur l'appareil.** Mise en place :
 `typweb/doc/mise-en-place-depot.md` ; fonctionnement détaillé : `typweb/doc/couche-prof.md` (« Synchronisation »).
 
-- **Pastille d'état** (barre latérale, toujours visible) : « Synchro : Synchronisé », « À synchroniser (n) », « Hors ligne · n en
-  attente », « Erreur : … », « Jeton verrouillé », « non configurée ». Un clic ouvre le panneau : détail (dépôt, appareil, file, lots
+- **Pastille d'état** (bandeau, toujours visible) : « Synchro : Synchronisé », « À synchroniser (n) », « Hors ligne · n en
+  attente », « Erreur : … », « Jeton verrouillé », « non configurée ». Un clic ouvre les Réglages : détail (dépôt, appareil, file, lots
   connus, dernier envoi, dernière erreur et prochain essai), « Synchroniser maintenant », « Restaurer depuis le dépôt » (fusionne tous
   les lots, avec compte rendu : événements, classes, dates), « Envoyer la configuration du site vers le dépôt ».
 - **Configuration de l'appareil** : jeton (champ masqué, jamais dans l'adresse), dépôt (`compte/suivi-classes`), nom de l'appareil
@@ -122,8 +138,43 @@ limité à ce dépôt). **Rien n'est actif tant qu'aucun jeton n'est configuré 
   (modifier l'horaire depuis le PC = éditer ce fichier dans le dépôt). Hors ligne, la dernière copie gardée sur la tablette sert.
 - **Export / import** (« Exporter l'état », « Importer ») : conservés comme dernier recours. Un import alimente la file de synchronisation
   (sans doublon).
+- **Clé de synchronisation** (navigateur qui efface ses données, Brave « effacer à la fermeture ») : Réglages → « Enregistrer la clé
+  dans un fichier… » produit `cle-pilotage-<appareil>.json` : dépôt, nom d'appareil et jeton **chiffré par une phrase secrète**
+  (PBKDF2-SHA256 250 000 tours, AES-GCM ; le dépôt sert de données associées). Le jeton n'y est jamais en clair ; la phrase n'est
+  gardée nulle part. Quand la synchronisation est inactive, la vue classe affiche « Synchronisation inactive sur ce navigateur ·
+  Charger ma clé… » : fichier, phrase, nom de l'appareil (modifiable), puis la page se reconnecte, active le mode prof, **restaure
+  l'état des classes depuis le dépôt** et synchronise. Garder la clé hors de tout dépôt et dossier publié (clé USB, Documents).
+  Le bandeau se masque (✕) ; il revient de lui-même si le navigateur efface encore tout.
+- **Conservation des données** : la page demande au navigateur un stockage persistant (`navigator.storage.persist`) dès que la
+  synchronisation est configurée ; sous Brave, Réglages › Cet appareil indique quel site ajouter aux exceptions.
 - **Fichiers** : `js/sync.js` (copie **identique** de `typweb/site/js/sync.js`, à recopier si celui-ci change : un test le vérifie),
-  `js/synchro-ui.js` (interface). `sw.js` (version `pilotage-v2`) les garde pour le hors ligne.
+  `js/synchro-ui.js` (interface), `js/cle-ui.js` (clé), `js/reglages.js` (vues et « Cet appareil »), `js/theme.js` (apparence).
+  `sw.js` (version `pilotage-v4`) les garde pour le hors ligne.
+
+## Naviguer dans le temps (jour affiché)
+
+Par défaut la page montre **aujourd'hui**. Dans le bandeau, des flèches rondes de part et d'autre de la date passent au jour
+précédent / suivant ; un clic sur la date ouvre le calendrier natif (champ date caché + `showPicker()`, repli focus/clic) ;
+les touches ← et → font de même (ignorées dans les champs de saisie, les réglages et les feuilles ouvertes). Hors aujourd'hui,
+une pastille « ↩ Aujourd'hui · il y a N j » (ou « dans N j ») ramène au jour même ; le bloc temps réel (heure, « dans X min »)
+est masqué. Le bandeau ne grandit pas : aucune barre en plus. Un bouton **Accueil** (`../board/index.html`) est en tête des outils.
+
+- **Adresse** : `…/pilotage/?jour=AAAA-MM-JJ` ; `?maintenant=` et `?classe=` sont conservés ; sans paramètre (ou si le jour
+  est celui d'aujourd'hui, ou invalide) = aujourd'hui. Sans `?classe=`, une adresse avec `?jour=` choisit la classe qui a cours ce jour-là.
+- **Jour passé** (lecture seule) : tout est « fait » ; le journal et les devoirs sont reconstitués avec la règle de `ev.js`
+  (dernier événement par élément, ordre `(t, appareil, id)`) **arrêtée à la fin de ce jour-là** (`journal.finDeJour`, paramètre
+  `jusque`) ; point d'arrêt = celui de la fin de ce jour ; échauffement = celui enregistré ce jour-là ; aucune écriture
+  (champs en lecture seule, boutons désactivés, « Reprendre ici » masqué).
+- **Jour à venir** : séance prévue (local, horaire), interros prévues (« J−n » compté depuis le jour affiché), rien de « fait »
+  (journal et devoirs vides, échauffement non tiré).
+- **Jour sans cours** : message avec les boutons vers le jour de cours précédent et suivant de la classe (congés exclus).
+- **Cas limites** : les jours sont des dates de calendrier (`AAAA-MM-JJ`) : le passage à l'heure d'hiver (dimanche 25/10/2026, jour de
+  25 h) ne saute ni ne double aucun jour, et la fin de ce jour est 25 h après son début. Une séance à cheval sur minuit est
+  coupée au jour local de chaque marque. Un lot de synchronisation arrivé en retard est fusionné dans le journal : l'affichage d'un
+  jour passé est recalculé (sauf texte modifié à la main, conservé). Si minuit passe pendant que la page est ouverte sur
+  « aujourd'hui », elle suit le nouveau jour.
+- Fichiers : `js/jour.js` (URL, écarts, pastille ; pur), `horaire.seancesDuJour` / `jourDeCours`, `journal.finDeJour`. Le format du
+  journal et `sync.js` ne sont pas touchés.
 
 ## Hors ligne
 
@@ -134,7 +185,7 @@ limité à ce dépôt). **Rien n'est actif tant qu'aucun jeton n'est configuré 
 
 ## Lecture des cartes (P7) : `scan.html`
 
-Page pour le **smartphone** (`<compte>.github.io/pilotage/scan.html`, lien « Lire les cartes » dans la barre) : caméra,
+Page pour le **smartphone** (`<compte>.github.io/pilotage/scan.html`, icône « Scanner » du bandeau) : caméra,
 détection ArUco (`js/lecteur-aruco.js`), une carte est retenue quand la même lettre est lue sur trois images de suite.
 Champ « Élèves présents » (gardé pour la journée) : le bilan affiche « n cartes lues sur P présents ».
 « Afficher le QR » : QR des votes et des présents (`js/qr-code.js`, `js/qr-votes.js`, format `TWV2`) et le même code en clair
@@ -150,20 +201,21 @@ pas le dernier touché. « Point d'arrêt ici » sur une section antérieure ret
 
 ## Avis
 
-Sous l'en-tête : les données indisponibles (banque, index) et une couche prof de cours trop ancienne (cours à reconstruire et
+Sous le bandeau : les données indisponibles (banque, index) et une couche prof de cours trop ancienne (cours à reconstruire et
 publier) sont signalées au lieu d'être ignorées.
 
 ## Modules à venir
 
-`Pilotage.enregistrerModule({ id, rendre(conteneur, contexte) })` ajoute un module dans l'emplacement « Modules ».
+`Pilotage.enregistrerModule({ id, rendre(conteneur, contexte) })` ajoute un module ; la carte « Modules » n'apparaît que s'il y en a un.
 
 ## Tests
 
 ```bash
 node --test tests/unit.test.js                 # logique pure (config, horaire, tirage, journal, devoirs, façade)
 python3 -m unittest tests/test_synchro.py -v   # synchronisation (P5) : vraie page + faux serveur GitHub (typweb/tests/fake-github.js ; Node requis)
-python3 -m unittest tests/test_pilotage.py -v  # navigateur (TYPWEB_JS=… pour un autre dossier de prof.js) (Playwright, Chromium) : vraie couche prof, hors ligne, import/export
-python3 tests/captures_pilotage.py [DOSSIER]   # captures tablette 1180×820 et portrait
+python3 -m unittest tests/test_pilotage.py -v  # navigateur (Playwright, Chromium) : vraie couche prof, hors ligne, import/export, présentation (vues, jour/soir, contraste, un écran)
+# typweb est cherché dans ../cours/typweb puis ../2026-2027/typweb ; sinon TYPWEB_JS=… et FAKE_GITHUB=…
+python3 tests/captures_pilotage.py [DOSSIER]   # captures tablette (paysage, portrait), smartphone, jour et soir, réglages, clé
 node tests/fixtures/generer.js                 # régénère les fixtures (index.json / classe.json fictifs)
 ```
 

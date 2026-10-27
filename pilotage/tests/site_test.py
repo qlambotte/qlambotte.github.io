@@ -5,7 +5,9 @@ import json, os, shutil, threading, functools, http.server, socketserver, tempfi
 ICI = os.path.dirname(os.path.abspath(__file__))
 PILOTAGE = os.path.dirname(ICI)
 # prof.js / vote*.js des cours : par défaut ursulines/2026-2027/typweb/site/js (pilotage est dans ursulines/portail/)
-TYPWEB_JS = os.environ.get("TYPWEB_JS", os.path.join(os.path.dirname(os.path.dirname(PILOTAGE)), "2026-2027", "typweb", "site", "js"))
+_URS = os.path.dirname(os.path.dirname(PILOTAGE))      # dossier ursulines : typweb est dans cours/ (avant : 2026-2027/)
+TYPWEB_JS = os.environ.get("TYPWEB_JS") or next((c for c in (os.path.join(_URS, d, "typweb", "site", "js") for d in ("cours", "2026-2027")) if os.path.isdir(c)),
+                                                os.path.join(_URS, "cours", "typweb", "site", "js"))
 FIX = os.path.join(ICI, "fixtures")
 
 

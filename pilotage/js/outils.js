@@ -71,7 +71,7 @@
   }
   // Texte brut d'un énoncé (Markdown + $…$) pour un aperçu court.
   function apercu(txt, max) {
-    var s = String(txt || "").replace(/\$/g, "").replace(/\\lim_\{([^}]*)\}/g, "lim($1)").replace(/\^\{?-\}?/g, "⁻").replace(/\^\{?\+\}?/g, "⁺")
+    var s = String(txt || "").replace(/\$/g, "").replace(/\\lim(?:\\limits)?_\{x \\overset\{([<>])\}\{\\to\} ([^}]*)\}/g, "lim(x →$1 $2)").replace(/\\lim_\{([^}]*)\}/g, "lim($1)").replace(/\^\{?-\}?/g, "⁻").replace(/\^\{?\+\}?/g, "⁺")
       .replace(/\\(sqrt)\{([^}]*)\}/g, "√($2)").replace(/\\mathbb\{R\}/g, "ℝ").replace(/\\setminus/g, "∖").replace(/\\cdot/g, "·").replace(/\\(frac|dfrac)\{([^}]*)\}\{([^}]*)\}/g, "($2)/($3)")
       .replace(/\\(infty|oo)/g, "∞").replace(/\\to|\\rightarrow/g, "→").replace(/\\[a-zA-Z]+/g, "")
       .replace(/[{}]/g, "").replace(/\s+/g, " ").trim();

@@ -1,4 +1,4 @@
-"""Captures de la page de pilotage (tablette 1180×820 paysage, 820×1180 portrait).
+"""Captures de la page de pilotage (tablette 1180×820 paysage, 820×1180 portrait, smartphone 390×844 ; jour et soir ; réglages).
    python3 tests/captures_pilotage.py [DOSSIER]    (défaut : pilotage/captures/)"""
 import os, sys, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -41,5 +41,13 @@ with sync_playwright() as p:
     cap("5-portrait-creneau-avec-point-darret", AUJ, "2026-10-15T11:40+02:00", taille=(820, 1180))
     cap("6-apercu-choisir-un-autre-endroit", PREC, "2026-10-15T10:00+02:00", avant=lambda pg: pg.click("#ailleurs"))
     cap("7-6TTi-sans-donnees", [], "2026-10-12T12:30+02:00")
+    soir = lambda pg: (pg.evaluate("() => document.documentElement.setAttribute('data-theme', 'soir')"), pg.wait_for_timeout(100))
+    cap("8-soir", AUJ, "2026-10-15T10:40+02:00", avant=soir)
+    cap("9-reglages", AUJ, "2026-10-15T10:40+02:00", avant=lambda pg: (pg.click("#ouvrir-reglages"), pg.wait_for_timeout(200)))
+    cap("10-reglages-soir", AUJ, "2026-10-15T10:40+02:00", avant=lambda pg: (soir(pg), pg.click("#ouvrir-reglages"), pg.wait_for_timeout(200)))
+    cap("11-charger-une-cle", AUJ, "2026-10-15T10:40+02:00", avant=lambda pg: (pg.click("#reprise-cle"), pg.wait_for_timeout(100)), plein=False)
+    cap("12-smartphone", AUJ, "2026-10-15T10:40+02:00", taille=(390, 844))
+    cap("13-smartphone-soir", AUJ, "2026-10-15T10:40+02:00", taille=(390, 844), avant=soir)
+    cap("14-smartphone-reglages", AUJ, "2026-10-15T10:40+02:00", taille=(390, 844), avant=lambda pg: (pg.click("#ouvrir-reglages"), pg.wait_for_timeout(200)))
     nav.close()
 S.fermer(); print("captures dans", DEST)

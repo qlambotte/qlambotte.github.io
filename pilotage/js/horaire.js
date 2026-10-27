@@ -35,6 +35,20 @@
     cand.sort(function (a, b) { return Math.abs(l.minutes - O.minutes(a.debut)) - Math.abs(l.minutes - O.minutes(b.debut)); });
     return cand[0];
   }
+  // Séances d'un jour donné (congés exclus), éventuellement d'une seule classe.
+  function seancesDuJour(config, ymd, classe) {
+    if (estConge(config, ymd)) return [];
+    var l = creneauxDuJour(config, ymd);
+    return classe ? l.filter(function (s) { return s.classe === classe; }) : l;
+  }
+  // Jour de cours le plus proche avant (sens = -1) ou après (sens = 1) ymd, pour une classe ; null au-delà de 120 jours.
+  function jourDeCours(config, classe, ymd, sens) {
+    for (var i = 1; i <= 120; i++) {
+      var y = O.ajouterJours(ymd, sens * i);
+      if (seancesDuJour(config, y, classe).length) return y;
+    }
+    return null;
+  }
   // La prochaine séance dont la fenêtre n'a pas encore commencé : { ymd, creneau } ou null (dans les 60 jours).
   function prochaine(config, date) {
     var l = O.local(date, config.fuseau), i, ymd, liste;
@@ -54,5 +68,6 @@
     return j + " " + O.dateFr(p.ymd) + ", " + libelle(p.creneau) + ", local " + p.creneau.local;
   }
   return { AVANT: AVANT, APRES: APRES, estConge: estConge, detecter: detecter, prochaine: prochaine,
+           seancesDuJour: seancesDuJour, jourDeCours: jourDeCours,
            libelle: libelle, libelleSeance: libelleSeance };
 });

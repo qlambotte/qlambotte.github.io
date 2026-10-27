@@ -41,6 +41,32 @@ def exo(num):
     return [e["id"] for e in lire("index-limites.json")["elements"] if e["type"] == "exercice" and e["num"] == num and "maison" not in e["etiquettes"]][0]
 
 
+CONTRASTE_JS = """sels => {
+  const rgba = s => { const m = s.match(/rgba?\\(([^)]+)\\)/); if (!m) return null; const v = m[1].split(/[ ,\\/]+/).filter(Boolean).map(Number); return [v[0], v[1], v[2], v.length > 3 ? v[3] : 1]; };
+  const fond = e => {           // fond réel : couleurs (semi-)transparentes empilées jusqu'à un fond opaque ou un dégradé
+    const pile = [];
+    for (let n = e; n; n = n.parentElement) {
+      const cs = getComputedStyle(n);
+      if (cs.backgroundImage && cs.backgroundImage.includes("gradient")) { pile.push(rgba(cs.backgroundImage)); break; }
+      const c = rgba(cs.backgroundColor); if (c && c[3] > 0) { pile.push(c); if (c[3] >= 1) break; }
+    }
+    let r = [255, 255, 255];
+    for (let i = pile.length - 1; i >= 0; i--) { const c = pile[i], a = c[3]; r = [0, 1, 2].map(k => c[k] * a + r[k] * (1 - a)); }
+    return r;
+  };
+  const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
+  const out = [];
+  for (const s of sels) for (const e of document.querySelectorAll(s)) {
+    if (!e.offsetParent && getComputedStyle(e).position !== "fixed") continue;
+    const t = rgba(getComputedStyle(e).color), f = fond(e);
+    const tt = [0, 1, 2].map(k => t[k] * t[3] + f[k] * (1 - t[3]));
+    const a = lum(tt), b = lum(f);
+    out.push([s, (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05)]);
+  }
+  return out;
+}"""
+
+
 class Base(unittest.TestCase):
     def setUp(self):
         S.ecrire_config(config_test(S.url))
@@ -448,18 +474,99 @@ class TestConfigEtAccessibilite(Base):
         tailles = self.page.evaluate("() => ['#ech-liste .texte', '#jdc', '#arret', '.iro'].map(s => { const e = document.querySelector(s); return e ? parseFloat(getComputedStyle(e).fontSize) : 99 })")
         self.assertTrue(all(t >= 16 for t in tailles), tailles)
 
-    def test_pas_de_gris_clair_dans_les_textes(self):
-        css = open(os.path.join(S.racine, "pilotage", "pilotage.css"), encoding="utf-8").read()
-        for c in re.findall(r"color:\s*(#[0-9a-fA-F]{3,6})", css):
-            v = c.lstrip("#"); v = "".join(ch * 2 for ch in v) if len(v) == 3 else v
-            if int(v[:2], 16) >= 0xf0:      # blanc : texte sur fond noir
-                continue
-            self.assertLessEqual(int(v[:2], 16), 0x55, "texte trop clair pour une salle : " + c)
+    def test_contraste_des_textes_jour_et_soir(self):
+        """Textes, même secondaires, à 4,5:1 au moins sur leur fond réel (la page est projetée), en mode jour et en mode soir."""
+        self.graine(SEANCE_PREC()); self.ouvrir()
+        for theme in ("jour", "soir"):
+            self.page.evaluate("t => document.documentElement.setAttribute('data-theme', t)", theme)
+            mesures = self.page.evaluate(CONTRASTE_JS, ["#classe-titre", "#classe-sous .puce", "#date-jour", "#sync-etat", "#ech-liste .texte",
+                "#ech-liste .chip", "#ech-liste .q > .sub", "#ech-sub", "#arret .r-titre", "#arret .r-el", "#arret .r-cours", "#derniere",
+                "#jdc", "#dev", "#jdc-sub", "#interros .f", "#interros .j", ".sh", "#reprendre", "#ech-lancer", "#jdc-copier", "#ailleurs"])
+            self.assertTrue(len(mesures) >= 18, mesures)
+            for sel, r in mesures:
+                self.assertGreaterEqual(r, 4.5, "%s : contraste %.2f en mode %s" % (sel, r, theme))
 
     def test_modules_a_venir_s_enregistrent(self):
         self.graine(); self.ouvrir()
         self.page.evaluate("() => window.Pilotage.enregistrerModule({ id: 'essai', rendre: (el, c) => { el.textContent = 'module ' + c.classe } })")
         self.assertEqual(self.texte("#module-essai"), "module 5TTy")
+
+
+class TestPresentation(Base):
+    """Charte « Ardoise et cuivre » : vues classe / réglages, apparence jour / soir, tout sur un écran, bandeau de reprise."""
+    def test_vues_classe_et_reglages(self):
+        self.graine(); self.ouvrir()
+        self.assertTrue(self.page.is_visible("#vue-classe")); self.assertTrue(self.page.is_hidden("#vue-reglages"))
+        self.page.click("#ouvrir-reglages")
+        self.assertTrue(self.page.is_visible("#synchro")); self.assertTrue(self.page.is_hidden("#vue-classe"))
+        self.assertTrue(self.page.url.endswith("#reglages"))
+        self.page.click("#fermer-reglages")
+        self.assertTrue(self.page.is_visible("#ech-lancer")); self.assertFalse(self.page.url.endswith("#reglages"))
+        self.page.click("#sync-etat"); self.assertTrue(self.page.is_visible("#cle-enregistrer"), "la pastille de synchronisation ouvre les réglages")
+        self.page.go_back(); self.assertTrue(self.page.is_visible("#ech-lancer"), "le bouton « précédent » ramène à la classe")
+        self.page.goto(self.page.url.split("#")[0] + "#reglages"); self.page.wait_for_selector("html[data-pret='1']")
+        self.assertTrue(self.page.is_visible("#synchro"), "adresse directe …/#reglages")
+
+    def test_apparence_soir_gardee_et_automatique(self):
+        self.graine(); self.ouvrir()
+        self.assertEqual(self.page.get_attribute("html", "data-theme"), "jour")
+        fond = lambda: self.page.evaluate("() => getComputedStyle(document.body).backgroundColor")
+        clair = fond()
+        self.page.click("#ouvrir-reglages"); self.page.click("#theme-soir")
+        self.assertEqual(self.page.get_attribute("html", "data-theme"), "soir"); self.assertNotEqual(fond(), clair)
+        self.assertEqual(self.page.get_attribute("#theme-soir", "aria-pressed"), "true")
+        self.page.reload(); self.page.wait_for_selector("html[data-pret='1']")
+        self.assertEqual(self.page.get_attribute("html", "data-theme"), "soir", "choix gardé sur l'appareil")
+        self.page.click("#theme-auto"); self.page.emulate_media(color_scheme="dark"); self.assertNotEqual(fond(), clair)
+        self.page.emulate_media(color_scheme="light"); self.assertEqual(fond(), clair)
+        self.page.click("#theme-jour"); self.assertIsNone(self.page.evaluate("() => localStorage.getItem('pilotage.theme')"))
+
+    def test_tablette_paysage_tout_sur_un_ecran_et_smartphone_sans_debordement(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:40+02:00")
+        self.assertLessEqual(self.page.evaluate("() => document.documentElement.scrollHeight"), 820, "pas de défilement en paysage")
+        for l, h in ((820, 1180), (390, 844)):
+            self.page.set_viewport_size({"width": l, "height": h})
+            self.assertLessEqual(self.page.evaluate("() => document.documentElement.scrollWidth"), l, "pas de débordement horizontal à %d px" % l)
+        self.page.click("#ouvrir-reglages")
+        self.assertLessEqual(self.page.evaluate("() => document.documentElement.scrollWidth"), 390)
+
+    def test_temps_de_la_seance(self):
+        self.graine(); self.ouvrir("2026-10-15T10:40+02:00")
+        self.assertEqual(self.texte("#heure"), "10:40"); self.assertEqual(self.texte("#reste"), "encore 70 min")
+        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
+        self.ouvrir("2026-10-15T10:00+02:00"); self.assertEqual(self.texte("#reste"), "début dans 10 min")
+        self.ouvrir("2026-10-14T11:00+02:00"); self.assertTrue(self.page.is_hidden("#temps"), "hors créneau : pas d'anneau")
+
+    def test_feuille_point_d_arret_se_ferme(self):
+        self.graine(SEANCE_PREC()); self.ouvrir()
+        self.page.click("#ailleurs"); self.assertTrue(self.page.is_visible("#apercu"))
+        self.page.keyboard.press("Escape"); self.assertTrue(self.page.is_hidden("#apercu"))
+        self.page.click("#ailleurs"); self.page.click("#apercu-fermer"); self.assertTrue(self.page.is_hidden("#apercu"))
+
+    def test_bandeau_de_reprise_et_masquage(self):
+        self.graine(); self.ouvrir()
+        self.assertTrue(self.page.is_visible("#reprise"), "synchronisation non configurée : bandeau visible")
+        self.page.click("#reprise-cle"); self.assertTrue(self.page.is_visible("#dialogue-cle"))
+        self.page.click("#cle-ouvrir"); self.assertIn("Choisis d'abord", self.texte("#cle-dmsg"))
+        self.page.keyboard.press("Escape"); self.assertTrue(self.page.is_hidden("#dialogue-cle"))
+        self.page.click("#reprise-masquer"); self.assertTrue(self.page.is_hidden("#reprise"))
+        self.page.reload(); self.page.wait_for_selector("html[data-pret='1']"); self.assertTrue(self.page.is_hidden("#reprise"))
+        self.assertTrue(self.page.is_disabled("#cle-enregistrer"), "pas de clé sans synchronisation configurée")
+
+    def test_bilan_du_dernier_echauffement(self):
+        evs = SEANCE_PREC() + [ev("2026-10-08T10:05+02:00", "5TTy", "echauffement", "echauffement", sid="z",
+                                  items=[{"id": "5UAA2.c.002", "type": "qcm", "niveau": 2}, {"id": "5UAA3.c.012", "type": "qcm", "niveau": 0},
+                                         {"id": "5UAA3.c.007", "type": "qcm", "niveau": 2}, {"id": "f", "type": "exercice"}])]
+        self.graine(evs); self.ouvrir()
+        self.assertIn("La dernière fois (08/10) : 2 sur 3 bien réussies", self.texte("#ech-derniere"))
+        self.assertEqual(self.page.locator("#ech-derniere .pt").count(), 3)
+        self.graine(SEANCE_PREC()); self.ouvrir(); self.assertTrue(self.page.is_hidden("#ech-derniere"))
+
+    def test_mode_prof_ne_s_affiche_que_desactive(self):
+        self.graine(prof=False); self.ouvrir()
+        self.assertTrue(self.page.is_visible("#modeprof"))
+        self.page.click("#ouvrir-reglages"); self.page.get_by_role("button", name="Activer le mode prof").click()
+        self.page.click("#fermer-reglages"); self.assertTrue(self.page.is_hidden("#modeprof"))
 
 
 class TestCoucheProf(Base):
@@ -519,3 +626,155 @@ class TestLectureDesCartes(Base):
         self.page.click("#bRaz")
         self.assertEqual(self.page.evaluate("() => PilotageScan.lues()"), {})
         self.assertTrue(self.page.is_disabled("#bQr"))
+
+
+class TestNavigationDate(Base):
+    """Navigation dans le temps : flèches et calendrier dans le bandeau, ?jour=, jours passés (lecture seule) et à venir."""
+
+    def params(self):
+        return self.page.evaluate("() => Object.fromEntries(new URLSearchParams(location.search))")
+
+    def test_aujourd_hui_par_defaut_sans_pastille_ni_parametre(self):
+        self.graine(SEANCE_PREC()); self.ouvrir()
+        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
+        self.assertEqual(self.page.locator("#retour-auj").count(), 0)
+        self.assertNotIn("jour", self.params())
+        self.assertTrue(self.page.is_visible("#jour-prec") and self.page.is_visible("#jour-suiv"))
+        self.assertEqual(self.page.get_attribute("html", "data-statut-jour"), "aujourdhui")
+
+    def test_fleches_url_pastille_et_temps_reel_masque(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00")
+        self.assertTrue(self.page.is_visible("#temps"))
+        h0 = self.page.evaluate("() => document.querySelector('.band').getBoundingClientRect().height")
+        self.page.click("#jour-prec")
+        self.assertEqual(self.texte("#date-jour"), "Mercredi 14 octobre")
+        self.assertEqual(self.params().get("jour"), "2026-10-14")
+        self.assertEqual(self.params().get("maintenant"), "2026-10-15T10:00+02:00", "?maintenant= conservé")
+        self.assertEqual(self.texte("#retour-auj"), "↩ Aujourd'hui · il y a 1 j")
+        self.assertTrue(self.page.is_hidden("#temps"))
+        self.assertEqual(self.page.locator("#classe-sous #retour-auj").count(), 1, "pastille dans la ligne des puces")
+        h1 = self.page.evaluate("() => document.querySelector('.band').getBoundingClientRect().height")
+        self.assertLessEqual(h1, h0 + 4, "aucune barre en plus : le bandeau ne grandit pas")
+        self.page.click("#jour-suiv"); self.page.click("#jour-suiv")
+        self.assertEqual(self.texte("#retour-auj"), "↩ Aujourd'hui · dans 1 j")
+        self.page.click("#retour-auj")
+        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
+        self.assertNotIn("jour", self.params()); self.assertEqual(self.page.locator("#retour-auj").count(), 0)
+        self.assertTrue(self.page.is_visible("#temps"))
+
+    def test_url_directe_garde_classe_et_maintenant(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08&classe=5TTy")
+        self.assertEqual(self.texte("#date-jour"), "Jeudi 8 octobre")
+        self.page.click("#jour-suiv")
+        p = self.params()
+        self.assertEqual((p["jour"], p["classe"], p["maintenant"]), ("2026-10-09", "5TTy", "2026-10-15T10:00+02:00"))
+
+    def test_jour_invalide_ou_egal_a_aujourd_hui_ignore(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-02-30")
+        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
+        self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-15")
+        self.assertNotIn("jour", self.params())
+
+    def test_jour_passe_lecture_seule_journal_reconstruit(self):
+        self.graine(SEANCE_PREC() + [ev("2026-10-12T12:45+02:00", "6TTi", "6UAA4.x.001")])
+        self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08")
+        self.assertEqual(self.texte("#classe-titre"), "5TTy")
+        self.assertIn("passé · lecture seule", self.texte("#classe-sous"))
+        self.assertIn("il y a 7 j", self.texte("#retour-auj"))
+        j = self.page.input_value("#jdc")
+        self.assertIn("de « Rappels » à « Limites à gauche et à droite »", j.replace("Définition", "Rappels") if "Rappels" not in j else j)
+        self.assertNotIn("Matière : –", j)
+        self.assertTrue(self.page.evaluate("() => document.querySelector('#jdc').readOnly && document.querySelector('#dev').readOnly"))
+        self.assertIn("Reconstitué", self.texte("#jdc-sub"))
+        self.assertIn("Limites à gauche et à droite", self.texte("#arret"))
+        self.assertIn("fin du jeudi 08/10", self.texte("#cours-sub"))
+        self.assertTrue(self.page.is_hidden("#reprendre"))
+        self.assertTrue(self.page.is_disabled("#ech-lancer") and self.page.is_disabled("#ech-refaire"))
+        self.page.click("#ailleurs")
+        self.assertTrue(all(b.is_disabled() for b in self.page.locator("#apercu-liste .bloc button").all()), "aperçu en lecture seule")
+        self.page.keyboard.press("Escape")
+        self.assertEqual(self.journal().__len__(), 4, "aucune écriture dans le journal")
+
+    def test_point_d_arret_a_la_fin_du_jour_pas_apres(self):
+        self.graine(SEANCE_PREC())                                  # 08/10 : définition puis limites-gauche-droite
+        self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-07")
+        self.assertIn("Aucun point d'arrêt à cette date", self.texte("#arret"))
+        self.assertNotIn("Limites à gauche et à droite", self.texte("#arret"))
+        self.assertIn("Matière : –", self.page.input_value("#jdc"))
+
+    def test_jour_a_venir_rien_de_fait(self):
+        cfg = config_test(S.url); cfg["interros"] = [{"date": "2026-10-29", "classe": "5TTy", "uaa": "5UAA3", "type": "Interro"}]
+        S.ecrire_config(cfg)
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-22")
+        self.assertIn("à venir", self.texte("#classe-sous")); self.assertIn("dans 7 j", self.texte("#retour-auj"))
+        self.assertEqual(self.page.input_value("#jdc"), ""); self.assertEqual(self.page.input_value("#dev"), "")
+        self.assertIn("Séance à venir", self.texte("#jdc-sub"))
+        self.assertIn("Pas encore tiré", self.texte("#ech-sub"))
+        self.assertTrue(self.page.is_hidden("#temps"))
+        self.assertIn("J−7", self.texte("#interros")); self.assertIn("Local 2407", self.texte("#classe-sous"))
+
+    def test_jour_sans_cours_message_et_liens(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-17")      # samedi
+        z = self.texte("#sans-cours")
+        self.assertIn("Pas de cours pour 5TTy", z); self.assertIn("samedi 17 octobre", z)
+        self.assertIn("16/10", z); self.assertIn("22/10", z)
+        self.page.click("#sans-cours button:has-text('22/10')")
+        self.assertEqual(self.params()["jour"], "2026-10-22"); self.assertTrue(self.page.is_hidden("#sans-cours"))
+        self.page.goto(S.url + "/pilotage/?maintenant=2026-10-15T10%3A00%2B02%3A00&jour=2026-10-17")
+        self.page.wait_for_selector("html[data-pret='1']")
+        self.page.click("#sans-cours button:has-text('16/10')")
+        self.assertEqual(self.params()["jour"], "2026-10-16")
+
+    def test_changement_d_heure_25_octobre(self):
+        self.graine([ev("2026-10-24T23:30+02:00", "5TTy", ids_section("definition")[0]), ev("2026-10-25T23:30+01:00", "5TTy", ids_section("limites-gauche-droite")[0])])
+        self.ouvrir("2026-10-28T10:00+01:00", "&jour=2026-10-24")
+        for attendu in ("Dimanche 25 octobre", "Lundi 26 octobre"):
+            self.page.click("#jour-suiv"); self.assertEqual(self.texte("#date-jour"), attendu)
+        self.page.click("#jour-prec")                       # dimanche 25 : jour de 25 h, la marque de 23 h 30 (heure d'hiver) y reste
+        self.assertIn("Limites à gauche et à droite", self.texte("#arret"))
+        self.assertIn("fin du dimanche 25/10", self.texte("#cours-sub"))
+        self.page.click("#jour-prec")
+        self.assertIn("Définition", self.texte("#arret")); self.assertNotIn("Limites à gauche", self.texte("#arret"))
+
+    def test_lot_de_synchro_tardif_met_a_jour_un_jour_passe(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08")
+        avant = self.page.input_value("#jdc")
+        tard = ev("2026-10-08T10:55+02:00", "5TTy", exo("1.1"))
+        self.page.evaluate("""(e) => { const j = JSON.parse(localStorage.getItem('typweb.prof.v1')); j.ev.push(e); localStorage.setItem('typweb.prof.v1', JSON.stringify(j)); window.dispatchEvent(new StorageEvent('storage', { key: 'typweb.prof.v1' })); }""", tard)
+        self.page.wait_for_function("(a) => document.querySelector('#jdc').value !== a", arg=avant)
+        self.assertNotEqual(self.page.input_value("#jdc"), avant)
+
+    def test_bouton_accueil(self):
+        self.graine(SEANCE_PREC()); self.ouvrir()
+        self.assertEqual(self.page.get_attribute("#accueil", "href"), "../board/index.html")
+        self.assertIn("Accueil", self.texte("#accueil"))
+
+    def test_calendrier_natif_et_clavier(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00")
+        self.page.click("#date-jour")                       # showPicker() n'échoue pas la page (repli focus/click)
+        self.page.fill("#jour-choix", "2026-10-12")
+        self.assertEqual(self.texte("#date-jour"), "Lundi 12 octobre"); self.assertEqual(self.params()["jour"], "2026-10-12")
+        self.page.locator("body").click(position={"x": 5, "y": 5})
+        self.page.keyboard.press("ArrowRight"); self.assertEqual(self.texte("#date-jour"), "Mardi 13 octobre")
+        self.page.keyboard.press("ArrowLeft"); self.page.keyboard.press("ArrowLeft"); self.assertEqual(self.texte("#date-jour"), "Dimanche 11 octobre")
+        self.page.click("#jdc"); self.page.keyboard.press("ArrowLeft")                      # dans un champ : ignorée
+        self.assertEqual(self.texte("#date-jour"), "Dimanche 11 octobre")
+        self.page.evaluate("() => document.activeElement.blur()")
+        self.page.evaluate("() => { location.hash = '#reglages'; }"); self.page.wait_for_selector("#vue-reglages:not([hidden])")
+        self.page.keyboard.press("ArrowRight")                                               # dans les réglages : ignorée
+        self.page.evaluate("() => { location.hash = ''; }")
+        self.assertEqual(self.texte("#date-jour"), "Dimanche 11 octobre")
+
+    def test_charte_contraste_jour_et_soir_des_nouveaux_elements(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08")
+        for theme in ("jour", "soir"):
+            self.page.evaluate("t => document.documentElement.setAttribute('data-theme', t)", theme)
+            for sel, c in self.page.evaluate(CONTRASTE_JS, ["#date-jour", "#retour-auj", "#classe-sous .puce", ".date-nav .fl"]):
+                self.assertGreaterEqual(c, 3.9, "%s (%s) contraste %.2f" % (sel, theme, c))
+
+    def test_minuit_passe_la_page_suit_le_nouveau_jour(self):
+        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-16")
+        self.assertIn("dans 1 j", self.texte("#retour-auj"))
+        self.page.evaluate("() => { const A = window.PilotageEtat; }")                      # la page est sur demain ; demain devient aujourd'hui :
+        self.ouvrir("2026-10-16T00:05+02:00", "&jour=2026-10-16")
+        self.assertNotIn("jour", self.params()); self.assertEqual(self.page.locator("#retour-auj").count(), 0)

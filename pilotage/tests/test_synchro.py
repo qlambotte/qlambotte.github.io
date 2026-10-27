@@ -10,7 +10,9 @@ try:
 except ImportError:   # pragma: no cover
     sync_playwright = None
 
-FAKE = os.environ.get("FAKE_GITHUB", os.path.join(os.path.dirname(os.path.dirname(PILOTAGE)), "2026-2027", "typweb", "tests", "fake-github.js"))
+_URS = os.path.dirname(os.path.dirname(PILOTAGE))      # dossier ursulines : typweb est dans cours/ (avant : 2026-2027/)
+FAKE = os.environ.get("FAKE_GITHUB") or next((c for c in (os.path.join(_URS, d, "typweb", "tests", "fake-github.js") for d in ("cours", "2026-2027")) if os.path.exists(c)),
+                                             os.path.join(_URS, "cours", "typweb", "tests", "fake-github.js"))
 DEPOT = "prof/suivi-classes"
 JETON = "github_pat_FAKE0000000000000000000000_bon"
 CORS = {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Authorization, Content-Type, If-None-Match, X-GitHub-Api-Version, Accept",
@@ -231,6 +233,47 @@ class TestSynchro(Base):
         etat = lambda pg: pg.evaluate("() => window.typwebProf.etat('5TTy')")
         self.assertEqual(etat(p2), etat(p))
         self.assertEqual(p2.get_attribute("#sync-etat", "data-etat"), "synchronise", "rien à renvoyer après une restauration")
+
+    def test_cle_de_synchronisation_navigateur_efface(self):
+        """Brave efface tout : la clé (fichier + phrase) remet la synchronisation en service et restaure l'état des classes."""
+        p = self.ouvrir()
+        ids = ids_section("definition")[:2]
+        self.marquer(ids)
+        original = self.journal()
+        self.configurer(); self.attendre_etat("synchronise")
+        self.assertTrue(p.is_hidden("#reprise"), "pas de bandeau de reprise quand la synchronisation marche")
+        # réglages › clé : phrases différentes, puis enregistrement
+        p.fill("#cle-phrase", "une phrase assez longue"); p.fill("#cle-phrase2", "autre chose encore")
+        p.click("#cle-enregistrer"); self.assertIn("différentes", p.text_content("#cle-msg"))
+        p.fill("#cle-phrase2", "une phrase assez longue")
+        with p.expect_download() as tele:
+            p.click("#cle-enregistrer")
+        chemin = tele.value.path(); texte = open(chemin, encoding="utf-8").read()
+        self.assertEqual(tele.value.suggested_filename, "cle-pilotage-tablette-test.json")
+        self.assertNotIn("github_pat_", texte, "jamais de jeton en clair dans la clé")
+        self.assertEqual(json.loads(texte)["depot"], DEPOT)
+        self.assertEqual(p.input_value("#cle-phrase"), "", "la phrase n'est pas gardée")
+        # navigateur effacé : nouveau profil, rien dans le stockage local
+        ctx2 = self.nouveau_contexte(); p2 = ctx2.new_page()
+        self.ouvrir(p2)
+        self.assertEqual(self.journal(p2), [])
+        self.assertTrue(p2.is_visible("#reprise"), "bandeau « Synchronisation inactive »")
+        p2.click("#reprise-cle")
+        p2.set_input_files("#cle-fichier", chemin)
+        p2.wait_for_function("() => /dépôt prof\/suivi-classes/.test(document.querySelector('#dialogue-cle').textContent)")
+        self.assertEqual(p2.input_value("#cle-appareil"), "tablette-test")
+        p2.fill("#cle-ouvrir-phrase", "mauvaise phrase !"); p2.click("#cle-ouvrir")
+        p2.wait_for_function("() => /incorrecte/.test(document.querySelector('#cle-dmsg').textContent)")
+        self.assertEqual(p2.get_attribute("#sync-etat", "data-etat"), "inactif")
+        p2.fill("#cle-appareil", "tablette-2")
+        p2.fill("#cle-ouvrir-phrase", "une phrase assez longue"); p2.click("#cle-ouvrir")
+        p2.wait_for_selector("#dialogue-cle", state="hidden", timeout=20000)
+        self.attendre_etat("synchronise", p2)
+        cle = lambda e: (e["t"], e["id"])
+        self.assertEqual(sorted(self.journal(p2), key=cle), sorted(original, key=cle), "état des classes récupéré du dépôt")
+        self.assertTrue(p2.is_hidden("#reprise"))
+        self.assertEqual(p2.evaluate("() => window.typwebSync.infos().appareil"), "tablette-2")
+        self.assertEqual(p2.evaluate("() => localStorage.getItem('typweb.prof')"), "1", "mode prof activé")
 
     def test_hors_ligne_puis_reconnexion(self):
         p = self.ouvrir()

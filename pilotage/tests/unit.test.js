@@ -1,5 +1,6 @@
 const test = require("node:test"), assert = require("node:assert/strict");
 const { O, C, H, E, T, JN, ET, config, configPublique, indexL, banques, ev, t, ids, J, X } = require("./aide.js");
+const fs = require("fs"), path = require("path"), { P } = require("./aide.js");
 const cfg = config.config;
 const instant = iso => new Date(iso);
 
@@ -361,4 +362,79 @@ test("configuration : le champ « classe » d'un cours est facultatif (banque lu
   const r = C.valider({ classes: [{ code: "A", niveau: "5e", effectif: 3, coursEnCours: "5UAA3", cours: [{ uaa: "5UAA3", titre: "t", url: "https://a.b/c/", index: "index.json" }] }], creneaux: [] });
   assert.equal(r.ok, true, r.erreurs.join("\n"));
   assert.equal(C.valider({ classes: [{ code: "A", niveau: "5e", effectif: 3, cours: [{ uaa: "5UAA3", titre: "t", url: "https://a.b/c/", index: "i", classe: "" }] }], creneaux: [] }).ok, false);
+});
+
+/* ---------------- navigation de date (jour.js, horaire.js, journal.js) ---------------- */
+const Jr = require("../js/jour.js");
+test("jour : ?jour= lu et écrit, les autres paramètres sont conservés, aujourd'hui = pas de paramètre", () => {
+  assert.equal(Jr.dansUrl("?jour=2026-10-25"), "2026-10-25");
+  assert.equal(Jr.dansUrl("?maintenant=2026-10-15T10:00%2B02:00&jour=2026-10-25&classe=6TTi"), "2026-10-25");
+  for (const m of ["", "?jour=", "?jour=2026-02-30", "?jour=demain", "?jour=2026-13-01", "?jour=2026-1-5"]) assert.equal(Jr.dansUrl(m), null, m);
+  const u = Jr.urlAvec("?maintenant=2026-10-15T10%3A00%2B02%3A00&classe=6TTi", "2026-10-25", "2026-10-15");
+  assert.equal(new URLSearchParams(u).get("jour"), "2026-10-25");
+  assert.equal(new URLSearchParams(u).get("maintenant"), "2026-10-15T10:00+02:00");
+  assert.equal(new URLSearchParams(u).get("classe"), "6TTi");
+  assert.equal(Jr.urlAvec(u, "2026-10-15", "2026-10-15"), "?maintenant=2026-10-15T10%3A00%2B02%3A00&classe=6TTi");
+  assert.equal(Jr.urlAvec("?jour=2026-10-25", "2026-10-15", "2026-10-15"), "");
+});
+test("jour : statut, écart « il y a N j » / « dans N j », pastille absente le jour même", () => {
+  assert.deepEqual(["2026-10-14", "2026-10-15", "2026-10-16"].map(j => Jr.statut("2026-10-15", j)), ["passe", "aujourdhui", "avenir"]);
+  assert.equal(Jr.pastilleRetour("2026-10-15", "2026-10-15"), "");
+  assert.equal(Jr.pastilleRetour("2026-10-15", "2026-10-08"), "↩ Aujourd'hui · il y a 7 j");
+  assert.equal(Jr.pastilleRetour("2026-10-15", "2026-10-22"), "↩ Aujourd'hui · dans 7 j");
+});
+test("changement d'heure du dimanche 25/10/2026 : jours consécutifs, écarts en jours de calendrier, jour de 25 h", () => {
+  assert.equal(O.ajouterJours("2026-10-24", 1), "2026-10-25"); assert.equal(O.ajouterJours("2026-10-25", 1), "2026-10-26");
+  assert.equal(Jr.relatif("2026-10-26", "2026-10-24"), "il y a 2 j");
+  const debut = JN.jourVersMs("2026-10-25", O.FUSEAU), fin = JN.finDeJour("2026-10-25", O.FUSEAU);
+  assert.equal(new Date(debut).toISOString(), "2026-10-24T22:00:00.000Z");
+  assert.equal(new Date(fin).toISOString(), "2026-10-25T23:00:00.000Z");
+  assert.equal((fin - debut) / 3600000, 25);
+  assert.equal((JN.finDeJour("2026-10-24", O.FUSEAU) - JN.jourVersMs("2026-10-24", O.FUSEAU)) / 3600000, 24);
+  assert.equal(O.jourDe(fin - 1, O.FUSEAU), "2026-10-25"); assert.equal(O.jourDe(fin, O.FUSEAU), "2026-10-26");
+});
+test("horaire : séances d'un jour, congés, jour de cours précédent / suivant d'une classe", () => {
+  assert.deepEqual(H.seancesDuJour(cfg, "2026-10-15", "5TTy").map(s => s.local), ["2407"]);
+  assert.equal(H.seancesDuJour(cfg, "2026-10-17").length, 0, "samedi");
+  assert.equal(H.seancesDuJour(cfg, "2026-10-16").length, 2, "vendredi : deux classes");
+  assert.equal(H.jourDeCours(cfg, "5TTy", "2026-10-17", -1), "2026-10-16");
+  assert.equal(H.jourDeCours(cfg, "5TTy", "2026-10-17", 1), "2026-10-22");
+  assert.equal(H.jourDeCours(cfg, "6TTi", "2026-10-15", 1), "2026-10-16");
+  const conge = Object.assign({}, cfg, { conges: [{ du: "2026-10-19", au: "2026-10-23" }] });
+  assert.equal(H.seancesDuJour(conge, "2026-10-22", "5TTy").length, 0);
+  assert.equal(H.jourDeCours(conge, "5TTy", "2026-10-17", 1), "2026-10-29");
+});
+test("journal d'un jour passé : état reconstitué à la fin de ce jour-là (jusque), pas l'état actuel", () => {
+  const a = idsSec("definition")[0], b = idsSec("limites-gauche-droite")[0], c = idsSec("quand-limite-a-un-sens")[0];
+  const e = [ev("2026-10-08T10:20+02:00", "5TTy", a), ev("2026-10-08T10:40+02:00", "5TTy", b),
+             ev("2026-10-15T10:15+02:00", "5TTy", b)];                       // b revu plus tard : sans `jusque`, il quitte la séance du 08
+  const sans = JN.texteJournal(ctxJ(e, "2026-10-08"));
+  const avec = JN.texteJournal(Object.assign(ctxJ(e, "2026-10-08"), { jusque: JN.finDeJour("2026-10-08", O.FUSEAU) }));
+  assert.match(avec.split("\n")[1], /de « .* » à « Limites à gauche et à droite »/);
+  assert.notEqual(sans, avec);
+  assert.equal(JN.texteJournal(ctxJ(e, "2026-10-22")).split("\n")[1], "Matière : –", "jour à venir : rien de fait");
+  void c;
+});
+test("séance coupée à minuit : chaque marque va au jour local de son instant ; lot de synchro tardif = journal recalculé", () => {
+  const a = idsSec("definition")[0], b = idsSec("limites-gauche-droite")[0];
+  const e = [ev("2026-10-14T23:50+02:00", "5TTy", a), ev("2026-10-15T00:10+02:00", "5TTy", b)];
+  const jour = j => JN.texteJournal(Object.assign(ctxJ(e, j), { jusque: JN.finDeJour(j, O.FUSEAU) })).split("\n")[1];
+  assert.match(jour("2026-10-14"), /à « Définition »/); assert.match(jour("2026-10-15"), /à « Limites à gauche et à droite »/);
+  // un lot arrivé en retard (instants du 14) s'insère à sa place : l'ordre (t, appareil, id) ne dépend pas de l'arrivée
+  const tardif = ev("2026-10-14T23:55+02:00", "5TTy", idsSec("quand-limite-a-un-sens")[0]);
+  const e2 = e.concat([tardif]);
+  assert.match(JN.texteJournal(Object.assign(ctxJ(e2, "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })).split("\n")[1], /à « Quand une limite a-t-elle un sens/);
+  assert.equal(JN.texteJournal(Object.assign(ctxJ(e2.slice().reverse(), "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })), JN.texteJournal(Object.assign(ctxJ(e2, "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })));
+});
+test("hors ligne : jour.js est dans la coquille du service worker et chargé par la page", () => {
+  const sw = fs.readFileSync(path.join(P, "sw.js"), "utf8"), html = fs.readFileSync(path.join(P, "index.html"), "utf8");
+  const scripts = [...html.matchAll(/<script src="(js\/[^"]+)"/g)].map(m => m[1]);
+  for (const s of scripts) assert.ok(sw.includes('"' + s + '"'), s + " absent de COQUILLE");
+  assert.ok(scripts.includes("js/jour.js")); assert.match(sw, /VERSION = "pilotage-v([5-9]|\d\d)"/);
+});
+
+test("aperçu : limite à gauche/à droite, inégalité au-dessus de la flèche (pas d'exposant 0⁺)", () => {
+  const O = require("../js/outils.js");
+  assert.equal(O.apercu("$\\lim\\limits_{x \\overset{<}{\\to} 2} f(x)$"), "lim(x →< 2) f(x)");
+  assert.equal(O.apercu("$\\lim\\limits_{x \\overset{>}{\\to} -1} f(x)$"), "lim(x →> -1) f(x)");
 });
