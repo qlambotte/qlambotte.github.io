@@ -1,11 +1,11 @@
 /* sw.js — service worker de la page de pilotage : la page, sa configuration et les fichiers des cours
    déjà consultés (index.json, classe.json, prof.js…) restent utilisables sans réseau.
    Stratégie : réseau d'abord (délai 4 s s'il existe une copie), sinon la dernière copie. Même domaine uniquement. */
-var VERSION = "pilotage-v3";
+var VERSION = "pilotage-v5";
 var COQUILLE = ["./", "index.html", "scan.html", "pilotage.css", "config.json", "sw.js",
   "js/lecteur-aruco.js", "js/qr-code.js", "js/qr-votes.js",
-  "js/outils.js", "js/config.js", "js/horaire.js", "js/ev.js", "js/indexcours.js", "js/tirage.js", "js/journal.js",
-  "js/etat.js", "js/donnees.js", "js/sync.js", "js/synchro-ui.js", "js/app.js"];
+  "js/outils.js", "js/config.js", "js/horaire.js", "js/jour.js", "js/ev.js", "js/indexcours.js", "js/tirage.js", "js/journal.js",
+  "js/etat.js", "js/donnees.js", "js/sync.js", "js/synchro-ui.js", "js/theme.js", "js/cle-ui.js", "js/reglages.js", "js/app.js"];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(VERSION).then(function (c) {

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Tableau de bord</title>
+<script src="../pilotage/js/theme.js"></script>
+<link rel="stylesheet" href="../pilotage/pilotage.css">
+<link rel="stylesheet" href="board.css">
+</head>
+<body>
+<div class="vue">
+  <header class="band">
+    <div class="b-outils">
+      <p class="marque">Tableau de bord</p>
+      <nav class="outils" aria-label="Outils">
+        <button class="ico" id="apparence" type="button" title="Jour, soir ou automatique"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/></svg></span><span class="il">Jour</span></button>
+        <a class="ico" href="unif.html#reglages" title="Importer l'horaire UMONS (.ics), synchronisation"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span><span class="il">Réglages</span></a>
+      </nav>
+    </div>
+    <div class="b-classe">
+      <p class="date" id="annee"></p>
+      <h1 class="titre" id="titre">–</h1>
+      <p class="puces" id="puces"></p>
+      <p class="prochaine" id="prochaine"></p>
+    </div>
+    <div class="b-droite">
+      <div class="temps" id="temps" hidden>
+        <svg viewBox="0 0 58 58" aria-hidden="true"><circle class="piste" cx="29" cy="29" r="24"/><circle class="arc" id="temps-arc" cx="29" cy="29" r="24" stroke-dasharray="0 151" transform="rotate(-90 29 29)"/></svg>
+        <div><div class="heure" id="heure"></div><div class="clair" id="reste"></div></div>
+      </div>
+      <div class="b-etat"><button type="button" class="pastille sync" id="sync-etat">Synchro…</button></div>
+    </div>
+  </header>
+
+  <main class="grille m3">
+    <section class="carte pil" aria-labelledby="p1">
+      <div class="ent"><span class="badge b-a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19"/></svg></span><div><h2 id="p1">Secondaire</h2></div></div>
+      <p class="titre-p">Pilotage Ursulines</p>
+      <div class="arret" id="urs-resume"></div>
+      <div class="act"><a class="btn p" href="../pilotage/">Ouvrir le pilotage</a></div>
+    </section>
+    <section class="carte pil" aria-labelledby="p2">
+      <div class="ent"><span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><div><h2 id="p2">Université</h2></div></div>
+      <p class="titre-p">Pilotage UMONS</p>
+      <div class="arret" id="unif-resume" style="background:var(--cut)"></div>
+      <div class="act"><a class="btn cu" href="unif.html">Ouvrir le pilotage</a></div>
+    </section>
+    <section class="carte" aria-labelledby="r1">
+      <div class="ent"><span class="badge b-ol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><div><h2 id="r1">Raccourcis</h2></div></div>
+      <div class="rac" id="raccourcis"></div>
+    </section>
+
+    <section class="carte s2" aria-labelledby="a1">
+      <div class="ent"><span class="badge b-a"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><div><h2 id="a1">Aujourd'hui</h2><div class="doux">Ursulines : horaire du pilotage · UMONS : agenda importé</div></div></div>
+      <div class="tl" id="aujourdhui"></div>
+    </section>
+    <section class="carte" aria-labelledby="v1">
+      <div class="ent"><span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><div><h2 id="v1">À venir</h2><div class="doux">14 prochains jours</div></div></div>
+      <div class="liste" id="avenir"></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../pilotage/js/outils.js"></script>
+<script src="../pilotage/js/horaire.js"></script>
+<script src="js/ics.js"></script>
+<script src="js/depot.js"></script>
+<script src="js/taches.js"></script>
+<script src="js/board.js"></script>
+<script src="js/accueil.js"></script>
+</body>
+</html>

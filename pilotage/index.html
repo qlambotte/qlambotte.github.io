@@ -2,111 +2,159 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light dark">
 <title>Pilotage de classe</title>
+<script src="js/theme.js"></script>
 <link rel="stylesheet" href="pilotage.css">
 </head>
 <body>
-<aside class="pt-barre">
-  <div class="pt-id">
-    <p class="pt-nom">Pilotage</p>
-    <p class="pt-fct">Version prof</p>
-    <p class="etiquettes"><span class="puce" id="hl" hidden>hors ligne</span> <span class="puce" id="modeprof">mode prof</span></p>
-    <p class="etiquettes"><button type="button" class="puce sync" id="sync-etat" aria-controls="synchro" aria-expanded="false" title="État de la sauvegarde dans le dépôt privé">Synchro…</button></p>
-  </div>
-  <nav class="pt-nav" aria-label="Sections de la page">
-    <a href="#c1">Échauffement</a>
-    <a href="#c2">Poursuivre le cours</a>
-    <a href="#c3">Journal de classe</a>
-    <a href="#c4">Devoirs</a>
-    <a href="#c5">Interros</a>
-    <a href="scan.html" title="Sur le smartphone : lit les cartes de vote et affiche un QR que la tablette lit">Lire les cartes (smartphone)</a>
-  </nav>
-  <div class="pt-pied">
-    <button class="petit" id="exporter" type="button" title="Télécharge tout le journal en un fichier JSON">Exporter l'état</button>
-    <button class="petit" id="importer" type="button" title="Fusionne un fichier exporté dans le journal de cet appareil">Importer</button>
-    <input type="file" id="fichier" accept="application/json,.json" hidden>
-  </div>
-</aside>
-
-<main>
-  <div id="erreur-config" class="alerte" role="alert" hidden></div>
-  <div id="avis" class="alerte" role="status" hidden></div>
-  <header id="entete">
-    <h1 class="titre" id="classe-titre">–</h1>
-    <p class="sous" id="classe-sous"></p>
-    <p class="choix"><label for="choix-classe">Classe</label> <select id="choix-classe"></select> <span class="sous" id="prochaine"></span></p>
+<!-- ================= vue « classe » ================= -->
+<div class="vue" id="vue-classe">
+  <header class="band">
+    <div class="b-outils">
+      <p class="marque">Pilotage</p>
+      <nav class="outils" aria-label="Outils">
+        <a class="ico" id="accueil" href="../board/index.html" title="Retour à l'accueil"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9H4zM10 20v-6h4v6"/></svg></span><span class="il">Accueil</span></a>
+        <a class="ico" id="ouvrir-reglages" href="#reglages"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span><span class="il">Réglages</span></a>
+        <a class="ico" id="ouvrir-scan" href="scan.html" title="Sur le smartphone : lit les cartes de vote et affiche un QR que la tablette lit"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><span class="il">Scanner</span></a>
+        <button class="ico" id="exporter" type="button" title="Télécharge tout le journal en un fichier JSON"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg></span><span class="il">Exporter</span></button>
+        <button class="ico" id="importer" type="button" title="Fusionne un fichier exporté dans le journal de cet appareil"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M5 19h14"/></svg></span><span class="il">Importer</span></button>
+        <input type="file" id="fichier" accept="application/json,.json" hidden>
+      </nav>
+    </div>
+    <div class="b-classe" id="entete">
+      <div class="date-nav">
+        <button type="button" class="fl" id="jour-prec" aria-label="Jour précédent" title="Jour précédent (←)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button>
+        <button type="button" class="date" id="date-jour" aria-label="Choisir une date" title="Choisir une date"></button>
+        <button type="button" class="fl" id="jour-suiv" aria-label="Jour suivant" title="Jour suivant (→)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button>
+        <input type="date" id="jour-choix" class="jour-choix" tabindex="-1" aria-hidden="true">
+      </div>
+      <h1 class="titre" id="classe-titre">–</h1>
+      <p class="puces" id="classe-sous"></p>
+      <p class="prochaine" id="prochaine"></p>
+    </div>
+    <div class="b-droite">
+      <div class="temps" id="temps" hidden>
+        <svg viewBox="0 0 58 58" aria-hidden="true"><circle class="piste" cx="29" cy="29" r="24"/><circle class="arc" id="temps-arc" cx="29" cy="29" r="24" stroke-dasharray="0 151" transform="rotate(-90 29 29)"/></svg>
+        <div><div class="heure" id="heure"></div><div class="clair" id="reste"></div></div>
+      </div>
+      <div class="b-etat">
+        <select id="choix-classe" aria-label="Classe"></select>
+        <button type="button" class="pastille sync" id="sync-etat" title="Synchronisation avec le dépôt privé : ouvrir les réglages">Synchro…</button>
+      </div>
+      <div class="b-etat"><span class="pastille att" id="hl" hidden>hors ligne</span><span class="pastille att" id="modeprof" hidden></span></div>
+    </div>
   </header>
 
-  <div class="grille" id="grille">
-    <section class="carte" id="c1" aria-labelledby="t1">
-      <div class="code">01 · Échauffement</div>
-      <h3 id="t1">Trois questions pour démarrer</h3>
-      <div class="sub" id="ech-sub"></div>
-      <div id="ech-liste"></div>
-      <div class="ligne">
-        <button class="primaire" id="ech-lancer" type="button">Lancer l'échauffement</button>
-        <button id="ech-retirer" type="button">Tout retirer</button>
-        <button id="ech-refaire" type="button">Tirer à nouveau</button>
-      </div>
-      <div class="sub" id="ech-msg" role="status"></div>
-    </section>
-
-    <section class="carte" id="c2" aria-labelledby="t2">
-      <div class="code">02 · Poursuivre le cours</div>
-      <h3 id="t2">Reprendre où on s'est arrêté</h3>
-      <div class="arret" id="arret"></div>
-      <div class="ligne">
-        <a class="bouton primaire" id="reprendre" href="#">Reprendre ici</a>
-        <button id="ailleurs" type="button" aria-expanded="false" aria-controls="apercu">Choisir un autre endroit</button>
-      </div>
-      <div class="sub" id="derniere"></div>
-    </section>
-
-    <section class="carte" id="c3" aria-labelledby="t3">
-      <div class="code">03 · Journal de classe</div>
-      <h3 id="t3">Entrée de la séance</h3>
-      <div class="sub" id="jdc-sub">Calculé d'après les marques ✓ de la séance du jour.</div>
-      <textarea id="jdc" rows="4" aria-label="Entrée du journal de classe"></textarea>
-      <div class="ligne"><button class="petit" id="jdc-regen" type="button">↻ Régénérer</button><span class="ressort"></span><button class="primaire" id="jdc-copier" type="button">Copier le journal</button></div>
-    </section>
-
-    <section class="carte" id="c4" aria-labelledby="t4">
-      <div class="code">04 · Devoirs <span class="chip acc">champ séparé</span></div>
-      <h3 id="t4">À faire à la maison</h3>
-      <div class="sub" id="dev-sub"></div>
-      <textarea id="dev" rows="3" aria-label="Devoirs"></textarea>
-      <div class="ligne"><button class="petit" id="dev-regen" type="button">↻ Régénérer</button><button class="petit" id="dev-chapitre" type="button" hidden></button><span class="ressort"></span><button class="primaire" id="dev-copier" type="button">Copier les devoirs</button></div>
-    </section>
-
-    <section class="carte large" id="c5" aria-labelledby="t5">
-      <div class="code">05 · Interros planifiées</div>
-      <h3 id="t5" class="cache">Interros planifiées</h3>
-      <div id="interros"></div>
-      <div class="sub">Rappels seulement : les documents d'interro restent dans le dépôt privé.</div>
-    </section>
-
-    <section class="carte large" id="modules" aria-label="Modules à venir">
-      <div class="code">Modules</div>
-      <div id="modules-contenu" class="sub">Emplacement réservé aux prochains modules (sonomètre, lecture des cartes…).</div>
-    </section>
+  <div class="annonces">
+    <div id="erreur-config" class="alerte" role="alert" hidden></div>
+    <div id="avis" class="alerte" role="status" hidden></div>
+    <div id="sans-cours" class="reprise sans-cours" role="status" hidden></div>
+    <div id="reprise" class="reprise" role="region" aria-label="Synchronisation inactive" hidden>
+      <span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg></span>
+      <span class="r-texte"><b>Synchronisation inactive sur ce navigateur.</b> <span class="doux">Ses données ont peut-être été effacées : ta clé remet tout en service.</span></span>
+      <button type="button" class="btn cu" id="reprise-cle">Charger ma clé…</button>
+      <a class="btn" href="#reglages">Configurer</a>
+      <button type="button" class="btn discret" id="reprise-masquer" aria-label="Masquer ce message">✕</button>
+    </div>
   </div>
 
-  <section class="synchro" id="synchro" aria-label="Synchronisation avec le dépôt privé" hidden></section>
+  <main class="grille" id="grille">
+    <section class="carte" id="c1" aria-labelledby="t1">
+      <div class="ent"><span class="badge b-a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c.8 3 4.5 4.6 4.5 9a4.5 4.5 0 0 1-9 0c0-2.2 1-3.4 2.2-4.4.1 1.6 1 2.6 2.1 2.6 0-2.7-1-4.6.2-7.2z"/></svg></span>
+        <div><h2 id="t1">Échauffement</h2><div class="doux" id="ech-sub"></div></div>
+        <button class="btn discret" id="ech-retirer" type="button">Tout retirer</button></div>
+      <div id="ech-liste" class="liste-q"></div>
+      <div class="derniere" id="ech-derniere" hidden></div>
+      <div class="doux" id="ech-msg" role="status"></div>
+      <div class="act">
+        <button class="btn p" id="ech-lancer" type="button">Lancer l'échauffement</button>
+        <button class="btn" id="ech-refaire" type="button" title="Tirer d'autres questions">↻ Autres</button>
+      </div>
+    </section>
 
-  <section class="apercu" id="apercu" aria-label="Choisir un point d'arrêt" hidden>
-    <h2 class="sec">Fixer le point d'arrêt</h2>
-    <p class="sub" id="apercu-sub"></p>
+    <div class="carte colonne">
+      <section id="c2" aria-labelledby="t2">
+        <div class="ent"><span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19"/></svg></span>
+          <div><h2 id="t2">Reprendre le cours</h2><div class="doux" id="cours-sub"></div></div></div>
+        <div class="arret" id="arret"></div>
+        <div class="act">
+          <a class="btn p" id="reprendre" href="#">Reprendre ici</a>
+          <button class="btn" id="ailleurs" type="button" aria-expanded="false" aria-controls="apercu">Autre endroit</button>
+        </div>
+        <div class="doux" id="derniere"></div>
+      </section>
+      <section id="c5" aria-labelledby="t5">
+        <h3 class="sh" id="t5">Prochaines interros</h3>
+        <div id="interros"></div>
+      </section>
+    </div>
+
+    <div class="carte colonne">
+      <section id="c3" aria-labelledby="t3">
+        <div class="ent"><span class="badge b-ol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19l3.5-.8L19 7.7 16.3 5 5.8 15.5zM14.5 6.8l2.7 2.7"/></svg></span>
+          <div><h2 id="t3">Journal de classe</h2><div class="doux" id="jdc-sub">Calculé d'après les marques ✓ de la séance du jour.</div></div></div>
+        <textarea id="jdc" rows="4" aria-label="Entrée du journal de classe"></textarea>
+        <div class="act fin"><button class="btn discret" id="jdc-regen" type="button" title="Recalculer d'après les marques du jour">↻</button><button class="btn t" id="jdc-copier" type="button">Copier le journal</button></div>
+      </section>
+      <section id="c4" aria-labelledby="t4">
+        <h3 class="sh" id="t4">Devoirs</h3>
+        <div class="doux" id="dev-sub"></div>
+        <textarea id="dev" rows="2" aria-label="Devoirs"></textarea>
+        <div class="act fin"><button class="btn discret" id="dev-regen" type="button" title="Recalculer">↻</button><button class="btn discret" id="dev-chapitre" type="button" hidden></button><button class="btn t" id="dev-copier" type="button">Copier les devoirs</button></div>
+      </section>
+    </div>
+
+    <section class="carte large" id="modules" aria-label="Modules" hidden>
+      <div id="modules-contenu" class="doux"></div>
+    </section>
+  </main>
+</div>
+
+<!-- ================= vue « réglages » ================= -->
+<div class="vue" id="vue-reglages" hidden>
+  <header class="band band-r">
+    <a class="rond retour" id="fermer-reglages" href="#" aria-label="Retour à la classe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+    <div><p class="clair">Pilotage · sur cet appareil</p><h1 class="titre">Réglages</h1></div>
+  </header>
+  <main class="grille-r">
+    <section class="carte" aria-labelledby="r1">
+      <div class="ent"><span class="badge b-a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.6A3.3 3.3 0 0 0 7 18z"/></svg></span>
+        <div><h2 id="r1">Synchronisation</h2><div class="doux">dépôt privé GitHub</div></div></div>
+      <section class="synchro" id="synchro" aria-label="Synchronisation avec le dépôt privé"></section>
+    </section>
+    <section class="carte cle" id="cle" aria-labelledby="r2">
+      <div class="ent"><span class="badge b-cu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg></span>
+        <div><h2 id="r2">Clé de synchronisation</h2><div class="doux">pour tout remettre en service en un geste</div></div></div>
+      <div id="cle-contenu"></div>
+    </section>
+    <section class="carte" id="appareil" aria-labelledby="r3">
+      <div class="ent"><span class="badge b-ol"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
+        <div><h2 id="r3">Cet appareil</h2><div class="doux" id="appareil-sub"></div></div></div>
+      <div id="appareil-contenu"></div>
+    </section>
+  </main>
+</div>
+
+<!-- point d'arrêt : feuille par-dessus la page -->
+<div class="voile" id="apercu" role="dialog" aria-modal="true" aria-labelledby="apercu-titre" hidden>
+  <section class="feuille">
+    <div class="feuille-tete"><h2 id="apercu-titre">Fixer le point d'arrêt</h2><button type="button" class="btn discret" id="apercu-fermer" aria-label="Fermer">✕</button></div>
+    <p class="doux" id="apercu-sub"></p>
     <div id="apercu-liste"></div>
   </section>
-</main>
+</div>
+<!-- clé de synchronisation : ouverture d'un fichier -->
+<div class="voile" id="dialogue-cle" role="dialog" aria-modal="true" aria-labelledby="dcle-titre" hidden></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="js/sync.js"></script>
 <script src="js/outils.js"></script>
 <script src="js/config.js"></script>
 <script src="js/horaire.js"></script>
+<script src="js/jour.js"></script>
 <script src="js/ev.js"></script>
 <script src="js/indexcours.js"></script>
 <script src="js/tirage.js"></script>
@@ -114,6 +162,8 @@
 <script src="js/etat.js"></script>
 <script src="js/donnees.js"></script>
 <script src="js/synchro-ui.js"></script>
+<script src="js/cle-ui.js"></script>
+<script src="js/reglages.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

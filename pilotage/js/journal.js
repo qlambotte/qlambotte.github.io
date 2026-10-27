@@ -10,7 +10,8 @@
   // Point d'arrêt au début de la séance = dernier élément marqué avant le début de la journée.
   // Arrivée = dernier élément marqué pendant la séance du jour.
   function bornes(p) {                       // p : { ev, classe, uaa, index, jour, fuseau }
-    var etatJour = E.etat(p.ev, p.classe, p.fuseau);
+    // p.jusque (ms, facultatif) : état reconstitué à cet instant — fin du jour pour un jour passé (navigation de date).
+    var etatJour = E.etat(p.ev, p.classe, p.fuseau, p.jusque);
     var debutJour = jourVersMs(p.jour, p.fuseau);
     var etatAvant = E.etat(p.ev, p.classe, p.fuseau, debutJour);
     var pos = p.index && p.index.pos;
@@ -27,6 +28,8 @@
     while (O.jourDe(t, fuseau) < ymd) t += 15 * 60000;
     return t;
   }
+  // Instant (ms) où le jour local `ymd` se termine = début du suivant. Un jour de 25 h (25/10/2026) a une fin 25 h après son début.
+  function finDeJour(ymd, fuseau) { return jourVersMs(O.ajouterJours(ymd, 1), fuseau); }
   function titreSection(index, id) {
     if (!id) return null;
     var s = index.sectionDe(id);
@@ -105,5 +108,5 @@
     return exos.map(function (e) { return formaterExercice(format || "Exercice {num}[ : {titre}]", e); }).join("\n");
   }
   return { titreDebut: titreDebut, bornes: bornes, texteJournal: texteJournal, devoirs: devoirs, texteDevoirs: texteDevoirs,
-           formaterExercice: formaterExercice, jourVersMs: jourVersMs, titreSection: titreSection };
+           formaterExercice: formaterExercice, jourVersMs: jourVersMs, finDeJour: finDeJour, titreSection: titreSection };
 });

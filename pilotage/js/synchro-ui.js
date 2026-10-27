@@ -1,5 +1,5 @@
 /* synchro-ui.js — interface de la synchronisation (P5) dans la page de pilotage.
-   Pastille d'état toujours visible dans la barre latérale ; au clic, panneau : état et détail, synchronisation à la demande,
+   Pastille d'état toujours visible dans le bandeau ; au clic, la vue « Réglages » s'ouvre : état et détail, synchronisation à la demande,
    restauration depuis le dépôt, configuration de l'appareil (jeton, dépôt, nom d'appareil, test de connexion, chiffrement
    facultatif du jeton), « Oublier ce jeton ». Le jeton n'est saisi que dans un champ « mot de passe » : jamais dans
    l'adresse, jamais dans le code publié, jamais affiché. Tout le texte est inséré avec textContent. */
@@ -27,7 +27,6 @@
     var occupe = false;
 
     /* ---- squelette ---- */
-    zone.appendChild(el("h2", "sec", "Synchronisation"));
     var rapportEtat = el("div", "rapport"); rapportEtat.setAttribute("role", "status");
     var detail = el("ul", "detail");
     var configInfo = el("div", "sub");
@@ -51,7 +50,7 @@
     zone.appendChild(rapportEtat); zone.appendChild(detail); zone.appendChild(configInfo);
     zone.appendChild(el("p")); zone.appendChild(lAction); zone.appendChild(compte); zone.appendChild(blocVerrou);
 
-    zone.appendChild(el("h3", "", "Cet appareil"));
+    zone.appendChild(el("h3", "", "Configurer cet appareil"));
     var form = el("div", "bloc-sync");
     var fJeton = champ("Jeton GitHub (« fine-grained », limité à un seul dépôt)", { type: "password", autocomplete: "off", spellcheck: "false", autocapitalize: "off", name: "jeton-sync" });
     var fDepot = champ("Dépôt (compte/nom)", { type: "text", autocomplete: "off", spellcheck: "false", autocapitalize: "off", placeholder: "compte/suivi-classes" });
@@ -161,10 +160,7 @@
       blocVerrou.hidden = !inf.verrouille;
       lAction.hidden = !actif;
     }
-    puce.addEventListener("click", function () {
-      zone.hidden = !zone.hidden; puce.setAttribute("aria-expanded", String(!zone.hidden));
-      if (!zone.hidden) zone.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    puce.addEventListener("click", function () { if (Pi.vues) Pi.vues.ouvrir("reglages"); });
     S.abonner(maj);
     maj();
     Pi.synchro.maj = maj;
