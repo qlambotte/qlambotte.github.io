@@ -5,9 +5,14 @@ project:
   resources:
     - "pilotage/*.html"
     - "pilotage/*.css"
-    - "pilotage/*.json"
+    - "pilotage/config.json"
     - "pilotage/sw.js"
     - "pilotage/js/*.js"
+    - "board/*.html"
+    - "board/*.css"
+    - "board/config.json"
+    - "board/sw.js"
+    - "board/js/*.js"
 
 website:
   title: "Quentin Lambotte — mathématiques"

@@ -1,0 +1,23 @@
+# ============================================================
+#  portail.toml — ta page pro + une page par année, qui liste
+#  automatiquement les cours (tous les typweb.toml trouvés sous
+#  les « racines »). Dépôt GitHub conseillé : <compte>.github.io
+#
+#    python3 typweb/typweb.py portail DOSSIER            # génère
+#    python3 typweb/typweb.py portail DOSSIER --preview  # aperçu
+#    python3 typweb/typweb.py portail DOSSIER --publier  # en ligne
+# ============================================================
+
+[personne]
+nom      = "Quentin Lambotte"
+fonction = "Professeur de mathématiques"
+ecole    = "Institut des Ursulines, Mons"
+contact  = "Par la plateforme de l'école."
+
+[portail]
+titre    = "Quentin Lambotte — mathématiques"
+site-url = "https://qlambotte.github.io/"
+racines  = [".."]                  # dossiers où chercher les typweb.toml
+annees   = ["5e", "6e"]            # ordre des pages d'année
+# titre-annee = "Mathématiques — %s"
+# intro-annee = "Les cours de l'année…"

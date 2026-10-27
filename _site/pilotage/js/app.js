@@ -4,11 +4,11 @@
 (function () {
   "use strict";
   var Pi = window.Pilotage, O = Pi.outils, C = Pi.config, H = Pi.horaire, E = Pi.ev, X = Pi.indexcours,
-      T = Pi.tirage, J = Pi.journal, D = Pi.donnees;
+      T = Pi.tirage, J = Pi.journal, D = Pi.donnees, Jr = Pi.jour;
   var $ = function (s) { return document.querySelector(s); };
   var CLE_MANUEL = "pilotage.classe.manuelle";
   var A = { config: null, code: "", auto: false, creneau: null, cours: null, coursSource: null, index: null, indexBrut: null,
-            banques: {}, manuel: false, etat: null, tir: { n: 0, rempl: {}, res: null, retire: false }, copies: 0, pret: false, notes: [] };
+            banques: {}, manuel: false, jour: null, vuLe: "", etat: null, tir: { n: 0, rempl: {}, res: null, retire: false }, copies: 0, pret: false, notes: [] };
 
   /* ---------- utilitaires ---------- */
   function maintenant() {
@@ -16,7 +16,24 @@
     var d = m ? new Date(m) : null;
     return d && !isNaN(d) ? d : new Date();
   }
-  function jourCourant() { return O.jourDe(maintenant(), A.config.fuseau); }
+  // Jour réel (horloge, ou ?maintenant=) et jour AFFICHÉ. A.jour = null : on suit l'horloge (aujourd'hui, même après minuit) ;
+  // sinon un jour choisi (?jour=AAAA-MM-JJ), passé ou à venir. jourCourant() est le jour affiché.
+  function aujourdhui() { return O.jourDe(maintenant(), A.config.fuseau); }
+  function jourCourant() { return A.jour || aujourdhui(); }
+  function estAujourdhui() { return !A.jour || A.jour === aujourdhui(); }
+  function statutJour() { return Jr.statut(aujourdhui(), jourCourant()); }      // "passe" | "aujourdhui" | "avenir"
+  // Instant limite de l'état affiché : fin du jour affiché pour un jour passé, sinon aucune limite (état actuel).
+  function jusque() { return statutJour() === "passe" ? J.finDeJour(jourCourant(), A.config.fuseau) : undefined; }
+  function seancesAffichees() { return H.seancesDuJour(A.config, jourCourant(), A.code); }
+  function majUrl() {
+    try { history.replaceState(history.state, "", location.pathname + Jr.urlAvec(location.search, A.jour, aujourdhui()) + location.hash); } catch (e) {}
+  }
+  // Affiche un autre jour (ymd valide). Revenir à aujourd'hui retire ?jour= de l'adresse.
+  function aller(ymd) {
+    if (!O.dateValide(ymd)) return;
+    A.jour = ymd === aujourdhui() ? null : ymd;
+    majUrl(); A.tir.res = null; rendreTout();
+  }
   function el(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt !== undefined) n.textContent = txt; return n; }
   function vider(n) { while (n.firstChild) n.removeChild(n.firstChild); }
   var toastT = null;
@@ -37,10 +54,11 @@
   function rendreModules() {
     var zone = $("#modules-contenu");
     if (!Pi.modules.length) return;
+    $("#modules").hidden = false;
     vider(zone);
     Pi.modules.forEach(function (m) {
       var bloc = el("div", "module"); bloc.id = "module-" + m.id; zone.appendChild(bloc);
-      try { m.rendre(bloc, { classe: A.code, uaa: A.cours && A.cours.uaa, etat: A.etat, config: A.config, index: A.index, jour: jourCourant() }); }
+      try { m.rendre(bloc, { classe: A.code, uaa: A.cours && A.cours.uaa, etat: A.etat, config: A.config, index: A.index, jour: jourCourant(), aujourdhui: aujourdhui(), lectureSeule: !estAujourdhui() }); }
       catch (e) { bloc.textContent = "Module « " + m.id + " » : erreur (" + e.message + ")"; }
     });
   }
@@ -98,6 +116,10 @@
     A.manuel = !!(manuel && codes.indexOf(manuel) >= 0);
     if (p && codes.indexOf(p) >= 0) { A.code = p; A.auto = !!(cren && cren.classe === p); return; }
     if (manuel && codes.indexOf(manuel) >= 0) { A.code = manuel; A.auto = !!(cren && cren.classe === manuel); return; }
+    if (A.jour) {                                   // jour choisi dans l'adresse : la classe qui a cours ce jour-là
+      var sj = H.seancesDuJour(cfg, A.jour)[0];
+      if (sj) { A.code = sj.classe; A.auto = false; return; }
+    }
     if (cren) { A.code = cren.classe; A.auto = true; return; }
     var bientot = H.prochaine(cfg, now);
     if (bientot && bientot.ymd === O.jourDe(now, cfg.fuseau) &&
@@ -109,17 +131,53 @@
   }
 
   /* ---------- rendu : en-tête ---------- */
+  var MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  var MOIS_C = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+  function dateLongue(ymd) {
+    var j = O.JOURS[O.jourSemaine(ymd)], p = ymd.split("-");
+    return j.charAt(0).toUpperCase() + j.slice(1) + " " + parseInt(p[2], 10) + " " + MOIS[parseInt(p[1], 10) - 1];
+  }
+  // Anneau du temps de la séance : part écoulée du créneau, heure, minutes restantes.
+  function rendreTemps(cren, now) {
+    var z = $("#temps");
+    if (!cren || !estAujourdhui()) { z.hidden = true; return; }
+    var l = O.local(now, A.config.fuseau), d = O.minutes(cren.debut), f = O.minutes(cren.fin), m = l.minutes;
+    var part = Math.max(0, Math.min(1, (m - d) / Math.max(1, f - d))), circ = 2 * Math.PI * 24;
+    $("#temps-arc").setAttribute("stroke-dasharray", (part * circ).toFixed(1) + " " + circ.toFixed(1));
+    $("#heure").textContent = Math.floor(m / 60) + ":" + String(m % 60).padStart(2, "0");
+    $("#reste").textContent = m < d ? "début dans " + (d - m) + " min" : m < f ? "encore " + (f - m) + " min" : "séance terminée";
+    z.hidden = false;
+  }
   function rendreEntete() {
     var cfg = A.config, now = maintenant(), cl = classeCfg();
     $("#classe-titre").textContent = A.code;
-    var parts = [], cren = A.creneau && A.creneau.classe === A.code ? A.creneau : null;
-    if (cren) parts.push("Local " + cren.local, H.libelle(cren));
-    else parts.push("Hors créneau");
-    parts.push(A.cours ? A.cours.uaa + " · " + A.cours.titre : "aucun cours en cours");
-    if (cren) parts.push("créneau détecté"); else if (A.manuel) parts.push("classe choisie à la main");
-    $("#classe-sous").textContent = parts.join(" · ");
+    var auj = estAujourdhui(), st = statutJour(), joursCours = seancesAffichees();
+    $("#date-jour").textContent = dateLongue(jourCourant());
+    $("#jour-choix").value = jourCourant();
+    document.documentElement.setAttribute("data-jour", jourCourant());
+    document.documentElement.setAttribute("data-statut-jour", st);
+    var parts = [], cren = auj && A.creneau && A.creneau.classe === A.code ? A.creneau : null;
+    if (auj) {
+      if (cren) parts.push("Local " + cren.local, H.libelle(cren));
+      else parts.push("Hors créneau");
+    } else if (joursCours.length) {
+      parts.push("Local " + joursCours[0].local, joursCours.map(H.libelle).join(" et "));
+    } else parts.push("Pas de cours");
+    parts.push(A.cours ? (auj ? A.cours.uaa + " · " + A.cours.titre : A.cours.uaa) : "aucun cours en cours");
+    if (auj) { if (cren) parts.push("créneau détecté"); else if (A.manuel) parts.push("classe choisie à la main"); }
+    else parts.push(st === "passe" ? "passé · lecture seule" : "à venir");
+    // une puce par élément ; les séparateurs « · » restent dans le texte (lecteurs d'écran, copier-coller) mais pas à l'écran
+    var sous = $("#classe-sous"); vider(sous);
+    parts.forEach(function (t, i) { if (i) sous.appendChild(el("span", "sep", " · ")); sous.appendChild(el("span", "puce", t)); });
+    if (!auj) {                                           // pastille de retour, dans la ligne des puces
+      var retour = el("button", "pastille att retour", Jr.pastilleRetour(aujourdhui(), jourCourant()));
+      retour.type = "button"; retour.id = "retour-auj"; retour.title = "Revenir à aujourd'hui";
+      retour.addEventListener("click", function () { aller(aujourdhui()); });
+      sous.appendChild(retour);
+    }
+    rendreTemps(cren, now);
     var pro = H.prochaine(cfg, now);
-    $("#prochaine").textContent = (!cren && pro) ? "Prochaine séance : " + H.libelleSeance(pro) + " (" + pro.creneau.classe + ")" : "";
+    $("#prochaine").textContent = auj && !cren && pro ? "Prochaine séance : " + H.libelleSeance(pro) + " (" + pro.creneau.classe + ")" : "";
     var sel = $("#choix-classe");
     if (sel.options.length !== cfg.classes.length) {
       vider(sel);
@@ -128,7 +186,7 @@
     sel.value = A.code;
     var prof = A.etat && A.etat.modeProf(), mp = $("#modeprof");
     mp.textContent = prof ? "mode prof : activé" : "mode prof : désactivé";
-    mp.className = "puce " + (prof ? "on" : "alerte");
+    mp.hidden = !!prof;                                   // ne se montre que s'il faut agir
     rendreAvis();
     var hl = !navigator.onLine || A.copies > 0;
     $("#hl").hidden = !hl;
@@ -161,21 +219,24 @@
     vider(liste); msg.textContent = "";
     ["#ech-lancer", "#ech-retirer", "#ech-refaire"].forEach(function (s) { $(s).disabled = false; });
     if (!A.cours) { sub.textContent = "Aucun cours configuré pour " + A.code + " (config.json › classes › cours)."; ["#ech-lancer", "#ech-retirer", "#ech-refaire"].forEach(function (s) { $(s).disabled = true; }); return; }
-    if (A.tir.retire) {
+    if (A.tir.retire && estAujourdhui()) {
       sub.textContent = "Échauffement retiré pour cette séance.";
       $("#ech-lancer").disabled = true; $("#ech-retirer").textContent = "Rétablir"; return;
     }
+    if (!estAujourdhui()) return rendreEchauffementJour();
     $("#ech-retirer").textContent = "Tout retirer";
     if (!A.tir.res) calculerTirage();
     var r = A.tir.res;
-    sub.textContent = r.rienVu ? "Rien n'a encore été vu avec cette classe : prérequis seulement." : "Construit sur ce qui a déjà été vu : précédent, prérequis, révision espacée.";
+    sub.textContent = r.rienVu ? "Rien n'a encore été vu avec cette classe : prérequis seulement." : "Séance précédente, prérequis, révision espacée";
     if (!r.items.length) { sub.textContent = "Aucun élément d'échauffement disponible dans la banque de classe."; $("#ech-lancer").disabled = true; }
     r.items.forEach(function (it) {
       var q = el("div", "q"), tete = el("div", "tete");
-      tete.appendChild(el("span", "chip", it.kind === "exercice" ? "Exercice · " + (ROLES[it.role] || "") : (ROLES[it.role] || it.role || "QCM")));
+      var chip = el("span", "chip", it.kind === "exercice" ? "Exercice · " + (ROLES[it.role] || "") : (ROLES[it.role] || it.role || "QCM"));
+      chip.setAttribute("data-role", it.role || "");
+      tete.appendChild(chip);
       tete.appendChild(el("span", "sub", it.kind === "exercice" ? it.id : it.id));
       tete.appendChild(el("span", "ressort"));
-      var b = el("button", "petit", "↻ Remplacer"); b.type = "button"; b.setAttribute("aria-label", "Remplacer : " + (ROLES[it.role] || it.id));
+      var b = el("button", "petit", "↻"); b.type = "button"; b.setAttribute("aria-label", "Remplacer : " + (ROLES[it.role] || it.id)); b.title = "Remplacer cette question";
       b.addEventListener("click", function () {
         var cle = it.slot, pr = A.tir.rempl[cle] || { n: 0, exclus: [] };
         pr.exclus = pr.exclus.concat([T.cleExclusion(it)]); pr.n += 1; A.tir.rempl[cle] = pr; calculerTirage(); rendreEchauffement();
@@ -186,6 +247,41 @@
       liste.appendChild(q);
     });
     if (r.notes.length) msg.textContent = r.notes.join(" ");
+    rendreDerniereFois();
+  }
+  // Autre jour : lecture seule. Passé = l'échauffement enregistré ce jour-là ; à venir = rien (le tirage se fait le jour même).
+  function rendreEchauffementJour() {
+    var liste = $("#ech-liste"), sub = $("#ech-sub"), z = $("#ech-derniere");
+    ["#ech-lancer", "#ech-retirer", "#ech-refaire"].forEach(function (s) { $(s).disabled = true; });
+    $("#ech-retirer").textContent = "Tout retirer";
+    vider(z); z.hidden = true;
+    if (statutJour() === "avenir") { sub.textContent = "Pas encore tiré : l'échauffement se prépare le jour même, d'après ce qui aura été vu."; return; }
+    var h = E.echauffements(A.etat.evenements(), A.code, A.config.fuseau).filter(function (x) { return x.jour === jourCourant(); }).pop();
+    if (!h || !h.items.length) { sub.textContent = "Aucun échauffement enregistré ce jour-là."; return; }
+    sub.textContent = "Échauffement du " + jourFr(h.jour) + " : " + h.items.length + " élément" + (h.items.length > 1 ? "s" : "") + ".";
+    h.items.forEach(function (it) {
+      if (!it || !it.id) return;
+      var q = el("div", "q"), tete = el("div", "tete");
+      tete.appendChild(el("span", "chip", it.type === "exercice" || it.kind === "exercice" ? "Exercice" : "QCM"));
+      tete.appendChild(el("span", "sub", it.id));
+      if (it.niveau === 0 || it.niveau === 1 || it.niveau === 2) { var pt = el("span", "pt n" + it.niveau); pt.title = "niveau " + it.niveau; tete.appendChild(pt); }
+      q.appendChild(tete); liste.appendChild(q);
+    });
+  }
+  // Points de couleur : comment la classe a réussi le dernier échauffement (niveau 2 / 1 / 0 enregistré après lecture des cartes).
+  function rendreDerniereFois() {
+    var z = $("#ech-derniere"), auj = aujourdhui(), der = null;
+    vider(z); z.hidden = true;
+    A.etat.evenements().forEach(function (e) {
+      if (e.a === "echauffement" && e.c === A.code && Array.isArray(e.items) && O.jourDe(new Date(e.t), A.config.fuseau) < auj && (!der || e.t > der.t)) der = e;
+    });
+    if (!der) return;
+    var notes = der.items.filter(function (i) { return i && (i.niveau === 0 || i.niveau === 1 || i.niveau === 2); });
+    if (!notes.length) return;
+    notes.forEach(function (i) { var s = el("span", "pt n" + i.niveau); s.title = i.id; z.appendChild(s); });
+    var bien = notes.filter(function (i) { return i.niveau === 2; }).length;
+    z.appendChild(el("span", "", "La dernière fois (" + O.dateFr(O.jourDe(new Date(der.t), A.config.fuseau)) + ") : " + bien + " sur " + notes.length + " bien réussie" + (bien > 1 ? "s" : "")));
+    z.hidden = false;
   }
   function lancerEchauffement() {
     var msg = $("#ech-msg"), vote = A.etat.vote();
@@ -204,32 +300,35 @@
   /* ---------- rendu : poursuivre le cours ---------- */
   function ctx(jour) {
     return { ev: A.etat.evenements(), classe: A.code, uaa: A.cours && A.cours.uaa, index: A.index || X.creer(null), jour: jour || jourCourant(),
-             fuseau: A.config.fuseau, format: A.config.format.devoirs };
+             jusque: jour ? undefined : jusque(), fuseau: A.config.fuseau, format: A.config.format.devoirs };
   }
   function titreEl(id) { var e = A.index && A.index.parId[id]; return e ? e.titre : id; }
   function rendreArret() {
     var zone = $("#arret"), lien = $("#reprendre"), der = $("#derniere");
-    vider(zone); vider(der);
+    vider(zone); vider(der); lien.hidden = false;
     if (!A.cours) { zone.textContent = "Aucun cours configuré pour " + A.code + "."; lien.setAttribute("aria-disabled", "true"); lien.removeAttribute("href"); $("#ailleurs").disabled = true; return; }
     $("#ailleurs").disabled = !A.index || A.index.vide;
     lien.removeAttribute("aria-disabled");
-    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau), d = E.dernier(etat, A.cours.uaa, undefined, A.index && A.index.pos);
-    zone.appendChild(el("b", "", A.cours.uaa + " · " + A.cours.titre)); zone.appendChild(document.createElement("br"));
+    var auj = estAujourdhui(), etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau, jusque()), d = E.dernier(etat, A.cours.uaa, undefined, A.index && A.index.pos);
+    $("#cours-sub").textContent = auj ? "" : statutJour() === "passe" ? "Point d'arrêt à la fin du " + jourFr(jourCourant()) : "Point d'arrêt actuel (avant cette séance)";
     if (!d) {
-      zone.appendChild(document.createTextNode("Aucun point d'arrêt : le cours n'est pas commencé avec cette classe."));
+      zone.appendChild(el("div", "r-titre", auj ? "Aucun point d'arrêt : le cours n'est pas commencé avec cette classe." : "Aucun point d'arrêt à cette date."));
       lien.textContent = "Commencer le cours"; lien.href = A.cours.url;
     } else {
       var s = A.index && A.index.sectionDe(d.el), e = A.index && A.index.parId[d.el];
-      zone.appendChild(document.createTextNode("Dernier point d'arrêt : "));
-      zone.appendChild(el("b", "", s ? s.titre : (e ? e.titre : d.el)));
-      if (e && s && e.id !== s.id) zone.appendChild(el("div", "sub", e.titre));
+      zone.appendChild(el("div", "r-titre", s ? s.titre : (e ? e.titre : d.el)));
+      zone.appendChild(el("div", "r-el", "Dernier point d'arrêt" + (e && s && e.id !== s.id ? " : " + e.titre : "") + " · " + jourFr(d.jour)));
+      var ch = A.index && A.index.chapitreDe ? A.index.chapitreDe(d.el) : null;
+      if (ch && auj) $("#cours-sub").textContent = ch.titre;
       lien.textContent = "Reprendre ici";
       if (e) { var u = new URL(e.ancre, A.cours.url); u.searchParams.set("reprise", "1"); lien.href = u.href; } else lien.href = A.cours.url;
       var b = J.bornes(ctx(d.jour)), t0 = J.titreDebut(ctx(d.jour), b), t1 = b.fin ? J.titreSection(A.index, b.fin.el) : null;
       der.textContent = "Dernière séance : " + jourFr(d.jour) + (t1 ? ", de « " + t0 + " » à « " + t1 + " »" : "") + ".";
     }
-    if (!A.etat.modeProf()) {
+    if (!auj) { lien.setAttribute("aria-disabled", "true"); lien.removeAttribute("href"); lien.hidden = true; }
+    if (auj && !A.etat.modeProf()) {
       var w = el("div", "alerte", "Le mode prof est désactivé sur cet appareil : le cours s'ouvrira sans la couche prof. ");
+      w.style.marginTop = "6px";
       var ab = el("button", "petit", "Activer le mode prof"); ab.type = "button";
       ab.addEventListener("click", function () { A.etat.activerModeProf(); rendreTout(); toast("Mode prof activé sur cet appareil"); });
       w.appendChild(ab); der.appendChild(w);
@@ -238,14 +337,15 @@
   function rendreApercu() {
     var zone = $("#apercu-liste"); vider(zone);
     if (!A.index || A.index.vide) return;
-    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau), d = E.dernier(etat, A.cours.uaa, undefined, A.index.pos);
+    var lecture = !estAujourdhui();
+    var etat = E.etat(A.etat.evenements(), A.code, A.config.fuseau, jusque()), d = E.dernier(etat, A.cours.uaa, undefined, A.index.pos);
     var courant = d && A.index.sectionDe(d.el);
-    $("#apercu-sub").textContent = A.etat.couche ? "Touche « Point d'arrêt ici » : la classe est considérée comme arrivée à la fin de cette section (un ✓ est écrit sur son dernier élément)." : "Couche prof indisponible : lecture seule.";
+    $("#apercu-sub").textContent = lecture ? "Lecture seule : le point d'arrêt se fixe le jour même." : A.etat.couche ? "Touche « Point d'arrêt ici » : la classe est considérée comme arrivée à la fin de cette section (un ✓ est écrit sur son dernier élément)." : "Couche prof indisponible : lecture seule.";
     A.index.sectionsOrdonnees().forEach(function (s) {
       var ligne = el("div", "bloc" + (s.type === "chapitre" ? " chap" : "") + (courant && courant.id === s.id ? " cur" : ""));
       ligne.appendChild(el("span", "", s.titre));
       if (s.type === "section") {
-        var b = el("button", "petit", courant && courant.id === s.id ? "Point d'arrêt actuel" : "Point d'arrêt ici"); b.type = "button"; b.disabled = !A.etat.couche;
+        var b = el("button", "petit", courant && courant.id === s.id ? "Point d'arrêt actuel" : "Point d'arrêt ici"); b.type = "button"; b.disabled = !A.etat.couche || lecture;
         b.addEventListener("click", function () {
           var cible = A.index.dernierMarquable(s.id) || s, pc = A.index.pos[cible.id];
           // le point d'arrêt est l'élément vu le plus avancé : pour revenir en arrière, les marques au-delà sont retirées
@@ -270,20 +370,25 @@
     var z = $("#jdc"), sub = $("#jdc-sub");
     z.disabled = $("#jdc-regen").disabled = $("#jdc-copier").disabled = !A.cours;
     if (!A.cours) { z.value = ""; sub.textContent = "Aucun cours configuré pour " + A.code + "."; return; }
-    var b = lireBrouillon("jdc");
+    var b = lireBrouillon("jdc"), futur = statutJour() === "avenir";
+    z.readOnly = !estAujourdhui(); $("#jdc-regen").disabled = z.readOnly && b === null;
+    if (futur && b === null) { z.value = ""; sub.textContent = "Séance à venir : le journal se remplit au fil des marques ✓."; return; }
     z.value = b !== null ? b : J.texteJournal(ctx());
-    sub.textContent = b !== null ? "Texte modifié à la main (↻ pour recalculer d'après les marques du jour)." : "Calculé d'après les marques ✓ de la séance du jour.";
+    sub.textContent = b !== null ? "Texte modifié à la main (↻ pour recalculer d'après les marques du jour)." :
+      statutJour() === "passe" ? "Reconstitué d'après les marques ✓ de la séance du " + jourFr(jourCourant()) + "." : "Calculé d'après les marques ✓ de la séance du jour.";
   }
   function rendreDevoirs() {
     var z = $("#dev"), sub = $("#dev-sub"), bc = $("#dev-chapitre");
     z.disabled = $("#dev-regen").disabled = $("#dev-copier").disabled = !A.cours;
     bc.hidden = true;
     if (!A.cours) { z.value = ""; sub.textContent = "Aucun cours configuré pour " + A.code + "."; return; }
-    var d = J.devoirs(ctx()), b = lireBrouillon("dev");
+    var d = J.devoirs(ctx()), b = lireBrouillon("dev"), futur = statutJour() === "avenir";
+    z.readOnly = !estAujourdhui(); $("#dev-regen").disabled = z.readOnly && b === null;
+    if (futur && b === null) { z.value = ""; sub.textContent = "Séance à venir : rien n'est encore donné."; return; }
     z.value = b !== null ? b : d.texte;
     sub.textContent = b !== null ? "Texte modifié à la main (↻ pour recalculer)." :
-      (d.lignes.length ? "Exercices « à la maison » situés dans la matière vue pendant la séance." : "Aucun exercice « à la maison » dans la matière vue (les exercices regroupés en fin de chapitre n'en font pas partie).");
-    if (b === null && !d.lignes.length && d.propositionChapitre.length) {
+      (d.lignes.length && statutJour() === "passe" ? "Exercices « à la maison » donnés ce jour-là (matière vue pendant la séance)." : d.lignes.length ? "Exercices « à la maison » situés dans la matière vue pendant la séance." : "Aucun exercice « à la maison » dans la matière vue (les exercices regroupés en fin de chapitre n'en font pas partie).");
+    if (b === null && estAujourdhui() && !d.lignes.length && d.propositionChapitre.length) {
       bc.hidden = false; bc.textContent = "Proposer les " + d.propositionChapitre.length + " exercices « maison » du chapitre";
       bc.onclick = function () { z.value = J.texteDevoirs(d.propositionChapitre, A.config.format.devoirs); ecrireBrouillon("dev", z.value); sub.textContent = "Proposition : tous les exercices « maison » du chapitre " + (d.chapitre ? d.chapitre.num : "") + " (à adapter)."; bc.hidden = true; };
     }
@@ -292,27 +397,51 @@
     var zone = $("#interros"); vider(zone);
     var auj = jourCourant();
     var l = A.config.interros.filter(function (i) { return i.classe === A.code && i.date >= auj; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
-    if (!l.length) { zone.appendChild(el("div", "sub", "Aucune interro planifiée pour " + A.code + ".")); return; }
+    if (!l.length) { zone.appendChild(el("div", "sub", "Aucune interro planifiée pour " + A.code + (estAujourdhui() ? "." : " à partir de cette date."))); return; }
     l.forEach(function (i) {
-      var n = O.ecartJours(auj, i.date), ligne = el("div", "iro");
-      ligne.appendChild(el("span", "", jourFr(i.date) + " · " + i.uaa + " · " + i.type));
-      ligne.appendChild(el("span", "j" + (n <= 14 ? " proche" : ""), n === 0 ? "aujourd'hui" : "J−" + n));
+      var n = O.ecartJours(auj, i.date), ligne = el("div", "iro"), p = i.date.split("-");
+      var dt = el("span", "dt"); dt.setAttribute("aria-hidden", "true");
+      dt.appendChild(el("b", "", String(parseInt(p[2], 10)))); dt.appendChild(el("span", "", MOIS_C[parseInt(p[1], 10) - 1]));
+      ligne.appendChild(dt);
+      var f = el("span", "f"); f.appendChild(el("span", "cache", jourFr(i.date) + " · ")); f.appendChild(document.createTextNode(i.uaa + " · " + i.type));
+      ligne.appendChild(f);
+      ligne.appendChild(el("span", "j" + (n <= 14 ? " proche" : ""), n === 0 ? (estAujourdhui() ? "aujourd'hui" : "ce jour-là") : "J−" + n));
       zone.appendChild(ligne);
     });
   }
 
   /* ---------- assemblage ---------- */
   function rendreDynamique() { rendreArret(); rendreApercu(); rendreJournal(); rendreDevoirs(); }
-  function rendreTout() { rendreEntete(); rendreEchauffement(); rendreDynamique(); rendreInterros(); rendreModules(); }
+  // Jour sans cours (autre que le jour même) : message clair, avec les jours de cours précédent et suivant de la classe.
+  function rendreSansCours() {
+    var z = $("#sans-cours"); vider(z);
+    z.hidden = estAujourdhui() || seancesAffichees().length > 0;
+    if (z.hidden) return;
+    var conge = H.estConge(A.config, jourCourant());
+    z.appendChild(el("span", "r-texte", (conge ? "Congé" : "Pas de cours") + " pour " + A.code + " le " + dateLongue(jourCourant()).toLowerCase() + "."));
+    [["Jour de cours précédent", H.jourDeCours(A.config, A.code, jourCourant(), -1)], ["Jour de cours suivant", H.jourDeCours(A.config, A.code, jourCourant(), 1)]].forEach(function (c, i) {
+      if (!c[1]) return;
+      var b = el("button", "btn t", i === 0 ? "‹ " + jourFr(c[1]) : jourFr(c[1]) + " ›");
+      b.type = "button"; b.title = c[0]; b.setAttribute("aria-label", c[0] + " : " + dateLongue(c[1]));
+      b.addEventListener("click", function () { aller(c[1]); });
+      z.appendChild(b);
+    });
+  }
+  function rendreTout() { A.vuLe = aujourdhui(); rendreEntete(); rendreSansCours(); rendreEchauffement(); rendreDynamique(); rendreInterros(); rendreModules(); }
 
   function brancher() {
     $("#ech-lancer").addEventListener("click", lancerEchauffement);
     $("#ech-retirer").addEventListener("click", function () { A.tir.retire = !A.tir.retire; rendreEchauffement(); });
     $("#ech-refaire").addEventListener("click", function () { A.tir.n++; A.tir.rempl = {}; A.tir.res = null; A.tir.retire = false; rendreEchauffement(); });
-    $("#ailleurs").addEventListener("click", function () {
-      var a = $("#apercu"); a.hidden = !a.hidden; $("#ailleurs").setAttribute("aria-expanded", String(!a.hidden));
-      if (!a.hidden) { rendreApercu(); a.scrollIntoView({ behavior: "smooth", block: "start" }); }
-    });
+    function feuille(ouvrir) {
+      var a = $("#apercu"); a.hidden = !ouvrir; $("#ailleurs").setAttribute("aria-expanded", String(ouvrir));
+      if (ouvrir) { rendreApercu(); $("#apercu-fermer").focus(); var c = $("#apercu .bloc.cur"); if (c) c.scrollIntoView({ block: "center" }); }
+      else $("#ailleurs").focus();
+    }
+    $("#ailleurs").addEventListener("click", function () { feuille($("#apercu").hidden); });
+    $("#apercu-fermer").addEventListener("click", function () { feuille(false); });
+    $("#apercu").addEventListener("click", function (e) { if (e.target.id === "apercu") feuille(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("#apercu").hidden) feuille(false); });
     $("#jdc").addEventListener("input", function () { ecrireBrouillon("jdc", $("#jdc").value); $("#jdc-sub").textContent = "Texte modifié à la main (↻ pour recalculer d'après les marques du jour)."; });
     $("#dev").addEventListener("input", function () { ecrireBrouillon("dev", $("#dev").value); $("#dev-sub").textContent = "Texte modifié à la main (↻ pour recalculer)."; });
     $("#jdc-regen").addEventListener("click", function () { ecrireBrouillon("jdc", null); rendreJournal(); });
@@ -333,7 +462,7 @@
     $("#exporter").addEventListener("click", function () {
       var charge = JSON.stringify(A.etat.exporter(), null, 1), a = document.createElement("a");
       a.href = URL.createObjectURL(new Blob([charge], { type: "application/json" }));
-      a.download = "etat-pilotage-" + jourCourant() + ".json";
+      a.download = "etat-pilotage-" + aujourdhui() + ".json";
       document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
     });
     $("#importer").addEventListener("click", function () { $("#fichier").click(); });
@@ -347,15 +476,32 @@
       };
       lecteur.readAsText(f);
     });
+    $("#jour-prec").addEventListener("click", function () { aller(O.ajouterJours(jourCourant(), -1)); });
+    $("#jour-suiv").addEventListener("click", function () { aller(O.ajouterJours(jourCourant(), 1)); });
+    $("#date-jour").addEventListener("click", function () {      // calendrier natif : input date caché + showPicker(), repli focus/click
+      var c = $("#jour-choix"); c.value = jourCourant();
+      try { c.showPicker(); } catch (e) { try { c.focus(); c.click(); } catch (e2) {} }
+    });
+    $("#jour-choix").addEventListener("change", function (e) { if (e.target.value) aller(e.target.value); });
+    document.addEventListener("keydown", function (e) {            // ← / → : ignorées dans les champs, les réglages et les feuilles ouvertes
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      var t = e.target, v = A.etat && A.etat.vote();
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.defaultPrevented) return;
+      if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+      if (location.hash === "#reglages" || !$("#apercu").hidden || !$("#dialogue-cle").hidden || (v && v.ouvert && v.ouvert())) return;
+      e.preventDefault(); aller(O.ajouterJours(jourCourant(), e.key === "ArrowLeft" ? -1 : 1));
+    });
     window.addEventListener("online", rendreEntete); window.addEventListener("offline", rendreEntete);
     A.etat.abonner(function () { rendreDynamique(); });
     setInterval(function () {                                         // le créneau peut changer pendant que la page reste ouverte
+      if (A.jour && A.jour === aujourdhui()) { A.jour = null; majUrl(); }       // le jour choisi est devenu aujourd'hui (minuit passé)
+      if (A.vuLe !== aujourdhui()) { A.tir.res = null; rendreTout(); }       // minuit passé : la page suit le nouveau jour
       var c = H.detecter(A.config, maintenant());
       if (new URLSearchParams(location.search).get("maintenant")) return;
       if (A.creneau && !c && window.typwebSync && window.typwebSync.estConfigure()) window.typwebSync.finSeance();   // fin de séance : sauvegarde (P5)
       var manuel = stock(function (s) { return sessionStorage.getItem(CLE_MANUEL); });
       var v = A.etat && A.etat.vote();
-      if (!manuel && c && c.classe !== A.code) {
+      if (!manuel && c && c.classe !== A.code && estAujourdhui()) {
         if (v && v.ouvert && v.ouvert()) return;                     // écran de vote ouvert : on attend sa fermeture
         location.reload();
       }
@@ -367,16 +513,26 @@
     var z = $("#erreur-config"); vider(z); z.hidden = false;
     z.appendChild(el("b", "", "Configuration : " + erreurs.length + " problème(s) à corriger"));
     var ul = el("ul"); erreurs.forEach(function (e) { ul.appendChild(el("li", "", e)); }); z.appendChild(ul);
-    $("#entete").hidden = true; $("#grille").hidden = true;
+    $("#entete").hidden = true; $("#grille").hidden = true; $(".b-droite .temps").hidden = true;
   }
 
   function init(options) {
     options = options || {};
+    if (Pi.vues) Pi.vues.demarrer();
     if ("serviceWorker" in navigator && !options.sansSW) navigator.serviceWorker.register("sw.js").catch(function () {});
     return (options.source || C.sourceFichier).charger().then(function (brut) {
       var v = C.valider(brut);
-      if (!v.ok) { afficherErreurs(v.erreurs); if (Pi.synchro) Pi.synchro.init({ sync: window.typwebSync, toast: toast, source: C.sourceFichier, seul: true }); return; }
-      A.config = v.config; choisirClasse();
+      if (!v.ok) {
+        afficherErreurs(v.erreurs);
+        if (Pi.synchro) Pi.synchro.init({ sync: window.typwebSync, toast: toast, source: C.sourceFichier, seul: true });
+        if (Pi.cle) Pi.cle.init({ sync: window.typwebSync, toast: toast });
+        if (Pi.reglages) Pi.reglages.init({ sync: window.typwebSync, toast: toast });
+        return;
+      }
+      A.config = v.config;
+      A.jour = Jr.dansUrl(location.search); if (A.jour === aujourdhui()) A.jour = null;
+      if (!A.jour && /[?&]jour=/.test(location.search)) majUrl();            // ?jour= invalide ou égal à aujourd'hui : retiré de l'adresse
+      choisirClasse();
       A.cours = C.coursEnCours(classeCfg());
       // cours dont on charge la couche prof : celui de la classe, sinon le premier cours connu (journal, export)
       A.coursSource = A.cours || A.config.classes.reduce(function (acc, c) { return acc || (c.cours && c.cours[0]) || null; }, null);
@@ -387,8 +543,10 @@
         return chargerBanquesVues();
       }).then(function () {
         brancher(); rendreTout(); A.pret = true; window.PilotageEtat = A;
-        if (Pi.synchro) Pi.synchro.init({ etat: A.etat, sync: window.typwebSync, toast: toast, source: C.sourceFichier,
-          rendre: function () { A.tir.res = null; rendreTout(); }, jour: jourCourant });
+        var rendreApresSync = function () { A.tir.res = null; rendreTout(); };
+        if (Pi.synchro) Pi.synchro.init({ etat: A.etat, sync: window.typwebSync, toast: toast, source: C.sourceFichier, rendre: rendreApresSync, jour: aujourdhui });
+        if (Pi.cle) Pi.cle.init({ etat: A.etat, sync: window.typwebSync, toast: toast, rendre: rendreApresSync });
+        if (Pi.reglages) Pi.reglages.init({ etat: A.etat, sync: window.typwebSync, toast: toast, config: A.config, rendre: rendreTout });
         document.documentElement.setAttribute("data-pret", "1");
       });
     }, function (e) { afficherErreurs(["Impossible de lire la configuration : " + e.message]); });

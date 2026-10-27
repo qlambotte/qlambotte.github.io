@@ -1,0 +1,21 @@
+# GÉNÉRÉ par typweb portail à partir de portail.toml : NE PAS ÉDITER.
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Quentin Lambotte — mathématiques"
+  site-url: "https://qlambotte.github.io/"
+
+lang: fr
+
+format:
+  html:
+    theme:
+      - none
+    css: portail.css
+    include-before-body:
+      - _includes/portail-barre.html
+    toc: false
+    anchor-sections: false
+    page-layout: full

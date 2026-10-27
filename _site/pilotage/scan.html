@@ -5,48 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Lecture des cartes</title>
+<script src="js/theme.js"></script>
 <style>
-  /* style du portail : encre, ocre ; pas de gris pâle (lisible au soleil et projeté) */
-  :root { --encre: #111; --acc: #c28a1b; --accbg: #fbf3e0; --serif: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", P052, Georgia, serif;
-          --sans: "Helvetica Neue", Helvetica, Arial, "TeX Gyre Heros", "Nimbus Sans", sans-serif; }
+  /* charte « Ardoise et cuivre » (voir pilotage.css) ; textes contrastés : lisible au soleil et projeté */
+  :root, :root[data-theme="jour"] { --fond: #f2f3f5; --carte: #fff; --texte: #242c36; --doux: #59626e; --q: #f5f6f8;
+    --band: linear-gradient(135deg, #3d4b5c, #566779); --acc: #566779; --teinte: #e4e8ee; --teinte-texte: #3d4b5c;
+    --cu: #cf8150; --cut: #f6e4d9; --cuf: #8c4a22; --olt: #e6efe0; --olf: #4e6a40; --ombre: #1a1a2a0f; --pointille: #9aa6b4;
+    --serif: "TeX Gyre Pagella", "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", P052, Georgia, serif;
+    --sans: Inter, "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; color-scheme: light; }
+  :root[data-theme="soir"] { --fond: #1e242c; --carte: #27303a; --texte: #e8ebef; --doux: #aab3be; --q: #2f3842;
+    --band: linear-gradient(135deg, #2f3a47, #435266); --acc: #d38d5f; --teinte: #d38d5f26; --teinte-texte: #ecbc98;
+    --cu: #e8b593; --cut: #e8b59324; --cuf: #f0c9ad; --olt: #9cba8c24; --olf: #c3d8b8; --ombre: #00000040; --pointille: #6b7785; color-scheme: dark; }
+  @media (prefers-color-scheme: dark) { :root[data-theme="auto"] { --fond: #1e242c; --carte: #27303a; --texte: #e8ebef; --doux: #aab3be; --q: #2f3842;
+    --band: linear-gradient(135deg, #2f3a47, #435266); --acc: #d38d5f; --teinte: #d38d5f26; --teinte-texte: #ecbc98;
+    --cu: #e8b593; --cut: #e8b59324; --cuf: #f0c9ad; --olt: #9cba8c24; --olf: #c3d8b8; --ombre: #00000040; --pointille: #6b7785; color-scheme: dark; } }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: #fff; color: var(--encre); font: 17px/1.4 var(--sans); }
-  header, main { max-width: 760px; margin: 0 auto; padding: 0 14px; }
-  header { padding-top: 10px; }
-  h1 { font: 400 1.35rem/1.2 var(--serif); margin: 0 0 4px; }
-  .sous { font-size: .92rem; margin: 0 0 8px; }
-  button { font: inherit; color: var(--encre); background: #fff; border: 2px solid var(--encre); border-radius: 6px; padding: 10px 14px; min-height: 48px; cursor: pointer; }
-  button.principal { background: var(--encre); color: #fff; }
-  button.acc { border-color: var(--acc); background: var(--accbg); }
-  button:disabled { opacity: .5; }
-  .rang { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; }
-  #scene { position: relative; background: #000; border-radius: 6px; overflow: hidden; margin: 8px 0; }
+  body { margin: 0; background: var(--fond); color: var(--texte); font: 16px/1.45 var(--sans); }
+  header { max-width: 760px; margin: 12px auto 0; padding: 16px 18px; border-radius: 24px; background: var(--band); color: #fbfaf7;
+           box-shadow: 0 14px 36px #2f3a4722; margin-left: max(12px, calc(50% - 380px)); margin-right: max(12px, calc(50% - 380px)); }
+  header a { color: #dfe4ea; font-size: .85rem; text-decoration: none; }
+  h1 { font: 500 1.7rem/1.15 var(--serif); margin: 2px 0 6px; }
+  header .sous { font-size: .85rem; color: #dfe4ea; margin: 0; }
+  main { max-width: 760px; margin: 0 auto; padding: 0 12px 24px; }
+  .sous { font-size: .9rem; color: var(--doux); margin: 8px 0; }
+  button { font: 600 15px var(--sans); color: var(--texte); background: var(--teinte); border: 0; border-radius: 99px; padding: 0 18px; min-height: 48px; cursor: pointer; }
+  button.principal { background: var(--acc); color: #fff; box-shadow: 0 6px 16px #56677940; }
+  :root[data-theme="soir"] button.principal { color: #1e242c; box-shadow: none; }
+  button.acc { background: var(--cu); color: #fff; box-shadow: 0 6px 16px #cf815048; }
+  :root[data-theme="soir"] button.acc { color: #1e242c; }
+  button:disabled { opacity: .45; box-shadow: none; }
+  :focus-visible { outline: 3px solid var(--cu); outline-offset: 2px; }
+  .rang { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+  .rang button { flex: 1 1 auto; }
+  #scene { position: relative; background: radial-gradient(circle at 50% 40%, #4a5868, #2f3a47); border-radius: 24px; overflow: hidden; margin: 12px 0; }
   #ecran { display: block; width: 100%; height: auto; }
   #video { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-  #vide { color: #fff; padding: 36px 16px; text-align: center; }
-  #bilan { font-size: 1.15rem; font-variant-numeric: tabular-nums; margin: 6px 0; }
-  #bilan b { font-size: 1.4rem; }
-  #grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 4px; margin: 8px 0 14px; }
-  .c { border: 2px solid var(--encre); border-radius: 4px; padding: 3px 0; text-align: center; font-variant-numeric: tabular-nums; }
+  #vide { color: #fbfaf7; padding: 44px 16px; text-align: center; }
+  #presence { display: flex; align-items: center; gap: 10px; margin: 12px 0; background: var(--carte); border-radius: 20px; padding: 10px 14px;
+              box-shadow: 0 1px 2px var(--ombre), 0 10px 28px var(--ombre); }
+  #presence label { flex: 1; font-weight: 600; }
+  #presence input { width: 3.2em; font: 500 1.7rem var(--serif); text-align: center; padding: 2px; border: 0; background: transparent; color: var(--texte); }
+  #presence button { min-width: 44px; min-height: 44px; padding: 0; font-size: 1.3rem; }
+  #bilan { font-variant-numeric: tabular-nums; margin: 8px 0; color: var(--doux); }
+  #bilan b { color: var(--texte); }
+  #bilan #nb { font: 500 1.9rem var(--serif); }
+  #grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 5px; margin: 8px 0 14px; }
+  .c { border: 1.5px dashed var(--pointille); border-radius: 12px; padding: 3px 0; text-align: center; font-variant-numeric: tabular-nums; color: var(--doux); }
   .c .n { font-size: .8rem; display: block; }
-  .c .l { font-size: 1.3rem; font-weight: 700; display: block; min-height: 1.6rem; }
-  .c.lue { background: var(--encre); color: #fff; }
-  .c.doute { border-style: dashed; }
-  .msg { padding: 8px 10px; border-left: 5px solid var(--acc); background: var(--accbg); margin: 8px 0; font-size: .95rem; }
-  #qr { position: fixed; inset: 0; background: #fff; z-index: 10; display: flex; flex-direction: column; align-items: center;
+  .c .l { font-size: 1.25rem; font-weight: 700; display: block; min-height: 1.6rem; }
+  .c.lue { border: 1.5px solid transparent; background: var(--teinte); color: var(--teinte-texte); }
+  .c.lue .l { color: var(--cuf); }
+  .c.doute { border-style: dashed; border-color: var(--cu); }
+  .msg { padding: 10px 14px; border-radius: 14px; background: var(--cut); margin: 10px 0; font-size: .95rem; }
+  #qr { position: fixed; inset: 0; background: #fff; color: #242c36; z-index: 10; display: flex; flex-direction: column; align-items: center;
         justify-content: center; gap: 12px; padding: 14px; }
   #qr[hidden] { display: none; }
   #qrImg { width: min(92vw, 70vh); height: min(92vw, 70vh); }
   #qrImg svg { width: 100%; height: 100%; display: block; }
   #qrCode { font: 700 1.25rem/1.35 ui-monospace, Menlo, Consolas, monospace; text-align: center; word-break: break-word; max-width: 92vw; }
+  #qr button.principal { background: #566779; color: #fff; }
 </style>
 </head>
 <body>
 <header>
+  <a href="./">← Pilotage</a>
   <h1>Lecture des cartes</h1>
-  <p class="sous">Sur le smartphone : vise la classe, attends que chaque carte soit lue, puis « Afficher le QR » ; la tablette le lit dans l'écran de vote
-    (question : « Par carte » → « Lire le QR » ; échauffement : zone « Cartes » → « Lire le QR »). Rien n'est enregistré ni envoyé : les images restent en mémoire, aucun nom n'apparaît.</p>
+  <p class="sous">Vise la classe, attends que chaque carte soit lue, puis « Afficher le QR » : la tablette le lit dans l'écran de vote.</p>
 </header>
 <main>
   <div class="rang">
@@ -54,12 +79,18 @@
     <button id="bQr" class="acc" type="button" disabled>Afficher le QR</button>
     <button id="bRaz" type="button">Nouvelle question</button>
   </div>
+  <div id="presence"><label for="presents">Élèves présents</label>
+    <button id="bMoins" type="button" aria-label="Un présent de moins">−</button>
+    <input id="presents" type="number" inputmode="numeric" min="1" max="99" placeholder="?">
+    <button id="bPlus" type="button" aria-label="Un présent de plus">+</button></div>
   <div id="msg" class="msg" role="status" hidden></div>
   <div id="scene"><video id="video" playsinline muted></video><canvas id="ecran" width="16" height="9"></canvas><div id="vide">Caméra fermée.</div></div>
-  <p id="bilan"><b id="nb">0</b> carte(s) lue(s) · A <b id="nA">0</b> · B <b id="nB">0</b> · C <b id="nC">0</b> · D <b id="nD">0</b></p>
+  <p id="bilan"><b id="nb">0</b> carte(s) lue(s)<span id="surPresents"></span> · A <b id="nA">0</b> · B <b id="nB">0</b> · C <b id="nC">0</b> · D <b id="nD">0</b></p>
   <div id="grille" aria-label="Cartes lues (numéro et lettre)"></div>
   <p class="sous">Une carte est retenue quand la même lettre est lue sur trois images de suite ; un élève qui change d'avis : la dernière lettre stable l'emporte.
     Une case en pointillés : lettre encore hésitante.</p>
+  <p class="sous">Sur la tablette : question → « Par carte » → « Lire le QR » ; échauffement → zone « Cartes » → « Lire le QR ».
+    Rien n'est envoyé : les images restent en mémoire, aucun nom n'apparaît ; seul le nombre de présents est gardé (pour la journée).</p>
 </main>
 <div id="qr" hidden role="dialog" aria-label="QR des votes">
   <div id="qrImg"></div>
@@ -78,12 +109,23 @@
   var STABLE = 3, NB_MAX = 50;
   var etat = {};            // numéro → { lettre (retenue), cand, k (images de suite) }
 
+  // nombre de présents : saisi une fois par cours, gardé sur le smartphone pour la journée, transmis dans le QR
+  var CLE_P = "pilotage.scan.presents";
+  function jour() { var d = new Date(); return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+  function presents() { var v = parseInt($("presents").value, 10); return v > 0 && v < 1000 ? v : null; }
+  function garderPresents() {
+    try { var p = presents(); if (p) localStorage.setItem(CLE_P, JSON.stringify({ jour: jour(), n: p })); else localStorage.removeItem(CLE_P); } catch (e) {}
+    afficher();
+  }
+  try { var gp = JSON.parse(localStorage.getItem(CLE_P) || "null"); if (gp && gp.jour === jour()) $("presents").value = gp.n; } catch (e) {}
   function message(t) { var m = $("msg"); m.hidden = !t; m.textContent = t || ""; }
   function lues() { var o = {}; Object.keys(etat).forEach(function (n) { if (etat[n].lettre) o[n] = etat[n].lettre; }); return o; }
   function afficher() {
     var o = lues(), t = { A: 0, B: 0, C: 0, D: 0 }, n = 0, g = $("grille");
     Object.keys(o).forEach(function (k) { t[o[k]]++; n++; });
     $("nb").textContent = n; "ABCD".split("").forEach(function (l) { $("n" + l).textContent = t[l]; });
+    var p = presents();
+    $("surPresents").textContent = p ? " sur " + p + " présent(s)" + (n < p ? " (" + (p - n) + " sans carte lue)" : n > p ? " (plus de cartes que de présents ?)" : "") : "";
     $("bQr").disabled = !n;
     g.textContent = "";
     Object.keys(etat).map(Number).sort(function (a, b) { return a - b; }).forEach(function (k) {
@@ -155,18 +197,23 @@
     });
   }
   function montrerQr() {
-    var o = lues(), texte = window.QrVotes.encoder({ cartes: o });
+    var o = lues(), p = presents();
+    if (!p) message("Indique le nombre d'élèves présents : il est transmis avec les votes.");
+    var texte = window.QrVotes.encoder({ cartes: o, presents: p });
     $("qrImg").innerHTML = window.QrCode.svg(texte, { correction: "M", marge: 4 });
-    $("qrCode").textContent = texte.split(";")[2].split(",").join(" ");          // code à taper si la tablette ne lit pas les QR
+    $("qrCode").textContent = window.QrVotes.code({ cartes: o, presents: p });   // code à taper si la tablette ne lit pas les QR
     $("qr").hidden = false;
   }
+  $("presents").addEventListener("input", garderPresents);
+  $("bMoins").addEventListener("click", function () { var p = presents() || 1; $("presents").value = Math.max(1, p - 1); garderPresents(); });
+  $("bPlus").addEventListener("click", function () { var p = presents() || 0; $("presents").value = p + 1; garderPresents(); });
   $("bCam").addEventListener("click", ouvrir);
   $("bQr").addEventListener("click", montrerQr);
   $("bFermer").addEventListener("click", function () { $("qr").hidden = true; });
   $("bRaz").addEventListener("click", function () { etat = {}; afficher(); $("qr").hidden = true; });
   document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") arreter(); });
   afficher();
-  window.PilotageScan = { noter: function (d) { noter(d); afficher(); }, lues: lues, texteQr: function () { return window.QrVotes.encoder({ cartes: lues() }); } };   // pour les tests
+  window.PilotageScan = { noter: function (d) { noter(d); afficher(); }, lues: lues, texteQr: function () { return window.QrVotes.encoder({ cartes: lues(), presents: presents() }); } };   // pour les tests
 })();
 </script>
 </body>

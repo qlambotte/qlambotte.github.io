@@ -33,7 +33,7 @@ adresse = "quentin.lambotte@umons.ac.be"
 [portail]
 titre    = "Quentin Lambotte — mathématiques"
 site-url = "https://qlambotte.github.io/"
-racines  = [".."]                  # dossiers où chercher les typweb.toml
+racines  = ["../cours"]                  # dossiers où chercher les typweb.toml
 annees   = ["5e", "6e"]            # ordre des pages d'année
 # titre-annee = "Mathématiques — %s"
 # intro-annee = "Les cours de l'année…"
@@ -59,3 +59,7 @@ liens  = [["Exercices", "https://qlambotte.github.io/imsv-exos-2026/"],
 # ---- Page de pilotage de classe (P4) : dossier copié tel quel à la racine du site, hors menu ----
 [pilotage]
 dossier = "pilotage"
+
+# ---- Tableau de bord (accueil + pilotage UMONS) : dossier copié tel quel à la racine du site, hors menu ----
+[board]
+dossier = "board"

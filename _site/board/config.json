@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "fuseau": "Europe/Brussels",
+  "_note": "Configuration PUBLIQUE du tableau de bord : liens et règles seulement. Les événements, les tâches et les jalons vivent dans le dépôt privé (dossier unif/). Un lien vide (\"url\": \"\") s'affiche grisé : renseigne-le ici.",
+  "cours": [
+    { "id": "imsv-exos", "titre": "IMSV · exercices corrigés", "detail": "qlambotte.github.io/imsv-exos-2026", "url": "https://qlambotte.github.io/imsv-exos-2026/" },
+    { "id": "imsv-slides", "titre": "IMSV · slides des séances", "detail": "exercices, méthodes, défis", "url": "https://qlambotte.github.io/imsv-exos-2026/slides/" },
+    { "id": "moodle-rem", "titre": "Moodle · remédiation", "detail": "bac 1 pharmacie, biomédicales, biologie", "url": "" },
+    { "id": "moodle-imsv", "titre": "Moodle · cours IMSV", "detail": "théorie, QCM de l'examen blanc", "url": "" }
+  ],
+  "raccourcis": [
+    { "titre": "Sites de cours", "detail": "5e et 6e, portail", "url": "https://qlambotte.github.io/", "groupe": "urs" },
+    { "titre": "IMSV · exercices", "detail": "imsv-exos-2026", "url": "https://qlambotte.github.io/imsv-exos-2026/", "groupe": "unif" },
+    { "titre": "Moodle UMONS", "detail": "cours et remédiations", "url": "", "groupe": "unif" },
+    { "titre": "Cabanga", "detail": "journal de classe", "url": "", "groupe": "urs" },
+    { "titre": "Teams", "detail": "réunions FMPB", "url": "", "groupe": "unif" },
+    { "titre": "Dépôts GitHub", "detail": "cours, pilotage, suivi", "url": "https://github.com/qlambotte", "groupe": "urs" }
+  ],
+  "evenements": {
+    "liens": [
+      { "motif": "^IMSV|séance d.exercices", "cours": ["imsv-exos", "imsv-slides"] },
+      { "motif": "remédiation|rem\\.", "cours": ["moodle-rem"] }
+    ],
+    "importants": ["examen", "jury", "délibération", "deadline", "remise", "conseil de classe", "échéance"],
+    "categories": ["important", "important !"]
+  }
+}

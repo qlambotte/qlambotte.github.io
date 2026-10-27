@@ -1,0 +1,25 @@
+<!-- GÉNÉRÉ par typweb portail : NE PAS ÉDITER. -->
+<aside class="pt-barre">
+  <div class="pt-id"><p class="pt-nom"><a href="index.html">Quentin Lambotte</a></p><p class="pt-fct">Professeur de mathématiques</p><p class="pt-fct">Institut des Ursulines, Mons</p></div>
+  <nav class="pt-nav"><a href="index.html" data-page="index">Accueil</a><a href="index.html#contact" data-page="contact">Contact</a></nav>
+  <div class="pt-pied"></div>
+</aside>
+<script>
+(function () {
+  var p = location.pathname.split("/").pop().replace(".html", "") || "index";
+  document.querySelectorAll(".pt-nav a").forEach(function (a) {
+    if (a.dataset.page === p && !(p === "index" && location.hash === "#contact")) a.classList.add("on");
+  });
+  // adresses électroniques : décodées dans le navigateur, jamais en clair dans la page
+  var M = {};
+  function remplir() {
+    document.querySelectorAll("[data-mail]").forEach(function (el) {
+      var c = M[el.dataset.mail]; if (!c || el.dataset.fait) return;
+      var adr = atob(c).split("").reverse().join("");
+      var a = document.createElement("a"); a.href = "mai" + "lto:" + adr; a.textContent = adr;
+      el.textContent = ""; el.appendChild(a); el.dataset.fait = "1";
+    });
+  }
+  if (document.readyState !== "loading") remplir(); else document.addEventListener("DOMContentLoaded", remplir);
+})();
+</script>

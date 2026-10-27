@@ -1,0 +1,16 @@
+---
+title: "Quentin Lambotte"
+subtitle: "Professeur de mathématiques"
+---
+
+<!-- Ta page de présentation : écrite à la main, jamais écrasée par typweb. -->
+
+Professeur de mathématiques, Institut des Ursulines, Mons.
+
+## Mes cours
+
+- (aucun cours trouvé)
+
+## Contact
+
+Par la plateforme de l'école.
