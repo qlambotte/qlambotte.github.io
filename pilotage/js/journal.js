@@ -64,13 +64,29 @@
     var premiere = p.index.sectionsOrdonnees().filter(function (s) { return s.type === "section"; })[0];
     return premiere ? premiere.titre : "…";
   }
-  // Texte du journal (3 lignes, sans date ni jour).
+  // Matière vue : UNIQUEMENT les éléments cochés pendant la séance (rien n'est déduit), regroupés par section
+  // dans l'ordre du cours : « Titre de la section » : Déf. 1.1, Prop. 1.1, Rem. 1.1 et exos 1.1, 1.2
+  var ABR = { definition: "Déf.", propriete: "Prop.", remarque: "Rem.", exemple: "Ex.", activite: "Act." };
+  function lignesMatiere(p, vus) {
+    var idx = p.index, groupes = [], parSec = {};
+    vus.map(function (id) { return idx.parId[id]; })
+       .filter(function (e) { return e && (ABR[e.type] || e.type === "exercice"); })
+       .sort(function (a, b) { return idx.pos[a.id] - idx.pos[b.id]; })
+       .forEach(function (e) {
+         var s = idx.sectionDe(e.id), k = s ? s.id : "?";
+         if (!parSec[k]) { parSec[k] = { titre: s ? s.titre : "…", enc: [], exos: [] }; groupes.push(parSec[k]); }
+         if (e.type === "exercice") parSec[k].exos.push(e.num || e.titre);
+         else parSec[k].enc.push(ABR[e.type] + " " + (e.num || e.titre || ""));
+       });
+    return groupes.map(function (g) {
+      var enc = g.enc.join(", "), ex = g.exos.length ? (g.exos.length > 1 ? "exos " : "exo ") + g.exos.join(", ") : "";
+      return "« " + g.titre + " » : " + (enc && ex ? enc + " et " + ex : enc || ex);
+    });
+  }
+  // Texte du journal (sans date ni jour) : échauffement, puis la matière cochée, section par section.
   function texteJournal(p) {
-    var b = bornes(p), idx = p.index, debutTitre = titreDebut(p, b), finTitre;
-    finTitre = b.fin ? titreSection(idx, b.fin.el) : null;
-    var matiere = finTitre ? "Matière : de « " + debutTitre + " » à « " + finTitre + " »" : "Matière : –";
-    var nums = numerosExercices(p, b.vusAujourdhui);
-    return ligneEchauffement(p) + "\n" + matiere + "\nExercices : " + (nums.length ? nums.join(", ") : "–");
+    var b = bornes(p), lignes = lignesMatiere(p, b.vusAujourdhui);
+    return ligneEchauffement(p) + "\n" + (lignes.length ? "Matière :\n" + lignes.join("\n") : "Matière : –");
   }
 
   // Format d'une ligne de devoirs : {num}, {titre} (vide si le titre n'est qu'un « Exercice X.Y » générique),
@@ -107,6 +123,6 @@
   function texteDevoirs(exos, format) {
     return exos.map(function (e) { return formaterExercice(format || "Exercice {num}[ : {titre}]", e); }).join("\n");
   }
-  return { titreDebut: titreDebut, bornes: bornes, texteJournal: texteJournal, devoirs: devoirs, texteDevoirs: texteDevoirs,
+  return { titreDebut: titreDebut, bornes: bornes, texteJournal: texteJournal, lignesMatiere: lignesMatiere, devoirs: devoirs, texteDevoirs: texteDevoirs,
            formaterExercice: formaterExercice, jourVersMs: jourVersMs, finDeJour: finDeJour, titreSection: titreSection };
 });
