@@ -300,7 +300,8 @@
   /* ---------- rendu : poursuivre le cours ---------- */
   function ctx(jour) {
     return { ev: A.etat.evenements(), classe: A.code, uaa: A.cours && A.cours.uaa, index: A.index || X.creer(null), jour: jour || jourCourant(),
-             jusque: jour ? undefined : jusque(), fuseau: A.config.fuseau, format: A.config.format.devoirs };
+             jusque: jour ? undefined : jusque(), fuseau: A.config.fuseau, format: A.config.format.devoirs,
+             titre: A.cours && A.cours.titre };
   }
   function titreEl(id) { var e = A.index && A.index.parId[id]; return e ? e.titre : id; }
   function rendreArret() {

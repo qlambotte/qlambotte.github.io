@@ -83,10 +83,12 @@
       return "« " + g.titre + " » : " + (enc && ex ? enc + " et " + ex : enc || ex);
     });
   }
-  // Texte du journal (sans date ni jour) : échauffement, puis la matière cochée, section par section.
+  // UAA rappelée avec son titre : « 6UAA4 – Fonctions exponentielles et logarithmes ».
+  function ligneUAA(p) { return (p.uaa || "") + (p.titre ? (p.uaa ? " – " : "") + p.titre : ""); }
+  // Texte du journal (sans date ni jour) : UAA, échauffement, puis la matière cochée, section par section.
   function texteJournal(p) {
-    var b = bornes(p), lignes = lignesMatiere(p, b.vusAujourdhui);
-    return ligneEchauffement(p) + "\n" + (lignes.length ? "Matière :\n" + lignes.join("\n") : "Matière : –");
+    var b = bornes(p), lignes = lignesMatiere(p, b.vusAujourdhui), uaa = ligneUAA(p);
+    return (uaa ? uaa + "\n" : "") + ligneEchauffement(p) + "\n" + (lignes.length ? "Matière :\n" + lignes.join("\n") : "Matière : –");
   }
 
   // Format d'une ligne de devoirs : {num}, {titre} (vide si le titre n'est qu'un « Exercice X.Y » générique),
