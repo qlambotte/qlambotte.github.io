@@ -387,7 +387,7 @@
     if (futur && b === null) { z.value = ""; sub.textContent = "Séance à venir : rien n'est encore donné."; return; }
     z.value = b !== null ? b : d.texte;
     sub.textContent = b !== null ? "Texte modifié à la main (↻ pour recalculer)." :
-      (d.lignes.length && statutJour() === "passe" ? "Exercices « à la maison » donnés ce jour-là (matière vue pendant la séance)." : d.lignes.length ? "Exercices « à la maison » situés dans la matière vue pendant la séance." : "Aucun exercice « à la maison » dans la matière vue (les exercices regroupés en fin de chapitre n'en font pas partie).");
+      (d.lignes.length && statutJour() === "passe" ? "Exercices marqués ⌂ « devoir » ce jour-là." : d.lignes.length ? "Exercices marqués ⌂ « devoir » pendant la séance." : "Aucun exercice donné : dans le cours, exercice « maison » : 1 clic = devoir (⌂), 2 clics = vu (✓) ; autre exercice : 1 clic = vu, 2 clics = devoir.");
     if (b === null && estAujourdhui() && !d.lignes.length && d.propositionChapitre.length) {
       bc.hidden = false; bc.textContent = "Proposer les " + d.propositionChapitre.length + " exercices « maison » du chapitre";
       bc.onclick = function () { z.value = J.texteDevoirs(d.propositionChapitre, A.config.format.devoirs); ecrireBrouillon("dev", z.value); sub.textContent = "Proposition : tous les exercices « maison » du chapitre " + (d.chapitre ? d.chapitre.num : "") + " (à adapter)."; bc.hidden = true; };

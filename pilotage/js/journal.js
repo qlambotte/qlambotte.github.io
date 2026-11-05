@@ -102,19 +102,19 @@
     return s.replace(/\{(\w+)\}/g, function (_, k) { return val[k] === undefined ? "" : val[k]; }).trim();
   }
 
-  // Devoirs : exercices « maison » situés dans la matière vue pendant la séance, c'est-à-dire entre le
-  // point d'arrêt de début (exclu) et le dernier élément marqué (inclus), dans l'ordre du cours.
-  // Les exercices regroupés dans une section « Exercices » en fin de chapitre ne sont pas « dans » la
-  // matière : voir `devoirsDuChapitre`.
+  // Devoirs : UNIQUEMENT les exercices marqués « devoir » (⌂, 1er clic sur un exercice « maison » dans le
+  // cours) pendant la séance du jour, dans l'ordre du cours. Rien n'est déduit de la matière vue.
+  // Si rien n'est marqué : proposition (sur demande) des exercices « maison » du chapitre en cours.
   function exercicesMaison(idx) {
     return idx.elements.filter(function (e) { return e.type === "exercice" && idx.etiquette(e, "maison"); });
   }
   function devoirs(p) {
-    var b = bornes(p), idx = p.index;
-    if (!b.fin) return { lignes: [], texte: "", chapitre: null, propositionChapitre: [] };
-    var d = b.debut ? idx.pos[b.debut.el] : -1, f = idx.pos[b.fin.el];
-    var lignes = exercicesMaison(idx).filter(function (e) { return idx.pos[e.id] > d && idx.pos[e.id] <= f; });
-    var chap = idx.chapitreDe(b.fin.el);
+    var idx = p.index, dv = E.devoirs(p.ev, p.classe, p.fuseau, p.jusque);
+    var lignes = E.seance(dv, p.jour, p.uaa).map(function (id) { return idx.parId[id]; })
+      .filter(function (e) { return e && e.type === "exercice"; })
+      .sort(function (a, b) { return idx.pos[a.id] - idx.pos[b.id]; });
+    var b = bornes(p), ref = lignes.length ? lignes[lignes.length - 1].id : (b.fin ? b.fin.el : null);
+    var chap = ref ? idx.chapitreDe(ref) : null;
     var prop = chap ? exercicesMaison(idx).filter(function (e) {
       var c = idx.chapitreDe(e.id); return c && c.id === chap.id && lignes.indexOf(e) < 0;
     }) : [];
