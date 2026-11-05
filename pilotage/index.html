@@ -191,6 +191,46 @@
   b.addEventListener("click", basculer);
   d.addEventListener("fullscreenchange", maj);
   d.addEventListener("webkitfullscreenchange", maj);
+  // Le navigateur quitte toujours le plein écran en changeant de page. On le transmet : lien suivi en plein
+  // écran → « pe=1 » dans l'URL (+ sessionStorage), et la page d'arrivée le rétablit au premier geste
+  // (clic, touche) : un navigateur n'autorise le plein écran qu'en réponse à un geste.
+
+  (function () {
+  if (window.__typwebPE) return;                         // pilotage + couche prof chargée : une seule fois
+  window.__typwebPE = true;
+  var CLE_PE = "typweb.plein-ecran", quitte = false;
+  function peEcrire(v) { try { v ? sessionStorage.setItem(CLE_PE, "1") : sessionStorage.removeItem(CLE_PE); } catch (e) {} }
+  function peVoulu() {
+    try { if (new URL(location.href).searchParams.get("pe") === "1") return true; } catch (e) {}
+    try { return sessionStorage.getItem(CLE_PE) === "1"; } catch (e) { return false; }
+  }
+  window.addEventListener("pagehide", function () { quitte = true; });
+  d.addEventListener("click", function (e) {           // lien suivi en plein écran : « pe=1 »
+    var a = e.target && e.target.closest && e.target.closest("a[href]");
+    if (!a || !actif() || /^(#|javascript:|blob:|mailto:)/.test(a.getAttribute("href") || "")) return;
+    try { var u = new URL(a.href, location.href); if (!/^https?:$/.test(u.protocol)) return;
+          u.searchParams.set("pe", "1"); a.href = u.href; } catch (x) {}
+  }, true);
+  function peChange() {                                  // sortie volontaire (Échap, bouton) : on ne le rétablit plus
+    if (actif()) peEcrire(true); else if (!quitte) peEcrire(false);
+  }
+  d.addEventListener("fullscreenchange", peChange);
+  d.addEventListener("webkitfullscreenchange", peChange);
+  if (peVoulu() && !actif()) {
+    peEcrire(true);
+    try {                                                // « pe=1 » retiré de l'adresse (recharger ne le redemande pas)
+      var u = new URL(location.href);
+      if (u.searchParams.has("pe")) { u.searchParams.delete("pe"); history.replaceState(history.state, "", u.href); }
+    } catch (x) {}
+    var retablir = function () {
+      ["pointerup", "keydown", "click"].forEach(function (n) { d.removeEventListener(n, retablir, true); });
+      if (actif() || !peVoulu()) return;
+      try { var r = demander.call(el); if (r && r.catch) r.catch(function () {}); } catch (x) {}
+    };
+    ["pointerup", "keydown", "click"].forEach(function (n) { d.addEventListener(n, retablir, true); });
+  }
+  })();
+
   d.addEventListener("keydown", function (e) {
     var t = e.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
     if (!saisie && !e.ctrlKey && !e.metaKey && !e.altKey && (e.key === "f" || e.key === "F")) { e.preventDefault(); basculer(); }
