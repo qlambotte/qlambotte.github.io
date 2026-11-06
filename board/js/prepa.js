@@ -108,7 +108,8 @@
       z.appendChild(B.el("div", "note", "La mise en situation n'est pas corrigée en séance : publie le correctif après l'épreuve."));
       return;
     }
-    if (!qs.length) { z.appendChild(B.el("div", "vide", "Aucune question de séance dans l'index.")); return; }
+    if (!S.q) { z.appendChild(B.el("div", "vide", "Index des questions indisponible : le site publié n'a pas encore static/questions.json. Commit et push le projet prépa, attends le déploiement, puis recharge cette page.")); return; }
+    if (!qs.length) { z.appendChild(B.el("div", "vide", "Aucune question de séance pour ce thème dans l'index.")); return; }
 
     z.appendChild(B.el("h3", "sh", "Taux de réussite et ticket de sortie"));
     var tete = B.el("div", "qv tete");
@@ -206,6 +207,7 @@
     var c = B.conf.prepa;
     if (!c || !c.depot) { avis("config.json : la section « prepa » (dépôt, site) est absente."); return; }
     S.conf = c;
+    if (c.site) $("#lien-site").href = c.site;
     S.D = window.Board.Depot.creer({ depot: c.depot, branche: c.branche || "main" });
     B.apparence($("#apparence"));
     $("#cx-etat").addEventListener("click", function () { chargerEtat().then(rendre); });
