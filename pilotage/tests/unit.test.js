@@ -232,60 +232,90 @@ test("tirage : versVote produit les items de typwebProf.vote.start", () => {
 });
 
 /* ---------------- journal de classe et devoirs ---------------- */
-function ctxJ(e, jour = "2026-10-15", format) { return { ev: e, classe: "5TTy", uaa: "5UAA3", index: indexL, jour, fuseau: O.FUSEAU, format }; }
+function ctxJ(e, jour = "2026-10-15", format) { return { ev: e, classe: "5TTy", uaa: "5UAA3", titre: "Limites et asymptotes", index: indexL, jour, fuseau: O.FUSEAU, format }; }
+const JNtxt = c => JN.texteJournal(c).split("\n").slice(1).join("\n");     // sans la ligne de l'UAA
 const exo = num => indexL.elements.find(x => x.type === "exercice" && x.num === num && !x.etiquettes.includes("maison")).id;
 const idsSec = (sec, type) => indexL.elements.filter(e => e.parent === `5UAA3.${sec}` && (!type || e.type === type)).map(e => e.id);
 
-test("journal : trois lignes, début = point d'arrêt avant la séance, arrivée = dernier marqué, exercices cochés", () => {
+test("journal : seulement ce qui est coché pendant la séance, section par section, encadrés et exercices nommés", () => {
   const debut = idsSec("definition")[0];
   const e = [ev("2026-10-08T10:20+02:00", "5TTy", debut),
     ev("2026-10-15T10:15+02:00", "5TTy", idsSec("quand-limite-a-un-sens")[0]), ev("2026-10-15T10:30+02:00", "5TTy", idsSec("limites-gauche-droite")[0]),
     ev("2026-10-15T10:40+02:00", "5TTy", exo("1.1")), ev("2026-10-15T10:41+02:00", "5TTy", exo("1.4")),
     ev("2026-10-15T10:50+02:00", "5TTy", idsSec("limites-gauche-droite")[1]),
     ev("2026-10-15T09:55+02:00", "5TTy", "echauffement", "echauffement", { sid: "z", items: [{ id: "5UAA3.c.007" }, { id: "5UAA3.c.011" }, { id: "5UAA2.c.001" }] })];
-  const txt = JN.texteJournal(ctxJ(e));
+  const txt = JNtxt(ctxJ(e));
   const l = txt.split("\n");
-  assert.equal(l.length, 3);
-  assert.equal(l[0], "Échauffement : 3 QCM");
-  assert.equal(l[1], "Matière : de « Définition » à « Limites à gauche et à droite »");
-  assert.equal(l[2], "Exercices : " + [exo("1.1"), exo("1.4")].map(i => indexL.parId[i].num).join(", "));
+  assert.deepEqual(l, ["Échauffement : 3 QCM", "Matière :",
+    "« Rappels » : exos 1.1, 1.4",                                  // ordre du cours, pas ordre des clics
+    "« Quand une limite a-t-elle un sens ? » : Ex. 2.4",
+    "« Limites à gauche et à droite » : Déf. 2.5, Prop. 2.5"]);
+  assert.ok(!/Définition »/.test(txt), "rien n'est déduit : la section cochée la semaine passée n'apparaît pas");
   assert.ok(!/\d{1,2}\/\d{1,2}|lundi|jeudi|vendredi/.test(txt), "ni date ni jour");
+});
+test("journal : 1re ligne = l'UAA et son titre", () => {
+  assert.equal(JN.texteJournal(ctxJ([])).split("\n")[0], "5UAA3 – Limites et asymptotes");
+  const c = ctxJ([]); delete c.titre;
+  assert.equal(JN.texteJournal(c).split("\n")[0], "5UAA3");
 });
 test("journal : échauffement avec exercice(s), pluriel, aucun échauffement, aucune marque", () => {
   const mk = items => [ev("2026-10-15T09:55+02:00", "5TTy", "echauffement", "echauffement", { sid: "z" + items.length, items })];
   const q = id => ({ id, type: "qcm" }), x = (id, g) => ({ id, type: "exercice", graine: g });
-  assert.equal(JN.texteJournal(ctxJ(mk([q("a"), q("b"), x("f", "f:1")]))).split("\n")[0], "Échauffement : 2 QCM + 1 exercice");
-  assert.equal(JN.texteJournal(ctxJ(mk([q("a"), x("f", "f:1"), x("g", "g:1")]))).split("\n")[0], "Échauffement : 1 QCM + 2 exercices");
-  assert.equal(JN.texteJournal(ctxJ(mk([x("f", "f:1")]))).split("\n")[0], "Échauffement : 1 exercice");
-  assert.equal(JN.texteJournal(ctxJ([])).split("\n")[0], "Échauffement : aucun");
-  assert.equal(JN.texteJournal(ctxJ([])).split("\n")[1], "Matière : –");
-  assert.equal(JN.texteJournal(ctxJ([])).split("\n")[2], "Exercices : –");
+  assert.equal(JNtxt(ctxJ(mk([q("a"), q("b"), x("f", "f:1")]))).split("\n")[0], "Échauffement : 2 QCM + 1 exercice");
+  assert.equal(JNtxt(ctxJ(mk([q("a"), x("f", "f:1"), x("g", "g:1")]))).split("\n")[0], "Échauffement : 1 QCM + 2 exercices");
+  assert.equal(JNtxt(ctxJ(mk([x("f", "f:1")]))).split("\n")[0], "Échauffement : 1 exercice");
+  assert.equal(JNtxt(ctxJ([])).split("\n")[0], "Échauffement : aucun");
+  assert.equal(JNtxt(ctxJ([])).split("\n")[1], "Matière : –");
+  assert.equal(JNtxt(ctxJ([])).split("\n").length, 2);
 });
-test("journal : première séance → début = première section du cours ; une annulation retire la marque", () => {
+test("journal : une annulation retire la marque ; encadré et exercice dans la même section : « … et exo … »", () => {
   const a = idsSec("rappels")[0], b = idsSec("rappels")[1];
   const e = [ev("2026-10-15T10:15+02:00", "5TTy", a), ev("2026-10-15T10:20+02:00", "5TTy", b), ev("2026-10-15T10:25+02:00", "5TTy", b, "annule")];
-  assert.equal(JN.texteJournal(ctxJ(e)).split("\n")[1], "Matière : de « Rappels » à « Rappels »");
+  assert.equal(JNtxt(ctxJ(e)).split("\n")[2], "« Rappels » : Déf. 1.1");
+  const e2 = e.concat([ev("2026-10-15T10:30+02:00", "5TTy", exo("1.4"))]);
+  assert.equal(JNtxt(ctxJ(e2)).split("\n")[2], "« Rappels » : Déf. 1.1 et exo 1.4");
 });
 test("journal : une revisite d'un élément ancien (✓ contour recliqué) ne déplace pas le début", () => {
   const vieux = idsSec("definition")[0];
   const e = [ev("2026-10-08T10:20+02:00", "5TTy", vieux), ev("2026-10-15T10:10+02:00", "5TTy", vieux), ev("2026-10-15T10:30+02:00", "5TTy", idsSec("limites-gauche-droite")[0])];
-  // l'élément revu aujourd'hui n'est plus « avant » : repli sur l'état d'avant la journée, qui le contenait
-  assert.equal(JN.texteJournal(ctxJ(e)).split("\n")[1], "Matière : de « Définition » à « Limites à gauche et à droite »");
+  // l'élément recoché aujourd'hui compte pour aujourd'hui ; rien d'autre n'est ajouté entre les deux
+  assert.deepEqual(JNtxt(ctxJ(e)).split("\n").slice(1), ["Matière :", "« Définition » : Prop. 2.4", "« Limites à gauche et à droite » : Déf. 2.5"]);
 });
 test("journal : isolation par classe et par cours", () => {
   const e = [ev("2026-10-15T10:30+02:00", "6TTi", idsSec("definition")[0]), ev("2026-10-15T10:30+02:00", "5TTy", "6UAA4.def.001")];
-  assert.equal(JN.texteJournal(ctxJ(e)).split("\n")[1], "Matière : –");
+  assert.equal(JNtxt(ctxJ(e)).split("\n")[1], "Matière : –");
 });
-test("devoirs : exercices « maison » dans la matière vue (chapitre 1, exercices dans les sections)", () => {
-  // début : avant les Rappels ; arrivée : fin de « operations-fonctions »
-  const e = [ev("2026-10-15T10:15+02:00", "5TTy", idsSec("rappels")[0]), ev("2026-10-15T10:50+02:00", "5TTy", idsSec("operations-fonctions")[0])];
+const maison = num => indexL.elements.find(x => x.type === "exercice" && x.num === num && x.etiquettes.includes("maison")).id;
+test("devoirs : seuls les exercices marqués « devoir » (⌂) pendant la séance, dans l'ordre du cours ; rien n'est déduit", () => {
+  const e = [ev("2026-10-15T10:15+02:00", "5TTy", idsSec("rappels")[0]), ev("2026-10-15T10:50+02:00", "5TTy", idsSec("operations-fonctions")[0]),
+    ev("2026-10-15T11:00+02:00", "5TTy", maison("1.3"), "devoir"), ev("2026-10-15T11:01+02:00", "5TTy", maison("1.2"), "devoir"),
+    ev("2026-10-08T11:00+02:00", "5TTy", maison("1.2"), "devoir")];                    // donné la semaine passée aussi : compte une fois
   const d = JN.devoirs(ctxJ(e));
-  const attendus = indexL.elements.filter(x => x.type === "exercice" && x.etiquettes.includes("maison") && x.num >= "1.1" && indexL.pos[x.id] > -1 && indexL.pos[x.id] <= indexL.pos[idsSec("operations-fonctions")[0]]);
-  assert.ok(d.lignes.length > 0);
-  assert.deepEqual(d.lignes.map(x => x.id), attendus.map(x => x.id));
-  assert.ok(d.lignes.every(x => x.etiquettes.includes("maison")));
-  assert.match(d.texte, /^Exercice 1\.\d+$/m);
-  assert.ok(!/ : /.test(d.texte), "titre générique « Exercice X.Y » non répété");
+  assert.deepEqual(d.lignes.map(x => x.num), ["1.2", "1.3"]);
+  assert.equal(d.texte, "Exercice 1.2\nExercice 1.3");
+  assert.equal(JN.devoirs(ctxJ(e.slice(0, 2))).lignes.length, 0, "matière vue sans ⌂ : aucun devoir");
+  assert.equal(JN.devoirs(ctxJ([e[4]])).lignes.length, 0, "⌂ d'une séance précédente : pas un devoir du jour");
+});
+test("devoirs : cycle maison ⌂ → ✓ → retiré ; ✓ = matière vue (journal), plus un devoir", () => {
+  const x = maison("1.2"), dv = ev("2026-10-15T10:40+02:00", "5TTy", x, "devoir"), vu = ev("2026-10-15T10:41+02:00", "5TTy", x, "vu");
+  assert.deepEqual(JN.devoirs(ctxJ([dv])).lignes.map(e => e.num), ["1.2"]);
+  assert.equal(JNtxt(ctxJ([dv])).split("\n")[1], "Matière : –", "un devoir n'est pas de la matière vue");
+  assert.equal(JN.devoirs(ctxJ([dv, vu])).lignes.length, 0);
+  assert.equal(JNtxt(ctxJ([dv, vu])).split("\n")[2], "« Rappels » : exo 1.2");
+  // 3e clic : la couche prof annule les deux marques du jour (ref) → plus rien
+  const r = [dv, vu, ev("2026-10-15T10:42+02:00", "5TTy", x, "annule", { ref: vu.id }), ev("2026-10-15T10:42+02:00", "5TTy", x, "annule", { ref: dv.id })];
+  assert.equal(JN.devoirs(ctxJ(r)).lignes.length, 0);
+  assert.equal(JNtxt(ctxJ(r)).split("\n")[1], "Matière : –");
+  // un ✓ ancien réapparaît après retrait d'un ⌂ du jour (E.etat ignore le ⌂ annulé)
+  const ancien = ev("2026-10-08T10:00+02:00", "5TTy", x), d2 = ev("2026-10-15T10:40+02:00", "5TTy", x, "devoir");
+  assert.ok(!E.etat([ancien, d2], "5TTy", O.FUSEAU)[x], "⌂ du jour : l'exercice n'est plus « vu »");
+  assert.ok(E.etat([ancien, d2, ev("2026-10-15T10:45+02:00", "5TTy", x, "annule", { ref: d2.id })], "5TTy", O.FUSEAU)[x]);
+});
+test("devoirs : exercice ordinaire ✓ puis ⌂ (2e clic) → devoir, plus dans la matière", () => {
+  const x = exo("1.1"), vu = ev("2026-10-15T10:40+02:00", "5TTy", x), dv = ev("2026-10-15T10:41+02:00", "5TTy", x, "devoir");
+  assert.equal(JNtxt(ctxJ([vu])).split("\n")[2], "« Rappels » : exo 1.1");
+  assert.deepEqual(JN.devoirs(ctxJ([vu, dv])).lignes.map(e => e.num), ["1.1"]);
+  assert.equal(JNtxt(ctxJ([vu, dv])).split("\n")[1], "Matière : –");
 });
 test("devoirs : exercices regroupés en fin de chapitre → vide + proposition du chapitre (pas d'inférence silencieuse)", () => {
   const e = [ev("2026-10-08T10:15+02:00", "5TTy", idsSec("trou-dans-graphique")[0]), ev("2026-10-15T10:15+02:00", "5TTy", idsSec("definition")[0]), ev("2026-10-15T10:50+02:00", "5TTy", idsSec("limites-gauche-droite")[0])];
@@ -408,22 +438,23 @@ test("journal d'un jour passé : état reconstitué à la fin de ce jour-là (ju
   const a = idsSec("definition")[0], b = idsSec("limites-gauche-droite")[0], c = idsSec("quand-limite-a-un-sens")[0];
   const e = [ev("2026-10-08T10:20+02:00", "5TTy", a), ev("2026-10-08T10:40+02:00", "5TTy", b),
              ev("2026-10-15T10:15+02:00", "5TTy", b)];                       // b revu plus tard : sans `jusque`, il quitte la séance du 08
-  const sans = JN.texteJournal(ctxJ(e, "2026-10-08"));
+  const sans = JNtxt(ctxJ(e, "2026-10-08"));
   const avec = JN.texteJournal(Object.assign(ctxJ(e, "2026-10-08"), { jusque: JN.finDeJour("2026-10-08", O.FUSEAU) }));
-  assert.match(avec.split("\n")[1], /de « .* » à « Limites à gauche et à droite »/);
+  assert.match(avec, /« Limites à gauche et à droite » : /);
   assert.notEqual(sans, avec);
-  assert.equal(JN.texteJournal(ctxJ(e, "2026-10-22")).split("\n")[1], "Matière : –", "jour à venir : rien de fait");
+  assert.equal(JNtxt(ctxJ(e, "2026-10-22")).split("\n")[1], "Matière : –", "jour à venir : rien de fait");
   void c;
 });
 test("séance coupée à minuit : chaque marque va au jour local de son instant ; lot de synchro tardif = journal recalculé", () => {
   const a = idsSec("definition")[0], b = idsSec("limites-gauche-droite")[0];
   const e = [ev("2026-10-14T23:50+02:00", "5TTy", a), ev("2026-10-15T00:10+02:00", "5TTy", b)];
-  const jour = j => JN.texteJournal(Object.assign(ctxJ(e, j), { jusque: JN.finDeJour(j, O.FUSEAU) })).split("\n")[1];
-  assert.match(jour("2026-10-14"), /à « Définition »/); assert.match(jour("2026-10-15"), /à « Limites à gauche et à droite »/);
+  const jour = j => JN.texteJournal(Object.assign(ctxJ(e, j), { jusque: JN.finDeJour(j, O.FUSEAU) }));
+  assert.match(jour("2026-10-14"), /« Définition » :/); assert.doesNotMatch(jour("2026-10-14"), /Limites à gauche/);
+  assert.match(jour("2026-10-15"), /« Limites à gauche et à droite » :/); assert.doesNotMatch(jour("2026-10-15"), /« Définition »/);
   // un lot arrivé en retard (instants du 14) s'insère à sa place : l'ordre (t, appareil, id) ne dépend pas de l'arrivée
   const tardif = ev("2026-10-14T23:55+02:00", "5TTy", idsSec("quand-limite-a-un-sens")[0]);
   const e2 = e.concat([tardif]);
-  assert.match(JN.texteJournal(Object.assign(ctxJ(e2, "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })).split("\n")[1], /à « Quand une limite a-t-elle un sens/);
+  assert.match(JN.texteJournal(Object.assign(ctxJ(e2, "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })), /« Quand une limite a-t-elle un sens \? » :/);
   assert.equal(JN.texteJournal(Object.assign(ctxJ(e2.slice().reverse(), "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })), JN.texteJournal(Object.assign(ctxJ(e2, "2026-10-14"), { jusque: JN.finDeJour("2026-10-14", O.FUSEAU) })));
 });
 test("hors ligne : jour.js est dans la coquille du service worker et chargé par la page", () => {

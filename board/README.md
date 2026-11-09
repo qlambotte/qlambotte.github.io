@@ -1,6 +1,6 @@
 # Tableau de bord (accueil + pilotage UMONS)
 
-Deux pages statiques, publiées à côté du pilotage : `qlambotte.github.io/board/` (accueil) et `…/board/unif.html` (pilotage UMONS).
+Trois pages statiques, publiées à côté du pilotage : `qlambotte.github.io/board/` (accueil), `…/board/unif.html` (pilotage UMONS) et `…/board/prepa.html` (pilotage de la prépa).
 Elles réutilisent le style, le thème (jour/soir/auto), les fonctions de dates et la détection d'horaire de `../pilotage/` : le
 dossier `pilotage/` doit donc être publié aussi. Même domaine que le pilotage et les cours : le stockage local, la clé de
 synchronisation et le dépôt privé sont partagés. Aucune donnée d'élève ; aucun événement ni aucune tâche dans le site public.
@@ -24,6 +24,17 @@ puis `python3 typweb/typweb.py portail ../portail --preview` (le moteur `portail
   interros lus dans la copie locale de `config/pilotage.json` (celle que garde le pilotage pour le hors-ligne).
 - **Pilotage UMONS** : horaire du jour (liens de cours sur chaque événement), cours, semaine, tâches synchronisées. Navigation de date : flèches ‹ ›, sélecteur de date, « Aujourd'hui », touches ← →, clic sur un jour de la semaine ; le jour choisi est dans l'adresse (`?jour=2026-10-12`, à ajouter aux favoris). Un jour passé s'affiche comme terminé ; un jour hors des périodes importées est signalé.
 - **Réglages** (`unif.html#reglages`) : import des fichiers `.ics` (Outlook, HPlanning), synchronisation, jalons.
+
+## Pilotage Prépa (`prepa.html`)
+
+Pilote le site des cours préparatoires (dépôt `qlambotte/coursPrepa`) : la page écrit `etat.json` de ce dépôt, que les pages du site relisent à chaque chargement.
+
+- **Séance** (un thème à la fois) : publier ou retirer les solutions ; saisir pour chaque QCM de la séance le taux de réussite au vote et au revote ; « Proposer le ticket » coche les questions sous le seuil (50 % par défaut, premier vote) ; « Enregistrer taux et ticket » écrit `votes` et `ticket` ; publier ou retirer les solutions du ticket. La mise en situation n'a que le bouton des solutions.
+- **Exercices** : une ligne par catégorie (Algèbre, Géométrie, Trigonométrie, Analyse, Statistique, Mélange) avec le nombre d'exercices et d'exercices avec indices, et un bouton Publier / Retirer (`exercices` dans la section de la catégorie) ; « Tout publier » et « Tout retirer » écrivent les six catégories en un seul commit.
+- **Connexion** : utilise le jeton de la synchronisation (`typweb.sync.jeton`). Il est chiffré par phrase secrète : la page la demande (elle reste en mémoire). **Le jeton doit avoir le droit d'écrire le contenu du dépôt coursPrepa** (jeton à portée limitée : ajouter ce dépôt, permission « Contents : lecture et écriture »).
+- Chaque action est un commit sur `main` (« Pilotage prépa : … ») ; le site se redéploie en quelques minutes (deux commits rapprochés : le premier déploiement est annulé, le second contient les deux modifications). En cas de conflit (autre commit entre la lecture et l'écriture), la page relit etat.json et recommence (3 essais) ; les clés qu'elle ne connaît pas sont conservées.
+- La liste des questions vient de `static/questions.json`, index créé à chaque rendu du site par `outils/index_questions.py` (pre-render) ; copie gardée dans le navigateur.
+- Configuration : section `prepa` de `config.json` (`depot`, `branche`, `chemin`, `site`). Logique pure : `js/prepa-logique.js` ; tests : `node tests/prepa.test.js`.
 
 ## Horaire UMONS : fichiers .ics
 
@@ -54,7 +65,7 @@ Moodle et Teams n'ont pas encore d'adresse.
 
 ## Essais
 
-`?maintenant=2026-10-22T09:30+02:00` simule l'heure ; `?jour=2026-10-12` ouvre directement un jour (pilotage UMONS). Tests : `node tests/ics.test.js` et `node tests/taches.test.js`.
+`?maintenant=2026-10-22T09:30+02:00` simule l'heure ; `?jour=2026-10-12` ouvre directement un jour (pilotage UMONS). Tests : `node tests/ics.test.js`, `node tests/taches.test.js` et `node tests/prepa.test.js`.
 
 ## Limites de cette première version
 

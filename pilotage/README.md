@@ -190,7 +190,16 @@ détection ArUco (`js/lecteur-aruco.js`), une carte est retenue quand la même l
 Champ « Élèves présents » (gardé pour la journée) : le bilan affiche « n cartes lues sur P présents ».
 « Afficher le QR » : QR des votes et des présents (`js/qr-code.js`, `js/qr-votes.js`, format `TWV2`) et le même code en clair
 dessous (`P22 3A 12C`). Sur la tablette : écran de vote → « Par carte » → « Lire le QR » ; échauffement → zone « Cartes » →
-« Lire le QR » (ou « Taper un code »). Rien n'est envoyé ; aucun nom.
+« Lire le QR » (ou « Taper un code »). Aucun nom.
+
+**Envoi direct** (« Envoyer à la tablette », depuis nov. 2026) : le smartphone écrit `votes/envoi.json` dans le dépôt privé de
+synchronisation (`{ format: "typweb.votes.v1", id, t, appareil, presents, cartes }` : numéros de carte, lettres, nombre de présents ;
+aucun nom), par `TypwebSync.envoyerVotes` (`js/sync.js`). Tant qu'un écran de vote est ouvert, la tablette relit ce fichier toutes les
+3 s (`TypwebSync.lireVotes`, `vote.js › ecouterVotes`) et applique chaque **nouvel** envoi à la question affichée, comme un QR lu ;
+l'envoi présent à l'ouverture de l'écran est ignoré. Délai observé : 2 à 3 s. Conditions : synchronisation configurée sur le
+smartphone (page de pilotage › Réglages, ou « Charger ma clé », même domaine que `scan.html`) et sur la tablette ; si le jeton du
+smartphone est chiffré, la page demande la phrase secrète. Le QR et la saisie du code restent le repli sans réseau. La page de scan
+ne synchronise pas le journal (instance de `TypwebSync` sans démarrage automatique).
 `js/lecteur-aruco.js`, `js/qr-code.js`, `js/qr-votes.js` et `js/sync.js` sont des copies de typweb (identiques :
 `typweb/outils/verifier_copies.py`).
 

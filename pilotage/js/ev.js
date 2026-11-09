@@ -16,20 +16,23 @@
   // { élément: { t, jour } } des éléments « vus » ; si `avant` (ms) : état reconstitué à cet instant.
   // Un « annule » qui porte `ref` annule ce « vu » seulement (la marque d'une séance précédente réapparaît) ;
   // sans `ref` (ancien format), il retire l'élément. Même règle que prof.js › derniers.
-  function etat(ev, classe, fuseau, avant) {
+  function etat(ev, classe, fuseau, avant) { return etatDe(ev, classe, fuseau, avant, "vu"); }
+  // Exercices « maison » dont le dernier état est « devoir » (donnés à faire à la maison).
+  function devoirs(ev, classe, fuseau, avant) { return etatDe(ev, classe, fuseau, avant, "devoir"); }
+  function etatDe(ev, classe, fuseau, avant, action) {
     var dernier = {}, out = {}, annules = {};
     (ev || []).forEach(function (e) {
       if (e && e.c === classe && e.a === "annule" && e.ref && (avant === undefined || e.t < avant)) annules[e.ref] = 1;
     });
     (ev || []).forEach(function (e) {
-      if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule")) return;
+      if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule" && e.a !== "devoir")) return;
       if (avant !== undefined && !(e.t < avant)) return;
       if (e.a === "annule" && e.ref) return;
-      if (e.a === "vu" && annules[e.id]) return;
+      if (e.a !== "annule" && annules[e.id]) return;
       if (!dernier[e.el] || cmpEv(e, dernier[e.el]) > 0) dernier[e.el] = e;
     });
     Object.keys(dernier).forEach(function (el) {
-      if (dernier[el].a === "vu") out[el] = { t: dernier[el].t, jour: O.jourDe(dernier[el].t, fuseau) };
+      if (dernier[el].a === action) out[el] = { t: dernier[el].t, jour: O.jourDe(dernier[el].t, fuseau) };
     });
     return out;
   }
@@ -114,7 +117,7 @@
     });
     return s;
   }
-  return { cmpEv: cmpEv, etat: etat, dansCours: dansCours, dernier: dernier, plusAvance: plusAvance, seance: seance, jours: jours, uaaDe: uaaDe,
+  return { cmpEv: cmpEv, etat: etat, devoirs: devoirs, dansCours: dansCours, dernier: dernier, plusAvance: plusAvance, seance: seance, jours: jours, uaaDe: uaaDe,
            uaasVues: uaasVues, echauffements: echauffements, poses: poses, aReprendre: aReprendre,
            grainesUtilisees: grainesUtilisees };
 });

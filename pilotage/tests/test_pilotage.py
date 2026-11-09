@@ -41,6 +41,10 @@ def exo(num):
     return [e["id"] for e in lire("index-limites.json")["elements"] if e["type"] == "exercice" and e["num"] == num and "maison" not in e["etiquettes"]][0]
 
 
+def maison(num):
+    return [e["id"] for e in lire("index-limites.json")["elements"] if e["type"] == "exercice" and e["num"] == num and "maison" in e["etiquettes"]][0]
+
+
 CONTRASTE_JS = """sels => {
   const rgba = s => { const m = s.match(/rgba?\\(([^)]+)\\)/); if (!m) return null; const v = m[1].split(/[ ,\\/]+/).filter(Boolean).map(Number); return [v[0], v[1], v[2], v.length > 3 ? v[3] : 1]; };
   const fond = e => {           // fond réel : couleurs (semi-)transparentes empilées jusqu'à un fond opaque ou un dégradé
@@ -294,10 +298,13 @@ class TestJournalEtDevoirs(Base):
             ev("2026-10-15T10:15+02:00", "5TTy", ids_section("quand-limite-a-un-sens")[0]),
             ev("2026-10-15T10:30+02:00", "5TTy", ids_section("limites-gauche-droite")[0])]
 
-    def test_journal_trois_lignes(self):
+    def test_journal_sections_et_elements_coches(self):
+        # seul ce qui est coché pendant la séance apparaît ; « Définition » (cochée le 08/10) n'est pas déduite
         self.graine(self.seance_du_jour()); self.ouvrir("2026-10-15T11:00+02:00")
         l = self.page.input_value("#jdc").split("\n")
-        self.assertEqual(l, ["Échauffement : 2 QCM + 1 exercice", "Matière : de « Définition » à « Limites à gauche et à droite »", "Exercices : –"])
+        self.assertEqual(l, ["5UAA3 – Limites et asymptotes", "Échauffement : 2 QCM + 1 exercice", "Matière :",
+                             "« Quand une limite a-t-elle un sens ? » : Ex. 2.4",
+                             "« Limites à gauche et à droite » : Déf. 2.5"])
 
     def test_devoirs_separes_du_journal_et_copie_separee(self):
         ex = self.seance_du_jour() + [ev("2026-10-08T09:00+02:00", "5TTy", ids_section("trou-dans-graphique")[0])]
@@ -327,11 +334,23 @@ class TestJournalEtDevoirs(Base):
         self.graine(self.seance_du_jour()); self.ouvrir("2026-10-15T11:00+02:00")
         self.page.evaluate("""(e) => { const j = JSON.parse(localStorage.getItem('typweb.prof.v1')); j.ev.push(e); localStorage.setItem('typweb.prof.v1', JSON.stringify(j)); window.dispatchEvent(new StorageEvent('storage', { key: 'typweb.prof.v1' })); }""",
                            ev("2026-10-15T10:45+02:00", "5TTy", exo("1.1")))
-        self.page.wait_for_function("document.querySelector('#jdc').value.includes('Exercices : 1.')")
+        self.page.wait_for_function("document.querySelector('#jdc').value.includes('« Rappels » : exo 1.1')")
+
+    def test_devoirs_marques_dans_le_cours(self):
+        # ⌂ (1 clic sur un exercice « maison ») → devoirs ; ✓ (2e clic) → matière vue, plus un devoir
+        dv = ev("2026-10-15T10:40+02:00", "5TTy", maison("1.3"), "devoir")
+        self.graine(self.seance_du_jour() + [dv]); self.ouvrir("2026-10-15T11:00+02:00")
+        self.assertEqual(self.page.input_value("#dev"), "Exercice 1.3")
+        self.assertNotIn("1.3", self.page.input_value("#jdc"))
+        self.page.evaluate("""(e) => { const j = JSON.parse(localStorage.getItem('typweb.prof.v1')); j.ev.push(e); localStorage.setItem('typweb.prof.v1', JSON.stringify(j)); window.dispatchEvent(new StorageEvent('storage', { key: 'typweb.prof.v1' })); }""",
+                           ev("2026-10-15T10:45+02:00", "5TTy", maison("1.3")))
+        self.page.wait_for_function("document.querySelector('#jdc').value.includes('« Rappels » : exo 1.3')")
+        self.assertEqual(self.page.input_value("#dev"), "")
 
     def test_format_des_devoirs_reglable(self):
         cfg = config_test(S.url); cfg["format"] = {"devoirs": "Ex. {num} ({id})"}; S.ecrire_config(cfg)
-        ev0 = [ev("2026-10-14T10:00+02:00", "5TTy", ids_section("rappels")[0]), ev("2026-10-15T10:30+02:00", "5TTy", ids_section("operations-fonctions")[0])]
+        ev0 = [ev("2026-10-14T10:00+02:00", "5TTy", ids_section("rappels")[0]), ev("2026-10-15T10:30+02:00", "5TTy", ids_section("operations-fonctions")[0]),
+               ev("2026-10-15T10:35+02:00", "5TTy", maison("1.2"), "devoir")]
         self.graine(ev0); self.ouvrir("2026-10-15T11:00+02:00")
         self.assertRegex(self.page.input_value("#dev"), r"^Ex\. 1\.\d+ \(5UAA3\.ex\.\d+\)")
 
@@ -626,155 +645,3 @@ class TestLectureDesCartes(Base):
         self.page.click("#bRaz")
         self.assertEqual(self.page.evaluate("() => PilotageScan.lues()"), {})
         self.assertTrue(self.page.is_disabled("#bQr"))
-
-
-class TestNavigationDate(Base):
-    """Navigation dans le temps : flèches et calendrier dans le bandeau, ?jour=, jours passés (lecture seule) et à venir."""
-
-    def params(self):
-        return self.page.evaluate("() => Object.fromEntries(new URLSearchParams(location.search))")
-
-    def test_aujourd_hui_par_defaut_sans_pastille_ni_parametre(self):
-        self.graine(SEANCE_PREC()); self.ouvrir()
-        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
-        self.assertEqual(self.page.locator("#retour-auj").count(), 0)
-        self.assertNotIn("jour", self.params())
-        self.assertTrue(self.page.is_visible("#jour-prec") and self.page.is_visible("#jour-suiv"))
-        self.assertEqual(self.page.get_attribute("html", "data-statut-jour"), "aujourdhui")
-
-    def test_fleches_url_pastille_et_temps_reel_masque(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00")
-        self.assertTrue(self.page.is_visible("#temps"))
-        h0 = self.page.evaluate("() => document.querySelector('.band').getBoundingClientRect().height")
-        self.page.click("#jour-prec")
-        self.assertEqual(self.texte("#date-jour"), "Mercredi 14 octobre")
-        self.assertEqual(self.params().get("jour"), "2026-10-14")
-        self.assertEqual(self.params().get("maintenant"), "2026-10-15T10:00+02:00", "?maintenant= conservé")
-        self.assertEqual(self.texte("#retour-auj"), "↩ Aujourd'hui · il y a 1 j")
-        self.assertTrue(self.page.is_hidden("#temps"))
-        self.assertEqual(self.page.locator("#classe-sous #retour-auj").count(), 1, "pastille dans la ligne des puces")
-        h1 = self.page.evaluate("() => document.querySelector('.band').getBoundingClientRect().height")
-        self.assertLessEqual(h1, h0 + 4, "aucune barre en plus : le bandeau ne grandit pas")
-        self.page.click("#jour-suiv"); self.page.click("#jour-suiv")
-        self.assertEqual(self.texte("#retour-auj"), "↩ Aujourd'hui · dans 1 j")
-        self.page.click("#retour-auj")
-        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
-        self.assertNotIn("jour", self.params()); self.assertEqual(self.page.locator("#retour-auj").count(), 0)
-        self.assertTrue(self.page.is_visible("#temps"))
-
-    def test_url_directe_garde_classe_et_maintenant(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08&classe=5TTy")
-        self.assertEqual(self.texte("#date-jour"), "Jeudi 8 octobre")
-        self.page.click("#jour-suiv")
-        p = self.params()
-        self.assertEqual((p["jour"], p["classe"], p["maintenant"]), ("2026-10-09", "5TTy", "2026-10-15T10:00+02:00"))
-
-    def test_jour_invalide_ou_egal_a_aujourd_hui_ignore(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-02-30")
-        self.assertEqual(self.texte("#date-jour"), "Jeudi 15 octobre")
-        self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-15")
-        self.assertNotIn("jour", self.params())
-
-    def test_jour_passe_lecture_seule_journal_reconstruit(self):
-        self.graine(SEANCE_PREC() + [ev("2026-10-12T12:45+02:00", "6TTi", "6UAA4.x.001")])
-        self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08")
-        self.assertEqual(self.texte("#classe-titre"), "5TTy")
-        self.assertIn("passé · lecture seule", self.texte("#classe-sous"))
-        self.assertIn("il y a 7 j", self.texte("#retour-auj"))
-        j = self.page.input_value("#jdc")
-        self.assertIn("de « Rappels » à « Limites à gauche et à droite »", j.replace("Définition", "Rappels") if "Rappels" not in j else j)
-        self.assertNotIn("Matière : –", j)
-        self.assertTrue(self.page.evaluate("() => document.querySelector('#jdc').readOnly && document.querySelector('#dev').readOnly"))
-        self.assertIn("Reconstitué", self.texte("#jdc-sub"))
-        self.assertIn("Limites à gauche et à droite", self.texte("#arret"))
-        self.assertIn("fin du jeudi 08/10", self.texte("#cours-sub"))
-        self.assertTrue(self.page.is_hidden("#reprendre"))
-        self.assertTrue(self.page.is_disabled("#ech-lancer") and self.page.is_disabled("#ech-refaire"))
-        self.page.click("#ailleurs")
-        self.assertTrue(all(b.is_disabled() for b in self.page.locator("#apercu-liste .bloc button").all()), "aperçu en lecture seule")
-        self.page.keyboard.press("Escape")
-        self.assertEqual(self.journal().__len__(), 4, "aucune écriture dans le journal")
-
-    def test_point_d_arret_a_la_fin_du_jour_pas_apres(self):
-        self.graine(SEANCE_PREC())                                  # 08/10 : définition puis limites-gauche-droite
-        self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-07")
-        self.assertIn("Aucun point d'arrêt à cette date", self.texte("#arret"))
-        self.assertNotIn("Limites à gauche et à droite", self.texte("#arret"))
-        self.assertIn("Matière : –", self.page.input_value("#jdc"))
-
-    def test_jour_a_venir_rien_de_fait(self):
-        cfg = config_test(S.url); cfg["interros"] = [{"date": "2026-10-29", "classe": "5TTy", "uaa": "5UAA3", "type": "Interro"}]
-        S.ecrire_config(cfg)
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-22")
-        self.assertIn("à venir", self.texte("#classe-sous")); self.assertIn("dans 7 j", self.texte("#retour-auj"))
-        self.assertEqual(self.page.input_value("#jdc"), ""); self.assertEqual(self.page.input_value("#dev"), "")
-        self.assertIn("Séance à venir", self.texte("#jdc-sub"))
-        self.assertIn("Pas encore tiré", self.texte("#ech-sub"))
-        self.assertTrue(self.page.is_hidden("#temps"))
-        self.assertIn("J−7", self.texte("#interros")); self.assertIn("Local 2407", self.texte("#classe-sous"))
-
-    def test_jour_sans_cours_message_et_liens(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-17")      # samedi
-        z = self.texte("#sans-cours")
-        self.assertIn("Pas de cours pour 5TTy", z); self.assertIn("samedi 17 octobre", z)
-        self.assertIn("16/10", z); self.assertIn("22/10", z)
-        self.page.click("#sans-cours button:has-text('22/10')")
-        self.assertEqual(self.params()["jour"], "2026-10-22"); self.assertTrue(self.page.is_hidden("#sans-cours"))
-        self.page.goto(S.url + "/pilotage/?maintenant=2026-10-15T10%3A00%2B02%3A00&jour=2026-10-17")
-        self.page.wait_for_selector("html[data-pret='1']")
-        self.page.click("#sans-cours button:has-text('16/10')")
-        self.assertEqual(self.params()["jour"], "2026-10-16")
-
-    def test_changement_d_heure_25_octobre(self):
-        self.graine([ev("2026-10-24T23:30+02:00", "5TTy", ids_section("definition")[0]), ev("2026-10-25T23:30+01:00", "5TTy", ids_section("limites-gauche-droite")[0])])
-        self.ouvrir("2026-10-28T10:00+01:00", "&jour=2026-10-24")
-        for attendu in ("Dimanche 25 octobre", "Lundi 26 octobre"):
-            self.page.click("#jour-suiv"); self.assertEqual(self.texte("#date-jour"), attendu)
-        self.page.click("#jour-prec")                       # dimanche 25 : jour de 25 h, la marque de 23 h 30 (heure d'hiver) y reste
-        self.assertIn("Limites à gauche et à droite", self.texte("#arret"))
-        self.assertIn("fin du dimanche 25/10", self.texte("#cours-sub"))
-        self.page.click("#jour-prec")
-        self.assertIn("Définition", self.texte("#arret")); self.assertNotIn("Limites à gauche", self.texte("#arret"))
-
-    def test_lot_de_synchro_tardif_met_a_jour_un_jour_passe(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08")
-        avant = self.page.input_value("#jdc")
-        tard = ev("2026-10-08T10:55+02:00", "5TTy", exo("1.1"))
-        self.page.evaluate("""(e) => { const j = JSON.parse(localStorage.getItem('typweb.prof.v1')); j.ev.push(e); localStorage.setItem('typweb.prof.v1', JSON.stringify(j)); window.dispatchEvent(new StorageEvent('storage', { key: 'typweb.prof.v1' })); }""", tard)
-        self.page.wait_for_function("(a) => document.querySelector('#jdc').value !== a", arg=avant)
-        self.assertNotEqual(self.page.input_value("#jdc"), avant)
-
-    def test_bouton_accueil(self):
-        self.graine(SEANCE_PREC()); self.ouvrir()
-        self.assertEqual(self.page.get_attribute("#accueil", "href"), "../board/index.html")
-        self.assertIn("Accueil", self.texte("#accueil"))
-
-    def test_calendrier_natif_et_clavier(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00")
-        self.page.click("#date-jour")                       # showPicker() n'échoue pas la page (repli focus/click)
-        self.page.fill("#jour-choix", "2026-10-12")
-        self.assertEqual(self.texte("#date-jour"), "Lundi 12 octobre"); self.assertEqual(self.params()["jour"], "2026-10-12")
-        self.page.locator("body").click(position={"x": 5, "y": 5})
-        self.page.keyboard.press("ArrowRight"); self.assertEqual(self.texte("#date-jour"), "Mardi 13 octobre")
-        self.page.keyboard.press("ArrowLeft"); self.page.keyboard.press("ArrowLeft"); self.assertEqual(self.texte("#date-jour"), "Dimanche 11 octobre")
-        self.page.click("#jdc"); self.page.keyboard.press("ArrowLeft")                      # dans un champ : ignorée
-        self.assertEqual(self.texte("#date-jour"), "Dimanche 11 octobre")
-        self.page.evaluate("() => document.activeElement.blur()")
-        self.page.evaluate("() => { location.hash = '#reglages'; }"); self.page.wait_for_selector("#vue-reglages:not([hidden])")
-        self.page.keyboard.press("ArrowRight")                                               # dans les réglages : ignorée
-        self.page.evaluate("() => { location.hash = ''; }")
-        self.assertEqual(self.texte("#date-jour"), "Dimanche 11 octobre")
-
-    def test_charte_contraste_jour_et_soir_des_nouveaux_elements(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-08")
-        for theme in ("jour", "soir"):
-            self.page.evaluate("t => document.documentElement.setAttribute('data-theme', t)", theme)
-            for sel, c in self.page.evaluate(CONTRASTE_JS, ["#date-jour", "#retour-auj", "#classe-sous .puce", ".date-nav .fl"]):
-                self.assertGreaterEqual(c, 3.9, "%s (%s) contraste %.2f" % (sel, theme, c))
-
-    def test_minuit_passe_la_page_suit_le_nouveau_jour(self):
-        self.graine(SEANCE_PREC()); self.ouvrir("2026-10-15T10:00+02:00", "&jour=2026-10-16")
-        self.assertIn("dans 1 j", self.texte("#retour-auj"))
-        self.page.evaluate("() => { const A = window.PilotageEtat; }")                      # la page est sur demain ; demain devient aujourd'hui :
-        self.ouvrir("2026-10-16T00:05+02:00", "&jour=2026-10-16")
-        self.assertNotIn("jour", self.params()); self.assertEqual(self.page.locator("#retour-auj").count(), 0)

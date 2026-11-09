@@ -64,13 +64,31 @@
     var premiere = p.index.sectionsOrdonnees().filter(function (s) { return s.type === "section"; })[0];
     return premiere ? premiere.titre : "…";
   }
-  // Texte du journal (3 lignes, sans date ni jour).
+  // Matière vue : UNIQUEMENT les éléments cochés pendant la séance (rien n'est déduit), regroupés par section
+  // dans l'ordre du cours : « Titre de la section » : Déf. 1.1, Prop. 1.1, Rem. 1.1 et exos 1.1, 1.2
+  var ABR = { definition: "Déf.", propriete: "Prop.", remarque: "Rem.", exemple: "Ex.", activite: "Act." };
+  function lignesMatiere(p, vus) {
+    var idx = p.index, groupes = [], parSec = {};
+    vus.map(function (id) { return idx.parId[id]; })
+       .filter(function (e) { return e && (ABR[e.type] || e.type === "exercice"); })
+       .sort(function (a, b) { return idx.pos[a.id] - idx.pos[b.id]; })
+       .forEach(function (e) {
+         var s = idx.sectionDe(e.id), k = s ? s.id : "?";
+         if (!parSec[k]) { parSec[k] = { titre: s ? s.titre : "…", enc: [], exos: [] }; groupes.push(parSec[k]); }
+         if (e.type === "exercice") parSec[k].exos.push(e.num || e.titre);
+         else parSec[k].enc.push(ABR[e.type] + " " + (e.num || e.titre || ""));
+       });
+    return groupes.map(function (g) {
+      var enc = g.enc.join(", "), ex = g.exos.length ? (g.exos.length > 1 ? "exos " : "exo ") + g.exos.join(", ") : "";
+      return "« " + g.titre + " » : " + (enc && ex ? enc + " et " + ex : enc || ex);
+    });
+  }
+  // UAA rappelée avec son titre : « 6UAA4 – Fonctions exponentielles et logarithmes ».
+  function ligneUAA(p) { return (p.uaa || "") + (p.titre ? (p.uaa ? " – " : "") + p.titre : ""); }
+  // Texte du journal (sans date ni jour) : UAA, échauffement, puis la matière cochée, section par section.
   function texteJournal(p) {
-    var b = bornes(p), idx = p.index, debutTitre = titreDebut(p, b), finTitre;
-    finTitre = b.fin ? titreSection(idx, b.fin.el) : null;
-    var matiere = finTitre ? "Matière : de « " + debutTitre + " » à « " + finTitre + " »" : "Matière : –";
-    var nums = numerosExercices(p, b.vusAujourdhui);
-    return ligneEchauffement(p) + "\n" + matiere + "\nExercices : " + (nums.length ? nums.join(", ") : "–");
+    var b = bornes(p), lignes = lignesMatiere(p, b.vusAujourdhui), uaa = ligneUAA(p);
+    return (uaa ? uaa + "\n" : "") + ligneEchauffement(p) + "\n" + (lignes.length ? "Matière :\n" + lignes.join("\n") : "Matière : –");
   }
 
   // Format d'une ligne de devoirs : {num}, {titre} (vide si le titre n'est qu'un « Exercice X.Y » générique),
@@ -86,19 +104,19 @@
     return s.replace(/\{(\w+)\}/g, function (_, k) { return val[k] === undefined ? "" : val[k]; }).trim();
   }
 
-  // Devoirs : exercices « maison » situés dans la matière vue pendant la séance, c'est-à-dire entre le
-  // point d'arrêt de début (exclu) et le dernier élément marqué (inclus), dans l'ordre du cours.
-  // Les exercices regroupés dans une section « Exercices » en fin de chapitre ne sont pas « dans » la
-  // matière : voir `devoirsDuChapitre`.
+  // Devoirs : UNIQUEMENT les exercices marqués « devoir » (⌂, 1er clic sur un exercice « maison » dans le
+  // cours) pendant la séance du jour, dans l'ordre du cours. Rien n'est déduit de la matière vue.
+  // Si rien n'est marqué : proposition (sur demande) des exercices « maison » du chapitre en cours.
   function exercicesMaison(idx) {
     return idx.elements.filter(function (e) { return e.type === "exercice" && idx.etiquette(e, "maison"); });
   }
   function devoirs(p) {
-    var b = bornes(p), idx = p.index;
-    if (!b.fin) return { lignes: [], texte: "", chapitre: null, propositionChapitre: [] };
-    var d = b.debut ? idx.pos[b.debut.el] : -1, f = idx.pos[b.fin.el];
-    var lignes = exercicesMaison(idx).filter(function (e) { return idx.pos[e.id] > d && idx.pos[e.id] <= f; });
-    var chap = idx.chapitreDe(b.fin.el);
+    var idx = p.index, dv = E.devoirs(p.ev, p.classe, p.fuseau, p.jusque);
+    var lignes = E.seance(dv, p.jour, p.uaa).map(function (id) { return idx.parId[id]; })
+      .filter(function (e) { return e && e.type === "exercice"; })
+      .sort(function (a, b) { return idx.pos[a.id] - idx.pos[b.id]; });
+    var b = bornes(p), ref = lignes.length ? lignes[lignes.length - 1].id : (b.fin ? b.fin.el : null);
+    var chap = ref ? idx.chapitreDe(ref) : null;
     var prop = chap ? exercicesMaison(idx).filter(function (e) {
       var c = idx.chapitreDe(e.id); return c && c.id === chap.id && lignes.indexOf(e) < 0;
     }) : [];
@@ -107,6 +125,6 @@
   function texteDevoirs(exos, format) {
     return exos.map(function (e) { return formaterExercice(format || "Exercice {num}[ : {titre}]", e); }).join("\n");
   }
-  return { titreDebut: titreDebut, bornes: bornes, texteJournal: texteJournal, devoirs: devoirs, texteDevoirs: texteDevoirs,
+  return { titreDebut: titreDebut, bornes: bornes, texteJournal: texteJournal, lignesMatiere: lignesMatiere, devoirs: devoirs, texteDevoirs: texteDevoirs,
            formaterExercice: formaterExercice, jourVersMs: jourVersMs, finDeJour: finDeJour, titreSection: titreSection };
 });

@@ -1,7 +1,7 @@
 /* sw.js — service worker de la page de pilotage : la page, sa configuration et les fichiers des cours
    déjà consultés (index.json, classe.json, prof.js…) restent utilisables sans réseau.
    Stratégie : réseau d'abord (délai 4 s s'il existe une copie), sinon la dernière copie. Même domaine uniquement. */
-var VERSION = "pilotage-v5";
+var VERSION = "pilotage-v6";
 var COQUILLE = ["./", "index.html", "scan.html", "pilotage.css", "config.json", "sw.js",
   "js/lecteur-aruco.js", "js/qr-code.js", "js/qr-votes.js",
   "js/outils.js", "js/config.js", "js/horaire.js", "js/jour.js", "js/ev.js", "js/indexcours.js", "js/tirage.js", "js/journal.js",

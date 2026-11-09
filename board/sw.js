@@ -1,9 +1,9 @@
 /* sw.js — service worker du tableau de bord : la page, sa configuration et les fichiers du pilotage qu'elle réutilise
    (style, thème, dates) restent utilisables sans réseau. Réseau d'abord (délai 4 s s'il existe une copie), sinon la dernière copie.
    Même domaine uniquement ; jamais l'API GitHub (autre domaine). */
-var VERSION = "board-v1";
-var COQUILLE = ["./", "index.html", "unif.html", "board.css", "config.json", "sw.js",
-  "js/ics.js", "js/depot.js", "js/taches.js", "js/board.js", "js/accueil.js", "js/unif.js",
+var VERSION = "board-v3";
+var COQUILLE = ["./", "index.html", "unif.html", "prepa.html", "board.css", "config.json", "sw.js",
+  "js/ics.js", "js/depot.js", "js/taches.js", "js/board.js", "js/accueil.js", "js/unif.js", "js/prepa-logique.js", "js/prepa.js",
   "../pilotage/pilotage.css", "../pilotage/js/theme.js", "../pilotage/js/outils.js", "../pilotage/js/horaire.js"];
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(VERSION).then(function (c) {

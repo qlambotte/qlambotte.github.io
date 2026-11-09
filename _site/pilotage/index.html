@@ -21,6 +21,7 @@
         <a class="ico" id="ouvrir-scan" href="scan.html" title="Sur le smartphone : lit les cartes de vote et affiche un QR que la tablette lit"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><span class="il">Scanner</span></a>
         <button class="ico" id="exporter" type="button" title="Télécharge tout le journal en un fichier JSON"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg></span><span class="il">Exporter</span></button>
         <button class="ico" id="importer" type="button" title="Fusionne un fichier exporté dans le journal de cet appareil"><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M5 19h14"/></svg></span><span class="il">Importer</span></button>
+        <button class="ico" id="plein-ecran" type="button" title="Plein écran (F) — recliquer pour en sortir" hidden><span class="rond"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pe-entrer" d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><path class="pe-sortir" d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5" style="display:none"/></svg></span><span class="il">Plein écran</span></button>
         <input type="file" id="fichier" accept="application/json,.json" hidden>
       </nav>
     </div>
@@ -165,5 +166,77 @@
 <script src="js/cle-ui.js"></script>
 <script src="js/reglages.js"></script>
 <script src="js/app.js"></script>
+<script>
+/* Plein écran : le même bouton entre et sort (la touche F aussi ; Échap sort toujours). */
+(function () {
+  var b = document.getElementById("plein-ecran"), d = document, el = d.documentElement;
+  var demander = el.requestFullscreen || el.webkitRequestFullscreen, quitter = d.exitFullscreen || d.webkitExitFullscreen;
+  if (!b || !demander) return;                       // navigateur sans plein écran : pas de bouton
+  b.hidden = false;
+  function actif() { return !!(d.fullscreenElement || d.webkitFullscreenElement); }
+  function maj() {
+    var a = actif();
+    b.querySelector(".pe-entrer").style.display = a ? "none" : "";
+    b.querySelector(".pe-sortir").style.display = a ? "" : "none";
+    b.querySelector(".il").textContent = a ? "Quitter le plein écran" : "Plein écran";
+    b.title = a ? "Quitter le plein écran (F ou Échap)" : "Plein écran (F)";
+    b.setAttribute("aria-pressed", a ? "true" : "false");
+  }
+  function basculer() {
+    try {
+      if (actif()) quitter.call(d);
+      else { var r = demander.call(el); if (r && r.catch) r.catch(function () {}); }
+    } catch (e) {}
+  }
+  b.addEventListener("click", basculer);
+  d.addEventListener("fullscreenchange", maj);
+  d.addEventListener("webkitfullscreenchange", maj);
+  // Le navigateur quitte toujours le plein écran en changeant de page. On le transmet : lien suivi en plein
+  // écran → « pe=1 » dans l'URL (+ sessionStorage), et la page d'arrivée le rétablit au premier geste
+  // (clic, touche) : un navigateur n'autorise le plein écran qu'en réponse à un geste.
+
+  (function () {
+  if (window.__typwebPE) return;                         // pilotage + couche prof chargée : une seule fois
+  window.__typwebPE = true;
+  var CLE_PE = "typweb.plein-ecran", quitte = false;
+  function peEcrire(v) { try { v ? sessionStorage.setItem(CLE_PE, "1") : sessionStorage.removeItem(CLE_PE); } catch (e) {} }
+  function peVoulu() {
+    try { if (new URL(location.href).searchParams.get("pe") === "1") return true; } catch (e) {}
+    try { return sessionStorage.getItem(CLE_PE) === "1"; } catch (e) { return false; }
+  }
+  window.addEventListener("pagehide", function () { quitte = true; });
+  d.addEventListener("click", function (e) {           // lien suivi en plein écran : « pe=1 »
+    var a = e.target && e.target.closest && e.target.closest("a[href]");
+    if (!a || !actif() || /^(#|javascript:|blob:|mailto:)/.test(a.getAttribute("href") || "")) return;
+    try { var u = new URL(a.href, location.href); if (!/^https?:$/.test(u.protocol)) return;
+          u.searchParams.set("pe", "1"); a.href = u.href; } catch (x) {}
+  }, true);
+  function peChange() {                                  // sortie volontaire (Échap, bouton) : on ne le rétablit plus
+    if (actif()) peEcrire(true); else if (!quitte) peEcrire(false);
+  }
+  d.addEventListener("fullscreenchange", peChange);
+  d.addEventListener("webkitfullscreenchange", peChange);
+  if (peVoulu() && !actif()) {
+    peEcrire(true);
+    try {                                                // « pe=1 » retiré de l'adresse (recharger ne le redemande pas)
+      var u = new URL(location.href);
+      if (u.searchParams.has("pe")) { u.searchParams.delete("pe"); history.replaceState(history.state, "", u.href); }
+    } catch (x) {}
+    var retablir = function () {
+      ["pointerup", "keydown", "click"].forEach(function (n) { d.removeEventListener(n, retablir, true); });
+      if (actif() || !peVoulu()) return;
+      try { var r = demander.call(el); if (r && r.catch) r.catch(function () {}); } catch (x) {}
+    };
+    ["pointerup", "keydown", "click"].forEach(function (n) { d.addEventListener(n, retablir, true); });
+  }
+  })();
+
+  d.addEventListener("keydown", function (e) {
+    var t = e.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
+    if (!saisie && !e.ctrlKey && !e.metaKey && !e.altKey && (e.key === "f" || e.key === "F")) { e.preventDefault(); basculer(); }
+  });
+  maj();
+})();
+</script>
 </body>
 </html>

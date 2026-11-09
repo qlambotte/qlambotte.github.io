@@ -6,7 +6,7 @@
 (function (root, fabrique) {
   var m = fabrique(root);
   if (typeof module === "object" && module.exports) module.exports = m;
-  else { root.Board = root.Board || {}; root.Board.depot = m; }
+  else { root.Board = root.Board || {}; root.Board.depot = m; root.Board.Depot = m; }   // board.js remplace Board.depot par une instance : le module reste dans Board.Depot
 })(typeof window !== "undefined" ? window : this, function (racine) {
   "use strict";
   var CLE_ETAT = "typweb.sync.v1", CLE_JETON = "typweb.sync.jeton", RE_DEPOT = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
@@ -39,6 +39,8 @@
 
     function lire(k) { try { return stock ? stock.getItem(k) : null; } catch (e) { return null; } }
     function etat() {
+      // opt.depot : autre dépôt que celui de la synchronisation (même jeton ; il doit y avoir le droit d'écrire)
+      if (opt.depot && RE_DEPOT.test(opt.depot)) return { depot: opt.depot, branche: /^[A-Za-z0-9_.\/-]+$/.test(opt.branche || "") ? opt.branche : "main" };
       var j = {}; try { j = JSON.parse(lire(CLE_ETAT) || "{}") || {}; } catch (e) {}
       return { depot: RE_DEPOT.test(j.depot || "") ? j.depot : "", branche: /^[A-Za-z0-9_.\/-]+$/.test(j.branche || "") ? j.branche : "main" };
     }

@@ -62,3 +62,25 @@ a.off { opacity: .5; text-decoration: none !important; cursor: default; pointer-
   .ev .tag { grid-column: 2; justify-self: start; }
   .pil .titre-p { font-size: 26px; }
 }
+
+/* ---------- page « Prépa » (prepa.html) ---------- */
+.grille.pr { grid-template-columns: 1.6fr 1fr; align-items: start; flex: none; }
+.colonne-p { display: grid; gap: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+.chip { font: 600 14px var(--sans); padding: 9px 16px; border-radius: 99px; border: 0; background: var(--teinte); color: var(--teinte-texte); cursor: pointer; }
+.chip[aria-pressed=true] { background: var(--acc); color: var(--sur-acc); }
+.bloc-p { display: grid; gap: 10px; margin-top: 10px; }
+.etat-ligne { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 14px; border-radius: 16px; background: var(--q); }
+.etat-ligne strong { font: 600 15px var(--sans); }
+.qv { display: grid; grid-template-columns: 26px minmax(0, 1fr) 70px 70px 46px; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 16px; background: var(--q); font: 15px/1.35 var(--serif); }
+.qv.tete { background: transparent; padding-top: 0; padding-bottom: 0; font: 600 11.5px var(--sans); text-transform: uppercase; letter-spacing: .06em; color: var(--doux); }
+.qv .num { font: 600 13px var(--sans); color: var(--doux); }
+.qv .tx small, .qm .tx small { display: block; font: 12.5px var(--sans); color: var(--doux); }
+.qv input[type=number] { width: 100%; text-align: center; }
+.qv input[type=checkbox] { justify-self: center; }
+.qm { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 8px 12px; border-radius: 16px; background: var(--q); font: 15px/1.35 var(--serif); }
+.barre-p { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.barre-p input[type=number] { width: 76px; text-align: center; }
+@media (max-width: 1000px) { .grille.pr { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .qv { grid-template-columns: 22px minmax(0, 1fr) 58px 58px 40px; gap: 6px; } }
+.qv input[type=number] { background: var(--carte); }
