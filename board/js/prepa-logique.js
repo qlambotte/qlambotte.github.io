@@ -31,17 +31,21 @@
   function lire(etat, theme) {
     var t = etat && etat[theme] && typeof etat[theme] === "object" ? etat[theme] : {};
     return { solutions: t.solutions === true, ticket: ids(t.ticket), ticket_solutions: t.ticket_solutions === true,
+             exercices: t.exercices === true,
              votes: t.votes && typeof t.votes === "object" && !Array.isArray(t.votes) ? t.votes : {} };
   }
   function fixerSolutions(etat, theme, actif) { section(etat, theme).solutions = !!actif; return etat; }
   function fixerTicketSolutions(etat, theme, actif) { section(etat, theme).ticket_solutions = !!actif; return etat; }
 
-  function reponsesActivees(etat) { return ids(etat && etat.reponses_activees); }
-  function fixerReponse(etat, id, actif) {
-    if (!RE_ID.test(id || "")) throw new Error("Identifiant de question invalide : " + id);
-    var l = reponsesActivees(etat).filter(function (x) { return x !== id; });
-    if (actif) l.push(id);
-    etat.reponses_activees = l.sort();
+  // Correction des exercices d'une catégorie (thème ou « melange ») : bouton « Corriger » et onglet « Solution ».
+  // L'ancienne clé « reponses_activees » (réponses masquées) n'est plus utilisée : elle est retirée au passage.
+  function fixerExercices(etat, theme, actif) {
+    section(etat, theme).exercices = !!actif;
+    delete etat.reponses_activees;
+    return etat;
+  }
+  function fixerExercicesTous(etat, themes, actif) {
+    (themes || []).forEach(function (th) { fixerExercices(etat, th, actif); });
     return etat;
   }
 
@@ -83,6 +87,6 @@
   function serialiser(etat) { return JSON.stringify(etat, null, 2) + "\n"; }
 
   return { lireEtat: lireEtat, lire: lire, fixerSolutions: fixerSolutions, fixerTicketSolutions: fixerTicketSolutions,
-           reponsesActivees: reponsesActivees, fixerReponse: fixerReponse, taux: taux, affichage: affichage,
+           fixerExercices: fixerExercices, fixerExercicesTous: fixerExercicesTous, taux: taux, affichage: affichage,
            enregistrerVotes: enregistrerVotes, proposerTicket: proposerTicket, serialiser: serialiser };
 });

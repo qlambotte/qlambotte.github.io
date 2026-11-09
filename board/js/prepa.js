@@ -1,4 +1,4 @@
-/* prepa.js — page « Pilotage Prépa » : publier les solutions des séances, activer les réponses masquées (questions-réponses),
+/* prepa.js — page « Pilotage Prépa » : publier les solutions des séances, publier la correction des exercices (par catégorie),
    noter les taux de réussite et composer le ticket de sortie. Écrit etat.json dans le dépôt du site coursPrepa (API GitHub),
    avec le jeton déjà configuré pour la synchronisation (il doit avoir le droit d'écrire dans ce dépôt).
    La liste des questions vient de static/questions.json (index généré au rendu du site). */
@@ -8,7 +8,8 @@
   function $(s) { return document.querySelector(s); }
   var CLE_Q = "board.prepa.questions.v1", timer;
   var THEMES_SEANCE = ["algebre", "geometrie", "trigonometrie", "analyse", "statistique", "mise-en-situation"];
-  var S = { conf: null, D: null, etat: null, sha: null, q: null, theme: THEMES_SEANCE[0], occupe: false, brouillon: null, filtre: "" };
+  var CATEGORIES = ["algebre", "geometrie", "trigonometrie", "analyse", "statistique", "melange"];
+  var S = { conf: null, D: null, etat: null, sha: null, q: null, theme: THEMES_SEANCE[0], occupe: false, brouillon: null };
 
   function toast(t) { var z = $("#toast"); z.textContent = t; z.classList.add("on"); clearTimeout(timer); timer = setTimeout(function () { z.classList.remove("on"); }, 3200); }
   function avis(texte) { var a = $("#avis"); a.hidden = !texte; a.textContent = texte || ""; }
@@ -56,7 +57,7 @@
           var w = await D.ecrire(chemin, L.serialiser(etat), { sha: r ? r.sha : undefined, message: "Pilotage prépa : " + message });
           S.etat = etat; S.sha = w.sha; S.brouillon = null;
           pastille("synchronise", "etat.json à jour");
-          toast("Enregistré. Visible sur le site dans 1 à 2 minutes.");
+          toast("Enregistré. Visible sur le site après le redéploiement (quelques minutes).");
           return true;
         } catch (e) { if (e.code !== "conflit" || essai === 2) throw e; }
       }
@@ -74,7 +75,10 @@
     b = bouton(actif ? "Retirer" : "Publier", actif ? "t" : "cu", f);
     l.appendChild(g); l.appendChild(b); return l;
   }
-  function nomTheme(id) { var t = S.q && S.q.themes && S.q.themes[id]; return t ? t.nom : (id === "mise-en-situation" ? "Mise en situation" : id); }
+  function nomTheme(id) {
+    var t = S.q && S.q.themes && S.q.themes[id];
+    return t ? t.nom : ({ "mise-en-situation": "Mise en situation", melange: "Mélange" })[id] || id;
+  }
 
   /* ---------- séance : thème, solutions, votes, ticket ---------- */
   function chips() {
@@ -156,24 +160,33 @@
       function () { modifier(function (x) { L.fixerTicketSolutions(x, theme, !e.ticket_solutions); }, (e.ticket_solutions ? "retirer" : "publier") + " les solutions du ticket " + theme); }));
   }
 
-  /* ---------- réponses masquées ---------- */
-  function masquees() {
-    var z = $("#masquees"), actives = L.reponsesActivees(S.etat || {}), n = 0, f = S.filtre.trim().toLowerCase();
+  /* ---------- exercices : correction publiée par catégorie ---------- */
+  function exercices() {
+    var z = $("#exercices"), n = 0;
     z.textContent = "";
-    if (!S.q) { z.appendChild(B.el("div", "vide", "Index des questions indisponible.")); return; }
-    Object.keys(S.q.themes).forEach(function (id) {
-      S.q.themes[id].questions.filter(function (q) { return q.masquee; }).forEach(function (q) {
-        if (f && (q.id + " " + (q.enonce || "")).toLowerCase().indexOf(f) < 0) return;
-        var on = actives.indexOf(q.id) >= 0, r = B.el("div", "qm"), tx = B.el("span", "tx"), b;
-        tx.appendChild(document.createTextNode(q.enonce || q.id));
-        tx.appendChild(B.el("small", "", q.id + " · " + S.q.themes[id].nom + (q.source ? " · " + q.source : "")));
-        b = bouton(on ? "Retirer" : "Activer", on ? "t" : "cu", function () {
-          modifier(function (x) { L.fixerReponse(x, q.id, !on); }, (on ? "retirer" : "activer") + " la réponse " + q.id);
-        });
-        r.appendChild(tx); r.appendChild(b); z.appendChild(r); n++;
-      });
+    if (!S.etat) { z.appendChild(B.el("div", "vide", "Connecte-toi pour publier les corrections.")); return; }
+    CATEGORIES.forEach(function (id) {
+      var on = L.lire(S.etat, id).exercices, qs = questions(id, ["exo"]), avec = qs.filter(function (q) { return q.aides; }).length;
+      var r = B.el("div", "qm"), tx = B.el("span", "tx");
+      if (on) n++;
+      tx.appendChild(document.createTextNode(nomTheme(id)));
+      tx.appendChild(B.el("small", "", (S.q ? qs.length + " exercices · " + avec + " avec indices · " : "") + (on ? "correction publiée" : "correction bientôt disponible")));
+      r.appendChild(tx);
+      r.appendChild(bouton(on ? "Retirer" : "Publier", on ? "t" : "cu", function () {
+        modifier(function (x) { L.fixerExercices(x, id, !on); }, (on ? "retirer" : "publier") + " la correction des exercices " + id);
+      }));
+      z.appendChild(r);
     });
-    if (!n) z.appendChild(B.el("div", "vide", f ? "Aucune question ne correspond." : "Aucune question masquée."));
+    var barre = B.el("div", "barre-p");
+    barre.appendChild(bouton("Tout publier", "p", function () {
+      modifier(function (x) { L.fixerExercicesTous(x, CATEGORIES, true); }, "publier la correction de tous les exercices");
+    }));
+    barre.appendChild(bouton("Tout retirer", "t", function () {
+      modifier(function (x) { L.fixerExercicesTous(x, CATEGORIES, false); }, "retirer la correction de tous les exercices");
+    }));
+    barre.appendChild(B.el("span", "doux", n + " / " + CATEGORIES.length + " publiées"));
+    z.appendChild(barre);
+    z.appendChild(B.el("div", "note", "Sans correction publiée, « Corriger » est inactif et l'onglet « Solution » affiche « Correction bientôt disponible ». Les indices restent visibles. Sur la page d'autoévaluation globale, chaque exercice suit sa catégorie."));
   }
 
   /* ---------- connexion ---------- */
@@ -193,14 +206,14 @@
       z.appendChild(B.el("div", "note", "Le jeton est chiffré : saisis ta phrase secrète (elle reste dans cette page, jamais enregistrée)."));
       z.appendChild(f);
     } else {
-      z.appendChild(B.el("div", "note", "Jeton prêt. Les modifications sont des commits sur la branche " + (S.conf.branche || "main") + " ; le site se redéploie en une à deux minutes."));
+      z.appendChild(B.el("div", "note", "Jeton prêt. Les modifications sont des commits sur la branche " + (S.conf.branche || "main") + " ; le site se redéploie en quelques minutes (deux clics rapprochés : seul le dernier déploiement aboutit, il contient les deux modifications)."));
       var r = B.el("button", "btn t", "Recharger etat.json"); r.type = "button";
       r.addEventListener("click", function () { chargerEtat().then(rendre); });
       z.appendChild(r);
     }
   }
 
-  function rendre() { chips(); seance(); masquees(); connexion(); }
+  function rendre() { chips(); seance(); exercices(); connexion(); }
   async function demarrer() { await chargerEtat(); rendre(); }
 
   B.charger().then(async function () {
@@ -211,7 +224,6 @@
     S.D = window.Board.Depot.creer({ depot: c.depot, branche: c.branche || "main" });
     B.apparence($("#apparence"));
     $("#cx-etat").addEventListener("click", function () { chargerEtat().then(rendre); });
-    $("#filtre").addEventListener("input", function (e) { S.filtre = e.target.value; masquees(); });
     await chargerQuestions();
     rendre();
     await demarrer();

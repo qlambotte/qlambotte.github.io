@@ -65,18 +65,25 @@
   #qrImg svg { width: 100%; height: 100%; display: block; }
   #qrCode { font: 700 1.25rem/1.35 ui-monospace, Menlo, Consolas, monospace; text-align: center; word-break: break-word; max-width: 92vw; }
   #qr button.principal { background: #566779; color: #fff; }
+  #direct { margin: 8px 0; font-size: .95rem; color: var(--doux); }
+  #direct.ok { color: var(--texte); font-weight: 600; }
+  #direct.erreur { color: var(--texte); }
+  #deverrou { display: flex; gap: 8px; margin: 6px 0; }
+  #deverrou[hidden] { display: none; }
+  #deverrou input { flex: 1; min-width: 0; font: inherit; padding: 8px 10px; border-radius: 12px; border: 1.5px solid var(--pointille); background: transparent; color: var(--texte); }
 </style>
 </head>
 <body>
 <header>
   <a href="./">← Pilotage</a>
   <h1>Lecture des cartes</h1>
-  <p class="sous">Vise la classe, attends que chaque carte soit lue, puis « Afficher le QR » : la tablette le lit dans l'écran de vote.</p>
+  <p class="sous">Vise la classe, attends que chaque carte soit lue, puis « Envoyer à la tablette » (ou, sans réseau, « Afficher le QR »).</p>
 </header>
 <main>
   <div class="rang">
     <button id="bCam" class="principal" type="button">Ouvrir la caméra</button>
-    <button id="bQr" class="acc" type="button" disabled>Afficher le QR</button>
+    <button id="bEnvoi" class="acc" type="button" disabled>Envoyer à la tablette</button>
+    <button id="bQr" type="button" disabled>Afficher le QR</button>
     <button id="bRaz" type="button">Nouvelle question</button>
   </div>
   <div id="presence"><label for="presents">Élèves présents</label>
@@ -84,13 +91,19 @@
     <input id="presents" type="number" inputmode="numeric" min="1" max="99" placeholder="?">
     <button id="bPlus" type="button" aria-label="Un présent de plus">+</button></div>
   <div id="msg" class="msg" role="status" hidden></div>
+  <p id="direct" role="status"></p>
+  <form id="deverrou" hidden><input id="phrase" type="password" autocomplete="current-password" placeholder="Phrase secrète du jeton" aria-label="Phrase secrète du jeton"><button type="submit">Déverrouiller</button></form>
   <div id="scene"><video id="video" playsinline muted></video><canvas id="ecran" width="16" height="9"></canvas><div id="vide">Caméra fermée.</div></div>
   <p id="bilan"><b id="nb">0</b> carte(s) lue(s)<span id="surPresents"></span> · A <b id="nA">0</b> · B <b id="nB">0</b> · C <b id="nC">0</b> · D <b id="nD">0</b></p>
   <div id="grille" aria-label="Cartes lues (numéro et lettre)"></div>
   <p class="sous">Une carte est retenue quand la même lettre est lue sur trois images de suite ; un élève qui change d'avis : la dernière lettre stable l'emporte.
     Une case en pointillés : lettre encore hésitante.</p>
-  <p class="sous">Sur la tablette : question → « Par carte » → « Lire le QR » ; échauffement → zone « Cartes » → « Lire le QR ».
-    Rien n'est envoyé : les images restent en mémoire, aucun nom n'apparaît ; seul le nombre de présents est gardé (pour la journée).</p>
+  <p class="sous"><b>Envoi direct :</b> les votes (numéros de carte, lettres, nombre de présents ; aucun nom) sont écrits dans le dépôt privé de
+    synchronisation ; l'écran de vote de la tablette les reçoit en quelques secondes. Il faut que la synchronisation soit configurée sur ce
+    téléphone (page de pilotage › Réglages › Synchronisation, ou « Charger ma clé ») et sur la tablette, et que l'écran de vote soit ouvert
+    sur la question avant d'envoyer.</p>
+  <p class="sous"><b>Sans réseau :</b> « Afficher le QR », puis sur la tablette : question → « Par carte » → « Scanner le QR » ; échauffement →
+    zone « Cartes » → « Lire le QR ». Les images restent en mémoire ; seul le nombre de présents est gardé sur le téléphone (pour la journée).</p>
 </main>
 <div id="qr" hidden role="dialog" aria-label="QR des votes">
   <div id="qrImg"></div>
@@ -100,6 +113,8 @@
 <script src="js/lecteur-aruco.js"></script>
 <script src="js/qr-code.js"></script>
 <script src="js/qr-votes.js"></script>
+<script>window.typwebSync = window.typwebSync || {};   /* pas de synchronisation automatique du journal sur cette page */</script>
+<script src="js/sync.js"></script>
 <script>
 (function () {
   "use strict";
@@ -127,6 +142,7 @@
     var p = presents();
     $("surPresents").textContent = p ? " sur " + p + " présent(s)" + (n < p ? " (" + (p - n) + " sans carte lue)" : n > p ? " (plus de cartes que de présents ?)" : "") : "";
     $("bQr").disabled = !n;
+    $("bEnvoi").disabled = !n || !syncPret();
     g.textContent = "";
     Object.keys(etat).map(Number).sort(function (a, b) { return a - b; }).forEach(function (k) {
       var e = etat[k], d = document.createElement("div");
@@ -196,6 +212,41 @@
       ctx.fillStyle = "#111"; ctx.fillText(t, d.centre.x, d.centre.y);
     });
   }
+  /* ---------- envoi direct (dépôt privé → écran de vote de la tablette) ---------- */
+  var S = null;
+  try { S = window.TypwebSync ? window.TypwebSync.creer({}) : null; } catch (e) { S = null; }
+  function syncPret() { return !!(S && S.pret && S.pret()); }
+  function direct(t, cls) { var d = $("direct"); d.textContent = t || ""; d.className = cls || ""; }
+  function etatDirect() {
+    var inf = S && S.infos ? S.infos() : null;
+    $("deverrou").hidden = !(inf && inf.verrouille);
+    if (!S || !inf || !inf.depot || !inf.jeton) direct("Envoi direct indisponible : configure la synchronisation sur ce téléphone (page de pilotage › Réglages), ou utilise le QR.");
+    else if (inf.verrouille) direct("Jeton verrouillé : saisis la phrase secrète pour envoyer.");
+    else direct("Envoi direct prêt (" + inf.depot + ").");
+    afficher();
+  }
+  async function envoyer() {
+    var o = lues(), p = presents();
+    if (!Object.keys(o).length) return;
+    if (!p) message("Indique le nombre d'élèves présents : il est transmis avec les votes.");
+    $("bEnvoi").disabled = true; direct("Envoi…");
+    try {
+      var r = await S.envoyerVotes({ cartes: o, presents: p });
+      direct("Envoyé ✓ " + r.n + " carte(s) à " + new Date(r.t).toLocaleTimeString("fr-BE", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) +
+             ". « Nouvelle question » pour la suivante.", "ok");
+      if (navigator.vibrate) { try { navigator.vibrate([30, 60, 30]); } catch (x) {} }
+    } catch (e) {
+      direct("Envoi impossible : " + ((e && e.message) || "erreur") + " Utilise le QR si le réseau ne passe pas.", "erreur");
+    }
+    afficher();
+  }
+  $("bEnvoi").addEventListener("click", envoyer);
+  $("deverrou").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var ph = $("phrase").value;
+    S.deverrouiller(ph).then(function () { $("phrase").value = ""; etatDirect(); }, function (e) { direct("Phrase refusée : " + ((e && e.message) || "erreur"), "erreur"); });
+  });
+
   function montrerQr() {
     var o = lues(), p = presents();
     if (!p) message("Indique le nombre d'élèves présents : il est transmis avec les votes.");
@@ -210,9 +261,9 @@
   $("bCam").addEventListener("click", ouvrir);
   $("bQr").addEventListener("click", montrerQr);
   $("bFermer").addEventListener("click", function () { $("qr").hidden = true; });
-  $("bRaz").addEventListener("click", function () { etat = {}; afficher(); $("qr").hidden = true; });
+  $("bRaz").addEventListener("click", function () { etat = {}; afficher(); $("qr").hidden = true; if (syncPret()) direct("Envoi direct prêt."); });
   document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") arreter(); });
-  afficher();
+  etatDirect();
   window.PilotageScan = { noter: function (d) { noter(d); afficher(); }, lues: lues, texteQr: function () { return window.QrVotes.encoder({ cartes: lues(), presents: presents() }); } };   // pour les tests
 })();
 </script>
