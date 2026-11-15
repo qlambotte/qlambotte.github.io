@@ -442,7 +442,7 @@
     "href": "nouveautes.html",
     "title": "Quoi de neuf ?",
     "section": "",
-    "text": "09/11/2026",
+    "text": "15/11/2026",
     "crumbs": [
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Quoi de neuf ?</span>"
     ]
@@ -452,7 +452,17 @@
     "href": "nouveautes.html#section",
     "title": "Quoi de neuf ?",
     "section": "",
-    "text": "Première version en ligne du cours.",
+    "text": "Volume d’un solide de révolution — modifié : Exemple 4.1",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Quoi de neuf ?</span>"
+    ]
+  },
+  {
+    "objectID": "nouveautes.html#section-1",
+    "href": "nouveautes.html#section-1",
+    "title": "Quoi de neuf ?",
+    "section": "09/11/2026",
+    "text": "09/11/2026\n\nPremière version en ligne du cours.",
     "crumbs": [
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Quoi de neuf ?</span>"
     ]

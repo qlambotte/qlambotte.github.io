@@ -8,7 +8,10 @@
 })(typeof window !== "undefined" ? window : this, function (O) {
   "use strict";
   var HHMM = /^([01]\d|2[0-3]):[0-5]\d$/;
-  var NIVEAUX = ["5e", "6e"];
+  // niveaux scolaires du secondaire (le « 7e » : 7e professionnelle ou de qualification)
+  var NIVEAUX = ["1re", "2e", "3e", "4e", "5e", "6e", "7e"];
+  // option de mathématiques : périodes par semaine (math 2, 4, 5 en 4e, 6) ; champ facultatif
+  var PERIODES = [2, 3, 4, 5, 6, 8];
 
   function estObjet(x) { return x && typeof x === "object" && !Array.isArray(x); }
   function liste(x) { return Array.isArray(x) ? x : null; }
@@ -34,7 +37,9 @@
       if (typeof c.code !== "string" || !c.code.trim()) { err.push(p + ".code : texte non vide attendu (exemple : « 5TTy »)."); return; }
       if (codes.indexOf(c.code) >= 0) err.push(p + ".code : « " + c.code + " » apparaît deux fois.");
       codes.push(c.code);
-      if (NIVEAUX.indexOf(c.niveau) < 0) err.push(p + ".niveau : « " + c.niveau + " » invalide (attendu : " + NIVEAUX.join(" ou ") + ").");
+      if (NIVEAUX.indexOf(c.niveau) < 0) err.push(p + ".niveau : « " + c.niveau + " » invalide (attendu : " + NIVEAUX.join(", ") + ").");
+      if (c.periodes !== undefined && PERIODES.indexOf(c.periodes) < 0)
+        err.push(p + ".periodes : " + JSON.stringify(c.periodes) + " invalide (périodes de maths par semaine : " + PERIODES.join(", ") + " ; ou champ absent).");
       if (!(Number.isInteger(c.effectif) && c.effectif > 0)) err.push(p + ".effectif : entier positif attendu (reçu : " + JSON.stringify(c.effectif) + ").");
       var cours = c.cours === undefined ? [] : liste(c.cours), uaas = [];
       if (!cours) err.push(p + ".cours : liste attendue.");
@@ -189,6 +194,6 @@
       });
     })();
   }
-  return { valider: valider, classe: classe, coursEnCours: coursEnCours, adresse: adresse, sourceFichier: sourceFichier,
+  return { NIVEAUX: NIVEAUX, PERIODES: PERIODES, valider: valider, classe: classe, coursEnCours: coursEnCours, adresse: adresse, sourceFichier: sourceFichier,
            appliquerCarte: appliquerCarte, chargerCarte: chargerCarte };
 });

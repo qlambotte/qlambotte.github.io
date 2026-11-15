@@ -408,7 +408,7 @@
       var s = document.createElement("script");
       s.src = BASE + "jsQR.js"; s.async = true;
       s.onload = function () { window.jsQR ? res(window.jsQR) : rej(new Error("jsQR.js illisible")); };
-      s.onerror = function () { jsqrPret = null; rej(new Error("Ce navigateur ne lit pas les QR et js/jsQR.js manque (voir doc/couche-prof.md) : tape le code affiché sous le QR (« Taper un code »).")); };
+      s.onerror = function () { jsqrPret = null; rej(new Error("Ce navigateur ne lit pas les QR et js/jsQR.js manque (voir doc/couche-prof.md) : tape le code affiché sous le QR.")); };
       document.head.appendChild(s);
     });
     return jsqrPret;
@@ -444,12 +444,12 @@
   function lireQr(opt) {
     var dans = opt && opt.dans;
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)
-      return Promise.reject(new Error("Pas de caméra accessible (page en http ? caméra refusée ?) : tape le code affiché sous le QR (« Taper un code »)."));
+      return Promise.reject(new Error("Pas de caméra accessible (page en http ? caméra refusée ?) : tape le code affiché sous le QR."));
     return lecteurQr()
       .then(function (lire) {
         return navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: "environment" } } }).then(function (flux) {
           return { lire: lire, flux: flux };
-        }, function (e) { throw new Error("Caméra refusée ou absente (" + ((e && e.name) || "erreur") + ") : tape le code affiché sous le QR (« Taper un code »)."); });
+        }, function (e) { throw new Error("Caméra refusée ou absente (" + ((e && e.name) || "erreur") + ") : tape le code affiché sous le QR."); });
       })
       .then(function (o) {
         var flux = o.flux, lire = o.lire;

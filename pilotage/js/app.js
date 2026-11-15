@@ -181,7 +181,7 @@
     var sel = $("#choix-classe");
     if (sel.options.length !== cfg.classes.length) {
       vider(sel);
-      cfg.classes.forEach(function (c) { var o = el("option", "", c.code + " · " + c.niveau); o.value = c.code; sel.appendChild(o); });
+      cfg.classes.forEach(function (c) { var o = el("option", "", c.code + " · " + c.niveau + (c.periodes ? " · math " + c.periodes : "")); o.value = c.code; sel.appendChild(o); });
     }
     sel.value = A.code;
     var prof = A.etat && A.etat.modeProf(), mp = $("#modeprof");
