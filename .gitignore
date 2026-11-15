@@ -1,5 +1,0 @@
-/.quarto/
-**/*.quarto_ipynb
-
-# clés de synchronisation du pilotage (jeton chiffré) : jamais dans un dépôt
-cle-pilotage-*.json
