@@ -1,0 +1,564 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistiques à deux variables",
+    "section": "",
+    "text": "Ce site accompagne le cours imprimé. On y trouve le même texte, avec les mêmes numéros, et en plus des figures dynamiques, des coups de pouce pour chaque exercice et une page pour s’autoévaluer.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Titre du cours — cours & exercices</span>"
+    ]
+  },
+  {
+    "objectID": "objectifs.html",
+    "href": "objectifs.html",
+    "title": "Objectifs",
+    "section": "",
+    "text": "Connaître",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objectifs</span>"
+    ]
+  },
+  {
+    "objectID": "objectifs.html#connaître",
+    "href": "objectifs.html#connaître",
+    "title": "Objectifs",
+    "section": "",
+    "text": "C1\n\nDécoder le vocabulaire d’une série statistique à deux variables : population, individu, couple de données, les deux variables.\n\n\n\nC2\n\nExpliquer l’intérêt d’un ajustement : à quoi sert de résumer un nuage de points par une droite.\n\n\n\nC3\n\nInterpréter le lien entre la forme d’un nuage de points et la valeur du coefficient de corrélation.\n\n\n\nC4\n\nExpliquer, sur un exemple, la différence entre corrélation et causalité.\n\n\n\nC5\n\nExpliquer le principe de la méthode des moindres carrés.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objectifs</span>"
+    ]
+  },
+  {
+    "objectID": "objectifs.html#appliquer",
+    "href": "objectifs.html#appliquer",
+    "title": "Objectifs",
+    "section": "Appliquer",
+    "text": "Appliquer\n\n\nA1\n\nReprésenter une série statistique à deux variables par un nuage de points et y placer le point moyen.\n\n\n\nA2\n\nDéterminer l’équation d’une droite de Mayer.\n\n\n\nA3\n\nDéterminer l’équation de la droite de régression par la méthode des moindres carrés.\n\n\n\nA4\n\nUtiliser la calculatrice ou un tableur pour obtenir un ajustement linéaire et un coefficient de corrélation.\n\n\n\nA5\n\nCalculer une valeur théorique à partir d’un ajustement (interpolation, extrapolation).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objectifs</span>"
+    ]
+  },
+  {
+    "objectID": "objectifs.html#transférer",
+    "href": "objectifs.html#transférer",
+    "title": "Objectifs",
+    "section": "Transférer",
+    "text": "Transférer\n\n\nT1\n\nCritiquer et commenter des informations statistiques présentées ou calculées, dans un contexte réel.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objectifs</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/index.html",
+    "href": "ch1-deux-variables-un-nu/index.html",
+    "title": "Chapitre 1 — Deux variables, un nuage de points",
+    "section": "",
+    "text": "Sections\nJusqu’ici, la statistique que tu as pratiquée portait sur une seule grandeur à la fois : la taille des élèves d’une classe, le nombre de frères et sœurs, une série de notes… On la résumait par sa moyenne. Mais les questions intéressantes mettent souvent en jeu deux grandeurs mesurées sur les mêmes individus, et demandent si elles vont ensemble : un pays plus riche vit-il plus longtemps ? Réviser davantage fait-il monter la note ? Ce chapitre apprend à voir une telle relation ; les suivants apprendront à la résumer, à la mesurer, puis à la critiquer.",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/index.html#sections",
+    "href": "ch1-deux-variables-un-nu/index.html#sections",
+    "title": "Chapitre 1 — Deux variables, un nuage de points",
+    "section": "",
+    "text": "Réactiver : une variable, une moyenne\nUne série statistique à deux variables\nLe nuage de points\nLe point moyen\nDécrire un nuage\nExercices",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/1-reactiver-une-variable-une-moyenne.html",
+    "href": "ch1-deux-variables-un-nu/1-reactiver-une-variable-une-moyenne.html",
+    "title": "Réactiver : une variable, une moyenne",
+    "section": "",
+    "text": "Avant de manier deux variables, remettons en place l’outil de base : la moyenne.\n\n\nDéfinition 1.1 — moyenne\n\n\nLa moyenne d’une série de \\(N\\) valeurs \\(x_{1}, x_{2}, \\ldots, x_{N}\\) est\n\\[\n\\overline{x} = \\frac{x_{1} + x_{2} + \\ldots + x_{N}}{N}.\n\\]\nC’est la valeur qui résume la série : si toutes les valeurs étaient identiques, ce serait celle-là.\n\n\n\n\nActivité 1.1 — retrouver une moyenne\n\n\nVoici l’espérance de vie (en années, 2022) dans cinq pays européens.\n\n\n\n\nPays\nBelgique\nFrance\nAllemagne\nPologne\nPortugal\n\n\n\n\nEspér. de vie\n81,2\n82,5\n80,6\n77,9\n81,2\n\n\n\n\n\nCalcule l’espérance de vie moyenne de ces cinq pays : \\(\\overline{y} =\\) \\(403{,}4 \\div 5 \\approx 80{,}7\\) ans\nL’étendue est l’écart entre la plus grande et la plus petite valeur. Ici : \\(82{,}5 - 77{,}9 = 4{,}6\\) ans\n\nSource : Our World in Data, Life expectancy, 2022 (d’après UN, World Population Prospects).\n\n\nRetiens que la moyenne se calcule aussi directement à la calculatrice (touche statistique) ou avec la fonction MOYENNE d’un tableur : dès que la série est longue, c’est ainsi qu’on procède.",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Réactiver : une variable, une moyenne</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/2-une-serie-statistique-a-deux.html",
+    "href": "ch1-deux-variables-un-nu/2-une-serie-statistique-a-deux.html",
+    "title": "Une série statistique à deux variables",
+    "section": "",
+    "text": "Relevons maintenant, sur chaque pays, deux nombres à la fois : son revenu et son espérance de vie.\n\n\nDéfinition 1.2 — série statistique à deux variables\n\n\nOn étudie une population (ici : des pays). Sur chaque individu de cette population, on relève deux caractères chiffrés, notés \\(x\\) et \\(y\\). À chaque individu correspond alors un couple \\((x_{i} ; y_{i})\\). L’ensemble de ces couples est une série statistique à deux variables.\n\n\nLe tableau ci-dessous rassemble, pour \\(14\\) pays, le PIB par habitant (la richesse produite par habitant, en milliers de dollars) et l’espérance de vie. Ce sont nos deux variables : \\(x\\) = PIB par habitant, \\(y\\) = espérance de vie.\n\n\n\n\nPays\nPIB/hab. (\\(1000\\) $)\nEspér. de vie (ans)\n\n\n\n\nNigéria\n5,1\n54,1\n\n\nInde\n7,8\n71,7\n\n\nBrésil\n14,6\n74,9\n\n\nMexique\n16,2\n74,0\n\n\nChine\n19,2\n78,2\n\n\nTurquie\n27,4\n77,6\n\n\nPortugal\n29,0\n81,2\n\n\nPologne\n32,5\n77,9\n\n\nJapon\n38,3\n84,1\n\n\nFrance\n39,1\n82,5\n\n\nBelgique\n41,9\n81,2\n\n\nAllemagne\n46,6\n80,6\n\n\nÉtats-Unis\n58,5\n78,0\n\n\nNorvège\n88,4\n82,6\n\n\n\n\nSource : Our World in Data, Life expectancy vs. GDP per capita, 2022 (PIB par habitant en dollars internationaux constants, d’après la Banque mondiale ; espérance de vie d’après UN WPP).\nourworldindata.org/grapher/life-expectancy-vs-gdp-per-capita\n\n\nRemarque 1.1\n\n\nLe choix de \\(x\\) et de \\(y\\) n’est pas neutre : on met en \\(x\\) (abscisse) la variable que l’on soupçonne d’expliquer l’autre, et en \\(y\\) (ordonnée) celle que l’on cherche à comprendre. Ici, on se demande si la richesse (\\(x\\)) éclaire l’espérance de vie (\\(y\\)).",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Une série statistique à deux variables</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/3-le-nuage-de-points.html",
+    "href": "ch1-deux-variables-un-nu/3-le-nuage-de-points.html",
+    "title": "Le nuage de points",
+    "section": "",
+    "text": "Un tableau de \\(14\\) couples est difficile à lire d’un coup d’œil. Pour voir la relation, on dessine.\n\n\nDéfinition 1.3 — nuage de points\n\n\nLe nuage de points d’une série \\((x_{i} ; y_{i})\\) est l’ensemble des points de coordonnées \\((x_{i} ; y_{i})\\) placés dans un repère. Chaque point représente un individu. On ne relie pas les points : ils ne forment pas une courbe, mais un semis que l’on interprète globalement.\n\n\n\n\nActivité 1.2 — lire le nuage revenu – espérance de vie\n\n\nVoici le nuage des \\(14\\) pays du tableau (\\(x\\) = PIB par habitant en milliers de dollars, \\(y\\) = espérance de vie en années).\n\n\n\n\nSens. Quand le PIB par habitant augmente, l’espérance de vie a-t-elle plutôt tendance à augmenter ou à diminuer ? à augmenter : le nuage est globalement croissant.\nForme. Les points sont-ils parfaitement alignés sur une droite ?\n\n\nNon. L’espérance de vie monte vite pour les pays pauvres, puis plafonne : au-delà d’un certain revenu, gagner plus n’ajoute presque plus d’années. La tendance ressemble plus à une courbe qui s’aplatit qu’à une droite.\n\n\nPoint atypique. Un pays riche s’écarte nettement de la tendance : lequel, et pourquoi est-ce frappant ?\n\n\nLes États-Unis (\\(58{,}5\\) ; \\(78{,}0\\)) : un des PIB les plus élevés, mais une espérance de vie inférieure à celle de pays bien moins riches (Portugal, Pologne…). La richesse ne suffit donc pas à tout expliquer.\n\n\nPoint moyen. À la calculatrice, calcule les deux moyennes, puis place sur le graphique le point \\(G(\\overline{x} ; \\overline{y})\\) (une croix). \\(\\overline{x} \\approx\\) \\(33{,}2\\) \\(\\overline{y} \\approx\\) \\(77{,}0\\)",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Le nuage de points</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/4-le-point-moyen.html",
+    "href": "ch1-deux-variables-un-nu/4-le-point-moyen.html",
+    "title": "Le point moyen",
+    "section": "",
+    "text": "Le point que tu viens de placer porte un nom.\n\n\nDéfinition 1.4 — point moyen\n\n\nLe point moyen d’une série à deux variables est le point \\(G\\) de coordonnées\n\\[\nG(\\overline{x} ; \\overline{y}),\n\\]\noù \\(\\overline{x}\\) et \\(\\overline{y}\\) sont les moyennes des deux variables. Il marque le centre du nuage : c’est le « pays moyen » de la série.\n\n\n\n\nRemarque 1.2\n\n\n\\(G\\) n’est pas forcément l’un des points du nuage : aucun pays réel n’a exactement \\((33{,}2 ; 77{,}0)\\). C’est un point calculé, qui résume l’ensemble. Nous le retrouverons au chapitre suivant : toute droite qui résume bien le nuage passera par \\(G\\).",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Le point moyen</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/5-decrire-un-nuage.html",
+    "href": "ch1-deux-variables-un-nu/5-decrire-un-nuage.html",
+    "title": "Décrire un nuage",
+    "section": "",
+    "text": "Décrire un nuage, ce n’est pas le calculer : c’est le lire. Trois questions suffisent, et une quatrième affine.\n\n\nSens — quand \\(x\\) augmente, \\(y\\) tend-il à augmenter (nuage croissant), à diminuer (nuage décroissant), ou ni l’un ni l’autre (aucun lien) ?\nForme — les points sont-ils proches d’une droite (relation linéaire) ou d’une courbe ?\nDispersion — sont-ils bien resserrés autour de cette tendance, ou très éparpillés ?\nPoints atypiques — un ou plusieurs individus s’écartent-ils nettement du reste ?\n\n\nCes observations préparent la suite : si les points sont proches d’une droite, on pourra les résumer par une droite (chapitre 2) ; et l’on saura bientôt mesurer par un nombre à quel point le lien est fort (chapitre 3).",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Décrire un nuage</span>"
+    ]
+  },
+  {
+    "objectID": "ch1-deux-variables-un-nu/6-exercices.html",
+    "href": "ch1-deux-variables-un-nu/6-exercices.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "✎ Exercice 1.1 C1 ★☆☆\n\n\nUn professeur relève, pour \\(6\\) élèves, le nombre d’heures de révision avant un test (\\(x\\)) et la note obtenue sur \\(20\\) (\\(y\\)).\n\n\nQuelle est la population étudiée ?\nQuels sont les deux caractères relevés ?\nCombien de couples \\((x_{i} ; y_{i})\\) la série compte-t-elle ?\nÉcris le couple correspondant à un élève ayant révisé \\(3\\) h et obtenu \\(12\\).\n\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition — série statistique à deux variables (population, individu, couple de données).\n\n\nQuestion à te poser. Sur qui ou quoi relève-t-on les mesures ? Et combien de nombres note-t-on par individu ?\n\n\nÉtape. Un « couple » s’écrit \\((x_{i} \\, ; \\, y_{i})\\), dans l’ordre : d’abord la variable en abscisse, puis celle en ordonnée.\n\n\n\nLes 6 élèves. (b) Le temps de révision (\\(x\\)) et la note (\\(y\\)). (c) 6 couples. (d) \\((3 \\, ; \\, 12)\\).\n\n\n\nConfondre la population (les individus) avec les variables (ce qu’on mesure) ; inverser l’ordre du couple.\n\n\n\n\n\n\n✎ Exercice 1.2 A1 ★☆☆\n\n\nOn reprend six pays du tableau (\\(x\\) = PIB/hab. en milliers de $, \\(y\\) = espérance de vie).\n\n\n\n\nPays\nÉthiopie\nInde\nChine\nTurquie\nBelgique\nNorvège\n\n\n\n\n\\(x\\)\n2,3\n7,8\n19,2\n27,4\n41,9\n88,4\n\n\n\\(y\\)\n66,9\n71,7\n78,2\n77,6\n81,2\n82,6\n\n\n\n\n\nTrace le nuage de points dans le repère ci-dessous.\nCalcule \\(\\overline{x}\\) et \\(\\overline{y}\\) (calculatrice), puis place le point moyen \\(G\\).\n\n\n\n\n\\(\\overline{x} \\approx 31{,}2\\) ; \\(\\overline{y} \\approx 76{,}4\\). Source des données : Our World in Data, 2022.\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition — point moyen (\\(G(\\overline{x} \\, ; \\, \\overline{y})\\)) et la section Décrire un nuage.\n\n\nQuestion à te poser. Comment obtient-on chaque moyenne ? Le nuage monte-t-il ou descend-il quand \\(x\\) augmente ?\n\n\nÉtape. \\(\\overline{x} = \\frac{2{,}3 + 7{,}8 + 19{,}2 + 27{,}4 + 41{,}9 + 88{,}4}{6}\\) ; même principe pour \\(\\overline{y}\\).\n\n\n\n\\(\\overline{x} \\approx 31{,}2\\) ; \\(\\overline{y} \\approx 76{,}4\\). (b) \\(G(31{,}2 \\, ; \\, 76{,}4)\\). (c) Nuage croissant : les pays plus riches vivent plutôt plus longtemps, mais la montée ralentit aux revenus élevés.\n\n\n\n\n\n\nOublier de diviser par le bon effectif (6) ; placer \\(G\\) « au hasard » plutôt qu’aux deux moyennes.\n\n\n\n\n\n\n✎ Exercice 1.3 C3 ★★☆\n\n\nAssocie chacun des trois nuages ci-dessous à la description qui lui convient : (1) lien croissant et resserré ; (2) lien décroissant ; (3) aucun lien visible.\n\n\n\nA ↔︎ (1) B ↔︎ (2) C ↔︎ (3)\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois l’encadré À retenir — Décrire un nuage (les quatre questions).\n\n\nQuestion à te poser. Quand \\(x\\) augmente, que fait \\(y\\) ? La montée est-elle régulière (droite) ou s’aplatit-elle (courbe) ? Un point est-il « loin » des autres ?\n\n\nÉtape. Regarde d’abord l’allure générale (monte / descend), puis si c’est une droite ou une courbe, enfin les points isolés.\n\n\nSens : croissant. Forme : pas une droite — ça monte vite puis plafonne (courbe). Dispersion : assez resserré, sauf exceptions. Point atypique : les États-Unis (58,5 ; 78,0), riches mais à l’espérance de vie modeste.\n\n\nDire « ça monte donc c’est une droite » : croissant ≠ linéaire. Oublier de repérer le point atypique.\n\n\n\n\n\n\n✎ Exercice 1.4 C2 ★★☆\n\n\nReprends le nuage revenu – espérance de vie de l’activité. Un élève affirme : « Il suffit d’être riche pour vivre vieux. » En t’appuyant sur le sens, la forme et le point atypique du nuage, explique en quelques lignes pourquoi cette phrase est trop simple.\n\nLe nuage est bien croissant, donc un revenu plus élevé s’accompagne souvent d’une espérance de vie plus grande. Mais la relation plafonne (au-delà d’un certain revenu, on ne gagne presque plus d’années) et elle souffre d’exceptions nettes, comme les États-Unis, riches mais à l’espérance de vie modeste. « Aller ensemble » n’est pas « suffire » : d’autres facteurs (système de santé, mode de vie, inégalités) interviennent.\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la section Décrire un nuage et la Remarque sur le point atypique (États-Unis).\n\n\nQuestion à te poser. « Aller ensemble » (corrélation) veut-il dire « suffire » (cause) ? La montée continue-t-elle indéfiniment, ou plafonne-t-elle ?\n\n\nÉtape. Appuie chaque affirmation sur une observation du nuage : le sens (croissant), la forme (plateau), l’exception (États-Unis).\n\n\nLe nuage est bien croissant : un revenu plus élevé s’accompagne souvent d’une espérance de vie plus grande. Mais la relation plafonne (au-delà d’un certain revenu, on ne gagne presque plus d’années) et souffre d’exceptions nettes (États-Unis). « Aller ensemble » n’est pas « suffire » : d’autres facteurs jouent (système de santé, mode de vie, inégalités).\n\n\nTransformer une corrélation (ils varient ensemble) en cause (l’un produit l’autre) — on y reviendra au chapitre 3.",
+    "crumbs": [
+      "Chapitre 1 — Deux variables, un nuage de points",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/index.html",
+    "href": "ch2-ajuster-un-nuage-par/index.html",
+    "title": "Chapitre 2 — Ajuster un nuage par une droite",
+    "section": "",
+    "text": "Sections\nAu chapitre précédent, on a appris à voir un nuage. Quand ses points s’organisent autour d’une tendance à peu près droite, on peut aller plus loin : tracer une droite qui résume le nuage. C’est l’ajustement linéaire. Une fois cette droite trouvée, elle remplace des dizaines de points par une seule équation — pratique pour décrire la tendance et, plus tard, faire des prévisions.",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/index.html#sections",
+    "href": "ch2-ajuster-un-nuage-par/index.html#sections",
+    "title": "Chapitre 2 — Ajuster un nuage par une droite",
+    "section": "",
+    "text": "Pourquoi ajuster ?\nUne série qui évolue : l’écart salarial\nLe point moyen, pivot de l’ajustement\nLa droite de Mayer\nFaire parler les écarts à la moyenne\nLa méthode des moindres carrés\nExercices",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/1-pourquoi-ajuster.html",
+    "href": "ch2-ajuster-un-nuage-par/1-pourquoi-ajuster.html",
+    "title": "Pourquoi ajuster ?",
+    "section": "",
+    "text": "Résumer un nuage par une droite \\(y = a x + b\\), c’est utile pour trois raisons :\n\ndécrire la tendance d’un seul coup (\\(a\\) dit dans quel sens et à quelle vitesse \\(y\\) évolue quand \\(x\\) augmente) ;\nprévoir une valeur de \\(y\\) pour un \\(x\\) non observé (chapitre 4) ;\ncomparer deux situations à l’aide d’un même repère.\n\n\nMais attention : ajuster n’a de sens que si le nuage est à peu près aligné. Forcer une droite sur un nuage sans tendance ne donne rien d’utile — nous apprendrons au chapitre 3 à mesurer si le lien est assez fort pour que la droite soit crédible.",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Pourquoi ajuster ?</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/2-une-serie-qui-evolue-lecart.html",
+    "href": "ch2-ajuster-un-nuage-par/2-une-serie-qui-evolue-lecart.html",
+    "title": "Une série qui évolue : l’écart salarial",
+    "section": "",
+    "text": "Suivons un vrai indicateur de société : l’écart salarial entre les femmes et les hommes en Belgique, c’est-à-dire de combien de pour cent le salaire horaire moyen des femmes est inférieur à celui des hommes.\n\n\n\n\nAnnée\n\\(t\\) = année \\(- 2006\\)\nÉcart horaire (%)\n\n\n\n\n2006\n0\n9,5\n\n\n2010\n4\n10,2\n\n\n2015\n9\n6,4\n\n\n2017\n11\n5,8\n\n\n2020\n14\n3,2\n\n\n2022\n16\n0,7\n\n\n\n\nSource : Eurostat, Gender pay gap in unadjusted form (code sdg_05_20), écart salarial horaire, Belgique.\nPour simplifier les calculs, on compte les années à partir de 2006 (colonne \\(t\\)).\n\n\nActivité 2.1 — voir la tendance\n\n\nVoici le nuage de ces six couples \\((t ; y)\\).\n\n\n\n\nLe nuage est-il croissant ou décroissant ? décroissant\nEn une phrase, que raconte-t-il ?\n\n\nEn Belgique, l’écart de salaire horaire entre femmes et hommes a fortement diminué depuis 2006 : d’environ \\(10 \\%\\), il est passé sous \\(1 \\%\\) en 2022. Les points sont assez bien alignés : une droite les résumerait correctement.",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Une série qui évolue : l’écart salarial</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/3-le-point-moyen-pivot-de.html",
+    "href": "ch2-ajuster-un-nuage-par/3-le-point-moyen-pivot-de.html",
+    "title": "Le point moyen, pivot de l’ajustement",
+    "section": "",
+    "text": "Rappelle-toi le point moyen \\(G(\\overline{t} ; \\overline{y})\\). Il joue un rôle central ici :\n\n\nPropriété 2.1 — le point moyen est sur la droite\n\n\nToute droite d’ajustement raisonnable — qu’on la construise par la méthode de Mayer ou par celle des moindres carrés — passe par le point moyen \\(G\\). C’est le point d’équilibre du nuage.\n\n\nPour notre série : \\(\\overline{t} = 54 \\div 6 = 9\\) et \\(\\overline{y} = 35{,}8 \\div 6 \\approx 5{,}97\\). Donc \\(G(9 ; 5{,}97)\\).",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Le point moyen, pivot de l’ajustement</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/4-la-droite-de-mayer.html",
+    "href": "ch2-ajuster-un-nuage-par/4-la-droite-de-mayer.html",
+    "title": "La droite de Mayer",
+    "section": "",
+    "text": "Première méthode, entièrement « à la main ». L’idée : couper le nuage en deux groupes, trouver le point moyen de chacun, et relier ces deux points.\n\n\nDéfinition 2.1 — droite de Mayer\n\n\nOn range les points par abscisse croissante et on les partage en deux sous-séries de même taille. On calcule le point moyen \\(G_{1}\\) de la première et \\(G_{2}\\) de la seconde. La droite de Mayer est la droite \\((G_{1} G_{2})\\).\n\n\nL’idée a du sens : chaque sous-série est résumée par son propre point moyen (\\(G_{1}\\), \\(G_{2}\\)), un « représentant » de sa moitié du nuage ; relier ces deux représentants donne la direction générale. Et comme \\(G_{1}\\) et \\(G_{2}\\) encadrent le centre du nuage, la droite passe tout près du point moyen global \\(G\\).\n\n\nExemple 2.1 — Mayer sur l’écart salarial\n\n\nNos six points sont déjà rangés. On coupe en deux groupes de trois.\nGroupe 1 : \\((0 ; 9{,}5)\\), \\((4 ; 10{,}2)\\), \\((9 ; 6{,}4)\\).\n\\(G_{1} = (13{,}0 \\div 3 ; 26{,}1 \\div 3) \\approx (4{,}33 ; 8{,}70)\\).\nGroupe 2 : \\((11 ; 5{,}8)\\), \\((14 ; 3{,}2)\\), \\((16 ; 0{,}7)\\).\n\\(G_{2} = (41 \\div 3 ; 9{,}7 \\div 3) \\approx (13{,}67 ; 3{,}23)\\).\nLa pente :\n\\[\na = \\frac{3{,}23 - 8{,}70}{13{,}67 - 4{,}33} = \\frac{- 5{,}47}{9{,}33} \\approx - 0{,}59.\n\\]\nL’ordonnée à l’origine, en écrivant que la droite passe par \\(G_{1}\\) :\n\\[\n8{,}70 = - 0{,}59 \\times 4{,}33 + b \\quad \\Rightarrow \\quad b \\approx 11{,}2.\n\\]\nDroite de Mayer :\n\\[\ny \\approx - 0{,}59 t + 11{,}2.\n\\]\n\n\n\n\nRemarque 2.1\n\n\nOn peut vérifier que cette droite passe bien (à l’arrondi près) par le point moyen \\(G(9 ; 5{,}97)\\) : \\(-0{,}59 \\times 9 + 11{,}2 \\approx 5{,}9\\). ✓",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>La droite de Mayer</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/5-faire-parler-les-ecarts-a.html",
+    "href": "ch2-ajuster-un-nuage-par/5-faire-parler-les-ecarts-a.html",
+    "title": "Faire parler les écarts à la moyenne",
+    "section": "",
+    "text": "Avant de chercher « la meilleure droite », posons une question plus simple : comment un seul nombre pourrait-il dire si \\(x\\) et \\(y\\) varient ensemble ? L’idée est de regarder chaque point par rapport au point moyen \\(G\\).\n\n\nActivité 2.2 — le signe qui révèle le sens\n\n\nTraçons par \\(G\\) deux droites : la verticale \\(x = \\overline{x}\\) et l’horizontale \\(y = \\overline{y}\\). Elles partagent le plan en quatre zones.\n\n\n\nPour chaque point, on note son écart en \\(x\\) (\\(x_{i} - \\overline{x}\\)) et son écart en \\(y\\) (\\(y_{i} - \\overline{y}\\)).\n\nQuel est le signe de leur produit selon la zone ? Un point en haut à droite de \\(G\\) a ses deux écarts positifs, donc un produit positif ; un point en haut à gauche a un produit négatif.\nVérifions-le sur quatre années de l’écart salarial (\\(\\overline{x} = 9\\), \\(\\overline{y} \\approx 5{,}97\\)). Complète les signes :\n\n\n\n\n\n\n\n\n\n\n\nAnnée\nsigne de \\(x_{i} - \\overline{x}\\)\nsigne de \\(y_{i} - \\overline{y}\\)\nsigne du produit\n\n\n\n\n2006\n\\(-\\)\n\\(+\\)\n\\(-\\)\n\n\n2010\n\\(-\\)\n\\(+\\)\n\\(-\\)\n\n\n2020\n\\(+\\)\n\\(-\\)\n\\(-\\)\n\n\n2022\n\\(+\\)\n\\(-\\)\n\\(-\\)\n\n\n\n\n\nTous les produits sont négatifs : le nuage est donc plutôt décroissant. Si, au contraire, les produits étaient majoritairement positifs, le nuage serait croissant.\n\n\n\nCe que tu viens d’examiner point par point porte un nom : en faisant la moyenne de tous ces produits, on obtient la covariance.\n\n\nDéfinition 2.2 — covariance\n\n\nLa covariance de \\(x\\) et \\(y\\) est la moyenne des produits des écarts à leurs moyennes :\n\\[\n\\text{cov}(x, y) = \\frac{1}{N} \\sum (x_{i} - \\overline{x})(y_{i} - \\overline{y}).\n\\]\nSon signe donne le sens du lien : positive si \\(x\\) et \\(y\\) augmentent ensemble, négative s’ils varient en sens contraire, proche de \\(0\\) s’il n’y a pas de tendance nette.",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Faire parler les écarts à la moyenne</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html",
+    "href": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html",
+    "title": "La méthode des moindres carrés",
+    "section": "",
+    "text": "La droite de Mayer est simple, mais elle ne regarde que deux points moyens. La méthode des moindres carrés utilise tous les points, en rendant la droite « aussi proche que possible » de l’ensemble.\nPour chaque point, on mesure l’écart vertical entre le point et la droite (on l’appelle un résidu). Une droite est d’autant meilleure que ces écarts sont petits.\n\n\n\n\n\nDéfinition 2.3 — droite de régression (moindres carrés)\n\n\nLa droite de régression par la méthode des moindres carrés est l’unique droite \\(y = a x + b\\) qui rend la plus petite possible la somme des carrés des résidus. On élève les écarts au carré pour que les écarts positifs et négatifs ne se compensent pas, et pour pénaliser les gros écarts. Cette droite passe elle aussi par le point moyen \\(G\\).\n\n\nOn cherche la droite qui rend minimale la somme des carrés des résidus. On admet le résultat, mais sa forme se comprend à partir de ce qui précède :\n\n\nPropriété 2.2 — pente de la droite de régression\n\n\n\\[\na = \\frac{\\text{cov}(x, y)}{\\text{variance}(x)} = \\frac{\\sum (x_{i} - \\overline{x})(y_{i} - \\overline{y})}{\\sum (x_{i} - \\overline{x})^{2}}, \\quad \\quad b = \\overline{y} - a \\overline{x}.\n\\]\nAu numérateur, la co-variation de \\(x\\) et \\(y\\) (leur tendance à bouger ensemble, que tu viens de mesurer) ; au dénominateur, l’étalement de \\(x\\) seul. La pente dit donc « de combien \\(y\\) bouge quand \\(x\\) bouge ». Et comme \\(b = \\overline{y} - a \\overline{x}\\), la droite passe par le point moyen \\(G\\).\n\n\nReste à calculer \\(\\text{cov}(x, y)\\) et \\(\\text{variance}(x)\\). On pourrait revenir aux écarts un à un, mais il existe une écriture équivalente bien plus rapide, qui évite la colonne des écarts.\n\n\nPropriété 2.3 — formules de calcul\n\n\n\\[\n\\text{variance}(x) = \\frac{1}{N} \\sum x_{i}^{2} - (\\overline{x})^{2} \\quad \\quad \\text{cov}(x, y) = \\frac{1}{N} \\sum x_{i} y_{i} - \\overline{x} \\ \\overline{y}.\n\\]\nEn mots : moyenne des carrés \\(-\\) carré de la moyenne pour la variance ; moyenne des produits \\(-\\) produit des moyennes pour la covariance. L’écart-type \\(\\sigma_{x} = \\sqrt{\\text{variance}(x)}\\) mesure la dispersion de \\(x\\).\n\n\n\n\nRemarque 2.2\n\n\nPourquoi « moyenne des carrés \\(-\\) carré de la moyenne » mesure-t-il la dispersion ? Si toutes les valeurs étaient égales, la moyenne des carrés vaudrait exactement le carré de la moyenne : la variance serait nulle. Plus les valeurs s’écartent de leur moyenne, plus la moyenne des carrés dépasse le carré de la moyenne — et c’est cet excédent qui mesure l’étalement. La covariance suit la même idée, avec des produits à la place des carrés.\n\n\nCes formules ne réclament qu’un tableau à quelques colonnes : les valeurs, leurs carrés et leurs produits — aucune colonne d’écarts.\n\n\nExemple 2.2 — la pente depuis un seul tableau\n\n\nOn dresse le tableau pour l’écart salarial :\n\n\n\n\n\\(t\\)\n\\(y\\)\n\\(t^{2}\\)\n\\(y^{2}\\)\n\\(t y\\)\n\n\n\n\n0\n9,5\n0\n90,25\n0\n\n\n4\n10,2\n16\n104,04\n40,8\n\n\n9\n6,4\n81\n40,96\n57,6\n\n\n11\n5,8\n121\n33,64\n63,8\n\n\n14\n3,2\n196\n10,24\n44,8\n\n\n16\n0,7\n256\n0,49\n11,2\n\n\n\n\nSommes : \\(\\sum t = 54\\), \\(\\sum y = 35{,}8\\), \\(\\sum t^{2} = 670\\), \\(\\sum y^{2} = 279{,}62\\), \\(\\sum t y = 218{,}2\\), avec \\(N = 6\\).\nMoyennes : \\(\\overline{t} = 54 \\div 6 = 9\\) et \\(\\overline{y} = 35{,}8 \\div 6 \\approx 5{,}97\\).\n\\[\n\\text{variance}(t) = 670 \\div 6 - 9^{2} \\approx 111{,}7 - 81 = 30{,}7.\n\\]\n\\[\n\\text{cov}(t, y) = 218{,}2 \\div 6 - 9 \\times 5{,}97 \\approx 36{,}4 - 53{,}7 = - 17{,}3.\n\\]\n\\[\na = \\frac{\\text{cov}(t, y)}{\\text{variance}(t)} = \\frac{- 17{,}3}{30{,}7} \\approx - 0{,}57, \\quad b = 5{,}97 - (- 0{,}57) \\times 9 \\approx 11{,}1.\n\\]\nDroite de régression : \\(y \\approx - 0{,}57 t + 11{,}1\\) — très proche de la droite de Mayer (\\(- 0{,}59 t + 11{,}2\\)). La colonne \\(y^{2}\\) resservira au chapitre 3 pour le coefficient de corrélation.\n\n\n\n\nActivité 2.3 — obtenir la droite à la calculatrice\n\n\nEn pratique, on ne calcule pas ces sommes à la main : la calculatrice le fait. Sur ta machine, entre dans le mode statistiques à deux variables, saisis les couples \\((t ; y)\\), puis lis la régression linéaire (\\(a x + b\\)). Note ce que tu obtiens : \\(a \\approx\\) \\(-0{,}57\\) \\(b \\approx\\) \\(11{,}1\\)\nVoici la droite superposée au nuage :",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>La méthode des moindres carrés</span>"
+    ]
+  },
+  {
+    "objectID": "ch2-ajuster-un-nuage-par/7-exercices.html",
+    "href": "ch2-ajuster-un-nuage-par/7-exercices.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "✎ Exercice 2.1 A2 ★☆☆\n\n\nOn donne cinq points, déjà rangés : \\((1 ; 2)\\), \\((2 ; 5)\\), \\((3 ; 5)\\), \\((4 ; 8)\\), \\((5 ; 10)\\). Le point du milieu (\\(3 ; 5\\)) est laissé de côté pour équilibrer les groupes.\n\n\nCalcule \\(G_{1}\\) (les deux premiers points) et \\(G_{2}\\) (les deux derniers).\nDétermine la pente puis l’équation de la droite de Mayer.\nVérifie qu’elle passe par le point moyen \\(G\\) des cinq points.\n\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition — droite de Mayer et l’Exemple — Mayer sur l’écart salarial.\n\n\nQuestion à te poser. Comment obtient-on le point moyen d’un petit groupe ? Puis, avec deux points, comment calcule-t-on une pente \\(\\Delta y / \\Delta x\\) ?\n\n\nÉtape. \\(G_{1} = (\\frac{1+2}{2} \\, ; \\, \\frac{2+5}{2})\\) ; de même \\(G_{2}\\) avec les deux derniers. Ensuite \\(a = \\frac{y_{G_{2}} - y_{G_{1}}}{x_{G_{2}} - x_{G_{1}}}\\).\n\n\n\\(G_{1} = (1{,}5 \\, ; \\, 3{,}5)\\), \\(G_{2} = (4{,}5 \\, ; \\, 9)\\). \\(a = \\frac{9 - 3{,}5}{4{,}5 - 1{,}5} = \\frac{5{,}5}{3} \\approx 1{,}83\\) ; via \\(G_{1}\\) : \\(b = 3{,}5 - 1{,}83 \\cdot 1{,}5 \\approx 0{,}75\\). Donc \\(y \\approx 1{,}83 \\, x + 0{,}75\\). Point moyen des cinq : \\(G(3 \\, ; \\, 6)\\), et \\(1{,}83 \\cdot 3 + 0{,}75 \\approx 6{,}25\\) : la droite passe tout près de \\(G\\). ✓\n\n\n« Séparer » un couple entre les deux groupes ; classer selon \\(y\\) au lieu de \\(x\\).\n\n\n\n\n\n\n✎ Exercice 2.2 A3 ★★☆\n\n\nReprends les cinq points de l’exercice précédent. Dresse un tableau à colonnes \\(x_{i}\\), \\(y_{i}\\), \\(x_{i}^{2}\\), \\(x_{i} y_{i}\\) (quatre colonnes suffisent pour la pente), calcule \\(\\text{variance}(x)\\) et \\(\\text{cov}(x, y)\\) par les formules développées, puis déduis-en l’équation de la droite de régression. Compare sa pente à celle de la droite de Mayer : sont-elles proches ?\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois les Propriétés — pente de la droite de régression et formules de calcul développées, ainsi que l’Exemple — la pente depuis un seul tableau.\n\n\nQuestion à te poser. Quelles sommes te faut-il pour la variance (\\(\\sum x^{2}\\)) et pour la covariance (\\(\\sum x y\\)) ? Que valent \\(\\overline{x}\\) et \\(\\overline{y}\\) ?\n\n\nÉtape. \\(\\text{variance} (x) = \\frac{\\sum x^{2}}{N} - \\overline{x} ^2\\) et \\(\\text{cov} (x,y) = \\frac{\\sum x y}{N} - \\overline{x} \\, \\overline{y}\\), puis \\(a = \\text{cov} / \\text{variance} (x)\\) et \\(b = \\overline{y} - a \\overline{x}\\).\n\n\n\\(\\sum x = 15, \\ \\sum y = 30, \\ \\sum x^{2} = 55, \\ \\sum x y = 109, \\ N = 5\\) ; \\(\\overline{x} = 3, \\ \\overline{y} = 6\\). \\(\\text{variance} (x) = \\frac{55}{5} - 9 = 2\\) ; \\(\\text{cov} (x,y) = \\frac{109}{5} - 18 = 3{,}8\\). \\(a = \\frac{3{,}8}{2} = 1{,}9\\) ; \\(b = 6 - 1{,}9 \\cdot 3 = 0{,}3\\). Donc \\(y = 1{,}9 \\, x + 0{,}3\\) — pente très proche de celle de Mayer (\\(1{,}83\\)).\n\n\nDiviser \\(\\sum x^{2}\\) par \\(N\\) mais oublier de retrancher \\(\\overline{x} ^2\\) ; confondre \\(\\sum x^{2}\\) (somme des carrés) et \\((\\sum x)^{2}\\) (carré de la somme).\n\n\n\n\n\n\n✎ Exercice 2.3 C5 ★★☆\n\n\nUn camarade a tracé « au jugé » une droite qui passe au-dessus de tous les points d’un nuage. En raisonnant sur les résidus, explique pourquoi ce ne peut pas être la droite des moindres carrés.\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition — droite de régression (moindres carrés) : que minimise-t-elle ? Rejoue la figure interactive du cours.\n\n\nQuestion à te poser. Si la droite est au-dessus de tous les points, quel est le signe de chaque résidu ? En descendant la droite, la somme des carrés augmente-t-elle ou diminue-t-elle ?\n\n\nÉtape. Compare la somme des carrés avant et après avoir abaissé la droite vers le nuage.\n\n\nSi la droite est au-dessus de tous les points, tous les résidus ont le même signe et sont grands. En abaissant la droite vers le nuage, on réduit chaque écart, donc la somme des carrés diminue : la droite de départ n’était donc pas celle qui la rend minimale. La droite des moindres carrés laisse forcément des points de part et d’autre (et passe par \\(G\\)).\n\n\nCroire qu’« au-dessus » veut dire « proche » ; oublier que c’est la somme des carrés qu’on minimise, pas le nombre de points touchés.\n\n\n\n\n\n\n✎ Exercice 2.4 A4 ★★☆\n\n\nOn relève, pour huit pays, le PIB par habitant \\(x\\) (milliers de $) et l’espérance de vie \\(y\\) (données du chapitre 1, Our World in Data 2022).\n\n\n\n\n\\(x\\)\n7,8\n14,6\n19,2\n27,4\n32,5\n39,1\n46,6\n58,5\n\n\n\n\n\\(y\\)\n71,7\n74,9\n78,2\n77,6\n77,9\n82,5\n80,6\n78,0\n\n\n\n\n\nÀ la calculatrice, donne l’équation de la droite de régression.\nLa pente est positive : qu’est-ce que cela signifie, concrètement, sur le lien entre richesse et espérance de vie ?\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois l’Exemple — la pente depuis un seul tableau : la calculatrice applique exactement ces formules.\n\n\nQuestion à te poser. En mode statistique à deux variables, quelles touches donnent \\(a\\) et \\(b\\) ? Une pente de « \\(0{,}13\\) » se lit : quand \\(x\\) augmente de 1, de combien augmente \\(y\\) ?\n\n\nÉtape. Saisis les huit couples, lis la régression linéaire \\(a x + b\\), puis traduis \\(a\\) en « années gagnées par millier de dollars ».\n\n\nEnviron \\(y \\approx 0{,}13 \\, x + 73{,}5\\). La pente \\(0{,}13\\) signifie qu’en moyenne, 1000 $ de PIB/hab. en plus s’accompagnent d’environ 0,13 année d’espérance de vie en plus — sur cet échantillon, et sans que cela prouve une cause (chapitre 3).\n\n\n\n\n\nDonner la pente « à l’envers » (confondre \\(a\\) et \\(b\\)) ; conclure à une cause alors qu’on n’a qu’une corrélation.",
+    "crumbs": [
+      "Chapitre 2 — Ajuster un nuage par une droite",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/index.html",
+    "href": "ch3-mesurer-la-liaison-l/index.html",
+    "title": "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+    "section": "",
+    "text": "Sections\nOn sait tracer une droite d’ajustement. Mais une droite peut se tracer sur n’importe quel nuage, même un nuage sans tendance : rien ne dit qu’elle a un sens. Il nous faut un nombre qui réponde à la question « les points sont-ils vraiment proches d’une droite ? ». Ce nombre est le coefficient de corrélation.",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/index.html#sections",
+    "href": "ch3-mesurer-la-liaison-l/index.html#sections",
+    "title": "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+    "section": "",
+    "text": "Un nombre entre \\(-1\\) et \\(1\\)\nLire \\(r\\) sur un nuage\nCalculer \\(r\\)\nCorrélation n’est pas causalité\nExercices",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/1-un-nombre-entre-1-et.html",
+    "href": "ch3-mesurer-la-liaison-l/1-un-nombre-entre-1-et.html",
+    "title": "Un nombre entre -1 et 1",
+    "section": "",
+    "text": "Définition 3.1 — coefficient de corrélation linéaire\n\n\nLe coefficient de corrélation linéaire, noté \\(r\\), est un nombre toujours compris entre \\(-1\\) et \\(1\\) qui mesure à quel point les points d’un nuage sont proches d’une droite.\n\nle signe de \\(r\\) donne le sens : \\(r &gt; 0\\) pour un nuage croissant, \\(r &lt; 0\\) pour un nuage décroissant ;\n\\(|r|\\) proche de 1 : les points sont presque alignés (lien fort) ; \\(|r|\\) proche de 0 : aucun alignement (lien linéaire faible ou nul).\n\nOn le calcule par \\(r = \\frac{\\text{covariance}(x, y)}{\\sigma_{x} \\sigma_{y}}\\), mais en pratique c’est la calculatrice qui le donne, en même temps que la droite de régression.\n\n\nPourquoi diviser par \\(\\sigma_{x} \\sigma_{y}\\) ? La covariance seule dépend des unités (des euros, des années, des degrés…) : sa valeur peut être énorme ou minuscule sans que le lien soit pour autant plus ou moins fort. En la divisant par l’étalement de chaque variable, on efface les unités : \\(r\\) devient un nombre sans dimension, toujours entre \\(-1\\) et \\(1\\), donc comparable d’un contexte à l’autre.\nCette division explique aussi pourquoi \\(r\\) ne dépasse jamais \\(1\\) en valeur absolue : la covariance est au maximum égale à \\(\\sigma_{x} \\sigma_{y}\\) (ce maximum est atteint quand les points sont parfaitement alignés). Le coefficient \\(r\\) compare donc la co-variation réelle à la co-variation maximale possible — d’où \\(-1 \\leq r \\leq 1\\), et \\(r = \\pm 1\\) pour un alignement parfait.\n\nPour interpréter \\(|r|\\), un ordre de grandeur utile (à ne pas prendre au pied de la lettre) : au-delà de \\(0{,}9\\), lien très fort ; entre \\(0{,}7\\) et \\(0{,}9\\), fort ; entre \\(0{,}5\\) et \\(0{,}7\\), moyen ; en dessous de \\(0{,}5\\), faible.\n\n\n\nRemarque 3.1\n\n\n\\(r\\) ne mesure que le lien linéaire. Un nuage en forme de U (parabole) peut avoir \\(r \\approx 0\\) alors que le lien entre \\(x\\) et \\(y\\) est évident : il n’est simplement pas droit. De même, \\(r\\) ne dit rien de la pente : une droite très inclinée et une droite presque plate peuvent toutes deux donner \\(r = 1\\).",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Un nombre entre -1 et 1</span>"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/2-lire-r-sur-un-nuage.html",
+    "href": "ch3-mesurer-la-liaison-l/2-lire-r-sur-un-nuage.html",
+    "title": "Lire r sur un nuage",
+    "section": "",
+    "text": "Activité 3.1 — associer un nuage à son coefficient\n\n\nAssocie chacun des quatre nuages à l’une des valeurs de \\(r\\) proposées :\n\\[\n0{,}98 \\quad \\quad 0{,}55 \\quad \\quad -0{,}88 \\quad \\quad 0{,}05.\n\\]\n\n\n\nA ↔︎ \\(0{,}98\\) B ↔︎ \\(0{,}55\\) C ↔︎ \\(-0{,}88\\) D ↔︎ \\(0{,}05\\)",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Lire r sur un nuage</span>"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/3-calculer-r.html",
+    "href": "ch3-mesurer-la-liaison-l/3-calculer-r.html",
+    "title": "Calculer r",
+    "section": "",
+    "text": "Exemple 3.1 — la corrélation de l’écart salarial\n\n\nReprenons la série « écart salarial » du chapitre 2 (les six couples \\((t ; y)\\)). À la calculatrice, on lit\n\\[\nr \\approx - 0{,}94.\n\\]\nLe signe négatif confirme la baisse ; la valeur, très proche de \\(-1\\), confirme que les points sont bien alignés : la droite de régression était donc pleinement justifiée. On peut le retrouver depuis le tableau du chapitre 2 : \\(\\text{cov}(t, y) \\approx - 17{,}3\\), \\(\\sigma_{t} = \\sqrt{30{,}7} \\approx 5{,}54\\), \\(\\sigma_{y} = \\sqrt{279{,}62 \\div 6 - 5{,}97^{2}} \\approx 3{,}32\\), d’où\n\\[\nr = \\frac{\\text{cov}(t, y)}{\\sigma_{t} \\sigma_{y}} \\approx \\frac{- 17{,}3}{5{,}54 \\times 3{,}32} \\approx - 0{,}94.\n\\]",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Calculer r</span>"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/4-correlation-nest-pas-causalite.html",
+    "href": "ch3-mesurer-la-liaison-l/4-correlation-nest-pas-causalite.html",
+    "title": "Corrélation n’est pas causalité",
+    "section": "",
+    "text": "Un \\(r\\) proche de \\(1\\) dit que deux variables varient ensemble. Il ne dit jamais, à lui seul, que l’une cause l’autre. L’exemple suivant le montre de façon spectaculaire.\n\n\nActivité 3.2 — margarine et divorces\n\n\nAux États-Unis, entre 2000 et 2009, on a relevé la consommation de margarine par habitant (\\(x\\), en livres) et le taux de divorces dans l’État du Maine (\\(y\\), pour \\(1000\\) habitants).\n\n\n\n\n\\(x\\)\n8,2\n7,0\n6,5\n5,3\n5,2\n4,0\n4,6\n4,5\n4,2\n3,7\n\n\n\n\n\\(y\\)\n5,0\n4,7\n4,6\n4,4\n4,3\n4,1\n4,2\n4,2\n4,2\n4,1\n\n\n\n\n\n\n\nSource : USDA (margarine) et CDC, National Vital Statistics (divorces), compilés par T. Vigen, Spurious Correlations.\n\nQue vaut approximativement \\(r\\) ? Le lien est-il fort ? \\(r \\approx 0{,}99\\) : lien très fort.\nManger moins de margarine réduit-il vraiment les divorces ?\n\n\nBien sûr que non. Les deux quantités ont simplement baissé en même temps durant ces années, sans aucun rapport de cause à effet. Une corrélation, même parfaite, ne prouve rien à elle seule.\n\n\n\nQuand deux variables sont corrélées, il y a trois explications possibles, et il faut se demander laquelle est vraie :\n\n\nCause à effet — \\(x\\) agit réellement sur \\(y\\) (p. ex. plus on chauffe une pièce, plus la température monte).\nVariable cachée — un troisième facteur agit sur \\(x\\) et sur \\(y\\) (p. ex. dans une grande ville, il y a à la fois plus de policiers et plus de délits : la vraie cause commune est la taille de la ville).\nCoïncidence — pur hasard, fréquent quand on cherche des liens partout (margarine et divorces).\n\n\n\n\nRemarque 3.2\n\n\nC’est pourquoi il faut se méfier des débats où l’on relie deux phénomènes de société en montrant qu’ils « vont ensemble ». Un nuage de points ne suffit jamais à établir une cause : il faut écarter les variables cachées et le hasard.",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Corrélation n’est pas causalité</span>"
+    ]
+  },
+  {
+    "objectID": "ch3-mesurer-la-liaison-l/5-exercices.html",
+    "href": "ch3-mesurer-la-liaison-l/5-exercices.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "✎ Exercice 3.1 C3 ★☆☆\n\n\nPour chaque valeur de \\(r\\), décris le nuage correspondant (sens et force du lien) :\n\n\n\\(r = 0{,}97\\)\n\\(r = -0{,}4\\)\n\\(r = -0{,}99\\)\n\\(r = 0{,}02\\)\n\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition de \\(r\\) et l’encadré À retenir (échelle d’interprétation de \\(|r|\\)).\n\n\nQuestion à te poser. Que dit le signe ? Que dit la valeur absolue (proche de 1 ou de 0) ?\n\n\nÉtape. Traduis chaque nombre en deux mots : un pour le sens, un pour la force.\n\n\n\ncroissant, très fort (presque aligné). (b) décroissant, faible. (c) décroissant, très fort (quasi parfait). (d) aucun lien linéaire.\n\n\n\nConfondre signe (sens) et valeur absolue (force) ; croire que \\(r\\) négatif = « pas de lien » (c’est un lien décroissant).\n\n\n\n\n\n\n✎ Exercice 3.2 C4 ★★☆\n\n\nOn observe une corrélation positive forte entre le nombre de coups de soleil et le nombre de noyades, semaine après semaine, sur une plage.\n\n\nEst-il raisonnable de dire que les coups de soleil provoquent les noyades ?\nQuelle variable cachée explique le lien ?\nPropose une phrase correcte pour décrire la situation.\n\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois l’encadré À retenir (cause / variable cachée / coïncidence) et la Remarque finale du cours.\n\n\nQuestion à te poser. Qu’est-ce qui augmente à la fois les coups de soleil et la fréquentation de l’eau ?\n\n\nÉtape. Cherche un facteur météo/saisonnier commun aux deux.\n\n\n\nNon. (b) La chaleur (ou l’affluence estivale) : quand il fait chaud, il y a plus de coups de soleil et plus de baigneurs, donc plus de noyades. (c) « Coups de soleil et noyades augmentent ensemble parce qu’ils dépendent tous deux de la chaleur. »\n\n\n\nChercher un lien direct entre les deux variables au lieu d’une cause commune.\n\n\n\n\n\n\n✎ Exercice 3.3 C4 ★★☆\n\n\nUn article titre : « Les villes qui comptent le plus de policiers sont celles où l’on enregistre le plus de délits : la police serait-elle inefficace ? » En t’appuyant sur la notion de variable cachée, explique en quelques lignes pourquoi ce titre confond corrélation et causalité.\n\nLes grandes villes ont mécaniquement plus d’habitants, donc à la fois plus de délits et plus de policiers. La taille de la ville est la variable cachée qui gonfle les deux nombres ; elle ne dit rien sur l’efficacité de la police. Comparer des taux (délits pour \\(1000\\) habitants) serait plus honnête.\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois l’exemple de la variable cachée (grande ville) dans l’encadré À retenir.\n\n\nQuestion à te poser. Qu’ont en commun les villes qui ont beaucoup de policiers et beaucoup de délits ? Comparer des nombres ou des taux change-t-il la lecture ?\n\n\nÉtape. Pense à ce que « grande ville » implique pour les deux nombres.\n\n\nLes grandes villes ont mécaniquement plus d’habitants, donc plus de délits et plus de policiers : la taille de la ville est la variable cachée qui gonfle les deux nombres. Elle ne dit rien sur l’efficacité de la police. Comparer des taux (délits pour 1000 habitants) serait plus honnête.\n\n\nLire une causalité (« la police cause / ne réduit pas les délits ») dans une simple corrélation ; comparer des effectifs bruts entre villes de tailles très différentes.\n\n\n\n\n\n\n✎ Exercice 3.4 A4 ★★☆\n\n\nReprends les huit pays de l’exercice du chapitre 2 (PIB par habitant et espérance de vie). À la calculatrice, calcule le coefficient de corrélation. Le lien est-il assez fort pour qu’une droite d’ajustement soit justifiée ?\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition de \\(r\\) et l’échelle d’interprétation (À retenir).\n\n\nQuestion à te poser. En mode statistique à deux variables, quelle touche donne \\(r\\) ? Une valeur autour de \\(0{,}7\\) correspond à quel niveau de lien ?\n\n\nÉtape. Saisis les huit couples, lis \\(r\\), puis situe-le sur l’échelle.\n\n\n\\(r \\approx 0{,}70\\) : lien moyen à fort, positif. Une droite d’ajustement est acceptable mais imparfaite — le nuage plafonne et les États-Unis tirent \\(r\\) vers le bas. À utiliser avec prudence.\n\n\nConclure « corrélation forte donc la richesse cause la longévité » : \\(r\\) ne dit rien de la cause.",
+    "crumbs": [
+      "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "ch4-utiliser-un-ajusteme/index.html",
+    "href": "ch4-utiliser-un-ajusteme/index.html",
+    "title": "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+    "section": "",
+    "text": "Sections\nUne droite d’ajustement ne sert pas qu’à décrire : elle permet de prévoir une valeur là où on n’a pas mesuré. Mais toute prévision a ses limites, et savoir les repérer — chez soi comme dans un article — est sans doute la compétence la plus utile de ce chapitre.",
+    "crumbs": [
+      "Chapitre 4 — Utiliser un ajustement, et le critiquer"
+    ]
+  },
+  {
+    "objectID": "ch4-utiliser-un-ajusteme/index.html#sections",
+    "href": "ch4-utiliser-un-ajusteme/index.html#sections",
+    "title": "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+    "section": "",
+    "text": "Prévoir : interpolation et extrapolation\nLes limites de l’extrapolation\nUn vrai document à critiquer\nExercices",
+    "crumbs": [
+      "Chapitre 4 — Utiliser un ajustement, et le critiquer"
+    ]
+  },
+  {
+    "objectID": "ch4-utiliser-un-ajusteme/1-prevoir-interpolation-et-extrapolation.html",
+    "href": "ch4-utiliser-un-ajusteme/1-prevoir-interpolation-et-extrapolation.html",
+    "title": "Prévoir : interpolation et extrapolation",
+    "section": "",
+    "text": "Définition 4.1 — interpolation, extrapolation\n\n\nÀ partir de la droite de régression \\(y = a x + b\\), on peut estimer un \\(y\\) pour une valeur de \\(x\\) non mesurée.\n\nInterpoler, c’est estimer à l’intérieur de l’intervalle des données observées : assez sûr.\nExtrapoler, c’est estimer à l’extérieur (avant la première donnée ou après la dernière) : beaucoup plus risqué.\n\n\n\n\n\nExemple 4.1 — prévoir l’écart salarial\n\n\nOn reprend la droite de régression du chapitre 2 : \\(y \\approx - 0{,}57 t + 11{,}1\\) (avec \\(t\\) = année \\(- 2006\\), données \\(2006\\)–\\(2022\\)).\nInterpolation — estimer l’écart en 2013 (\\(t = 7\\), entre 2006 et 2022) :\n\\[\ny \\approx - 0{,}57 \\times 7 + 11{,}1 \\approx 7{,}1 \\%.\n\\]\nExtrapolation — en quelle année le modèle prévoit-il un écart nul ? On résout \\(0 = -0{,}57 t + 11{,}1\\), soit\n\\[\nt \\approx \\frac{11{,}1}{0{,}57} \\approx 19{,}5,\n\\]\nc’est-à-dire vers 2025 – 2026. C’est une extrapolation : on sort de l’intervalle des données.\n\n\n\n\nActivité 4.1 — jusqu’où prolonger la droite ?\n\n\nLa droite est prolongée ci-dessous au-delà de la dernière donnée (2022, soit \\(t = 16\\)).\n\n\n\n\nVers quelle valeur de \\(t\\) la droite atteint-elle \\(0\\) ? \\(t \\approx 19{,}5\\) (année \\(\\approx 2025\\))\nPeut-on en conclure qu’il n’y aura plus aucune inégalité salariale en 2025 ? Réfléchis avant de répondre à la section suivante.\n\n\nNon : voir ci-dessous. Rien ne garantit que la baisse se poursuive au même rythme, et un écart horaire nul ne signifie pas l’égalité réelle.",
+    "crumbs": [
+      "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Prévoir : interpolation et extrapolation</span>"
+    ]
+  },
+  {
+    "objectID": "ch4-utiliser-un-ajusteme/2-les-limites-de-lextrapolation.html",
+    "href": "ch4-utiliser-un-ajusteme/2-les-limites-de-lextrapolation.html",
+    "title": "Les limites de l’extrapolation",
+    "section": "",
+    "text": "AvertissementExtrapoler, c’est parier\n\n\n\nProlonger une droite au-delà des données suppose que la tendance continue à l’identique. Ce n’est jamais garanti :\n\nla tendance peut ralentir ou se stabiliser (ici, l’écart pourrait s’approcher de \\(0\\) sans jamais l’atteindre) ;\nun chiffre proche de \\(0\\) peut cacher d’autres inégalités : l’écart horaire non ajusté ignore le temps partiel (surtout féminin), la ségrégation des métiers et le plafond de verre ; mesuré sur les revenus annuels, l’écart reste bien plus élevé ;\nle nuage lui-même n’est pas parfaitement droit (le point de 2010 remonte).\n\nUne extrapolation est une hypothèse, pas une certitude.",
+    "crumbs": [
+      "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Les limites de l’extrapolation</span>"
+    ]
+  },
+  {
+    "objectID": "ch4-utiliser-un-ajusteme/3-un-vrai-document-a-critiquer.html",
+    "href": "ch4-utiliser-un-ajusteme/3-un-vrai-document-a-critiquer.html",
+    "title": "Un vrai document à critiquer",
+    "section": "",
+    "text": "La statistique à deux variables ne sert pas qu’à des courbes : elle sert à trancher des débats de société avec des chiffres. Voici une étude belge récente.\n\n\nExemple 4.2 — tester la discrimination à l’embauche\n\n\nPour mesurer la discrimination, des chercheurs ont utilisé le testing par correspondance : ils envoient à de vraies offres d’emploi des paires de candidatures identiques (mêmes diplômes, même expérience), qui ne diffèrent que par un détail — ici, l’origine suggérée par le nom — puis comparent les taux de réponse positive.\nÀ Bruxelles, \\(864\\) candidatures (\\(432\\) paires) ont été envoyées entre avril 2023 et février 2024. Résultats :\n\ntaux de réponse positive global : \\(36 \\%\\) ;\nun candidat d’origine marocaine (hors UE) reçoit \\(9{,}5\\) points de pourcentage de réponses positives en moins qu’un candidat d’origine belge, à CV identique ;\nun candidat d’origine polonaise (UE) : aucune discrimination détectée.\n\nSource : I. Tobback, M. Barslund, S. Baert & P.-P. Verhaeghe, Discrimination sur le marché du travail bruxellois, Service public régional de Bruxelles, 2024.\n\n\n\n\nPropriété 4.1 — quand la corrélation devient une cause\n\n\nUn simple nuage ne prouve pas la causalité (chapitre 3). Mais un testing est une expérience : comme les deux CV sont identiques et que seule l’origine change, il n’y a plus de variable cachée possible. La différence observée peut alors être attribuée à l’origine. C’est la force d’une expérience bien construite sur une simple observation.\n\n\n\n\nActivité 4.2 — lire l’étude en citoyen\n\n\n\nQue signifie concrètement « \\(9{,}5\\) points de pourcentage en moins » ?\n\n\nÀ candidature strictement identique, sur \\(100\\) envois, un candidat d’origine marocaine reçoit environ \\(9{,}5\\) réponses positives de moins qu’un candidat d’origine belge. L’origine, seule différence, en est donc la cause.\n\n\nPourquoi peut-on ici parler de cause, alors qu’un nuage ne le permettrait pas ?\n\n\nParce que tout le reste est tenu identique : c’est une expérience contrôlée, pas une simple observation. La variable « origine » est isolée, donc aucune variable cachée n’explique l’écart.\n\n\nQuelles limites garderais-tu en tête avant de généraliser ?\n\n\nL’étude porte sur certains secteurs, sur la région bruxelloise et sur une période donnée ; elle ne mesure que le premier tri des candidatures, pas toute la carrière. Les chiffres restent valables pour cet échantillon.",
+    "crumbs": [
+      "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Un vrai document à critiquer</span>"
+    ]
+  },
+  {
+    "objectID": "ch4-utiliser-un-ajusteme/4-exercices.html",
+    "href": "ch4-utiliser-un-ajusteme/4-exercices.html",
+    "title": "Exercices",
+    "section": "",
+    "text": "✎ Exercice 4.1 A5 ★☆☆\n\n\nUne droite de régression relie le nombre d’heures de révision \\(x\\) à la note \\(y\\) (sur \\(20\\)) : \\(y = 1{,}5 x + 6\\), établie pour des élèves ayant révisé de \\(1\\) à \\(8\\) heures.\n\n\nEstime la note d’un élève ayant révisé \\(5\\) h. Interpolation ou extrapolation ?\nLe modèle prévoit-il une note correcte pour \\(12\\) h de révision ? Commente.\n\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Définition — interpolation, extrapolation et l’encadré À retenir sur les limites.\n\n\nQuestion à te poser. 5 h et 12 h sont-ils dans l’intervalle observé (1 à 8 h) ou dehors ? Que vaut \\(y\\) quand on remplace \\(x\\) ?\n\n\nÉtape. Calcule \\(1{,}5 \\times 5 + 6\\), puis \\(1{,}5 \\times 12 + 6\\), et regarde si le résultat reste réaliste (une note dépasse-t-elle 20 ?).\n\n\n\n\\(y = 1{,}5 \\times 5 + 6 = 13{,}5\\) : interpolation (5 est entre 1 et 8), fiable. (b) \\(y = 1{,}5 \\times 12 + 6 = 24\\) : extrapolation (12 &gt; 8) et impossible (une note ne dépasse pas 20). Le modèle linéaire ne tient plus si loin.\n\n\n\nAppliquer la droite sans se demander si le \\(x\\) est dans l’intervalle ; accepter un résultat absurde (note &gt; 20).\n\n\n\n\n\n\n✎ Exercice 4.2 T1 ★★☆\n\n\nUn journal affiche deux graphiques du même jeu de données. Sur le premier, l’axe vertical va de \\(0\\) à \\(100\\) ; la courbe paraît presque plate. Sur le second, l’axe vertical va de \\(48\\) à \\(52\\) ; la même courbe paraît grimper en flèche.\n\n\nLes données sont-elles différentes ? Qu’est-ce qui change ?\nQuel graphique est trompeur, et pourquoi ?\nQuelle règle proposerais-tu pour un axe vertical honnête ?\n\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois l’esprit critique du chapitre : un même chiffre peut être présenté de façons très différentes.\n\n\nQuestion à te poser. Qu’est-ce qui change entre les deux images : les données ou l’échelle ? Un petit écart sur un axe très « zoomé » paraît-il grand ?\n\n\nÉtape. Compare l’amplitude de l’axe (0–100 vs 48–52) à la taille réelle des variations.\n\n\n\nNon : mêmes données, seule l’échelle de l’axe change. (b) Le second est trompeur : en zoomant (48–52), il exagère des variations minuscules. (c) Un axe honnête part en général de 0 (ou indique clairement toute troncature) et garde une échelle proportionnée aux variations réelles.\n\n\n\nCroire qu’un graphique « ne peut pas mentir » ; juger une tendance sans regarder les graduations de l’axe.\n\n\n\n\n\n\n✎ Exercice 4.3 T1 ★★★\n\n\nPour chacune des affirmations, dis s’il s’agit d’une corrélation ou d’une causalité établie, et justifie en une phrase.\n\n« Dans un testing, à CV identique, changer le prénom fait chuter le taux de rappel. »\n« Les pays où l’on consomme le plus de chocolat comptent le plus de prix Nobel. »\n« Après avoir augmenté le nombre de contrôles fiscaux, l’administration a récupéré davantage d’impôts éludés. »\n\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nRevois la Propriété — quand la corrélation devient une cause (l’expérience contrôlée) et l’encadré du chapitre 3 (cause / variable cachée / coïncidence).\n\n\nQuestion à te poser. Dans chaque cas : a-t-on tout tenu égal sauf un facteur (→ expérience → cause), ou seulement observé deux chiffres qui vont ensemble ?\n\n\nÉtape. Repère laquelle des trois situations est un test contrôlé (une seule chose change).\n\n\n\nCausalité : c’est une expérience (CV identiques, seul le prénom change) → l’origine est bien la cause. (b) Corrélation : variable cachée (la richesse du pays gonfle les deux) — aucun lien de cause. (c) Prudence : corrélation plausible, mais d’autres facteurs (conjoncture, nouvelles lois) ont pu jouer ; sans expérience contrôlée, la cause n’est pas prouvée.\n\n\n\nPrendre toute succession dans le temps pour une cause (« après, donc à cause de ») ; oublier qu’un testing isole le facteur, contrairement à une simple observation.\n\n\n\n\n\n\n✎ Exercice 4.4 T1 ★★★\n\n\nOn te donne le nuage « PIB par habitant – espérance de vie » du chapitre 1 et sa droite de régression. Rédige un court paragraphe (5 – 6 lignes) qui : décrit le lien, donne l’ordre de grandeur du coefficient de corrélation attendu, et nuance toute conclusion trop rapide du type « il suffit d’enrichir un pays pour que ses habitants vivent plus longtemps ».\n\n\n\n\nIndice 1Indice 2Indice 3SolutionPièges\n\n\nMobilise les quatre chapitres : décrire un nuage (ch. 1), l’ajuster (ch. 2), \\(r\\) (ch. 3), corrélation vs causalité et limites (ch. 4).\n\n\nQuestion à te poser. Le nuage est-il croissant ? linéaire ou en plateau ? \\(r\\) fort ou moyen ? Peut-on parler de cause à partir d’une observation ?\n\n\nÉtape. Structure ton paragraphe : (1) sens + forme, (2) ordre de grandeur de \\(r\\), (3) la nuance (plateau, exceptions, corrélation ≠ causalité).\n\n\nLe nuage est croissant mais non linéaire : l’espérance de vie monte vite pour les pays pauvres puis plafonne. Le lien est moyen à fort (\\(r\\) de l’ordre de \\(0{,}7\\)), avec des exceptions nettes (États-Unis). On observe donc une corrélation, pas une preuve de cause : enrichir un pays s’accompagne souvent d’une meilleure santé, mais d’autres facteurs comptent (système de santé, inégalités, mode de vie), et au-delà d’un certain revenu le gain devient minime.\n\n\nConclure à une causalité ; oublier le plateau et les points atypiques ; annoncer un \\(r\\) « parfait » alors que le nuage n’est pas une droite.",
+    "crumbs": [
+      "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Exercices</span>"
+    ]
+  },
+  {
+    "objectID": "essentiel.html",
+    "href": "essentiel.html",
+    "title": "L’essentiel",
+    "section": "",
+    "text": "Chapitre 1 — Deux variables, un nuage de points",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>L'essentiel</span>"
+    ]
+  },
+  {
+    "objectID": "essentiel.html#chapitre-1-deux-variables-un-nuage-de-points",
+    "href": "essentiel.html#chapitre-1-deux-variables-un-nuage-de-points",
+    "title": "L’essentiel",
+    "section": "",
+    "text": "Réactiver : une variable, une moyenne\n\n\nDéfinition 1.1 — moyenne\n\n\nLa moyenne d’une série de \\(N\\) valeurs \\(x_{1}, x_{2}, \\ldots, x_{N}\\) est\n\\[\n\\overline{x} = \\frac{x_{1} + x_{2} + \\ldots + x_{N}}{N}.\n\\]\nC’est la valeur qui résume la série : si toutes les valeurs étaient identiques, ce serait celle-là.\n\n\n\n↗ dans le cours\n\n\n\nUne série statistique à deux variables\n\n\nDéfinition 1.2 — série statistique à deux variables\n\n\nOn étudie une population (ici : des pays). Sur chaque individu de cette population, on relève deux caractères chiffrés, notés \\(x\\) et \\(y\\). À chaque individu correspond alors un couple \\((x_{i} ; y_{i})\\). L’ensemble de ces couples est une série statistique à deux variables.\n\n\n\n↗ dans le cours\n\n\n\nLe nuage de points\n\n\nDéfinition 1.3 — nuage de points\n\n\nLe nuage de points d’une série \\((x_{i} ; y_{i})\\) est l’ensemble des points de coordonnées \\((x_{i} ; y_{i})\\) placés dans un repère. Chaque point représente un individu. On ne relie pas les points : ils ne forment pas une courbe, mais un semis que l’on interprète globalement.\n\n\n\n↗ dans le cours\n\n\n\nLe point moyen\n\n\nDéfinition 1.4 — point moyen\n\n\nLe point moyen d’une série à deux variables est le point \\(G\\) de coordonnées\n\\[\nG(\\overline{x} ; \\overline{y}),\n\\]\noù \\(\\overline{x}\\) et \\(\\overline{y}\\) sont les moyennes des deux variables. Il marque le centre du nuage : c’est le « pays moyen » de la série.\n\n\n\n↗ dans le cours",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>L'essentiel</span>"
+    ]
+  },
+  {
+    "objectID": "essentiel.html#chapitre-2-ajuster-un-nuage-par-une-droite",
+    "href": "essentiel.html#chapitre-2-ajuster-un-nuage-par-une-droite",
+    "title": "L’essentiel",
+    "section": "Chapitre 2 — Ajuster un nuage par une droite",
+    "text": "Chapitre 2 — Ajuster un nuage par une droite\n\nLe point moyen, pivot de l’ajustement\n\n\nPropriété 2.1 — le point moyen est sur la droite\n\n\nToute droite d’ajustement raisonnable — qu’on la construise par la méthode de Mayer ou par celle des moindres carrés — passe par le point moyen \\(G\\). C’est le point d’équilibre du nuage.\n\n\n\n↗ dans le cours\n\n\n\nLa droite de Mayer\n\n\nDéfinition 2.1 — droite de Mayer\n\n\nOn range les points par abscisse croissante et on les partage en deux sous-séries de même taille. On calcule le point moyen \\(G_{1}\\) de la première et \\(G_{2}\\) de la seconde. La droite de Mayer est la droite \\((G_{1} G_{2})\\).\n\n\n\n↗ dans le cours\n\n\n\nFaire parler les écarts à la moyenne\n\n\nDéfinition 2.2 — covariance\n\n\nLa covariance de \\(x\\) et \\(y\\) est la moyenne des produits des écarts à leurs moyennes :\n\\[\n\\text{cov}(x, y) = \\frac{1}{N} \\sum (x_{i} - \\overline{x})(y_{i} - \\overline{y}).\n\\]\nSon signe donne le sens du lien : positive si \\(x\\) et \\(y\\) augmentent ensemble, négative s’ils varient en sens contraire, proche de \\(0\\) s’il n’y a pas de tendance nette.\n\n\n\n↗ dans le cours\n\n\n\nLa méthode des moindres carrés\n\n\nDéfinition 2.3 — droite de régression (moindres carrés)\n\n\nLa droite de régression par la méthode des moindres carrés est l’unique droite \\(y = a x + b\\) qui rend la plus petite possible la somme des carrés des résidus. On élève les écarts au carré pour que les écarts positifs et négatifs ne se compensent pas, et pour pénaliser les gros écarts. Cette droite passe elle aussi par le point moyen \\(G\\).\n\n\n\n↗ dans le cours\n\n\n\nPropriété 2.2 — pente de la droite de régression\n\n\n\\[\na = \\frac{\\text{cov}(x, y)}{\\text{variance}(x)} = \\frac{\\sum (x_{i} - \\overline{x})(y_{i} - \\overline{y})}{\\sum (x_{i} - \\overline{x})^{2}}, \\quad \\quad b = \\overline{y} - a \\overline{x}.\n\\]\nAu numérateur, la co-variation de \\(x\\) et \\(y\\) (leur tendance à bouger ensemble, que tu viens de mesurer) ; au dénominateur, l’étalement de \\(x\\) seul. La pente dit donc « de combien \\(y\\) bouge quand \\(x\\) bouge ». Et comme \\(b = \\overline{y} - a \\overline{x}\\), la droite passe par le point moyen \\(G\\).\n\n\n\n↗ dans le cours\n\n\n\nPropriété 2.3 — formules de calcul\n\n\n\\[\n\\text{variance}(x) = \\frac{1}{N} \\sum x_{i}^{2} - (\\overline{x})^{2} \\quad \\quad \\text{cov}(x, y) = \\frac{1}{N} \\sum x_{i} y_{i} - \\overline{x} \\ \\overline{y}.\n\\]\nEn mots : moyenne des carrés \\(-\\) carré de la moyenne pour la variance ; moyenne des produits \\(-\\) produit des moyennes pour la covariance. L’écart-type \\(\\sigma_{x} = \\sqrt{\\text{variance}(x)}\\) mesure la dispersion de \\(x\\).\n\n\n\n↗ dans le cours",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>L'essentiel</span>"
+    ]
+  },
+  {
+    "objectID": "essentiel.html#chapitre-3-mesurer-la-liaison-le-coefficient-de-corrélation",
+    "href": "essentiel.html#chapitre-3-mesurer-la-liaison-le-coefficient-de-corrélation",
+    "title": "L’essentiel",
+    "section": "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+    "text": "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation\n\nUn nombre entre \\(-1\\) et \\(1\\)\n\n\nDéfinition 3.1 — coefficient de corrélation linéaire\n\n\nLe coefficient de corrélation linéaire, noté \\(r\\), est un nombre toujours compris entre \\(-1\\) et \\(1\\) qui mesure à quel point les points d’un nuage sont proches d’une droite.\n\nle signe de \\(r\\) donne le sens : \\(r &gt; 0\\) pour un nuage croissant, \\(r &lt; 0\\) pour un nuage décroissant ;\n\\(|r|\\) proche de 1 : les points sont presque alignés (lien fort) ; \\(|r|\\) proche de 0 : aucun alignement (lien linéaire faible ou nul).\n\nOn le calcule par \\(r = \\frac{\\text{covariance}(x, y)}{\\sigma_{x} \\sigma_{y}}\\), mais en pratique c’est la calculatrice qui le donne, en même temps que la droite de régression.\n\n\n\n↗ dans le cours",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>L'essentiel</span>"
+    ]
+  },
+  {
+    "objectID": "essentiel.html#chapitre-4-utiliser-un-ajustement-et-le-critiquer",
+    "href": "essentiel.html#chapitre-4-utiliser-un-ajustement-et-le-critiquer",
+    "title": "L’essentiel",
+    "section": "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+    "text": "Chapitre 4 — Utiliser un ajustement, et le critiquer\n\nPrévoir : interpolation et extrapolation\n\n\nDéfinition 4.1 — interpolation, extrapolation\n\n\nÀ partir de la droite de régression \\(y = a x + b\\), on peut estimer un \\(y\\) pour une valeur de \\(x\\) non mesurée.\n\nInterpoler, c’est estimer à l’intérieur de l’intervalle des données observées : assez sûr.\nExtrapoler, c’est estimer à l’extérieur (avant la première donnée ou après la dernière) : beaucoup plus risqué.\n\n\n\n\n↗ dans le cours\n\n\n\nUn vrai document à critiquer\n\n\nPropriété 4.1 — quand la corrélation devient une cause\n\n\nUn simple nuage ne prouve pas la causalité (chapitre 3). Mais un testing est une expérience : comme les deux CV sont identiques et que seule l’origine change, il n’y a plus de variable cachée possible. La différence observée peut alors être attribuée à l’origine. C’est la force d’une expérience bien construite sur une simple observation.\n\n\n\n↗ dans le cours",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>L'essentiel</span>"
+    ]
+  },
+  {
+    "objectID": "nouveautes.html",
+    "href": "nouveautes.html",
+    "title": "Quoi de neuf ?",
+    "section": "",
+    "text": "14/11/2026",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Quoi de neuf ?</span>"
+    ]
+  },
+  {
+    "objectID": "nouveautes.html#section",
+    "href": "nouveautes.html#section",
+    "title": "Quoi de neuf ?",
+    "section": "",
+    "text": "Première version en ligne du cours.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Quoi de neuf ?</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html",
+    "href": "mode-emploi.html",
+    "title": "Mode d’emploi",
+    "section": "",
+    "text": "Le site et le cours imprimé\nCe site reprend ton cours imprimé, avec les mêmes numéros (Définition 2.3, Exercice 2.14…). Tu peux passer de l’un à l’autre sans te perdre. Sur grand écran, le cadre « ← page N des notes » en haut à droite (sur téléphone, la bulle « Notes p. N » en bas à droite) indique la page du PDF où se trouve ce que tu lis ; un clic l’ouvre à cette page.\nIl ne remplace pas le travail en classe : il le prolonge. On y trouve en plus des figures qu’on peut manipuler, des coups de pouce pour les exercices et de quoi t’autoévaluer.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#se-repérer",
+    "href": "mode-emploi.html#se-repérer",
+    "title": "Mode d’emploi",
+    "section": "Se repérer",
+    "text": "Se repérer\n\nMenu de gauche : les chapitres, puis leurs sections (une section = une page). Sur téléphone, il s’ouvre avec le bouton ☰ en haut.\n« Sur cette page » (à droite) : les titres de la page ; clique pour l’ouvrir.\nRecherche (loupe) : un mot du cours, un numéro d’exercice…\nLes icônes sous le titre du cours :\n\nla maison : tous les cours de ton année ;\nla flèche vers le bas : télécharger le cours en PDF ;\nla lune / le soleil : mode sombre ou clair ;\nAa : taille du texte (A− / A+ ; clique sur le pourcentage pour revenir à 100 %) ;\nle crayon : annoter la page (voir plus bas) ;\nl’écran : mode projection, utilisé en classe ;\n? : cette page.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#les-réponses-cachées",
+    "href": "mode-emploi.html#les-réponses-cachées",
+    "title": "Mode d’emploi",
+    "section": "Les réponses cachées",
+    "text": "Les réponses cachées\nDans les activités et les exemples, certaines réponses sont cachées : elles apparaissent comme une zone soulignée en pointillé. Cherche d’abord, puis clique dessus pour voir la réponse ; reclique pour la cacher.\n\nUne réponse plus longue est dans un cadre « Réponse — clique pour l’afficher ».\nLe bouton Tout afficher dans l’en-tête d’un encadré montre toutes ses réponses d’un coup.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#les-figures-quon-peut-manipuler",
+    "href": "mode-emploi.html#les-figures-quon-peut-manipuler",
+    "title": "Mode d’emploi",
+    "section": "Les figures qu’on peut manipuler",
+    "text": "Les figures qu’on peut manipuler\nBeaucoup de graphiques sont interactifs : déplace le point ou le curseur et observe ce qui change. Sous certaines figures, le petit bouton ▸ ouvre un panneau avec un point mobile et ses coordonnées.\nPrends le temps de jouer avec : c’est souvent là que l’idée devient claire, avant la formule.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#les-exercices-et-leurs-coups-de-pouce",
+    "href": "mode-emploi.html#les-exercices-et-leurs-coups-de-pouce",
+    "title": "Mode d’emploi",
+    "section": "Les exercices et leurs coups de pouce",
+    "text": "Les exercices et leurs coups de pouce\nSous la plupart des exercices, ▶ Coups de pouce ouvre cinq onglets :\n\nIndice 1 : la partie du cours qui sert ;\nIndice 2 : une question à te poser ;\nIndice 3 : une première étape ;\nSolution : la réponse rédigée comme on l’attend en interro ;\nPièges : les erreurs fréquentes.\n\nUtilise-les un par un, seulement quand tu bloques, et recommence à chercher seul après chaque indice. Lire la solution tout de suite donne l’impression d’avoir compris, mais n’entraîne pas.\nMon suivi : sous chaque exercice, coche Fait (tu l’as fait) puis Réussi (tu l’as réussi seul). En haut de la page, un bilan te dit où tu en es ; la page de chaque chapitre montre une barre par section.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#objectifs",
+    "href": "mode-emploi.html#objectifs",
+    "title": "Mode d’emploi",
+    "section": "Objectifs",
+    "text": "Objectifs\nLa page Objectifs reprend la grille du début de ton cours imprimé : ce que tu dois être capable de faire.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#lessentiel",
+    "href": "mode-emploi.html#lessentiel",
+    "title": "Mode d’emploi",
+    "section": "L’essentiel",
+    "text": "L’essentiel\nLa page L’essentiel rassemble les définitions et propriétés du cours, dans l’ordre. Elle sert à retrouver un énoncé ou à vérifier que tu peux le redire sans regarder. Elle ne remplace ni le cours (où les idées sont construites et justifiées) ni les exercices : connaître un énoncé ne suffit pas, il faut savoir s’en servir. Le lien « dans le cours » sous chaque encadré te ramène à sa place.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#quoi-de-neuf",
+    "href": "mode-emploi.html#quoi-de-neuf",
+    "title": "Mode d’emploi",
+    "section": "Quoi de neuf ?",
+    "text": "Quoi de neuf ?\nLa page Quoi de neuf ? liste, par date, ce qui a changé dans le cours en ligne : nouvelles sections, encadrés ajoutés ou corrigés. Jette un œil avant de réviser.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#annoter-la-page",
+    "href": "mode-emploi.html#annoter-la-page",
+    "title": "Mode d’emploi",
+    "section": "Annoter la page",
+    "text": "Annoter la page\nLe crayon ouvre une petite boîte à outils :\n\nStylo : dessiner (souris, doigt ou stylet), en noir, rouge, bleu ou vert ;\nSurligneur : sélectionne un passage du texte pour le surligner ;\nNote : un post-it là où tu cliques ;\nCorrection : un post-it rouge pour signaler une erreur dans le cours ; la liste des corrections notées se copie d’un clic pour l’envoyer à ton professeur ;\nGomme : clique un trait, un surlignage ou une note pour l’effacer ;\nl’œil masque ou réaffiche tes annotations ; les flèches exportent ou importent tes annotations (pour passer d’un ordinateur à l’autre).\n\nTes annotations restent attachées au bon paragraphe, même si la page change de taille.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#tes-données",
+    "href": "mode-emploi.html#tes-données",
+    "title": "Mode d’emploi",
+    "section": "Tes données",
+    "text": "Tes données\nTout ce que tu fais ici (annotations, suivi des exercices, résultats d’autoévaluation, taille du texte) reste dans ce navigateur, sur cet appareil. Rien n’est envoyé à personne, pas même à ton professeur.\n\nSur un autre appareil ou un autre navigateur, tu repars de zéro.\nEn navigation privée, tout est effacé à la fermeture.\nPour garder tes annotations : Exporter dans la boîte à outils du crayon.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#sans-connexion",
+    "href": "mode-emploi.html#sans-connexion",
+    "title": "Mode d’emploi",
+    "section": "Sans connexion",
+    "text": "Sans connexion\nUne fois le site visité avec une connexion, ses pages restent consultables hors ligne (dans le train, sans données…). Les PDF, eux, doivent être téléchargés à l’avance.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  },
+  {
+    "objectID": "mode-emploi.html#une-façon-efficace-de-travailler",
+    "href": "mode-emploi.html#une-façon-efficace-de-travailler",
+    "title": "Mode d’emploi",
+    "section": "Une façon efficace de travailler",
+    "text": "Une façon efficace de travailler\n\nLis la section (et manipule les figures) après l’avoir vue en classe.\nCherche les réponses cachées avant de cliquer.\nFais les exercices ; un coup de pouce à la fois, seulement si tu bloques ; note Fait / Réussi.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Mode d'emploi</span>"
+    ]
+  }
+]

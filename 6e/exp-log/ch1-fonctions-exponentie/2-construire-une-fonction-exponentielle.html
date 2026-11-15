@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Construire une fonction exponentielle – Exponentielles et logarithmes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html" rel="next">
+<link href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-373b88032ffeb2d8c9d3af5274f06ecf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/index.html">Chapitre 1 — Fonctions exponentielles</a></li><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html"><span class="chapter-title">Construire une fonction exponentielle</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Exponentielles et logarithmes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exponentielles et logarithmes — cours &amp; exercices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch1-fonctions-exponentie/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 1 — Fonctions exponentielles</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Croissance exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Construire une fonction exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition de la fonction exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés et caractéristiques graphiques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multiples d’une fonction exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/6-des-graphes-tous-semblables-vers.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Des graphes tous semblables : vers un représentant privilégié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Le nombre e et l’exponentielle népérienne</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Résoudre des équations exponentielles simples</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/9-exercices-supplementaires.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices supplémentaires</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch2-fonctions-logarithmi/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 2 — Fonctions logarithmiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/1-du-probleme-e-x-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Du problème eˣ = 3 au logarithme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition du logarithme de base a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés graphiques, par déduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés algébriques, à découvrir</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Utiliser les propriétés</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/6-equations-logarithmiques.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Équations logarithmiques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/7-resoudre-les-equations-exponentielles-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Résoudre les équations exponentielles aᶠ⁽ˣ⁾ = b</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modéliser avec les logarithmes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3-derivees-et-limites/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 3 — Dérivées et limites</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/1-deriver-lexponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dériver l’exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/2-deriver-le-logarithme.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dériver le logarithme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/3-limites-de-base.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites de base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Croissance comparée et théorème de l’Hospital</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4-echelles-logarithmiq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 4 — Échelles logarithmiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/1-construire-une-echelle-logarithmique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Construire une échelle logarithmique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repère semi-logarithmique : la signature de l’exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repère log-log : la signature d’une puissance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/4-choisir-le-bon-repere-et.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Choisir le bon repère et extraire l’information</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/5-pour-aller-plus-loin-les.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pour aller plus loin : les échelles logarithmiques en sciences</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../autoeval.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">S’autoévaluer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mode-emploi.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mode d’emploi</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#une-situation-de-décroissance-exponentielle-la-batterie" id="toc-une-situation-de-décroissance-exponentielle-la-batterie" class="nav-link active" data-scroll-target="#une-situation-de-décroissance-exponentielle-la-batterie">Une situation de décroissance exponentielle : la batterie</a></li>
+  <li><a href="#de-mathbbr-0-à-mathbbr-la-courbe-qui-se-dessine" id="toc-de-mathbbr-0-à-mathbbr-la-courbe-qui-se-dessine" class="nav-link" data-scroll-target="#de-mathbbr-0-à-mathbbr-la-courbe-qui-se-dessine">De <span class="math inline">\(\mathbb{R}^{&gt; 0}\)</span> à <span class="math inline">\(\mathbb{R}\)</span> : la courbe qui se dessine</a></li>
+  <li><a href="#bilan-des-activités" id="toc-bilan-des-activités" class="nav-link" data-scroll-target="#bilan-des-activités">Bilan des activités</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/index.html">Chapitre 1 — Fonctions exponentielles</a></li><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html"><span class="chapter-title">Construire une fonction exponentielle</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Construire une fonction exponentielle</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+<p>Nous savons calculer <span class="math inline">\(2^{n}\)</span> quand <span class="math inline">\(n\)</span> est un entier. Tu as appris de plus que <span class="math inline">\(2^{\frac{1}{2}}=\sqrt{2}\)</span>. Mais que vaudrait <span class="math inline">\(2^{x}\)</span> pour un <span class="math inline">\(x\)</span> <em>réel</em> quelconque, par exemple <span class="math inline">\(2^{\sqrt{2}}\)</span> ? Construisons le sens de <span class="math inline">\(a^{x}\)</span> pas à pas, à partir d’une situation qui décroît.</p>
+<section id="une-situation-de-décroissance-exponentielle-la-batterie" class="level2">
+<h2 class="anchored" data-anchor-id="une-situation-de-décroissance-exponentielle-la-batterie">Une situation de décroissance exponentielle : la batterie</h2>
+<div id="activite-1-4" class="theo theo-activite" data-sorte="activite" data-num="1.4" data-page="6" data-phys="8" data-id="6UAA4.batterie-se-decharge" data-type="activite" data-tags="">
+<div class="theo-head">
+<p><strong>Activité 1.4</strong> — la batterie qui se décharge</p>
+</div>
+<div class="theo-body">
+<p>Une batterie conserve <span class="math inline">\(80 \%\)</span> de sa charge chaque heure. Notons <span class="math inline">\(Q(t)\)</span> la <strong>fraction de charge</strong> restante après <span class="math inline">\(t\)</span> heures. Au départ, la batterie est pleine : <span class="math inline">\(Q(0) = 1\)</span> (c’est-à-dire <span class="math inline">\(100 \%\)</span>). Pour passer d’une heure à la suivante, on multiplie par <span class="math inline">\(0{,}8\)</span> :</p>
+<p><span class="math display">\[
+Q(t + 1) = \class{rep}{0{,}8 \cdot Q(t)}.
+\]</span></p>
+<ol type="a">
+<li>Complète (charge en fraction, avec <span class="math inline">\(1 = 100 \%\)</span>) :</li>
+</ol>
+<div class="tableau">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(t\)</span> (h)</th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(5\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(Q(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0{,}8\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(0{,}64\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(0{,}512\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(0{,}4096\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(0{,}32768\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="2" type="a">
+<li>Écris une formule donnant <span class="math inline">\(Q(t)\)</span> directement, pour <span class="math inline">\(t\)</span> entier : <span class="math inline">\(Q(t) =\)</span> <span class="rep"><span class="math inline">\(0{,}8^{t}\)</span></span></li>
+</ol>
+</div>
+</div>
+<p>La formule <span class="math inline">\(Q(t) = 0{,}8^{t}\)</span> vérifie la relation de croissance exponentielle:</p>
+<p><span class="math display">\[
+Q(t + s) = Q(t) \cdot Q(s).
+\]</span></p>
+<p>Vérifie-le sur le tableau : <span class="math inline">\(Q(2) = 0{,}64 = 0{,}8 \cdot 0{,}8 = Q(1) \cdot Q(1)\)</span>.</p>
+<p>La formule <span class="math inline">\(Q(t) = 0{,}8^{t}\)</span> a un sens clair pour <span class="math inline">\(t\)</span> entier. Mais une batterie ne se décharge pas par sauts : après une demi-heure, il y a bien une charge ! Quel sens donner à <span class="math inline">\(Q(\frac{1}{2}) = 0{,}8^{\frac{1}{2}}\)</span>, c’est-à-dire à un exposant <strong>fractionnaire</strong> ? Avant de répondre, remettons en mémoire ce que nous savons déjà des exposants.</p>
+<div id="activite-1-5" class="theo theo-activite" data-sorte="activite" data-num="1.5" data-page="7" data-phys="9" data-id="6UAA4.reactiver-regles-exposants" data-type="activite" data-tags="">
+<div class="theo-head">
+<p><strong>Activité 1.5</strong> — réactiver les règles des exposants</p>
+</div>
+<div class="theo-body">
+<p>Les règles des exposants <strong>entiers</strong>, vues les années précédentes, seront notre seul point d’appui. Complète, avec <span class="math inline">\(a &gt; 0\)</span> :</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<ul>
+<li><p><span class="math inline">\(a^{0} =\)</span> <span class="rep"><span class="math inline">\(1\)</span></span></p></li>
+<li><p><span class="math inline">\(a^{1} =\)</span> <span class="rep"><span class="math inline">\(a\)</span></span></p></li>
+<li><p><span class="math inline">\(a^{-n} =\)</span> <span class="rep"><span class="math inline">\(\frac{1}{a^{n}}\)</span></span></p></li>
+</ul>
+</div>
+<div class="cellule">
+<ul>
+<li><p><span class="math inline">\(a^{m + p} =\)</span> <span class="rep"><span class="math inline">\(a^{m} \cdot a^{p}\)</span></span></p></li>
+<li><p><span class="math inline">\((a^{m})^{p} =\)</span> <span class="rep"><span class="math inline">\(a^{m p}\)</span></span></p></li>
+</ul>
+</div>
+</div>
+<p>Tu connais aussi <em>deux notations</em> d’exposants fractionnaires : la racine carrée <span class="math inline">\(a^{\frac{1}{2}} = \sqrt{a}\)</span> (car <span class="math inline">\((\sqrt{a})^{2} = a\)</span>) et la racine cubique <span class="math inline">\(a^{\frac{1}{3}} = \sqrt[3]{a}\)</span>.</p>
+</div>
+</div>
+<p><strong>Des exposants entiers vers les exposants fractionnaires.</strong> On dispose de deux choses : la relation <span class="math inline">\(Q(t + s) = Q(t) \cdot Q(s)\)</span> et la valeur <span class="math inline">\(Q(1) = 0{,}8\)</span>. Elles suffisent à fabriquer les exposants fractionnaires.</p>
+<div id="activite-1-6" class="theo theo-activite" data-sorte="activite" data-num="1.6" data-page="7" data-phys="9" data-id="6UAA4.construire-exposants-fractionnaires" data-type="activite" data-tags="">
+<div class="theo-head">
+<p><strong>Activité 1.6</strong> — construire les exposants fractionnaires</p>
+</div>
+<div class="theo-body">
+<ol type="a">
+<li>Applique la relation <span class="math inline">\(Q(t + s) = Q(t) \cdot Q(s)\)</span> avec <span class="math inline">\(t = s = \frac{1}{2}\)</span> :</li>
+</ol>
+<p><span class="math display">\[
+Q(1) = Q(\frac{1}{2} + \frac{1}{2}) = Q(\frac{1}{2}) \cdot Q(\frac{1}{2}) = \class{rep}{Q(\frac{1}{2})^{2}}.
+\]</span></p>
+<p>Donc <span class="math inline">\(Q(\frac{1}{2})^{2} = Q(1) = 0{,}8\)</span>, d’où <span class="math inline">\(Q(\frac{1}{2}) = \class{rep}{\sqrt{0{,}8}}\)</span>.</p>
+<div id="cadre-doit" class="cadre-info">
+<p>Il n’y a pas de choix : <span class="math inline">\(0{,}8^{\frac{1}{2}}\)</span> <strong>doit</strong> valoir <span class="math inline">\(\sqrt{0{,}8}\)</span>, sinon la relation <span class="math inline">\(Q(t+s) = Q(t) \cdot Q(s)\)</span> serait fausse. La notation « exposant <span class="math inline">\(\frac{1}{2}\)</span> » ne tombe pas du ciel — c’est la <em>seule</em> notation cohérente.</p>
+</div>
+<ol start="2" type="a">
+<li>De même, <span class="math inline">\(Q(1) = Q(\frac{1}{3} + \frac{1}{3} + \frac{1}{3}) = Q(\frac{1}{3})^{3}\)</span>, d’où</li>
+</ol>
+<p><span class="math display">\[
+Q(\frac{1}{3}) = \class{rep}{\sqrt[3]{0{,}8}}, \quad \text{et en général} \quad Q(\frac{1}{n}) = \class{rep}{\sqrt[n]{0{,}8}}.
+\]</span></p>
+<ol start="3" type="a">
+<li>Enfin, pour un exposant <span class="math inline">\(\frac{m}{n}\)</span> quelconque, <span class="math inline">\(Q(\frac{m}{n}) = (Q(\frac{1}{n}))^{m} = \class{rep}{\sqrt[n]{0{,}8^{m}}}\)</span>.</li>
+</ol>
+</div>
+</div>
+<p>De proche en proche, la relation <span class="math inline">\(Q(t+s) = Q(t) \cdot Q(s)\)</span> nous a permis de donner un sens à <span class="math inline">\(0{,}8^{t}\)</span> pour <strong>tout exposant rationnel</strong>.</p>
+<p>Ainsi, on arrive à combler les trous de la suite <span class="math inline">\(0{,}8^{n}\)</span>, en calculant ce qui se passe aux demi-heures, aux quarts d’heure, aux minutes…. On fabrique ainsi une fonction qui est définie pour tout <span class="math inline">\(t \geq 0\)</span>: <span class="math inline">\(Q(t)=0{,}8^{t}\)</span>.</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 8.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 1.1, &quot;w&quot;: 558, &quot;h&quot;: 290, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 0.2, &quot;xlabel&quot;: &quot;t&quot;, &quot;ylabel&quot;: &quot;Q(t)&quot;, &quot;courbes&quot;: [{&quot;couleur&quot;: &quot;#c1002a&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(0.8, x)&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 1.0, &quot;y&quot;: 0.8}, {&quot;x&quot;: 2.0, &quot;y&quot;: 0.64}, {&quot;x&quot;: 3.0, &quot;y&quot;: 0.512}, {&quot;x&quot;: 4.0, &quot;y&quot;: 0.4096}], &quot;lecture&quot;: true}"></div>
+<p><span style="color:#6a737d">La charge <span class="math inline">\(Q(t) = 0{,}8^{t}\)</span> : une courbe qui décroît, sans jamais atteindre <span class="math inline">\(0\)</span>.</span></p>
+<p>Remarque au passage : cette courbe est <strong>strictement décroissante</strong>, comme la suite <span class="math inline">\(0{,}8^{0}, 0{,}8^{1}, 0{,}8^{2}, \ldots\)</span> dont elle est issue.</p>
+</section>
+<section id="de-mathbbr-0-à-mathbbr-la-courbe-qui-se-dessine" class="level2">
+<h2 class="anchored" data-anchor-id="de-mathbbr-0-à-mathbbr-la-courbe-qui-se-dessine">De <span class="math inline">\(\mathbb{R}^{&gt; 0}\)</span> à <span class="math inline">\(\mathbb{R}\)</span> : la courbe qui se dessine</h2>
+<p>La fonction représentant la décharge de la batterie n’existe que pour <span class="math inline">\(t \geq 0\)</span>, dans notre construction. Nous allons voir, sur un autre exemple, comment prolonger aux exposants négatifs. Reprenons la même construction sur une situation qui <em>croît</em>, et poussons-la jusqu’à donner un sens à <span class="math inline">\(2^{x}\)</span> pour <strong>tout</strong> réel <span class="math inline">\(x\)</span> — les négatifs compris. Place <span class="math inline">\(1\)</span> € à un taux annuel de <span class="math inline">\(100 \%\)</span> : le capital double chaque année, donc après <span class="math inline">\(n\)</span> ans on a <span class="math inline">\(C_{n} = 2^{n}\)</span>. Nous allons partir de cette suite pour la compléter.</p>
+<p>Comme pour la batterie, on peut envisager l’évolution par demi-années (pas <span class="math inline">\(\frac{1}{2}\)</span>, ce qui ajoute les points <span class="math inline">\(2^{\frac{n}{2}}\)</span>), puis par quarts (<span class="math inline">\(2^{\frac{n}{4}}\)</span>), huitièmes, etc. À chaque raffinement, de nouveaux points d’exposants fractionnaires viennent se glisser entre les précédents. Observe comme les trous se referment :</p>
+<div class="grille" style="--n:3">
+<div class="cellule">
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;w&quot;: 320, &quot;h&quot;: 225, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;&quot;, &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 1.0, &quot;y&quot;: 2.0}, {&quot;x&quot;: 2.0, &quot;y&quot;: 4.0}, {&quot;x&quot;: 3.0, &quot;y&quot;: 8.0}], &quot;courbes&quot;: []}"></div>
+<p><span style="color:#6a737d">pas <span class="math inline">\(= 1\)</span></span></p>
+</div>
+<div class="cellule">
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;w&quot;: 320, &quot;h&quot;: 225, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;&quot;, &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.5, &quot;y&quot;: 1.4142135623730951}, {&quot;x&quot;: 1.0, &quot;y&quot;: 2.0}, {&quot;x&quot;: 1.5, &quot;y&quot;: 2.8284271247461903}, {&quot;x&quot;: 2.0, &quot;y&quot;: 4.0}, {&quot;x&quot;: 2.5, &quot;y&quot;: 5.656854249492381}, {&quot;x&quot;: 3.0, &quot;y&quot;: 8.0}], &quot;courbes&quot;: []}"></div>
+<p><span style="color:#6a737d">pas <span class="math inline">\(= 1/2\)</span></span></p>
+</div>
+<div class="cellule">
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;w&quot;: 320, &quot;h&quot;: 225, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;&quot;, &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.25, &quot;y&quot;: 1.189207115002721}, {&quot;x&quot;: 0.5, &quot;y&quot;: 1.4142135623730951}, {&quot;x&quot;: 0.75, &quot;y&quot;: 1.681792830507429}, {&quot;x&quot;: 1.0, &quot;y&quot;: 2.0}, {&quot;x&quot;: 1.25, &quot;y&quot;: 2.378414230005442}, {&quot;x&quot;: 1.5, &quot;y&quot;: 2.8284271247461903}, {&quot;x&quot;: 1.75, &quot;y&quot;: 3.363585661014858}, {&quot;x&quot;: 2.0, &quot;y&quot;: 4.0}, {&quot;x&quot;: 2.25, &quot;y&quot;: 4.756828460010884}, {&quot;x&quot;: 2.5, &quot;y&quot;: 5.656854249492381}, {&quot;x&quot;: 2.75, &quot;y&quot;: 6.727171322029716}, {&quot;x&quot;: 3.0, &quot;y&quot;: 8.0}], &quot;courbes&quot;: []}"></div>
+<p><span style="color:#6a737d">pas <span class="math inline">\(= 1/4\)</span></span></p>
+</div>
+<div class="cellule">
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;w&quot;: 320, &quot;h&quot;: 225, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;&quot;, &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.125, &quot;y&quot;: 1.0905077326652577}, {&quot;x&quot;: 0.25, &quot;y&quot;: 1.189207115002721}, {&quot;x&quot;: 0.375, &quot;y&quot;: 1.2968395546510096}, {&quot;x&quot;: 0.5, &quot;y&quot;: 1.4142135623730951}, {&quot;x&quot;: 0.625, &quot;y&quot;: 1.5422108254079407}, {&quot;x&quot;: 0.75, &quot;y&quot;: 1.681792830507429}, {&quot;x&quot;: 0.875, &quot;y&quot;: 1.8340080864093424}, {&quot;x&quot;: 1.0, &quot;y&quot;: 2.0}, {&quot;x&quot;: 1.125, &quot;y&quot;: 2.1810154653305154}, {&quot;x&quot;: 1.25, &quot;y&quot;: 2.378414230005442}, {&quot;x&quot;: 1.375, &quot;y&quot;: 2.5936791093020193}, {&quot;x&quot;: 1.5, &quot;y&quot;: 2.8284271247461903}, {&quot;x&quot;: 1.625, &quot;y&quot;: 3.0844216508158815}, {&quot;x&quot;: 1.75, &quot;y&quot;: 3.363585661014858}, {&quot;x&quot;: 1.875, &quot;y&quot;: 3.668016172818685}, {&quot;x&quot;: 2.0, &quot;y&quot;: 4.0}, {&quot;x&quot;: 2.125, &quot;y&quot;: 4.362030930661031}, {&quot;x&quot;: 2.25, &quot;y&quot;: 4.756828460010884}, {&quot;x&quot;: 2.375, &quot;y&quot;: 5.187358218604039}, {&quot;x&quot;: 2.5, &quot;y&quot;: 5.656854249492381}, {&quot;x&quot;: 2.625, &quot;y&quot;: 6.168843301631763}, {&quot;x&quot;: 2.75, &quot;y&quot;: 6.727171322029716}, {&quot;x&quot;: 2.875, &quot;y&quot;: 7.33603234563737}, {&quot;x&quot;: 3.0, &quot;y&quot;: 8.0}], &quot;courbes&quot;: []}"></div>
+<p><span style="color:#6a737d">pas <span class="math inline">\(= 1/8\)</span></span></p>
+</div>
+<div class="cellule">
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;w&quot;: 320, &quot;h&quot;: 225, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;&quot;, &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.0625, &quot;y&quot;: 1.0442737824274138}, {&quot;x&quot;: 0.125, &quot;y&quot;: 1.0905077326652577}, {&quot;x&quot;: 0.1875, &quot;y&quot;: 1.1387886347566916}, {&quot;x&quot;: 0.25, &quot;y&quot;: 1.189207115002721}, {&quot;x&quot;: 0.3125, &quot;y&quot;: 1.241857812073484}, {&quot;x&quot;: 0.375, &quot;y&quot;: 1.2968395546510096}, {&quot;x&quot;: 0.4375, &quot;y&quot;: 1.3542555469368927}, {&quot;x&quot;: 0.5, &quot;y&quot;: 1.4142135623730951}, {&quot;x&quot;: 0.5625, &quot;y&quot;: 1.4768261459394993}, {&quot;x&quot;: 0.625, &quot;y&quot;: 1.5422108254079407}, {&quot;x&quot;: 0.6875, &quot;y&quot;: 1.6104903319492543}, {&quot;x&quot;: 0.75, &quot;y&quot;: 1.681792830507429}, {&quot;x&quot;: 0.8125, &quot;y&quot;: 1.7562521603732995}, {&quot;x&quot;: 0.875, &quot;y&quot;: 1.8340080864093424}, {&quot;x&quot;: 0.9375, &quot;y&quot;: 1.9152065613971474}, {&quot;x&quot;: 1.0, &quot;y&quot;: 2.0}, {&quot;x&quot;: 1.0625, &quot;y&quot;: 2.0885475648548275}, {&quot;x&quot;: 1.125, &quot;y&quot;: 2.1810154653305154}, {&quot;x&quot;: 1.1875, &quot;y&quot;: 2.277577269513383}, {&quot;x&quot;: 1.25, &quot;y&quot;: 2.378414230005442}, {&quot;x&quot;: 1.3125, &quot;y&quot;: 2.483715624146968}, {&quot;x&quot;: 1.375, &quot;y&quot;: 2.5936791093020193}, {&quot;x&quot;: 1.4375, &quot;y&quot;: 2.7085110938737853}, {&quot;x&quot;: 1.5, &quot;y&quot;: 2.8284271247461903}, {&quot;x&quot;: 1.5625, &quot;y&quot;: 2.9536522918789987}, {&quot;x&quot;: 1.625, &quot;y&quot;: 3.0844216508158815}, {&quot;x&quot;: 1.6875, &quot;y&quot;: 3.2209806638985086}, {&quot;x&quot;: 1.75, &quot;y&quot;: 3.363585661014858}, {&quot;x&quot;: 1.8125, &quot;y&quot;: 3.512504320746599}, {&quot;x&quot;: 1.875, &quot;y&quot;: 3.668016172818685}, {&quot;x&quot;: 1.9375, &quot;y&quot;: 3.830413122794295}, {&quot;x&quot;: 2.0, &quot;y&quot;: 4.0}, {&quot;x&quot;: 2.0625, &quot;y&quot;: 4.177095129709655}, {&quot;x&quot;: 2.125, &quot;y&quot;: 4.362030930661031}, {&quot;x&quot;: 2.1875, &quot;y&quot;: 4.555154539026766}, {&quot;x&quot;: 2.25, &quot;y&quot;: 4.756828460010884}, {&quot;x&quot;: 2.3125, &quot;y&quot;: 4.967431248293936}, {&quot;x&quot;: 2.375, &quot;y&quot;: 5.187358218604039}, {&quot;x&quot;: 2.4375, &quot;y&quot;: 5.417022187747571}, {&quot;x&quot;: 2.5, &quot;y&quot;: 5.656854249492381}, {&quot;x&quot;: 2.5625, &quot;y&quot;: 5.907304583757997}, {&quot;x&quot;: 2.625, &quot;y&quot;: 6.168843301631763}, {&quot;x&quot;: 2.6875, &quot;y&quot;: 6.441961327797017}, {&quot;x&quot;: 2.75, &quot;y&quot;: 6.727171322029716}, {&quot;x&quot;: 2.8125, &quot;y&quot;: 7.025008641493198}, {&quot;x&quot;: 2.875, &quot;y&quot;: 7.33603234563737}, {&quot;x&quot;: 2.9375, &quot;y&quot;: 7.66082624558859}, {&quot;x&quot;: 3.0, &quot;y&quot;: 8.0}], &quot;courbes&quot;: []}"></div>
+<p><span style="color:#6a737d">pas <span class="math inline">\(= 1/16\)</span></span></p>
+</div>
+<div class="cellule">
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;w&quot;: 320, &quot;h&quot;: 225, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;&quot;, &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.03125, &quot;y&quot;: 1.0218971486541166}, {&quot;x&quot;: 0.0625, &quot;y&quot;: 1.0442737824274138}, {&quot;x&quot;: 0.09375, &quot;y&quot;: 1.0671404006768237}, {&quot;x&quot;: 0.125, &quot;y&quot;: 1.0905077326652577}, {&quot;x&quot;: 0.15625, &quot;y&quot;: 1.1143867425958924}, {&quot;x&quot;: 0.1875, &quot;y&quot;: 1.1387886347566916}, {&quot;x&quot;: 0.21875, &quot;y&quot;: 1.1637248587775775}, {&quot;x&quot;: 0.25, &quot;y&quot;: 1.189207115002721}, {&quot;x&quot;: 0.28125, &quot;y&quot;: 1.215247359980469}, {&quot;x&quot;: 0.3125, &quot;y&quot;: 1.241857812073484}, {&quot;x&quot;: 0.34375, &quot;y&quot;: 1.2690509571917332}, {&quot;x&quot;: 0.375, &quot;y&quot;: 1.2968395546510096}, {&quot;x&quot;: 0.40625, &quot;y&quot;: 1.3252366431597413}, {&quot;x&quot;: 0.4375, &quot;y&quot;: 1.3542555469368927}, {&quot;x&quot;: 0.46875, &quot;y&quot;: 1.383909881963832}, {&quot;x&quot;: 0.5, &quot;y&quot;: 1.4142135623730951}, {&quot;x&quot;: 0.53125, &quot;y&quot;: 1.4451808069770467}, {&quot;x&quot;: 0.5625, &quot;y&quot;: 1.4768261459394993}, {&quot;x&quot;: 0.59375, &quot;y&quot;: 1.5091644275934228}, {&quot;x&quot;: 0.625, &quot;y&quot;: 1.5422108254079407}, {&quot;x&quot;: 0.65625, &quot;y&quot;: 1.5759808451078865}, {&quot;x&quot;: 0.6875, &quot;y&quot;: 1.6104903319492543}, {&quot;x&quot;: 0.71875, &quot;y&quot;: 1.645755478153965}, {&quot;x&quot;: 0.75, &quot;y&quot;: 1.681792830507429}, {&quot;x&quot;: 0.78125, &quot;y&quot;: 1.718619298122478}, {&quot;x&quot;: 0.8125, &quot;y&quot;: 1.7562521603732995}, {&quot;x&quot;: 0.84375, &quot;y&quot;: 1.7947090750031072}, {&quot;x&quot;: 0.875, &quot;y&quot;: 1.8340080864093424}, {&quot;x&quot;: 0.90625, &quot;y&quot;: 1.8741676341103}, {&quot;x&quot;: 0.9375, &quot;y&quot;: 1.9152065613971474}, {&quot;x&quot;: 0.96875, &quot;y&quot;: 1.9571441241754002}, {&quot;x&quot;: 1.0, &quot;y&quot;: 2.0}, {&quot;x&quot;: 1.03125, &quot;y&quot;: 2.0437942973082333}, {&quot;x&quot;: 1.0625, &quot;y&quot;: 2.0885475648548275}, {&quot;x&quot;: 1.09375, &quot;y&quot;: 2.1342808013536474}, {&quot;x&quot;: 1.125, &quot;y&quot;: 2.1810154653305154}, {&quot;x&quot;: 1.15625, &quot;y&quot;: 2.228773485191785}, {&quot;x&quot;: 1.1875, &quot;y&quot;: 2.277577269513383}, {&quot;x&quot;: 1.21875, &quot;y&quot;: 2.327449717555155}, {&quot;x&quot;: 1.25, &quot;y&quot;: 2.378414230005442}, {&quot;x&quot;: 1.28125, &quot;y&quot;: 2.430494719960938}, {&quot;x&quot;: 1.3125, &quot;y&quot;: 2.483715624146968}, {&quot;x&quot;: 1.34375, &quot;y&quot;: 2.5381019143834664}, {&quot;x&quot;: 1.375, &quot;y&quot;: 2.5936791093020193}, {&quot;x&quot;: 1.40625, &quot;y&quot;: 2.6504732863194826}, {&quot;x&quot;: 1.4375, &quot;y&quot;: 2.7085110938737853}, {&quot;x&quot;: 1.46875, &quot;y&quot;: 2.767819763927664}, {&quot;x&quot;: 1.5, &quot;y&quot;: 2.8284271247461903}, {&quot;x&quot;: 1.53125, &quot;y&quot;: 2.8903616139540933}, {&quot;x&quot;: 1.5625, &quot;y&quot;: 2.9536522918789987}, {&quot;x&quot;: 1.59375, &quot;y&quot;: 3.0183288551868457}, {&quot;x&quot;: 1.625, &quot;y&quot;: 3.0844216508158815}, {&quot;x&quot;: 1.65625, &quot;y&quot;: 3.151961690215773}, {&quot;x&quot;: 1.6875, &quot;y&quot;: 3.2209806638985086}, {&quot;x&quot;: 1.71875, &quot;y&quot;: 3.29151095630793}, {&quot;x&quot;: 1.75, &quot;y&quot;: 3.363585661014858}, {&quot;x&quot;: 1.78125, &quot;y&quot;: 3.437238596244956}, {&quot;x&quot;: 1.8125, &quot;y&quot;: 3.512504320746599}, {&quot;x&quot;: 1.84375, &quot;y&quot;: 3.5894181500062143}, {&quot;x&quot;: 1.875, &quot;y&quot;: 3.668016172818685}, {&quot;x&quot;: 1.90625, &quot;y&quot;: 3.7483352682206}, {&quot;x&quot;: 1.9375, &quot;y&quot;: 3.830413122794295}, {&quot;x&quot;: 1.96875, &quot;y&quot;: 3.9142882483508004}, {&quot;x&quot;: 2.0, &quot;y&quot;: 4.0}, {&quot;x&quot;: 2.03125, &quot;y&quot;: 4.0875885946164665}, {&quot;x&quot;: 2.0625, &quot;y&quot;: 4.177095129709655}, {&quot;x&quot;: 2.09375, &quot;y&quot;: 4.268561602707295}, {&quot;x&quot;: 2.125, &quot;y&quot;: 4.362030930661031}, {&quot;x&quot;: 2.15625, &quot;y&quot;: 4.45754697038357}, {&quot;x&quot;: 2.1875, &quot;y&quot;: 4.555154539026766}, {&quot;x&quot;: 2.21875, &quot;y&quot;: 4.65489943511031}, {&quot;x&quot;: 2.25, &quot;y&quot;: 4.756828460010884}, {&quot;x&quot;: 2.28125, &quot;y&quot;: 4.860989439921876}, {&quot;x&quot;: 2.3125, &quot;y&quot;: 4.967431248293936}, {&quot;x&quot;: 2.34375, &quot;y&quot;: 5.076203828766933}, {&quot;x&quot;: 2.375, &quot;y&quot;: 5.187358218604039}, {&quot;x&quot;: 2.40625, &quot;y&quot;: 5.300946572638965}, {&quot;x&quot;: 2.4375, &quot;y&quot;: 5.417022187747571}, {&quot;x&quot;: 2.46875, &quot;y&quot;: 5.535639527855328}, {&quot;x&quot;: 2.5, &quot;y&quot;: 5.656854249492381}, {&quot;x&quot;: 2.53125, &quot;y&quot;: 5.780723227908187}, {&quot;x&quot;: 2.5625, &quot;y&quot;: 5.907304583757997}, {&quot;x&quot;: 2.59375, &quot;y&quot;: 6.036657710373691}, {&quot;x&quot;: 2.625, &quot;y&quot;: 6.168843301631763}, {&quot;x&quot;: 2.65625, &quot;y&quot;: 6.303923380431546}, {&quot;x&quot;: 2.6875, &quot;y&quot;: 6.441961327797017}, {&quot;x&quot;: 2.71875, &quot;y&quot;: 6.58302191261586}, {&quot;x&quot;: 2.75, &quot;y&quot;: 6.727171322029716}, {&quot;x&quot;: 2.78125, &quot;y&quot;: 6.874477192489912}, {&quot;x&quot;: 2.8125, &quot;y&quot;: 7.025008641493198}, {&quot;x&quot;: 2.84375, &quot;y&quot;: 7.178836300012429}, {&quot;x&quot;: 2.875, &quot;y&quot;: 7.33603234563737}, {&quot;x&quot;: 2.90625, &quot;y&quot;: 7.4966705364412}, {&quot;x&quot;: 2.9375, &quot;y&quot;: 7.66082624558859}, {&quot;x&quot;: 2.96875, &quot;y&quot;: 7.828576496701601}, {&quot;x&quot;: 3.0, &quot;y&quot;: 8.0}], &quot;courbes&quot;: []}"></div>
+<p><span style="color:#6a737d">pas <span class="math inline">\(= 1/32\)</span></span></p>
+</div>
+</div>
+<div class="ia" data-ia="curseurs" data-cfg="{&quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.0, x)&quot;}, &quot;curseurs&quot;: [{&quot;nom&quot;: &quot;p_p&quot;, &quot;etiquette&quot;: &quot;p&quot;, &quot;min&quot;: 0.03125, &quot;max&quot;: 1.0, &quot;pas&quot;: 0.03125, &quot;val&quot;: 1.0}], &quot;params&quot;: [&quot;p_p&quot;], &quot;xmin&quot;: 0.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 9.0, &quot;fixes&quot;: [], &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;points&quot;: &quot;p_p&quot;}"></div>
+<div class="ia-legende">
+<p>Les points <span class="math inline">\((x, 2^{x})\)</span> pour <span class="math inline">\(x = 0, p, 2p, 3p, \ldots\)</span> : fais diminuer le pas <span class="math inline">\(p\)</span>.</p>
+</div>
+<p>Au pas <span class="math inline">\(\frac{1}{32}\)</span>, on ne distingue presque plus d’espace entre les points : c’est une <strong>courbe</strong> qui apparaît. On retrouve ainsi <span class="math inline">\(f(x) = 2^{x}\)</span>, construite uniquement à partir d’exposants fractionnaires — des opérations que tu connais déjà.</p>
+<p><strong>Et avant l’année <span class="math inline">\(0\)</span> ?</strong> Rien n’empêche de reculer dans le temps : <span class="math inline">\(2^{-1} = \frac{1}{2}\)</span>, <span class="math inline">\(2^{-2} = \frac{1}{4}\)</span>, … En effet: calculer <span class="math inline">\(2^{-1}\)</span> permet de répondre à la question: quel capital aurais-je dû mettre un an à l’avance pour avoir 1 euro? La formule <span class="math inline">\(2^{x}\)</span> a donc un sens pour les <span class="math inline">\(x\)</span> <strong>négatifs</strong> aussi. Voici sa courbe complète :</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 8.0, &quot;w&quot;: 558, &quot;h&quot;: 315, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 1.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;2ˣ&quot;, &quot;courbes&quot;: [{&quot;couleur&quot;: &quot;#1d6fb8&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.0, x)&quot;}}, {&quot;couleur&quot;: &quot;#6a737d&quot;, &quot;pointille&quot;: true, &quot;ep&quot;: 0.9, &quot;f&quot;: {&quot;js&quot;: &quot;(1.0 + 0.6931471805599453 * (x - 0.0))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}], &quot;lecture&quot;: true}"></div>
+<div id="activite-1-7" class="theo theo-activite" data-sorte="activite" data-num="1.7" data-page="9" data-phys="11" data-id="6UAA4.estimer-pente-tangente" data-type="activite" data-tags="">
+<div class="theo-head">
+<p><strong>Activité 1.7</strong> — estimer la pente de la tangente en <span class="math inline">\(0\)</span></p>
+</div>
+<div class="theo-body">
+<p>Maintenant que la courbe s’étend <em>de part et d’autre</em> de <span class="math inline">\(0\)</span>, on peut l’aborder avec nos outils de 5<sup>e</sup>. On peut par exemple constater qu’il est possible de tracer des tangentes. Autrement dit, la fonction <span class="math inline">\(2^{x}\)</span> sera dérivable. Considérons la tangente au point d’abscisse <span class="math inline">\(0\)</span> (la droite en pointillés). Estime sa <strong>pente</strong> en lisant le quadrillage : la tangente part de <span class="math inline">\((0, 1)\)</span> et, une unité vers la droite (en <span class="math inline">\(x = 1\)</span>), atteint environ <span class="math inline">\(y \approx \class{rep}{1{,}7}\)</span>. Sa pente vaut donc à peu près</p>
+<p><span class="math display">\[
+\text{pente} = \frac{\Delta y}{\Delta x} \approx \frac{\class{rep}{1{,}7} - 1}{1} \approx \class{rep}{0{,}7}.
+\]</span></p>
+</div>
+</div>
+<p>Retiens ce fait : <strong>la courbe de <span class="math inline">\(2^{x}\)</span> possède une tangente en <span class="math inline">\(0\)</span></strong>, de pente voisine de <span class="math inline">\(0{,}7\)</span>.</p>
+</section>
+<section id="bilan-des-activités" class="level2">
+<h2 class="anchored" data-anchor-id="bilan-des-activités">Bilan des activités</h2>
+<p>Nous avons rencontré plusieurs phénomènes de croissance exponentielle — le secret, les intérêts composés, la batterie — et cherché à prolonger <span class="math inline">\(a^{x}\)</span> des exposants entiers aux exposants réels. De tout cela, <strong>deux propriétés</strong> se dégagent, et ce sont exactement celles que nous voulons conserver.</p>
+<ol type="1">
+<li><strong>La relation <span class="math inline">\(f(x + y) = f(x) \cdot f(y)\)</span></strong> (§ 1.1.3) : c’est la caractéristique même de la croissance exponentielle. On y tient parce qu’elle <strong>prolonge les règles de calcul</strong> des exposants entiers (<span class="math inline">\(a^{x + y} = a^{x} \cdot a^{y}\)</span>) — sans elle, l’écriture <span class="math inline">\(a^{x}\)</span> perdrait son sens.</li>
+<li><strong>La stricte monotonie</strong> : tous nos phénomènes étaient soit strictement croissants (le secret, les intérêts), soit strictement décroissants (la batterie). On dira que ce sont des fonctions <strong>strictement monotones</strong>.</li>
+</ol>
+<div id="definition-1-2" class="theo theo-definition" data-sorte="definition" data-num="1.2" data-page="10" data-phys="12" data-id="6UAA4.fonction-strictement-monotone" data-type="definition" data-tags="">
+<div class="theo-head">
+<p><strong>Définition 1.2</strong> — fonction strictement monotone</p>
+</div>
+<div class="theo-body">
+<p>Une fonction <span class="math inline">\(f\)</span> est <strong>strictement monotone</strong> sur son domaine si elle est, <em>soit</em> <strong>strictement croissante</strong>, <em>soit</em> <strong>strictement décroissante</strong>.</p>
+</div>
+</div>
+<p>Ces deux propriétés suffisent pour définir une fonction exponentielle.</p>
+<div class="ae-lien">
+<p><a href="../autoeval.html#sections=sec-construire">✔ S’autoévaluer sur cette section : test de 3 questions →</a></p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "exp-log", "uaa": "6UAA4", "pdf": "exp-log.pdf", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "exp-log.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses écrites en gras", "fichier": "exp-log-corrige.pdf"}, {"titre": "Exercices supplémentaires (ch. 1)", "detail": "à compléter", "fichier": "exercices-supp-ch1.pdf"}, {"titre": "Exercices supplémentaires (ch. 1) — corrigé", "detail": "réponses en bleu", "fichier": "exercices-supp-ch1-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20], "reprise": {"ancien": "/exp-log-cours/", "nouveau": "/6e/exp-log/"}};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  /* Reprise après déménagement du site (ancienne adresse → nouvelle) : les annotations
+     (lim-annot:v1:<chemin>) et les relevés de dés (pb-releve:<chemin>:n) sont rangés
+     par chemin de page ; on recopie, une fois par appareil, les anciennes clés sous les
+     nouvelles (sans écraser ni effacer). Les autres données (suivi, autoévaluation,
+     couche prof) sont rangées par cours et n'ont pas besoin de reprise. */
+  (function (R) {
+    if (!R || location.pathname.indexOf(R.nouveau) !== 0) return;      // seulement depuis la nouvelle adresse
+    try {
+      var fait = "typweb.reprise:" + R.ancien;
+      if (localStorage.getItem(fait)) return;
+      var a = [], i, k;
+      for (i = 0; i < localStorage.length; i++) {
+        k = localStorage.key(i);
+        ["lim-annot:v1:", "pb-releve:"].forEach(function (p) {
+          if (k && k.indexOf(p + R.ancien) === 0) a.push([k, p + R.nouveau + k.slice((p + R.ancien).length)]);
+        });
+      }
+      a.forEach(function (x) { if (localStorage.getItem(x[1]) === null) localStorage.setItem(x[1], localStorage.getItem(x[0])); });
+      localStorage.setItem(fait, String(Date.now()));
+    } catch (e) {}
+  })(window.TYPWEB.reprise);
+  /* Ancien mode hors-ligne (avant le site unique) : son service worker (portée = ancienne adresse) et
+     ses caches « typweb-<10 chiffres hexa> » ne servent plus ; ménage une fois la page chargée. */
+  if (window.TYPWEB.reprise && "serviceWorker" in navigator) window.addEventListener("load", function () {
+    try {
+      navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { if (new URL(r.scope).pathname.indexOf(window.TYPWEB.reprise.ancien) === 0) r.unregister(); });
+      }).catch(function () {});
+      if (window.caches) caches.keys().then(function (ks) {
+        ks.forEach(function (k) { if (/^typweb-[0-9a-f]{10}$/.test(k)) caches.delete(k); });
+      }).catch(function () {});
+    } catch (e) {}
+  });
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css", "js/interactif.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/interactif.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>
+<script>
+// Menu « Aa » : taille du texte (toujours) et styles du site à l'essai. Le choix est
+// mémorisé dans ce navigateur (localStorage « typweb-style »). À retirer quand
+// un style est retenu (typweb.toml : [site] styles-essai = false).
+(function () {
+  var STYLES = [
+    ["", "Actuel"],
+    ["epure", "1 · Épure"],
+    ["epure-types", "2 · Épure, couleurs de type"],
+    ["manuel", "3 · Manuel moderne"],
+    ["cahier", "4 · Cahier"],
+    ["ardoise", "7 · Ardoise"],
+    ["lecture", "8 · Lecture concentrée"],
+    ["fiches", "9 · Fiches numérotées"]
+  ];
+  function courant() { try { return localStorage.getItem("typweb-style") || ""; } catch (e) { return ""; } }
+  function appliquer(s) {
+    if (s) document.documentElement.setAttribute("data-style", s);
+    else document.documentElement.removeAttribute("data-style");
+    try { if (s) localStorage.setItem("typweb-style", s); else localStorage.removeItem("typweb-style"); } catch (e) {}
+    document.querySelectorAll(".st-panneau button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); });
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  var TAILLES = [0.85, 0.92, 1, 1.08, 1.16, 1.25, 1.35, 1.5];
+  function tailleCourante() { try { return parseFloat(localStorage.getItem("typweb-taille")) || 1; } catch (e) { return 1; } }
+  function poserTaille(t) {
+    document.documentElement.style.fontSize = t === 1 ? "" : (100 * t) + "%";
+    try { if (t === 1) localStorage.removeItem("typweb-taille"); else localStorage.setItem("typweb-taille", t); } catch (e) {}
+    var l = document.querySelector(".st-taille span"); if (l) l.textContent = Math.round(t * 100) + " %";
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  function pas(d) {
+    var t = tailleCourante(), k = 0;
+    TAILLES.forEach(function (x, j) { if (Math.abs(x - t) < Math.abs(TAILLES[k] - t)) k = j; });
+    poserTaille(TAILLES[Math.max(0, Math.min(TAILLES.length - 1, k + d))]);
+  }
+  function build() {
+    if (document.querySelector(".st-menu")) return;
+    var essai = !window.TYPWEB || window.TYPWEB.stylesEssai !== false;
+    var m = document.createElement("div"); m.className = "st-menu";
+    var b = document.createElement("button"); b.className = "st-btn"; b.type = "button"; b.textContent = "Aa";
+    b.title = "Taille du texte" + (essai ? " et style du site" : ""); b.setAttribute("aria-label", b.title);
+    var p = document.createElement("div"); p.className = "st-panneau"; p.hidden = true;
+    p.innerHTML = "<p>Taille du texte</p>";
+    var tl = document.createElement("div"); tl.className = "st-taille";
+    var moins = document.createElement("button"); moins.type = "button"; moins.textContent = "A−"; moins.title = "Réduire le texte";
+    var val = document.createElement("span"); val.textContent = Math.round(tailleCourante() * 100) + " %";
+    val.title = "Revenir à 100 %"; val.style.cursor = "pointer";
+    var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "A+"; plus.title = "Agrandir le texte";
+    moins.addEventListener("click", function () { pas(-1); });
+    plus.addEventListener("click", function () { pas(1); });
+    val.addEventListener("click", function () { poserTaille(1); });
+    tl.appendChild(moins); tl.appendChild(val); tl.appendChild(plus);
+    p.appendChild(tl);
+    if (essai) {
+      var sep = document.createElement("div"); sep.className = "st-sep"; p.appendChild(sep);
+      var t = document.createElement("p"); t.textContent = "Style du site (mode clair)"; p.appendChild(t);
+      STYLES.forEach(function (s) {
+        var x = document.createElement("button"); x.type = "button"; x.dataset.s = s[0]; x.textContent = s[1];
+        x.addEventListener("click", function () { appliquer(s[0]); });
+        p.appendChild(x);
+      });
+    }
+    b.addEventListener("click", function () { p.hidden = !p.hidden; });
+    document.addEventListener("click", function (e) { if (!m.contains(e.target)) p.hidden = true; });
+    m.appendChild(p); m.appendChild(b); document.body.appendChild(m);
+    if (essai) appliquer(courant());
+  }
+  if (document.readyState !== "loading") build(); else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qlambotte\.github\.io\/6e\/exp-log\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html" class="pagination-link" aria-label="Croissance exponentielle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Croissance exponentielle</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html" class="pagination-link" aria-label="Définition de la fonction exponentielle">
+        <span class="nav-page-text"><span class="chapter-title">Définition de la fonction exponentielle</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Exponentielles et logarithmes — cours &amp; exercices</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© Quentin Lambotte</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

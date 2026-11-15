@@ -108,6 +108,40 @@
   }
   function adresse(cours, chemin) { return new URL(chemin, cours.url).href; }
 
+  // Site unique : cours.json (généré par « typweb site » à la racine du site) donne l'adresse de chaque
+  // cours par UAA. Elle l'emporte sur le champ « url » des configurations (qui peut dater de l'ancienne
+  // adresse) ; l'ancienne valeur reste dans « urlConfig ». Sans cours.json : configuration inchangée.
+  var CLE_CARTE = "pilotage.cours.copie";
+  function appliquerCarte(config, carte, base) {
+    if (!carte || !carte.cours || !config || !config.classes) return config;
+    config.classes.forEach(function (c) {
+      (c.cours || []).forEach(function (k) {
+        var e = carte.cours[k.uaa];
+        if (!e || typeof e.chemin !== "string") return;
+        try {
+          var u = new URL(e.chemin, base).href;
+          if (u !== k.url) { k.urlConfig = k.url; k.url = u; }
+        } catch (err) {}
+      });
+    });
+    return config;
+  }
+  function chargerCarte(url) {
+    url = url || "../cours.json";
+    var base = new URL(url, location.href).href;
+    var lire = function (txt) { var j = JSON.parse(txt); return j && j.cours ? { carte: j, base: base } : null; };
+    return fetch(url, { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.text();
+    }).then(function (txt) {
+      var res = lire(txt);
+      if (res) { try { localStorage.setItem(CLE_CARTE, txt); } catch (e) {} }
+      return res;
+    }).catch(function () {
+      try { var t = localStorage.getItem(CLE_CARTE); return t ? lire(t) : null; } catch (e) { return null; }
+    });
+  }
+
   // Source par défaut : config.json à côté de la page. Une copie est gardée sur l'appareil
   // (utile si le service worker est indisponible).
   var CLE_COPIE = "pilotage.config.copie";
@@ -155,5 +189,6 @@
       });
     })();
   }
-  return { valider: valider, classe: classe, coursEnCours: coursEnCours, adresse: adresse, sourceFichier: sourceFichier };
+  return { valider: valider, classe: classe, coursEnCours: coursEnCours, adresse: adresse, sourceFichier: sourceFichier,
+           appliquerCarte: appliquerCarte, chargerCarte: chargerCarte };
 });

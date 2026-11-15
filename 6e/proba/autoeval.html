@@ -1,0 +1,3611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>S’autoévaluer – Probabilités</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./nouveautes.html" rel="next">
+<link href="./essentiel.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-373b88032ffeb2d8c9d3af5274f06ecf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./autoeval.html"><span class="chapter-title">S’autoévaluer</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Probabilités</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Probabilités — cours &amp; exercices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch1-compter-sur-de-petit/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 1 — Compter sur de petits ensembles</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Le langage des ensembles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/2-lister-avant-de-compter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lister avant de compter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/3-additionner-multiplier.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Additionner, multiplier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arrangements et permutations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/5-combinaisons.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Combinaisons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Permutations avec répétition : les anagrammes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/7-choisir-une-methode.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Choisir une méthode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-compter-sur-de-petit/8-exercices-supplementaires.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices supplémentaires</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch2-modeliser-le-hasard/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 2 — Modéliser le hasard</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-modeliser-le-hasard/1-frequences-et-probabilite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fréquences et probabilité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-modeliser-le-hasard/2-univers-et-evenements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Univers et événements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Le modèle d’équiprobabilité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés des probabilités</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dénombrer pour calculer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-modeliser-le-hasard/6-exercices-supplementaires.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices supplémentaires</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch3-probabilite-conditio/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 3 — Probabilité conditionnelle et indépendance</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/1-probabilite-conditionnelle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Probabilité conditionnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/2-arbres-de-probabilites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Arbres de probabilités</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/3-lire-un-test-de-depistage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lire un test de dépistage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/4-independance.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Indépendance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/5-pour-aller-plus-loin.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pour aller plus loin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/6-exercices-supplementaires.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices supplémentaires</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-probabilite-conditio/7-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Références</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./autoeval.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">S’autoévaluer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mode-emploi.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mode d’emploi</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">S’autoévaluer</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- GÉNÉRÉ par outils/typ2site.py (autoeval.py) : NE PAS ÉDITER. -->
+<div id="ae-app" data-cle="proba">
+<div class="ae-attente">
+<p>Chargement…</p>
+</div>
+</div>
+<div id="ae-banque" class="ae-cache">
+<div class="ae-sec" data-ae-id="sec-ensembles" data-chap="1" data-url="ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html" data-n="2">
+<p>Le langage des ensembles</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-lister" data-chap="1" data-url="ch1-compter-sur-de-petit/2-lister-avant-de-compter.html" data-n="3">
+<p>Lister avant de compter</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-multiplicatif" data-chap="1" data-url="ch1-compter-sur-de-petit/3-additionner-multiplier.html" data-n="4">
+<p>Additionner, multiplier</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arrangements" data-chap="1" data-url="ch1-compter-sur-de-petit/4-arrangements-et-permutations.html" data-n="6">
+<p>Arrangements et permutations</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-combinaisons" data-chap="1" data-url="ch1-compter-sur-de-petit/5-combinaisons.html" data-n="4">
+<p>Combinaisons</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-anagrammes" data-chap="1" data-url="ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html" data-n="5">
+<p>Permutations avec répétition : les anagrammes</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-choisir" data-chap="1" data-url="ch1-compter-sur-de-petit/7-choisir-une-methode.html" data-n="3">
+<p>Choisir une méthode</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-exercices-supplementaires" data-chap="3" data-url="ch3-probabilite-conditio/6-exercices-supplementaires.html" data-n="0">
+<p>Exercices supplémentaires</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-frequences" data-chap="2" data-url="ch2-modeliser-le-hasard/1-frequences-et-probabilite.html" data-n="4">
+<p>Fréquences et probabilité</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-vocabulaire" data-chap="2" data-url="ch2-modeliser-le-hasard/2-univers-et-evenements.html" data-n="6">
+<p>Univers et événements</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-laplace" data-chap="2" data-url="ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html" data-n="4">
+<p>Le modèle d’équiprobabilité</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-proprietes" data-chap="2" data-url="ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html" data-n="7">
+<p>Propriétés des probabilités</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-denombrer-calculer" data-chap="2" data-url="ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html" data-n="4">
+<p>Dénombrer pour calculer</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-conditionnelle" data-chap="3" data-url="ch3-probabilite-conditio/1-probabilite-conditionnelle.html" data-n="4">
+<p>Probabilité conditionnelle</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arbres" data-chap="3" data-url="ch3-probabilite-conditio/2-arbres-de-probabilites.html" data-n="4">
+<p>Arbres de probabilités</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-depistage" data-chap="3" data-url="ch3-probabilite-conditio/3-lire-un-test-de-depistage.html" data-n="3">
+<p>Lire un test de dépistage</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-independance" data-chap="3" data-url="ch3-probabilite-conditio/4-independance.html" data-n="4">
+<p>Indépendance</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-plus-loin" data-chap="3" data-url="ch3-probabilite-conditio/5-pour-aller-plus-loin.html" data-n="0">
+<p>Pour aller plus loin</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-references" data-chap="3" data-url="ch3-probabilite-conditio/7-references.html" data-n="0">
+<p>Références</p>
+</div>
+<div class="ae-obj" data-code="A5" data-cat="Appliquer">
+<p>…</p>
+</div>
+<div class="ae-obj" data-code="C1" data-cat="Connaître">
+<p>Reconnaître en contexte, un groupement d’objets (arrangement, combinaison).</p>
+</div>
+<div class="ae-obj" data-code="C2" data-cat="Connaître">
+<p>Associer une probabilité au calcul de fréquences à partir d’un exemple d’expérience aléatoire.</p>
+</div>
+<div class="ae-obj" data-code="C3" data-cat="Connaître">
+<p>Citer, pour une expérience aléatoire donnée, la catégorie d’épreuve, deux événements disjoints, un événement et son contraire, un événement certain et un événement impossible.</p>
+</div>
+<div class="ae-obj" data-code="C4" data-cat="Connaître">
+<p>Représenter l’union, l’intersection, la différence de deux événements à l’aide des diagrammes de Venn et les exprimer en langage courant.</p>
+</div>
+<div class="ae-obj" data-code="C5" data-cat="Connaître">
+<p>Citer les propriétés des probabilités.</p>
+</div>
+<div class="ae-obj" data-code="C6" data-cat="Connaître">
+<p>Citer la règle de calcul d’une probabilité d’un événement dans le cas d’événements équiprobables.</p>
+</div>
+<div class="ae-obj" data-code="A1" data-cat="Appliquer">
+<p>Identifier l’événement associé à une probabilité donnée à partir d’un arbre, d’un tableau ou de diagrammes de Venn.</p>
+</div>
+<div class="ae-obj" data-code="A2" data-cat="Appliquer">
+<p>Extraire d’un arbre, d’un tableau ou de diagrammes de Venn la probabilité d’un événement.</p>
+</div>
+<div class="ae-obj" data-code="A3" data-cat="Appliquer">
+<p>Calculer une probabilité (y compris une probabilité conditionnelle) en utilisant : des tableaux / des diagrammes de Venn / des arbres / des formules d’analyse combinatoire.</p>
+</div>
+<div class="ae-obj" data-code="A4" data-cat="Appliquer">
+<p>Vérifier si 2 événements sont dépendants ou indépendants.</p>
+</div>
+<div class="ae-obj" data-code="A5" data-cat="Appliquer">
+<p>Dénombrer les résultats d’une situation à l’aide d’une liste organisée, d’un arbre, d’un diagramme ou des formules d’analyse combinatoire, en justifiant le choix de la formule. <sup>†</sup></p>
+</div>
+<div class="ae-obj" data-code="A6" data-cat="Appliquer">
+<p>Calculer une probabilité <em>a posteriori</em> à partir de données statistiques ou de simulations. <sup>†</sup></p>
+</div>
+<div class="ae-obj" data-code="T1" data-cat="Transférer">
+<p>Résoudre un problème d’analyse combinatoire / de probabilité.</p>
+</div>
+<div class="ae-obj" data-code="T2" data-cat="Transférer">
+<p>Utiliser le calcul des probabilités pour analyser et critiquer des informations chiffrées (santé, presse, jeux de hasard). <sup>†</sup></p>
+</div>
+<div class="ae-qa" data-ae-id="qa-denombrer" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [&quot;sec-ensembles&quot;, &quot;sec-lister&quot;, &quot;sec-multiplicatif&quot;, &quot;sec-arrangements&quot;, &quot;sec-combinaisons&quot;, &quot;sec-anagrammes&quot;, &quot;sec-choisir&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Chapitre 1 : Compter sur de petits ensembles</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions tirées au hasard : lister, multiplier, additionner, arrangements, combinaisons, anagrammes.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-choisir-formule" data-spec="{&quot;questions&quot;: [&quot;den-suite-ou-groupe&quot;, &quot;den-arrangement-podium&quot;, &quot;den-permutation&quot;, &quot;den-combinaison-lotto&quot;, &quot;den-choisir-code&quot;, &quot;den-choisir-boites&quot;, &quot;den-anagrammes&quot;, &quot;den-justifier-formule&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Choisir la bonne formule</p>
+</div>
+<div class="ae-qa-desc">
+<p>L’ordre compte-t-il ? Un élément peut-il revenir ? Les erreurs d’ordre, de répétition et d’objets.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-modeliser" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [&quot;sec-frequences&quot;, &quot;sec-vocabulaire&quot;, &quot;sec-laplace&quot;, &quot;sec-proprietes&quot;, &quot;sec-denombrer-calculer&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Chapitre 2 : Modéliser le hasard</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions tirées au hasard : fréquences, univers et événements, équiprobabilité, propriétés, dénombrer pour calculer.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-conditionnelle" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [&quot;sec-conditionnelle&quot;, &quot;sec-arbres&quot;, &quot;sec-depistage&quot;, &quot;sec-independance&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Chapitre 3 : Probabilité conditionnelle et indépendance</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions tirées au hasard : « parmi… », arbres, dépistage, indépendance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-critiquer" data-spec="{&quot;questions&quot;: [&quot;cond-fiable&quot;, &quot;cond-depistage-lecture&quot;, &quot;cond-depistage-prevalence&quot;, &quot;hasard-grille-123456&quot;, &quot;indep-joueur&quot;, &quot;cond-parmi&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Critiquer des informations chiffrées</p>
+</div>
+<div class="ae-qa-desc">
+<p>Tests de dépistage, Lotto, erreur du joueur : lire un chiffre sans se tromper de condition.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s1" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-ensembles&quot;, &quot;sec-lister&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S1 : Ensembles ; lister avant de compter</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s2" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-multiplicatif&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S2 : Additionner, multiplier</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s3" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-arrangements&quot;, &quot;sec-combinaisons&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S3 : Arrangements, permutations, combinaisons</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s4" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-anagrammes&quot;, &quot;sec-choisir&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S4 : Anagrammes ; choisir une méthode</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s6" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-frequences&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S6 : Fréquences et probabilité</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s7" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-vocabulaire&quot;, &quot;sec-laplace&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S7 : Univers, événements ; équiprobabilité</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s8" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-proprietes&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S8 : Propriétés des probabilités</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s9" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-denombrer-calculer&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S9 : Dénombrer pour calculer</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s11" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-conditionnelle&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S11 : Probabilité conditionnelle</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s12" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-arbres&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S12 : Arbres de probabilités</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s13" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-depistage&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S13 : Lire un test de dépistage</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="ticket-s14" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-independance&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Ticket de sortie — séance S14 : Indépendance</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions tirées au hasard, en fin de séance.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-bases" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Les bases, pour démarrer</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions de niveau ★ sur tout le cours.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ens-operations" data-type="qcm" data-section="sec-ensembles" data-obj="C4" data-niveau="1" data-id="6UAA1.q.ens-operations" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans <span class="math inline">\(E = \{1, 2, …, 10\}\)</span>, <span class="math inline">\(A = \{2, 4, 6, 8, 10\}\)</span> et <span class="math inline">\(B = \{1, 2, 3, 4\}\)</span>. Que vaut <span class="math inline">\(A \setminus B\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\{6, 8, 10\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : les éléments de <span class="math inline">\(A\)</span> qui ne sont pas dans <span class="math inline">\(B\)</span> (<a href="./ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html#activite-1-1">activité 1.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\{2, 4\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(A \cap B\)</span> : les éléments communs.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\{1, 3\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(B \setminus A\)</span> : les éléments de <span class="math inline">\(B\)</span> qui ne sont pas dans <span class="math inline">\(A\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\{1, 3, 6, 8, 10\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ce sont les éléments qui sont dans un seul des deux ensembles. <span class="math inline">\(A \setminus B\)</span> ne garde que ceux de <span class="math inline">\(A\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ens-cardinal" data-type="qcm" data-section="sec-ensembles" data-obj="C4" data-niveau="1" data-id="6UAA1.q.ens-cardinal" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><span class="math inline">\(\#A = 7\)</span>, <span class="math inline">\(\#B = 5\)</span> et <span class="math inline">\(\#(A \cap B) = 2\)</span>. Que vaut <span class="math inline">\(\#(A \cup B)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(10\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(7 + 5 - 2 = 10\)</span> ; les 2 éléments communs ne sont comptés qu’une fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(12\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les 2 éléments communs sont alors comptés deux fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(\#(A \cap B)\)</span>, pas <span class="math inline">\(\#(A \cup B)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(14\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On n’ajoute pas les éléments communs : on les retire une fois.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-binomes" data-type="qcm" data-section="sec-lister" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-binomes" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Combien de binômes différents peut-on former avec quatre élèves A, B, C, D ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : {A, B}, {A, C}, {A, D}, {B, C}, {B, D}, {C, D}. Dans un binôme, l’ordre ne compte pas (<a href="./ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#activite-1-2">activité 1.2</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(12\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as compté AB et BA comme deux binômes différents. Dans un binôme, l’ordre ne compte pas : {A, B} = {B, A}.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(16\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as compté les couples avec répétition (AA, AB…). Un binôme est formé de deux élèves différents, sans ordre.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(4 \cdot 2\)</span>. Liste les binômes par premier élève : il y en a 3 avec A, 2 de plus avec B, 1 de plus avec C.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-liste-organisee" data-type="qcm" data-section="sec-lister" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-liste-organisee" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance deux fois une pièce (P ou F) et on note la suite obtenue. Quelle liste est complète et sans doublon ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>PP, PF, FP, FF</p>
+</div>
+<div class="ae-fb">
+<p>Oui : 4 suites, organisées par premier lancer.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>PP, PF, FF</p>
+</div>
+<div class="ae-fb">
+<p>PF et FP sont deux suites différentes : le premier lancer n’est pas le même.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>PP, PF, FP, FF, PF</p>
+</div>
+<div class="ae-fb">
+<p>PF apparaît deux fois. Organise la liste par premier lancer pour éviter les doublons.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>P, F</p>
+</div>
+<div class="ae-fb">
+<p>Un résultat est une suite de deux lancers, pas un seul lancer.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-suite-ou-groupe" data-type="qcm" data-section="sec-lister" data-obj="C1" data-niveau="1" data-id="6UAA1.q.den-suite-ou-groupe" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans quelle situation un résultat est-il un <em>groupe</em> (l’ordre ne compte pas) ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Choisir 3 livres à emporter parmi 10.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : emporter les livres 1, 2, 3 ou 3, 2, 1 revient au même.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Élire un président et un secrétaire.</p>
+</div>
+<div class="ae-fb">
+<p>Les fonctions sont différentes : (Ana, Ben) n’est pas (Ben, Ana). C’est une suite.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Former un code à 4 chiffres.</p>
+</div>
+<div class="ae-fb">
+<p>1234 et 4321 sont deux codes différents : l’ordre compte.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Fixer l’ordre de passage de 5 élèves.</p>
+</div>
+<div class="ae-fb">
+<p>Un ordre de passage est une suite (une permutation).</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-multiplicatif-menus" data-type="qcm" data-section="sec-multiplicatif" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-multiplicatif-menus" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Un menu comprend une entrée parmi 3, un plat parmi 4 et un dessert parmi 2. Combien de menus différents ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(24\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(3 \cdot 4 \cdot 2 = 24\)</span> par le <a href="./ch1-compter-sur-de-petit/3-additionner-multiplier.html#propriete-1-1">principe multiplicatif</a>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(9\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as additionné <span class="math inline">\(3 + 4 + 2\)</span>. On choisit une entrée <em>et</em> un plat <em>et</em> un dessert : on multiplie.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{9}^{3} = 84\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On ne choisit pas 3 plats parmi 9 : chaque étape a ses propres choix. Construis l’arbre.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(12\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié une étape. Il y a trois étapes : entrée, plat, dessert.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-additif-reunion" data-type="qcm" data-section="sec-multiplicatif" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-additif-reunion" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un ensemble <span class="math inline">\(E\)</span>, <span class="math inline">\(\#A = 12\)</span>, <span class="math inline">\(\#B = 9\)</span> et <span class="math inline">\(\#(A \cap B) = 4\)</span>. Que vaut <span class="math inline">\(\#(A \cup B)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(17\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(12 + 9 - 4 = 17\)</span> (<a href="./ch1-compter-sur-de-petit/3-additionner-multiplier.html#propriete-1-2">principe additif</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(21\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les 4 éléments de <span class="math inline">\(A \cap B\)</span> sont comptés deux fois dans <span class="math inline">\(12 + 9\)</span> : il faut les retirer une fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(25\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On retire l’intersection, on ne l’ajoute pas : <span class="math inline">\(\#(A \cup B) = \#A + \#B - \#(A \cap B)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(13\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as retiré l’intersection deux fois. Dans le diagramme : <span class="math inline">\(A\)</span> seulement 8, intersection 4, <span class="math inline">\(B\)</span> seulement 5.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-complementaire" data-type="qcm" data-section="sec-multiplicatif" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-complementaire" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Combien de nombres de 3 chiffres (de 000 à 999) contiennent au moins un 5 ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(1000 - 9^{3} = 271\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : on compte tout, puis on retire ceux qui n’ont aucun 5 (<a href="./ch1-compter-sur-de-petit/3-additionner-multiplier.html#propriete-1-3">propriété 1.3</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3 \cdot 100 = 300\)</span></p>
+</div>
+<div class="ae-fb">
+<p>En plaçant « un 5 » sur chaque position, 555 ou 505 sont comptés plusieurs fois. Passe par le contraire « aucun 5 ».</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(9^{3} = 729\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le nombre de codes <em>sans</em> 5. La question porte sur son contraire.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1 \cdot 10 \cdot 10 = 100\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as fixé le 5 à la première place. Il peut être à n’importe quelle place, voire à plusieurs.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-pairs-distincts" data-type="ouverte" data-section="sec-multiplicatif" data-obj="T1" data-niveau="3" data-id="6UAA1.q.den-pairs-distincts" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Combien existe-t-il de nombres pairs de trois chiffres distincts ?</p>
+</div>
+<div class="ae-rep">
+<p>On commence par les unités, qui imposent la parité, et on distingue deux cas sans nombre commun. Unités 0 : 9 choix pour les centaines, 8 pour les dizaines : <span class="math inline">\(72\)</span>. Unités 2, 4, 6 ou 8 : 8 choix pour les centaines (ni 0, ni le chiffre des unités), puis 8 pour les dizaines : <span class="math inline">\(4 \cdot 8 \cdot 8 = 256\)</span>. Total : <span class="math inline">\(72 + 256 = 328\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai commencé par le chiffre des unités.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai distingué le cas « unités 0 » des autres (le 0 est interdit aux centaines).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai additionné les deux cas et trouvé 328.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-arrangement-podium" data-type="qcm" data-section="sec-arrangements" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-arrangement-podium" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Combien de podiums (1<sup>er</sup>, 2<sup>e</sup>, 3<sup>e</sup>) possibles avec 8 coureurs ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(A_{8}^{3} = 336\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : une suite de 3 coureurs distincts, <span class="math inline">\(8 \cdot 7 \cdot 6\)</span> (<a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#definition-1-1">arrangements</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{8}^{3} = 56\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur d’ordre : le podium (A, B, C) diffère de (B, A, C).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8^{3} = 512\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur de répétition : un coureur ne peut pas occuper deux marches.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8! = 40 \, 320\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le nombre de classements complets des 8 coureurs, pas des 3 premiers.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-factorielle" data-type="qcm" data-section="sec-arrangements" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-factorielle" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Que vaut <span class="math inline">\(\frac{9!}{7!}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(72\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{9!}{7!} = 9 \cdot 8 = 72\)</span> (<a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#definition-1-2">factorielle</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{9}{7}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On ne simplifie pas les nombres sous le « ! » : <span class="math inline">\(9! = 9 \cdot 8 \cdot 7!\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2! = 2\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{9!}{7!} \neq (9 - 7)!\)</span>. Écris <span class="math inline">\(9! = 9 \cdot 8 \cdot 7!\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(63\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(9 \cdot 7\)</span>. Il reste les facteurs 9 et 8 après simplification par <span class="math inline">\(7!\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-permutation" data-type="qcm" data-section="sec-arrangements" data-obj="C1" data-niveau="1" data-id="6UAA1.q.den-permutation" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>De combien de façons peut-on ranger 5 livres différents sur une étagère ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(5! = 120\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : une permutation des 5 livres (<a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#definition-1-3">permutations</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(5^{5} = 3125\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Un livre ne peut pas occuper deux places : pas de répétition.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{5}^{5} = 1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>L’ordre des livres compte : c’est une suite, pas un groupe.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(25\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(5 \cdot 5\)</span>. Premier livre : 5 choix, puis 4, puis 3…</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-factorielle-simplifier" data-type="qcm" data-section="sec-arrangements" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-factorielle-simplifier" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour <span class="math inline">\(n \geq 2\)</span>, que vaut <span class="math inline">\(\frac{n!}{(n-2)!}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(n(n-1)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(n! = n(n-1) \cdot (n-2)!\)</span> (<a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#definition-1-2">factorielle</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On ne simplifie pas les nombres sous le « ! » : écris <span class="math inline">\(n! = n(n-1)(n-2)!\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2!\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{n!}{(n-2)!} \neq (n - (n-2))!\)</span>. Écris <span class="math inline">\(n!\)</span> comme un produit.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{n}{n-2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(n! = n(n-1)(n-2) \cdots 1\)</span> : après simplification par <span class="math inline">\((n-2)!\)</span>, il reste deux facteurs.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-arrangement-sens" data-type="qcm" data-section="sec-arrangements" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-arrangement-sens" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On classe les 10 coureurs d’une course. Combien de classements complets donnent le même podium (les 3 premiers, dans l’ordre) ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(7!\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : seul l’ordre des 7 derniers change. Chaque podium provient de <span class="math inline">\(7!\)</span> classements, d’où <span class="math inline">\(A_{10}^{3} = \frac{10!}{7!}\)</span> (<a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#propriete-1-4">propriété 1.4</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3!\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le podium est fixé, dans l’ordre : ses 3 coureurs ne peuvent plus être échangés. Ce sont les 7 autres qui peuvent l’être.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(7\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il y a 7 coureurs hors du podium, mais ils peuvent être rangés de plusieurs façons : combien ?</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{10!}{3!}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ce quotient ne compte pas les classements d’un podium donné. Échange les 7 derniers coureurs : combien d’ordres ?</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-contrainte-premier" data-type="qcm" data-section="sec-arrangements" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-contrainte-premier" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Six enfants, dont Arnaud, descendent un toboggan l’un après l’autre. Combien d’ordres de passage sont possibles si Arnaud passe en premier ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(5! = 120\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : la première place est fixée ; on range les 5 autres enfants (<a href="./ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#definition-1-3">permutations</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6! = 720\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(6!\)</span> compte aussi les ordres où Arnaud n’est pas le premier.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6! - 1 = 719\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les ordres interdits sont nombreux : tous ceux où Arnaud n’est pas en tête.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6 \cdot 5! = 720\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il n’y a qu’un choix pour la première place : Arnaud.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-combinaison-lotto" data-type="qcm" data-section="sec-combinaisons" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-combinaison-lotto" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Au Lotto, on coche 6 numéros parmi 45. Quelle expression compte les grilles ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(C_{45}^{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : une grille est un groupe de 6 numéros distincts (<a href="./ch1-compter-sur-de-petit/5-combinaisons.html#exemple-1-3">exemple 1.3</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(A_{45}^{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur d’ordre : cocher 3 puis 7 ou 7 puis 3 donne la même grille.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(45^{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur de répétition et d’ordre : un numéro ne peut pas être coché deux fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6^{45}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur d’objets : on choisit 6 numéros parmi 45, pas un nombre parmi 6 pour chacun des 45 numéros.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-regrouper-diviser" data-type="qcm" data-section="sec-combinaisons" data-obj="C1" data-niveau="2" data-id="6UAA1.q.den-regrouper-diviser" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On range les <span class="math inline">\(A_{7}^{3} = 210\)</span> suites de 3 élèves distincts parmi 7 en paquets : un paquet regroupe les suites formées des mêmes élèves. Combien de suites par paquet, et combien de paquets ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(6\)</span> suites par paquet, <span class="math inline">\(35\)</span> paquets</p>
+</div>
+<div class="ae-fb">
+<p>Oui : 3 élèves s’ordonnent de <span class="math inline">\(3! = 6\)</span> façons ; <span class="math inline">\(\frac{210}{6} = 35 = C_{7}^{3}\)</span> (<a href="./ch1-compter-sur-de-petit/5-combinaisons.html#activite-1-6">activité 1.6</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3\)</span> suites par paquet, <span class="math inline">\(70\)</span> paquets</p>
+</div>
+<div class="ae-fb">
+<p>3 élèves s’ordonnent de <span class="math inline">\(3! = 6\)</span> façons, pas 3 : ABC, ACB, BAC, BCA, CAB, CBA.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(7\)</span> suites par paquet, <span class="math inline">\(30\)</span> paquets</p>
+</div>
+<div class="ae-fb">
+<p>Un paquet ne dépend que des 3 élèves choisis : il contient les <span class="math inline">\(3!\)</span> ordres de ces élèves.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1\)</span> suite par paquet, <span class="math inline">\(210\)</span> paquets</p>
+</div>
+<div class="ae-fb">
+<p>ABC et BAC sont formées des mêmes élèves : elles vont dans le même paquet.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-symetrie" data-type="qcm" data-section="sec-combinaisons" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-symetrie" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle égalité est vraie ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(C_{10}^{3} = C_{10}^{7}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : choisir les 3 qui partent revient à choisir les 7 qui restent (<a href="./ch1-compter-sur-de-petit/5-combinaisons.html#propriete-1-5">symétrie</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{10}^{3} = C_{7}^{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le nombre total d’éléments ne change pas : on choisit toujours parmi 10.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{10}^{3} = A_{10}^{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(A_{10}^{3} = C_{10}^{3} \cdot 3!\)</span> : les suites sont 6 fois plus nombreuses que les groupes.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{10}^{3} = 3 \cdot C_{10}^{1}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ces deux nombres valent 120 et 30. Utilise plutôt le complémentaire : <span class="math inline">\(C_{n}^{p} = C_{n}^{n-p}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-comite" data-type="ouverte" data-section="sec-combinaisons" data-obj="A5 T1" data-niveau="2" data-id="6UAA1.q.den-comite" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Un comité de 4 personnes est formé de 2 filles choisies parmi 7 et de 2 garçons choisis parmi 5. Combien de comités sont possibles ? Justifie le choix des formules.</p>
+</div>
+<div class="ae-rep">
+<p>Les filles forment un groupe de 2 parmi 7 (l’ordre ne compte pas, pas de répétition) : <span class="math inline">\(C_{7}^{2} = 21\)</span>. Les garçons forment un groupe de 2 parmi 5 : <span class="math inline">\(C_{5}^{2} = 10\)</span>. Tout groupe de filles s’associe à tout groupe de garçons : par le principe multiplicatif, <span class="math inline">\(21 \cdot 10 = 210\)</span> comités.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai justifié que l’ordre ne compte pas (combinaisons).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(C_{7}^{2} = 21\)</span> et <span class="math inline">\(C_{5}^{2} = 10\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai multiplié (et non additionné) et trouvé 210.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-anagrammes" data-type="qcm" data-section="sec-anagrammes" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-anagrammes" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Combien d’anagrammes du mot BALLE ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{5!}{2!} = 60\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : 5 lettres dont L deux fois (<a href="./ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#propriete-1-6">propriété 1.6</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(5! = 120\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Échanger les deux L ne change pas le mot : chaque anagramme est compté deux fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4! = 24\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le mot a 5 lettres, même si deux sont identiques.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{5!}{2! \cdot 2!} = 30\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Seul le L est répété. B, A et E n’apparaissent qu’une fois.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-permutation-repetition" data-type="qcm" data-section="sec-anagrammes" data-obj="C1" data-niveau="1" data-id="6UAA1.q.den-permutation-repetition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On aligne 4 jetons noirs identiques et 3 jetons blancs identiques. De quel type de groupement s’agit-il, et combien d’alignements différents ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Permutations avec répétition : <span class="math inline">\(\frac{7!}{4! \cdot 3!} = 35\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : on range les 7 jetons, dont 4 identiques et 3 identiques (<a href="./ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#definition-1-5">définition 1.5</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Permutations : <span class="math inline">\(7! = 5040\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Échanger deux jetons de même couleur ne change pas l’alignement : il faut diviser par <span class="math inline">\(4!\)</span> et par <span class="math inline">\(3!\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Arrangements avec répétition : <span class="math inline">\(2^{7} = 128\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(2^{7}\)</span> compte aussi des alignements qui n’ont pas exactement 4 jetons noirs.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Combinaisons : <span class="math inline">\(C_{7}^{4} \cdot C_{7}^{3} = 1225\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Une fois les places des 4 noirs choisies (<span class="math inline">\(C_{7}^{4}\)</span>), les blancs occupent les 3 places restantes : on ne choisit pas à nouveau parmi 7.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-anagramme-radar" data-type="qcm" data-section="sec-anagrammes" data-obj="A5" data-niveau="1" data-id="6UAA1.q.den-anagramme-radar" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Combien d’anagrammes du mot RADAR ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{5!}{2! \cdot 2!} = 30\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : 5 lettres, R deux fois et A deux fois (<a href="./ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#definition-1-5">permutations avec répétition</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(5! = 120\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Échanger les deux R (ou les deux A) donne le même mot : divise par <span class="math inline">\(2!\)</span> pour chacune.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{5!}{2!} = 60\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as tenu compte d’une seule lettre répétée ; R et A apparaissent chacune deux fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{5}^{2} = 10\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(C_{5}^{2}\)</span> place les deux R ; il faut encore placer les deux A parmi les 3 places restantes (<span class="math inline">\(C_{3}^{2} = 3\)</span>) : <span class="math inline">\(10 \cdot 3 = 30\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-groupe-mot" data-type="qcm" data-section="sec-anagrammes" data-obj="C1" data-niveau="2" data-id="6UAA1.q.den-groupe-mot" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Choisir 3 délégués parmi 5 élèves revient à compter les anagrammes de quel mot ? (O : « délégué », N : « pas délégué ».)</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>OOONN</p>
+</div>
+<div class="ae-fb">
+<p>Oui : on écrit O ou N sous chaque élève ; une délégation = un anagramme de OOONN, et <span class="math inline">\(\frac{5!}{3! \cdot 2!} = C_{5}^{3} = 10\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>OOO</p>
+</div>
+<div class="ae-fb">
+<p>Il faut une lettre par élève : 5 lettres, dont 3 O.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>ABCDE</p>
+</div>
+<div class="ae-fb">
+<p>Les anagrammes de ABCDE sont les <span class="math inline">\(5! = 120\)</span> rangements des élèves : l’ordre y compte.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>OOOOO</p>
+</div>
+<div class="ae-fb">
+<p>Ce mot n’a qu’un seul anagramme : il correspondrait à 5 délégués. Il faut 3 O et 2 N.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-anagrammes-deux-methodes" data-type="ouverte" data-section="sec-anagrammes" data-obj="A5" data-niveau="2" data-id="6UAA1.q.den-anagrammes-deux-methodes" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Combien d’anagrammes du mot COCCINELLE ? Réponds par deux méthodes.</p>
+</div>
+<div class="ae-rep">
+<p>10 lettres : C trois fois, E deux fois, L deux fois, O, I, N une fois. Méthode 1 : <span class="math inline">\(\frac{10!}{3! \cdot 2! \cdot 2!} = \frac{3 \, 628 \, 800}{24} = 151 \, 200\)</span>. Méthode 2 : places des C, <span class="math inline">\(C_{10}^{3} = 120\)</span> ; des E parmi les 7 restantes, <span class="math inline">\(C_{7}^{2} = 21\)</span> ; des L parmi les 5 restantes, <span class="math inline">\(C_{5}^{2} = 10\)</span> ; O, I, N sur les 3 dernières places, <span class="math inline">\(3! = 6\)</span>. <span class="math inline">\(120 \cdot 21 \cdot 10 \cdot 6 = 151 \, 200\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai compté correctement les lettres répétées (C : 3, E : 2, L : 2).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai reconnu des permutations avec répétition et appliqué la propriété 1.6.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai retrouvé le même nombre, 151 200, par le choix des places.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-choisir-code" data-type="qcm" data-section="sec-choisir" data-obj="C1" data-niveau="1" data-id="6UAA1.q.den-choisir-code" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Code d’un cadenas à 4 roues de chiffres (0 à 9) : quelle formule ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(10^{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’ordre compte et un chiffre peut revenir (<a href="./ch1-compter-sur-de-petit/7-choisir-une-methode.html#cadre-situations-de-reference">situations de référence</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(A_{10}^{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Un chiffre peut revenir (0077 est un code) : c’est un arrangement <em>avec</em> répétition.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{10}^{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>L’ordre des roues compte : 1234 n’ouvre pas le cadenas réglé sur 4321.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4^{10}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur d’objets : chacune des 4 roues a 10 chiffres possibles, soit <span class="math inline">\(10^{4}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-choisir-boites" data-type="qcm" data-section="sec-choisir" data-obj="C1" data-niveau="2" data-id="6UAA1.q.den-choisir-boites" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On place 3 lettres différentes dans 6 boîtes, au plus une lettre par boîte. Combien de placements ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(A_{6}^{3} = 120\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : on choisit, dans l’ordre des lettres, 3 boîtes distinctes.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(C_{6}^{3} = 20\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les lettres sont différentes : échanger deux lettres donne un autre placement.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6^{3} = 216\)</span></p>
+</div>
+<div class="ae-fb">
+<p>« Au plus une lettre par boîte » interdit la répétition des boîtes.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3^{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur d’objets : ce sont les lettres qui choisissent une boîte, pas les boîtes qui choisissent une lettre.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="den-justifier-formule" data-type="ouverte" data-section="sec-choisir" data-obj="C1 A5" data-niveau="2" data-id="6UAA1.q.den-justifier-formule" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Une classe de 20 élèves élit un délégué et un suppléant. Décris un résultat, dis si l’ordre compte et si la répétition est possible, puis donne le nombre de résultats.</p>
+</div>
+<div class="ae-rep">
+<p>Un résultat est une suite (délégué, suppléant) de deux élèves. L’ordre compte (les rôles sont différents), pas de répétition (un élève n’a pas deux rôles). <span class="math inline">\(A_{20}^{2} = 20 \cdot 19 = 380\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai décrit un résultat comme une suite de deux élèves.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai justifié l’ordre et l’absence de répétition.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé 380.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-frequence-stabilise" data-type="qcm" data-section="sec-frequences" data-obj="C2" data-niveau="1" data-id="6UAA1.q.hasard-frequence-stabilise" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance un grand nombre de fois une punaise. Que peut-on dire de la fréquence de « pointe en haut » ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Elle se stabilise autour d’un nombre, que l’on appelle la probabilité de « pointe en haut ».</p>
+</div>
+<div class="ae-fb">
+<p>Oui (<a href="./ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#definition-2-1">définition 2.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle vaut exactement <span class="math inline">\(\frac{1}{2}\)</span>, car il y a deux résultats possibles.</p>
+</div>
+<div class="ae-fb">
+<p>Deux résultats ne sont pas forcément équiprobables : la punaise n’est pas symétrique.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle finit par valoir exactement la probabilité après 1 000 lancers.</p>
+</div>
+<div class="ae-fb">
+<p>Elle s’en approche, sans l’atteindre exactement : c’est une estimation.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle ne change pas quand le nombre de lancers augmente.</p>
+</div>
+<div class="ae-fb">
+<p>Elle varie beaucoup au début, puis de moins en moins.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-simulation-suppose" data-type="qcm" data-section="sec-frequences" data-obj="C2" data-niveau="2" data-id="6UAA1.q.hasard-simulation-suppose" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On simule des lancers de dé au tableur avec <code>=ALEA.ENTRE.BORNES(1;6)</code>. Que montre cette simulation ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Ce qui se passe <em>si</em> le dé est équilibré : elle reproduit ce modèle, sans le démontrer.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : la simulation fonctionne à l’intérieur d’un modèle qu’elle suppose (<a href="./ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#activite-2-1">activité 2.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Que les vrais dés sont équilibrés.</p>
+</div>
+<div class="ae-fb">
+<p>La formule suppose l’équilibre ; elle ne dit rien des dés réels.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>La valeur exacte de <span class="math inline">\(P(\text{obtenir 6})\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Une simulation donne une fréquence, donc une estimation.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Que le 6 sortira une fois sur six exactement.</p>
+</div>
+<div class="ae-fb">
+<p>Sur un nombre fini de lancers, la fréquence n’est pas exactement <span class="math inline">\(\frac{1}{6}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-a-posteriori-calcul" data-type="qcm" data-section="sec-frequences" data-obj="A6" data-niveau="1" data-id="6UAA1.q.hasard-a-posteriori-calcul" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Au 1<sup>er</sup> janvier 2019, 7 145 habitants sur 11 431 406 étaient nés un 29 février (Statbel). Quelle est l’estimation de la probabilité qu’un habitant soit né un 29 février ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\approx 0{,}000625\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{7145}{11431406}\)</span> (<a href="./ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#exemple-2-1">exemple 2.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{365}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est une probabilité calculée dans un modèle, pas estimée à partir des données ; et le 29 février n’existe qu’une année sur quatre.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\approx 0{,}0625\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(0{,}0625\)</span> est un pourcentage (<span class="math inline">\(0{,}0625 \%\)</span>). La probabilité vaut <span class="math inline">\(0{,}000625\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{1461}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité dans le modèle « naissances uniformes ». La question demande l’estimation par les données.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-hainaut-attendu" data-type="ouverte" data-section="sec-frequences" data-obj="A6" data-niveau="1" data-id="6UAA1.q.hasard-hainaut-attendu" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>En Hainaut, <span class="math inline">\(0{,}068 \%\)</span> des habitants sont nés un 29 février (Statbel). Parmi 50 000 Hennuyers, combien peut-on s’attendre à en trouver ?</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(50 \, 000 \cdot 0{,}00068 = 34\)</span> : environ 34 personnes.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai converti <span class="math inline">\(0{,}068 \%\)</span> en <span class="math inline">\(0{,}00068\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé environ 34 personnes.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-univers" data-type="qcm" data-section="sec-vocabulaire" data-obj="C3" data-niveau="1" data-id="6UAA1.q.hasard-univers" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance deux pièces distinguées (une de 1 €, une de 2 €). Quel est l’univers ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\{\text{PP}, \text{PF}, \text{FP}, \text{FF}\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : 4 issues, en distinguant les pièces (<a href="./ch2-modeliser-le-hasard/2-univers-et-evenements.html#definition-2-2">définition 2.2</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\{\text{P}, \text{F}\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Une issue décrit les deux pièces, pas une seule.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\{\text{deux P}, \text{un P}, \text{zéro P}\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ce sont des événements, et ils ne sont pas équiprobables. Les issues sont les couples.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\{\text{PP}, \text{PF}, \text{FF}\}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>PF (1 € pile, 2 € face) et FP sont deux issues différentes.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-disjoints" data-type="qcm" data-section="sec-vocabulaire" data-obj="C3" data-niveau="1" data-id="6UAA1.q.hasard-disjoints" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance un dé. Quels événements sont disjoints ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>« obtenir 1 » et « obtenir un nombre pair »</p>
+</div>
+<div class="ae-fb">
+<p>Oui : 1 n’est pas pair, ils n’ont aucune issue commune.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>« obtenir un nombre pair » et « obtenir au moins 4 »</p>
+</div>
+<div class="ae-fb">
+<p>4 et 6 sont dans les deux.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>« obtenir au plus 3 » et « obtenir au moins 3 »</p>
+</div>
+<div class="ae-fb">
+<p>3 est dans les deux.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>« obtenir un nombre impair » et « obtenir un nombre premier »</p>
+</div>
+<div class="ae-fb">
+<p>3 et 5 sont dans les deux.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-contraire" data-type="qcm" data-section="sec-vocabulaire" data-obj="C3" data-niveau="2" data-id="6UAA1.q.hasard-contraire" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance deux dés. Quel est le contraire de « obtenir au moins un 6 » ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>« n’obtenir aucun 6 »</p>
+</div>
+<div class="ae-fb">
+<p>Oui : exactement l’un des deux est réalisé.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>« obtenir deux 6 »</p>
+</div>
+<div class="ae-fb">
+<p>« Deux 6 » est compris dans « au moins un 6 ».</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>« obtenir au plus un 6 »</p>
+</div>
+<div class="ae-fb">
+<p>« Exactement un 6 » est à la fois « au moins un 6 » et « au plus un 6 ».</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>« obtenir un 1 »</p>
+</div>
+<div class="ae-fb">
+<p>(1, 6) contient un 1 et un 6 : les deux événements peuvent être réalisés ensemble.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-difference-mots" data-type="qcm" data-section="sec-vocabulaire" data-obj="C4" data-niveau="1" data-id="6UAA1.q.hasard-difference-mots" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><span class="math inline">\(F\)</span> : « l’élève fait du football » ; <span class="math inline">\(M\)</span> : « l’élève fait de la musique ». Que signifie <span class="math inline">\(F \setminus M\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>L’élève fait du football, mais pas de musique.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(F \setminus M\)</span> contient les éléments de <span class="math inline">\(F\)</span> qui ne sont pas dans <span class="math inline">\(M\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>L’élève fait du football et de la musique.</p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(F \cap M\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>L’élève fait de la musique, mais pas de football.</p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(M \setminus F\)</span> : l’ordre compte dans une différence.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>L’élève ne fait ni football ni musique.</p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(\overline{F \cup M}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-venn-union" data-type="qcm" data-section="sec-vocabulaire" data-obj="C4" data-niveau="1" data-id="6UAA1.q.hasard-venn-union" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un diagramme de Venn à deux ensembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, quelle zone représente <span class="math inline">\(A \cup B\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Tout ce qui est dans au moins l’un des deux cercles.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : « <span class="math inline">\(A\)</span> ou <span class="math inline">\(B\)</span> » au sens large (<a href="./ch2-modeliser-le-hasard/2-univers-et-evenements.html#activite-2-2">activité 2.2</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>La partie commune aux deux cercles seulement.</p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(A \cap B\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Les deux cercles, sans leur partie commune.</p>
+</div>
+<div class="ae-fb">
+<p>En mathématiques, « ou » inclut le cas où les deux sont réalisés.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Tout ce qui est en dehors des deux cercles.</p>
+</div>
+<div class="ae-fb">
+<p>C’est le contraire de <span class="math inline">\(A \cup B\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-venn-trois" data-type="ouverte" data-section="sec-vocabulaire" data-obj="C4 C3" data-niveau="2" data-id="6UAA1.q.hasard-venn-trois" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>On lance un dé. <span class="math inline">\(A\)</span> : « obtenir au moins 4 » ; <span class="math inline">\(B\)</span> : « obtenir un nombre impair ». Écris en extension <span class="math inline">\(A \cap B\)</span>, <span class="math inline">\(A \setminus B\)</span>, <span class="math inline">\(B \setminus A\)</span> et <span class="math inline">\(\overline{A \cup B}\)</span>, et dis-les en mots.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(A = \{4, 5, 6\}\)</span>, <span class="math inline">\(B = \{1, 3, 5\}\)</span>. <span class="math inline">\(A \cap B = \{5\}\)</span> : « obtenir un nombre impair d’au moins 4 ». <span class="math inline">\(A \setminus B = \{4, 6\}\)</span> : « obtenir au moins 4, mais pas un nombre impair ». <span class="math inline">\(B \setminus A = \{1, 3\}\)</span> : « obtenir un nombre impair inférieur à 4 ». <span class="math inline">\(\overline{A \cup B} = \{2\}\)</span> : « ni au moins 4, ni impair ».</p>
+</div>
+<div class="ae-crit">
+<p>J’ai écrit correctement <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> en extension.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé les quatre événements demandés.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai traduit chacun en langage courant.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-somme-sept" data-type="qcm" data-section="sec-laplace" data-obj="C6" data-niveau="1" data-id="6UAA1.q.hasard-somme-sept" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance deux dés équilibrés. Quelle est la probabilité que la somme vaille 7 ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{6}{36} = \frac{1}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : 6 couples sur 36 équiprobables (<a href="./ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#activite-2-3">activité 2.3</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{11}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Biais d’équiprobabilité : les 11 sommes ne sont pas équiprobables. Les issues équiprobables sont les 36 couples.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{3}{36}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>(1, 6) et (6, 1) sont deux couples différents : distingue les dés.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{6} \cdot \frac{1}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité d’un couple précis. Il y a 6 couples de somme 7.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-laplace-condition" data-type="qcm" data-section="sec-laplace" data-obj="C6" data-niveau="2" data-id="6UAA1.q.hasard-laplace-condition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quand peut-on calculer <span class="math inline">\(P(A) = \frac{\#A}{\#\Omega}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Quand on suppose que toutes les issues de <span class="math inline">\(\Omega\)</span> ont la même probabilité.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : c’est l’hypothèse d’équiprobabilité (<a href="./ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#definition-2-3">définition 2.3</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Toujours.</p>
+</div>
+<div class="ae-fb">
+<p>Une punaise a deux issues qui n’ont pas la même probabilité : la formule ne s’applique pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Quand <span class="math inline">\(\#\Omega\)</span> est petit.</p>
+</div>
+<div class="ae-fb">
+<p>La taille de l’univers n’y est pour rien : le Lotto a 8 145 060 issues équiprobables.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Quand <span class="math inline">\(A\)</span> et <span class="math inline">\(\overline{A}\)</span> ont autant d’issues.</p>
+</div>
+<div class="ae-fb">
+<p>Ce n’est pas la condition. Il faut que chaque issue ait la même probabilité.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-trois-enfants" data-type="ouverte" data-section="sec-laplace" data-obj="A3" data-niveau="2" data-id="6UAA1.q.hasard-trois-enfants" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>On lance trois fois une pièce équilibrée. Quelle est la probabilité d’obtenir exactement un « pile » ? Écris l’hypothèse de modélisation.</p>
+</div>
+<div class="ae-rep">
+<p>Une issue est une suite de trois faces : <span class="math inline">\(2^{3} = 8\)</span> issues, que l’on suppose équiprobables (pièce équilibrée, lancers indépendants). Exactement un « pile » : PFF, FPF, FFP. <span class="math inline">\(P(\text{exactement un pile}) = \frac{3}{8}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai écrit l’hypothèse d’équiprobabilité des 8 suites.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai listé les 3 issues favorables.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(\frac{3}{8}\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-toscane" data-type="qcm" data-section="sec-laplace" data-obj="A3" data-niveau="3" data-id="6UAA1.q.hasard-toscane" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Avec trois dés, combien de suites (dés distingués) donnent une somme de 10 ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(27\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : 1+3+6 (6 suites), 1+4+5 (6), 2+2+6 (3), 2+3+5 (6), 2+4+4 (3), 3+3+4 (3) (<a href="./ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#exemple-2-4">exemple 2.4</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>6 est le nombre de sommes sans ordre ; elles ne correspondent pas au même nombre de suites.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(36\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as compté 6 suites pour chaque décomposition. 2+2+6 ne donne que 3 suites.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(25\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le nombre de suites de somme 9.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-prop-contraire" data-type="qcm" data-section="sec-proprietes" data-obj="C5" data-niveau="1" data-id="6UAA1.q.hasard-prop-contraire" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Si <span class="math inline">\(P(A) = 0{,}35\)</span>, que vaut <span class="math inline">\(P(\overline{A})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}65\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(P(\overline{A}) = 1 - P(A)\)</span> (<a href="./ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#propriete-2-1">propriété 2.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}35\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Un événement et son contraire n’ont pas la même probabilité en général.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-0{,}35\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Une probabilité est comprise entre 0 et 1.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{0{,}35}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le contraire se calcule par soustraction : <span class="math inline">\(1 - P(A)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-prop-reunion" data-type="qcm" data-section="sec-proprietes" data-obj="C5" data-niveau="2" data-id="6UAA1.q.hasard-prop-reunion" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><span class="math inline">\(P(A) = 0{,}6\)</span>, <span class="math inline">\(P(B) = 0{,}5\)</span>, <span class="math inline">\(P(A \cap B) = 0{,}3\)</span>. Que vaut <span class="math inline">\(P(A \cup B)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}8\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(0{,}6 + 0{,}5 - 0{,}3\)</span> (<a href="./ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#propriete-2-1">propriété 2.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1{,}1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Une probabilité ne dépasse pas 1 : l’intersection a été comptée deux fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(A \cap B)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}5\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as retiré deux fois l’intersection.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-venn-probas" data-type="qcm" data-section="sec-proprietes" data-obj="A2" data-niveau="2" data-id="6UAA1.q.hasard-venn-probas" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un diagramme de Venn, on lit : <span class="math inline">\(A\)</span> seulement <span class="math inline">\(0{,}2\)</span> ; <span class="math inline">\(A \cap B\)</span> : <span class="math inline">\(0{,}15\)</span> ; <span class="math inline">\(B\)</span> seulement <span class="math inline">\(0{,}35\)</span>. Que vaut <span class="math inline">\(P(B)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}5\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(B\)</span> est formé de « <span class="math inline">\(B\)</span> seulement » et de <span class="math inline">\(A \cap B\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}35\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(B \setminus A)\)</span> ; il faut ajouter <span class="math inline">\(A \cap B\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}7\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(A \cup B)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité hors des deux cercles : <span class="math inline">\(1 - 0{,}7\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-venn-complet" data-type="ouverte" data-section="sec-proprietes" data-obj="A2 C5" data-niveau="2" data-id="6UAA1.q.hasard-venn-complet" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>On sait que <span class="math inline">\(P(A) = 0{,}45\)</span>, <span class="math inline">\(P(B) = 0{,}3\)</span> et <span class="math inline">\(P(A \cup B) = 0{,}6\)</span>. Calcule <span class="math inline">\(P(A \cap B)\)</span>, puis la probabilité de chaque zone du diagramme de Venn.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(P(A \cap B) = P(A) + P(B) - P(A \cup B) = 0{,}45 + 0{,}3 - 0{,}6 = 0{,}15\)</span>. <span class="math inline">\(A\)</span> seulement : <span class="math inline">\(0{,}45 - 0{,}15 = 0{,}3\)</span> ; <span class="math inline">\(B\)</span> seulement : <span class="math inline">\(0{,}3 - 0{,}15 = 0{,}15\)</span> ; hors des deux : <span class="math inline">\(1 - 0{,}6 = 0{,}4\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai utilisé la formule de la réunion pour trouver <span class="math inline">\(P(A \cap B) = 0{,}15\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé les quatre zones : <span class="math inline">\(0{,}3\)</span> ; <span class="math inline">\(0{,}15\)</span> ; <span class="math inline">\(0{,}15\)</span> ; <span class="math inline">\(0{,}4\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai vérifié que la somme des zones vaut 1.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-de-truque" data-type="qcm" data-section="sec-proprietes" data-obj="C5" data-niveau="2" data-id="6UAA1.q.hasard-de-truque" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Un dé est truqué : <span class="math inline">\(P(\text{obtenir 6}) = \frac{1}{2}\)</span>, et les cinq autres faces ont la même probabilité. Que vaut <span class="math inline">\(P(\text{obtenir 1})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{10}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : les faces 1 à 5 se partagent <span class="math inline">\(1 - \frac{1}{2} = \frac{1}{2}\)</span>, donc <span class="math inline">\(P(\text{obtenir 1}) = \frac{\frac{1}{2}}{5} = \frac{1}{10}\)</span> (<a href="./ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#propriete-2-1"><span class="math inline">\(P(\Omega) = 1\)</span></a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le dé n’est pas équilibré : la règle de Laplace ne s’applique pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{5}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les cinq faces ne se partagent pas 1, mais ce qui reste après <span class="math inline">\(P(\text{obtenir 6})\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{12}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as divisé <span class="math inline">\(\frac{1}{2}\)</span> par 6 ; seules cinq faces se partagent <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-tableau-venn" data-type="qcm" data-section="sec-proprietes" data-obj="A2" data-niveau="1" data-id="6UAA1.q.hasard-tableau-venn" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un tableau à double entrée (<span class="math inline">\(A\)</span>, <span class="math inline">\(\overline{A}\)</span> en lignes ; <span class="math inline">\(B\)</span>, <span class="math inline">\(\overline{B}\)</span> en colonnes), quelle case correspond à la zone « <span class="math inline">\(A\)</span> seulement » d’un diagramme de Venn ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>La case <span class="math inline">\(A \cap \overline{B}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : dans <span class="math inline">\(A\)</span>, mais pas dans <span class="math inline">\(B\)</span> ; c’est <span class="math inline">\(A \setminus B\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>La case <span class="math inline">\(A \cap B\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(A \cap B\)</span> est la zone commune aux deux cercles.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Le total de la ligne <span class="math inline">\(A\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Le total de la ligne <span class="math inline">\(A\)</span> compte tout <span class="math inline">\(A\)</span>, zone commune comprise.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>La case <span class="math inline">\(\overline{A} \cap B\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Cette case correspond à « <span class="math inline">\(B\)</span> seulement ».</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-mere" data-type="qcm" data-section="sec-proprietes" data-obj="A3" data-niveau="2" data-id="6UAA1.q.hasard-mere" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On lance 3 fois un dé équilibré. Quelle est la probabilité d’obtenir au moins un 6 ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(1 - (\frac{5}{6})^{3} = \frac{91}{216}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : on passe par le contraire « aucun 6 » (<a href="./ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#exemple-2-5">exemple 2.5</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{3}{6} = \frac{1}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les issues « un 6 au 1<sup>er</sup>, au 2<sup>e</sup>, au 3<sup>e</sup> lancer » se recouvrent : (6, 6, 1) est compté deux fois.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((\frac{1}{6})^{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité d’obtenir trois 6.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((\frac{5}{6})^{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité de n’obtenir aucun 6 : il reste à prendre le contraire.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-lotto-numero" data-type="qcm" data-section="sec-denombrer-calculer" data-obj="A3" data-niveau="2" data-id="6UAA1.q.hasard-lotto-numero" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Au Lotto (6 numéros tirés parmi 45), quelle est la probabilité que le 13 soit tiré ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{6}{45}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{C_{44}^{5}}{C_{45}^{6}} = \frac{6}{45}\)</span> (<a href="./ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exercice-2-14">exercice 2.14</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{45}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Six numéros sont tirés, pas un seul.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{C_{45}^{6}}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité d’un tirage précis, pas celle que le 13 en fasse partie.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{6}{39}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>L’univers contient les 45 numéros.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-lotto-deux-bons" data-type="ouverte" data-section="sec-denombrer-calculer" data-obj="A3 T1" data-niveau="3" data-id="6UAA1.q.hasard-lotto-deux-bons" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Au Lotto, on coche 6 numéros parmi 45. Calcule la probabilité d’avoir exactement 2 bons numéros.</p>
+</div>
+<div class="ae-rep">
+<p>Une issue est le groupe des 6 numéros tirés ; on suppose les <span class="math inline">\(C_{45}^{6} = 8 \, 145 \, 060\)</span> tirages équiprobables. Tirages favorables : 2 numéros parmi les 6 cochés et 4 parmi les 39 autres, <span class="math inline">\(C_{6}^{2} \cdot C_{39}^{4} = 15 \cdot 82 \, 251 = 1 \, 233 \, 765\)</span>. <span class="math inline">\(P(\text{exactement 2 bons numéros}) = \frac{1 \, 233 \, 765}{8 \, 145 \, 060} \approx 0{,}151\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai écrit l’hypothèse d’équiprobabilité et <span class="math inline">\(\#\Omega = C_{45}^{6}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai compté les tirages favorables par <span class="math inline">\(C_{6}^{2} \cdot C_{39}^{4}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé environ <span class="math inline">\(0{,}151\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-anniversaires" data-type="qcm" data-section="sec-denombrer-calculer" data-obj="T1" data-niveau="3" data-id="6UAA1.q.hasard-anniversaires" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un groupe de 30 personnes (365 jours supposés équiprobables), quelle expression donne la probabilité qu’au moins deux aient le même anniversaire ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(1 - \frac{A_{365}^{30}}{365^{30}}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : contraire de « tous différents » (<a href="./ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exemple-2-7">exemple 2.7</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{30}{365}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ce quotient ne correspond à aucun événement de l’univers des suites d’anniversaires.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{A_{365}^{30}}{365^{30}}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la probabilité que tous les anniversaires soient différents.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1 - \frac{C_{365}^{30}}{365^{30}}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les anniversaires forment une suite (personne 1, personne 2…) : il faut <span class="math inline">\(A_{365}^{30}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="hasard-grille-123456" data-type="qcm" data-section="sec-denombrer-calculer" data-obj="T2" data-niveau="2" data-id="6UAA1.q.hasard-grille-123456" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Un joueur affirme : « jouer 1-2-3-4-5-6 au Lotto, c’est gaspiller sa chance ». Que répondre ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Si le tirage est au hasard, cette grille a la même probabilité que toute autre : <span class="math inline">\(\frac{1}{8 \, 145 \, 060}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : tous les tirages sont équiprobables.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Il a raison : une suite régulière est moins probable.</p>
+</div>
+<div class="ae-fb">
+<p>Chaque tirage précis a la même probabilité ; les grilles « d’allure aléatoire » sont seulement plus nombreuses.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Cette grille est plus probable, car elle est plus simple.</p>
+</div>
+<div class="ae-fb">
+<p>La simplicité d’une grille ne change pas sa probabilité.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On ne peut rien dire sans simuler.</p>
+</div>
+<div class="ae-fb">
+<p>Le calcul suffit : <span class="math inline">\(\frac{1}{C_{45}^{6}}\)</span> pour chaque grille.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-parmi" data-type="qcm" data-section="sec-conditionnelle" data-obj="A1" data-niveau="1" data-id="6UAA1.q.cond-parmi" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Au Titanic, <span class="math inline">\(S\)</span> : « avoir survécu » ; <span class="math inline">\(C\)</span> : « voyager en 1<sup>re</sup> classe ». Quelle probabilité répond à « parmi les survivants, quelle proportion voyageait en 1<sup>re</sup> classe ? » ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(P(C | S)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : « parmi les survivants » est la condition, placée après la barre (<a href="./ch3-probabilite-conditio/1-probabilite-conditionnelle.html#cadre-lire-une-probabilite-conditionnelle">cadre</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(P(S | C)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est « parmi les passagers de 1<sup>re</sup> classe, la proportion de survivants ». La condition est inversée.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(P(S \cap C)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est une proportion parmi les 2 201 personnes, pas parmi les survivants.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(P(C)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est une proportion parmi toutes les personnes à bord.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-titanic-calcul" data-type="qcm" data-section="sec-conditionnelle" data-obj="A3" data-niveau="1" data-id="6UAA1.q.cond-titanic-calcul" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Au Titanic, 325 personnes voyageaient en 1<sup>re</sup> classe, dont 203 ont survécu ; il y avait 711 survivants parmi 2 201 personnes. Que vaut <span class="math inline">\(P(S | C)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{203}{325} \approx 0{,}625\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : parmi les 325 passagers de 1<sup>re</sup> classe (<a href="./ch3-probabilite-conditio/1-probabilite-conditionnelle.html#activite-3-1">activité 3.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{203}{711} \approx 0{,}286\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(C | S)\)</span> : parmi les survivants.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{203}{2201} \approx 0{,}092\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(S \cap C)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{711}{2201} \approx 0{,}323\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(S)\)</span>, sans condition.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-tableau-evenement" data-type="qcm" data-section="sec-conditionnelle" data-obj="A1" data-niveau="2" data-id="6UAA1.q.cond-tableau-evenement" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Au Titanic, à quel événement correspond la probabilité <span class="math inline">\(\frac{212}{885}\)</span> (212 survivants parmi les 885 membres d’équipage) ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Survivre, sachant qu’on faisait partie de l’équipage : <span class="math inline">\(P(S | E)\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : le dénominateur 885 est l’effectif de la condition.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Faire partie de l’équipage, sachant qu’on a survécu : <span class="math inline">\(P(E | S)\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(P(E | S)\)</span> a pour dénominateur les 711 survivants.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Survivre et faire partie de l’équipage : <span class="math inline">\(P(S \cap E)\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(P(S \cap E) = \frac{212}{2201}\)</span> : le dénominateur est l’effectif total.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Faire partie de l’équipage : <span class="math inline">\(P(E)\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(P(E) = \frac{885}{2201}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-definition" data-type="ouverte" data-section="sec-conditionnelle" data-obj="A3" data-niveau="2" data-id="6UAA1.q.cond-definition" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>On sait que <span class="math inline">\(P(A \cap B) = 0{,}12\)</span> et <span class="math inline">\(P(B) = 0{,}4\)</span>. Calcule <span class="math inline">\(P(A | B)\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(P(A | B) = \frac{P(A \cap B)}{P(B)} = \frac{0{,}12}{0{,}4} = 0{,}3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai divisé par <span class="math inline">\(P(B)\)</span> (et non par <span class="math inline">\(P(A)\)</span>).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(0{,}3\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-arbre-chemin" data-type="qcm" data-section="sec-arbres" data-obj="A2" data-niveau="1" data-id="6UAA1.q.cond-arbre-chemin" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Sur un arbre, la branche vers <span class="math inline">\(B\)</span> porte <span class="math inline">\(0{,}4\)</span> et, depuis <span class="math inline">\(B\)</span>, la branche vers <span class="math inline">\(A\)</span> porte <span class="math inline">\(0{,}7\)</span>. Que vaut <span class="math inline">\(P(A \cap B)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}28\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : on multiplie le long du chemin (<a href="./ch3-probabilite-conditio/2-arbres-de-probabilites.html#propriete-3-1">propriété 3.1</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1{,}1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On multiplie le long d’un chemin ; on n’additionne pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}7\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(A | B)\)</span>, la probabilité portée par la seconde branche.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}4\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(B)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-arbre-branche" data-type="qcm" data-section="sec-arbres" data-obj="A1" data-niveau="2" data-id="6UAA1.q.cond-arbre-branche" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un arbre à deux niveaux (d’abord <span class="math inline">\(B\)</span> ou <span class="math inline">\(\overline{B}\)</span>, puis <span class="math inline">\(A\)</span> ou <span class="math inline">\(\overline{A}\)</span>), que représente le nombre écrit sur la branche qui va de <span class="math inline">\(B\)</span> vers <span class="math inline">\(A\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(P(A | B)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : une branche issue de <span class="math inline">\(B\)</span> porte une probabilité <em>sachant</em> <span class="math inline">\(B\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(P(A)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Sur le deuxième niveau, on est déjà « dans » <span class="math inline">\(B\)</span> : c’est une probabilité sachant <span class="math inline">\(B\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(P(A \cap B)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le produit des deux branches du chemin.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(P(B | A)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La condition est l’événement dont part la branche : <span class="math inline">\(B\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-arbre-total" data-type="qcm" data-section="sec-arbres" data-obj="A2" data-niveau="2" data-id="6UAA1.q.cond-arbre-total" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><span class="math inline">\(P(B) = 0{,}3\)</span>, <span class="math inline">\(P(A | B) = 0{,}5\)</span>, <span class="math inline">\(P(A | \overline{B}) = 0{,}2\)</span>. Que vaut <span class="math inline">\(P(A)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}29\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(0{,}3 \cdot 0{,}5 + 0{,}7 \cdot 0{,}2 = 0{,}15 + 0{,}14\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}7\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On n’additionne pas les probabilités conditionnelles : on additionne les chemins qui mènent à <span class="math inline">\(A\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}15\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est seulement le chemin qui passe par <span class="math inline">\(B\)</span>. Il faut ajouter celui qui passe par <span class="math inline">\(\overline{B}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}21\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La branche vers <span class="math inline">\(\overline{B}\)</span> porte <span class="math inline">\(1 - 0{,}3 = 0{,}7\)</span>, pas <span class="math inline">\(0{,}3\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-urne-sans-remise" data-type="ouverte" data-section="sec-arbres" data-obj="A2 A3" data-niveau="2" data-id="6UAA1.q.cond-urne-sans-remise" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Une urne contient 4 boules rouges et 1 boule bleue. On tire deux boules sans remise. Construis l’arbre et calcule la probabilité que les deux boules soient rouges.</p>
+</div>
+<div class="ae-rep">
+<p>On suppose chaque boule équiprobable. Premier tirage : <span class="math inline">\(P(R_{1}) = \frac{4}{5}\)</span>, <span class="math inline">\(P(B_{1}) = \frac{1}{5}\)</span>. Après <span class="math inline">\(R_{1}\)</span> : <span class="math inline">\(P(R_{2} | R_{1}) = \frac{3}{4}\)</span>. <span class="math inline">\(P(R_{1} \cap R_{2}) = \frac{4}{5} \cdot \frac{3}{4} = \frac{12}{20} = \frac{3}{5}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai tenu compte de l’absence de remise (<span class="math inline">\(\frac{3}{4}\)</span> au deuxième tirage).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai multiplié le long du chemin.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(\frac{3}{5}\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-depistage-lecture" data-type="qcm" data-section="sec-depistage" data-obj="A3" data-niveau="2" data-id="6UAA1.q.cond-depistage-lecture" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Sur 1 000 femmes dépistées : 10 malades, dont 9 positives ; 990 non malades, dont 89 positives. Que vaut <span class="math inline">\(P(\text{malade} | \text{positive})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{9}{98} \approx 0{,}092\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : parmi les 98 femmes positives, 9 sont malades (<a href="./ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#activite-3-3">activité 3.3</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{9}{10} = 0{,}9\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(\text{positive} | \text{malade})\)</span> : la condition est inversée.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{9}{1000}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est <span class="math inline">\(P(\text{malade} \cap \text{positive})\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{89}{98}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la proportion de femmes non malades parmi les positives.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-fiable" data-type="qcm" data-section="sec-depistage" data-obj="T2" data-niveau="2" data-id="6UAA1.q.cond-fiable" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Un test « détecte 90 % des malades ». Une personne est positive. Que peut-on en conclure ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Rien de précis sans connaître la proportion de malades et le taux de positifs chez les non-malades.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(P(M | T)\)</span> en dépend fortement (<a href="./ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#exercice-3-6">exercice 3.6</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle est malade avec une probabilité de 90 %.</p>
+</div>
+<div class="ae-fb">
+<p>90 % est <span class="math inline">\(P(T | M)\)</span>. On demande <span class="math inline">\(P(M | T)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle est malade avec une probabilité de 10 %.</p>
+</div>
+<div class="ae-fb">
+<p>Ce serait vrai dans l’exemple du cours (1 % de malades), pas en général.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle est sûrement malade.</p>
+</div>
+<div class="ae-fb">
+<p>Un test peut être positif chez une personne non malade.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="cond-depistage-prevalence" data-type="ouverte" data-section="sec-depistage" data-obj="T2 A3" data-niveau="3" data-id="6UAA1.q.cond-depistage-prevalence" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Un test est positif chez 95 % des malades et chez 5 % des non-malades. La maladie touche 2 % des personnes testées. Construis l’arbre des effectifs pour 10 000 personnes et calcule <span class="math inline">\(P(M | T)\)</span>. Commente.</p>
+</div>
+<div class="ae-rep">
+<p>Sur 10 000 personnes : 200 malades, dont <span class="math inline">\(200 \cdot 0{,}95 = 190\)</span> positives ; 9 800 non malades, dont <span class="math inline">\(9800 \cdot 0{,}05 = 490\)</span> positives. <span class="math inline">\(P(M | T) = \frac{190}{190 + 490} = \frac{190}{680} \approx 0{,}279\)</span>. Moins de 3 personnes positives sur 10 sont malades : la maladie étant rare, les faux positifs sont plus nombreux que les vrais.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé les effectifs 190 et 490.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai divisé par le nombre total de positifs (680).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai interprété le résultat (faux positifs nombreux car maladie rare).</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="indep-definition" data-type="qcm" data-section="sec-independance" data-obj="A4" data-niveau="1" data-id="6UAA1.q.indep-definition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><span class="math inline">\(P(A) = 0{,}5\)</span>, <span class="math inline">\(P(B) = 0{,}4\)</span>, <span class="math inline">\(P(A \cap B) = 0{,}2\)</span>. <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont-ils indépendants ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Oui, car <span class="math inline">\(0{,}5 \cdot 0{,}4 = 0{,}2\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Exact (<a href="./ch3-probabilite-conditio/4-independance.html#definition-3-2">définition 3.2</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Non, car <span class="math inline">\(P(A \cap B) \neq 0\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Tu confonds indépendants et disjoints.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Non, car <span class="math inline">\(P(A) \neq P(B)\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>L’indépendance ne demande pas que <span class="math inline">\(P(A)\)</span> et <span class="math inline">\(P(B)\)</span> soient égaux.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On ne peut pas savoir sans l’univers.</p>
+</div>
+<div class="ae-fb">
+<p>La définition suffit : compare <span class="math inline">\(P(A \cap B)\)</span> et <span class="math inline">\(P(A) \cdot P(B)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="indep-disjoints" data-type="qcm" data-section="sec-independance" data-obj="A4" data-niveau="2" data-id="6UAA1.q.indep-disjoints" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont disjoints, avec <span class="math inline">\(P(A) = 0{,}3\)</span> et <span class="math inline">\(P(B) = 0{,}2\)</span>. Sont-ils indépendants ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Non : <span class="math inline">\(P(A \cap B) = 0\)</span> alors que <span class="math inline">\(P(A) \cdot P(B) = 0{,}06\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : deux événements disjoints de probabilités non nulles sont dépendants (<a href="./ch3-probabilite-conditio/4-independance.html#remarque-3-3">remarque 3.3</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Oui, puisqu’ils n’ont rien en commun.</p>
+</div>
+<div class="ae-fb">
+<p>« Disjoints » et « indépendants » sont deux notions différentes. Savoir que <span class="math inline">\(B\)</span> est réalisé rend <span class="math inline">\(A\)</span> impossible.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Oui, car <span class="math inline">\(0{,}3 + 0{,}2 &lt; 1\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>L’indépendance se vérifie par un produit, pas par une somme.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On ne peut pas savoir.</p>
+</div>
+<div class="ae-fb">
+<p>On connaît <span class="math inline">\(P(A \cap B) = 0\)</span> : on peut comparer avec <span class="math inline">\(P(A) \cdot P(B)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="indep-joueur" data-type="qcm" data-section="sec-independance" data-obj="A4" data-niveau="1" data-id="6UAA1.q.indep-joueur" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>À la roulette, le rouge est sorti 6 fois de suite. Au tirage suivant, la probabilité du noir est :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>la même qu’à chaque tirage.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : les tirages sont indépendants (erreur du joueur, <a href="./ch3-probabilite-conditio/4-independance.html#remarque-3-4">remarque 3.4</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>plus grande, car le noir « doit » rattraper son retard.</p>
+</div>
+<div class="ae-fb">
+<p>La roulette n’a pas de mémoire : c’est l’erreur du joueur.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>plus petite, car le rouge est « en série ».</p>
+</div>
+<div class="ae-fb">
+<p>Les tirages précédents n’influencent pas le suivant.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>égale à <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>La case 0 n’est ni rouge ni noire : <span class="math inline">\(P(\text{noir}) = \frac{18}{37}\)</span> à chaque tirage.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="indep-verifier" data-type="ouverte" data-section="sec-independance" data-obj="A4" data-niveau="2" data-id="6UAA1.q.indep-verifier" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>On lance deux dés (un rouge, un blanc). <span class="math inline">\(A\)</span> : « le rouge donne un nombre pair » ; <span class="math inline">\(B\)</span> : « la somme vaut 8 ». <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont-ils indépendants ?</p>
+</div>
+<div class="ae-rep">
+<p>On suppose les 36 couples équiprobables. <span class="math inline">\(P(A) = \frac{18}{36} = \frac{1}{2}\)</span>. <span class="math inline">\(B = \{(2{,}6), (3{,}5), (4{,}4), (5{,}3), (6{,}2)\}\)</span>, <span class="math inline">\(P(B) = \frac{5}{36}\)</span>. <span class="math inline">\(A \cap B = \{(2{,}6), (4{,}4), (6{,}2)\}\)</span>, <span class="math inline">\(P(A \cap B) = \frac{3}{36}\)</span>. <span class="math inline">\(P(A) \cdot P(B) = \frac{1}{2} \cdot \frac{5}{36} = \frac{5}{72} \neq \frac{3}{36} = \frac{6}{72}\)</span> : <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont dépendants.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(P(A)\)</span>, <span class="math inline">\(P(B)\)</span> et <span class="math inline">\(P(A \cap B)\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai comparé <span class="math inline">\(P(A \cap B)\)</span> à <span class="math inline">\(P(A) \cdot P(B)\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai conclu : dépendants.</p>
+</div>
+</div>
+</div>
+<script type="application/json" id="ae-exos">[{"num": "1.1", "url": "ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html#exercice-1-1", "obj": ["C4"], "page": "3", "niveau": 1, "section": "Le langage des ensembles"}, {"num": "1.2", "url": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#exercice-1-2", "obj": ["A5"], "page": "5", "niveau": 1, "section": "Lister avant de compter"}, {"num": "1.3", "url": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#exercice-1-3", "obj": ["A5"], "page": "5", "niveau": 1, "section": "Lister avant de compter"}, {"num": "1.4", "url": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#exercice-1-4", "obj": ["A5"], "page": "8", "niveau": 1, "section": "Additionner, multiplier"}, {"num": "1.5", "url": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#exercice-1-5", "obj": ["A5"], "page": "8", "niveau": 2, "section": "Additionner, multiplier"}, {"num": "1.6", "url": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#exercice-1-6", "obj": ["A5"], "page": "9", "niveau": 2, "section": "Additionner, multiplier"}, {"num": "1.7", "url": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#exercice-1-7", "obj": ["T1"], "page": "9", "niveau": 3, "section": "Additionner, multiplier"}, {"num": "1.8", "url": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#exercice-1-8", "obj": ["A5"], "page": "10", "niveau": 1, "section": "Arrangements et permutations"}, {"num": "1.9", "url": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#exercice-1-9", "obj": ["A5"], "page": "11", "niveau": 1, "section": "Arrangements et permutations"}, {"num": "1.10", "url": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#exercice-1-10", "obj": ["A5"], "page": "11", "niveau": 2, "section": "Arrangements et permutations"}, {"num": "1.11", "url": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#exercice-1-11", "obj": ["A5"], "page": "11", "niveau": 1, "section": "Arrangements et permutations"}, {"num": "1.12", "url": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#exercice-1-12", "obj": ["A5"], "page": "11", "niveau": 2, "section": "Arrangements et permutations"}, {"num": "1.13", "url": "ch1-compter-sur-de-petit/5-combinaisons.html#exercice-1-13", "obj": ["A5"], "page": "13", "niveau": 1, "section": "Combinaisons"}, {"num": "1.14", "url": "ch1-compter-sur-de-petit/5-combinaisons.html#exercice-1-14", "obj": ["A5"], "page": "13", "niveau": 1, "section": "Combinaisons"}, {"num": "1.15", "url": "ch1-compter-sur-de-petit/5-combinaisons.html#exercice-1-15", "obj": ["A5"], "page": "13", "niveau": 2, "section": "Combinaisons"}, {"num": "1.16", "url": "ch1-compter-sur-de-petit/5-combinaisons.html#exercice-1-16", "obj": ["T1"], "page": "14", "niveau": 3, "section": "Combinaisons"}, {"num": "1.17", "url": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#exercice-1-17", "obj": ["A5"], "page": "15", "niveau": 1, "section": "Permutations avec répétition : les anagrammes"}, {"num": "1.18", "url": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#exercice-1-18", "obj": ["A5"], "page": "15", "niveau": 1, "section": "Permutations avec répétition : les anagrammes"}, {"num": "1.19", "url": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#exercice-1-19", "obj": ["A5"], "page": "15", "niveau": 2, "section": "Permutations avec répétition : les anagrammes"}, {"num": "1.20", "url": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#exercice-1-20", "obj": ["T1"], "page": "15", "niveau": 3, "section": "Permutations avec répétition : les anagrammes"}, {"num": "1.21", "url": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#exercice-1-21", "obj": ["C1"], "page": "16", "niveau": 1, "section": "Choisir une méthode"}, {"num": "1.22", "url": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#exercice-1-22", "obj": ["C1"], "page": "16", "niveau": 2, "section": "Choisir une méthode"}, {"num": "1.23", "url": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#exercice-1-23", "obj": ["T1"], "page": "17", "niveau": 2, "section": "Choisir une méthode"}, {"num": "1.24", "url": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#exercice-1-24", "obj": ["C1"], "page": "17", "niveau": 2, "section": "Choisir une méthode"}, {"num": "S1.1", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-1", "obj": ["A5"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S1.2", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-2", "obj": ["C1"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S1.3", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-3", "obj": ["A5"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S1.4", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-4", "obj": ["A5"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S1.5", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-5", "obj": ["T1"], "page": null, "niveau": 3, "section": "Exercices supplémentaires"}, {"num": "S1.6", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-6", "obj": ["A5"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S1.7", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-7", "obj": ["A5"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S1.8", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-8", "obj": ["A5"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S1.9", "url": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#exercice-S1-9", "obj": ["A5"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "2.1", "url": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#exercice-2-1", "obj": ["A6"], "page": "20", "niveau": 1, "section": "Fréquences et probabilité"}, {"num": "2.2", "url": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#exercice-2-2", "obj": ["A6"], "page": "20", "niveau": 1, "section": "Fréquences et probabilité"}, {"num": "2.3", "url": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#exercice-2-3", "obj": ["C2"], "page": "20", "niveau": 2, "section": "Fréquences et probabilité"}, {"num": "2.4", "url": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#exercice-2-4", "obj": ["C3"], "page": "22", "niveau": 1, "section": "Univers et événements"}, {"num": "2.5", "url": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#exercice-2-5", "obj": ["C4"], "page": "22", "niveau": 1, "section": "Univers et événements"}, {"num": "2.6", "url": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#exercice-2-6", "obj": ["C4"], "page": "22", "niveau": 2, "section": "Univers et événements"}, {"num": "2.7", "url": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#exercice-2-7", "obj": ["A3"], "page": "25", "niveau": 1, "section": "Le modèle d’équiprobabilité"}, {"num": "2.8", "url": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#exercice-2-8", "obj": ["T1"], "page": "25", "niveau": 2, "section": "Le modèle d’équiprobabilité"}, {"num": "2.9", "url": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#exercice-2-9", "obj": ["A2"], "page": "26", "niveau": 1, "section": "Propriétés des probabilités"}, {"num": "2.10", "url": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#exercice-2-10", "obj": ["A2"], "page": "27", "niveau": 2, "section": "Propriétés des probabilités"}, {"num": "2.11", "url": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#exercice-2-11", "obj": ["C5"], "page": "27", "niveau": 2, "section": "Propriétés des probabilités"}, {"num": "2.12", "url": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#exercice-2-12", "obj": ["C5"], "page": "27", "niveau": 1, "section": "Propriétés des probabilités"}, {"num": "2.13", "url": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#exercice-2-13", "obj": ["C5"], "page": "27", "niveau": 2, "section": "Propriétés des probabilités"}, {"num": "2.14", "url": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exercice-2-14", "obj": ["A3"], "page": "28", "niveau": 2, "section": "Dénombrer pour calculer"}, {"num": "2.15", "url": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exercice-2-15", "obj": ["T1"], "page": "28", "niveau": 2, "section": "Dénombrer pour calculer"}, {"num": "2.16", "url": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exercice-2-16", "obj": ["T1"], "page": "29", "niveau": 3, "section": "Dénombrer pour calculer"}, {"num": "2.17", "url": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exercice-2-17", "obj": ["T2"], "page": "29", "niveau": 2, "section": "Dénombrer pour calculer"}, {"num": "2.18", "url": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#exercice-2-18", "obj": ["C5"], "page": "29", "niveau": 2, "section": "Dénombrer pour calculer"}, {"num": "S2.1", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-1", "obj": ["C3"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S2.2", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-2", "obj": ["C6"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S2.3", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-3", "obj": ["A3"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S2.4", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-4", "obj": ["A6"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S2.5", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-5", "obj": ["T1"], "page": null, "niveau": 3, "section": "Exercices supplémentaires"}, {"num": "S2.6", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-6", "obj": ["C6"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S2.7", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-7", "obj": ["T1"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S2.8", "url": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#exercice-S2-8", "obj": ["T1"], "page": null, "niveau": 3, "section": "Exercices supplémentaires"}, {"num": "3.1", "url": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#exercice-3-1", "obj": ["A1"], "page": "31", "niveau": 1, "section": "Probabilité conditionnelle"}, {"num": "3.2", "url": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#exercice-3-2", "obj": ["A2"], "page": "32", "niveau": 2, "section": "Probabilité conditionnelle"}, {"num": "3.3", "url": "ch3-probabilite-conditio/2-arbres-de-probabilites.html#exercice-3-3", "obj": ["A2"], "page": "33", "niveau": 1, "section": "Arbres de probabilités"}, {"num": "3.4", "url": "ch3-probabilite-conditio/2-arbres-de-probabilites.html#exercice-3-4", "obj": ["A3"], "page": "33", "niveau": 2, "section": "Arbres de probabilités"}, {"num": "3.5", "url": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#exercice-3-5", "obj": ["A3"], "page": "35", "niveau": 2, "section": "Lire un test de dépistage"}, {"num": "3.6", "url": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#exercice-3-6", "obj": ["T2"], "page": "35", "niveau": 2, "section": "Lire un test de dépistage"}, {"num": "3.7", "url": "ch3-probabilite-conditio/4-independance.html#exercice-3-7", "obj": ["A4"], "page": "36", "niveau": 1, "section": "Indépendance"}, {"num": "3.8", "url": "ch3-probabilite-conditio/4-independance.html#exercice-3-8", "obj": ["A4"], "page": "37", "niveau": 2, "section": "Indépendance"}, {"num": "3.9", "url": "ch3-probabilite-conditio/4-independance.html#exercice-3-9", "obj": ["A6"], "page": "37", "niveau": 2, "section": "Indépendance"}, {"num": "3.10", "url": "ch3-probabilite-conditio/4-independance.html#exercice-3-10", "obj": ["A4"], "page": "37", "niveau": 2, "section": "Indépendance"}, {"num": "3.11", "url": "ch3-probabilite-conditio/4-independance.html#exercice-3-11", "obj": ["T1"], "page": "37", "niveau": 3, "section": "Indépendance"}, {"num": "3.12", "url": "ch3-probabilite-conditio/4-independance.html#exercice-3-12", "obj": ["T2"], "page": "37", "niveau": 2, "section": "Indépendance"}, {"num": "3.13", "url": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html#exercice-3-13", "obj": ["T1"], "page": "40", "niveau": 3, "section": "Pour aller plus loin"}, {"num": "S3.1", "url": "ch3-probabilite-conditio/6-exercices-supplementaires.html#exercice-S3-1", "obj": ["A1"], "page": null, "niveau": 1, "section": "Exercices supplémentaires"}, {"num": "S3.2", "url": "ch3-probabilite-conditio/6-exercices-supplementaires.html#exercice-S3-2", "obj": ["A2"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S3.3", "url": "ch3-probabilite-conditio/6-exercices-supplementaires.html#exercice-S3-3", "obj": ["A4"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}, {"num": "S3.4", "url": "ch3-probabilite-conditio/6-exercices-supplementaires.html#exercice-S3-4", "obj": ["T2"], "page": null, "niveau": 3, "section": "Exercices supplémentaires"}, {"num": "S3.5", "url": "ch3-probabilite-conditio/6-exercices-supplementaires.html#exercice-S3-5", "obj": ["A3"], "page": null, "niveau": 2, "section": "Exercices supplémentaires"}]</script>
+
+
+
+</main> <!-- /main -->
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "proba", "uaa": "6UAA1", "pdf": "proba.pdf", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "proba.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses écrites en gras", "fichier": "proba-corrige.pdf"}, {"titre": "Exercices supplémentaires — chapitre 1", "detail": "", "fichier": "exercices-supp-ch1.pdf"}, {"titre": "Exercices supplémentaires — chapitre 2", "detail": "", "fichier": "exercices-supp-ch2.pdf"}, {"titre": "Exercices supplémentaires — chapitre 3", "detail": "", "fichier": "exercices-supp-ch3.pdf"}, {"titre": "Exercices supplémentaires — chapitre 1 (corrigé)", "detail": "", "fichier": "exercices-supp-ch1-corrige.pdf"}, {"titre": "Exercices supplémentaires — chapitre 2 (corrigé)", "detail": "", "fichier": "exercices-supp-ch2-corrige.pdf"}, {"titre": "Exercices supplémentaires — chapitre 3 (corrigé)", "detail": "", "fichier": "exercices-supp-ch3-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20], "reprise": {"ancien": "/proba-cours/", "nouveau": "/6e/proba/"}};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  /* Reprise après déménagement du site (ancienne adresse → nouvelle) : les annotations
+     (lim-annot:v1:<chemin>) et les relevés de dés (pb-releve:<chemin>:n) sont rangés
+     par chemin de page ; on recopie, une fois par appareil, les anciennes clés sous les
+     nouvelles (sans écraser ni effacer). Les autres données (suivi, autoévaluation,
+     couche prof) sont rangées par cours et n'ont pas besoin de reprise. */
+  (function (R) {
+    if (!R || location.pathname.indexOf(R.nouveau) !== 0) return;      // seulement depuis la nouvelle adresse
+    try {
+      var fait = "typweb.reprise:" + R.ancien;
+      if (localStorage.getItem(fait)) return;
+      var a = [], i, k;
+      for (i = 0; i < localStorage.length; i++) {
+        k = localStorage.key(i);
+        ["lim-annot:v1:", "pb-releve:"].forEach(function (p) {
+          if (k && k.indexOf(p + R.ancien) === 0) a.push([k, p + R.nouveau + k.slice((p + R.ancien).length)]);
+        });
+      }
+      a.forEach(function (x) { if (localStorage.getItem(x[1]) === null) localStorage.setItem(x[1], localStorage.getItem(x[0])); });
+      localStorage.setItem(fait, String(Date.now()));
+    } catch (e) {}
+  })(window.TYPWEB.reprise);
+  /* Ancien mode hors-ligne (avant le site unique) : son service worker (portée = ancienne adresse) et
+     ses caches « typweb-<10 chiffres hexa> » ne servent plus ; ménage une fois la page chargée. */
+  if (window.TYPWEB.reprise && "serviceWorker" in navigator) window.addEventListener("load", function () {
+    try {
+      navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { if (new URL(r.scope).pathname.indexOf(window.TYPWEB.reprise.ancien) === 0) r.unregister(); });
+      }).catch(function () {});
+      if (window.caches) caches.keys().then(function (ks) {
+        ks.forEach(function (k) { if (/^typweb-[0-9a-f]{10}$/.test(k)) caches.delete(k); });
+      }).catch(function () {});
+    } catch (e) {}
+  });
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css", "js/proba.css", "js/interactif.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/proba.js", "js/interactif.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>
+<script>
+// Menu « Aa » : taille du texte (toujours) et styles du site à l'essai. Le choix est
+// mémorisé dans ce navigateur (localStorage « typweb-style »). À retirer quand
+// un style est retenu (typweb.toml : [site] styles-essai = false).
+(function () {
+  var STYLES = [
+    ["", "Actuel"],
+    ["epure", "1 · Épure"],
+    ["epure-types", "2 · Épure, couleurs de type"],
+    ["manuel", "3 · Manuel moderne"],
+    ["cahier", "4 · Cahier"],
+    ["ardoise", "7 · Ardoise"],
+    ["lecture", "8 · Lecture concentrée"],
+    ["fiches", "9 · Fiches numérotées"]
+  ];
+  function courant() { try { return localStorage.getItem("typweb-style") || ""; } catch (e) { return ""; } }
+  function appliquer(s) {
+    if (s) document.documentElement.setAttribute("data-style", s);
+    else document.documentElement.removeAttribute("data-style");
+    try { if (s) localStorage.setItem("typweb-style", s); else localStorage.removeItem("typweb-style"); } catch (e) {}
+    document.querySelectorAll(".st-panneau button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); });
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  var TAILLES = [0.85, 0.92, 1, 1.08, 1.16, 1.25, 1.35, 1.5];
+  function tailleCourante() { try { return parseFloat(localStorage.getItem("typweb-taille")) || 1; } catch (e) { return 1; } }
+  function poserTaille(t) {
+    document.documentElement.style.fontSize = t === 1 ? "" : (100 * t) + "%";
+    try { if (t === 1) localStorage.removeItem("typweb-taille"); else localStorage.setItem("typweb-taille", t); } catch (e) {}
+    var l = document.querySelector(".st-taille span"); if (l) l.textContent = Math.round(t * 100) + " %";
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  function pas(d) {
+    var t = tailleCourante(), k = 0;
+    TAILLES.forEach(function (x, j) { if (Math.abs(x - t) < Math.abs(TAILLES[k] - t)) k = j; });
+    poserTaille(TAILLES[Math.max(0, Math.min(TAILLES.length - 1, k + d))]);
+  }
+  function build() {
+    if (document.querySelector(".st-menu")) return;
+    var essai = !window.TYPWEB || window.TYPWEB.stylesEssai !== false;
+    var m = document.createElement("div"); m.className = "st-menu";
+    var b = document.createElement("button"); b.className = "st-btn"; b.type = "button"; b.textContent = "Aa";
+    b.title = "Taille du texte" + (essai ? " et style du site" : ""); b.setAttribute("aria-label", b.title);
+    var p = document.createElement("div"); p.className = "st-panneau"; p.hidden = true;
+    p.innerHTML = "<p>Taille du texte</p>";
+    var tl = document.createElement("div"); tl.className = "st-taille";
+    var moins = document.createElement("button"); moins.type = "button"; moins.textContent = "A−"; moins.title = "Réduire le texte";
+    var val = document.createElement("span"); val.textContent = Math.round(tailleCourante() * 100) + " %";
+    val.title = "Revenir à 100 %"; val.style.cursor = "pointer";
+    var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "A+"; plus.title = "Agrandir le texte";
+    moins.addEventListener("click", function () { pas(-1); });
+    plus.addEventListener("click", function () { pas(1); });
+    val.addEventListener("click", function () { poserTaille(1); });
+    tl.appendChild(moins); tl.appendChild(val); tl.appendChild(plus);
+    p.appendChild(tl);
+    if (essai) {
+      var sep = document.createElement("div"); sep.className = "st-sep"; p.appendChild(sep);
+      var t = document.createElement("p"); t.textContent = "Style du site (mode clair)"; p.appendChild(t);
+      STYLES.forEach(function (s) {
+        var x = document.createElement("button"); x.type = "button"; x.dataset.s = s[0]; x.textContent = s[1];
+        x.addEventListener("click", function () { appliquer(s[0]); });
+        p.appendChild(x);
+      });
+    }
+    b.addEventListener("click", function () { p.hidden = !p.hidden; });
+    document.addEventListener("click", function (e) { if (!m.contains(e.target)) p.hidden = true; });
+    m.appendChild(p); m.appendChild(b); document.body.appendChild(m);
+    if (essai) appliquer(courant());
+  }
+  if (document.readyState !== "loading") build(); else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qlambotte\.github\.io\/6e\/proba\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./essentiel.html" class="pagination-link" aria-label="L'essentiel">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">L’essentiel</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./nouveautes.html" class="pagination-link" aria-label="Quoi de neuf ?">
+        <span class="nav-page-text"><span class="chapter-title">Quoi de neuf ?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Probabilités — cours &amp; exercices</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© Quentin Lambotte</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

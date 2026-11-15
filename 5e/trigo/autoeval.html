@@ -1,0 +1,3169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>S’autoévaluer – Fonctions trigonométriques</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./nouveautes.html" rel="next">
+<link href="./essentiel.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-373b88032ffeb2d8c9d3af5274f06ecf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./autoeval.html"><span class="chapter-title">S’autoévaluer</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Fonctions trigonométriques</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions trigonométriques — cours &amp; exercices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch1-tourner-angles-arcs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 1 — Tourner : angles, arcs et radians</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-tourner-angles-arcs/1-la-cabine-du-london-eye.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">La cabine du London Eye</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Longueur d’un arc, aire d’un secteur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Le radian : mesurer un arc en rayons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Angles orientés, plusieurs tours</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch2-le-cercle-trigonomet/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 2 — Le cercle trigonométrique</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Enrouler la droite réelle sur le cercle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Valeurs remarquables et symétries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Équations sin x = a et cos x = a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-le-cercle-trigonomet/4-la-tangente.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">La tangente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-le-cercle-trigonomet/5-equations-tan-x-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Équations tan x = a</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch3-les-fonctions-trigon/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 3 — Les fonctions trigonométriques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Du cercle au graphique : sinus et cosinus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-les-fonctions-trigon/2-la-fonction-tangente.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">La fonction tangente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Résoudre graphiquement ; choisir son outil</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch4-la-fonction-x-a-sin/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 4 — La fonction x ↦ a sin(bx + c)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rôle de a et de b</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rôle de c : phase et déphasage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tracer, apparier, retrouver l’expression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Équations a sin(b x + c) = k</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch5-modeliser-des-phenom/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 5 — Modéliser des phénomènes périodiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5-modeliser-des-phenom/1-des-sinusoides-partout.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Des sinusoïdes partout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Retour au London Eye ; les limites d’un modèle</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch6-module-derivees-trig/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 6 — Module : dérivées trigonométriques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dérivées de sinus, cosinus et tangente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dérivées de composées ; vitesse d’un mouvement circulaire</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./autoeval.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">S’autoévaluer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mode-emploi.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mode d’emploi</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">S’autoévaluer</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- GÉNÉRÉ par outils/typ2site.py (autoeval.py) : NE PAS ÉDITER. -->
+<div id="ae-app" data-cle="trigo">
+<div class="ae-attente">
+<p>Chargement…</p>
+</div>
+</div>
+<div id="ae-banque" class="ae-cache">
+<div class="ae-sec" data-ae-id="sec-london-eye" data-chap="1" data-url="ch1-tourner-angles-arcs/1-la-cabine-du-london-eye.html" data-n="2">
+<p>La cabine du London Eye</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arc-secteur" data-chap="1" data-url="ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html" data-n="1">
+<p>Longueur d’un arc, aire d’un secteur</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-radian" data-chap="1" data-url="ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html" data-n="4">
+<p>Le radian : mesurer un arc en rayons</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-angles-orientes" data-chap="1" data-url="ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html" data-n="3">
+<p>Angles orientés, plusieurs tours</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-enroulement" data-chap="2" data-url="ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html" data-n="3">
+<p>Enrouler la droite réelle sur le cercle</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-valeurs-remarquables" data-chap="2" data-url="ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html" data-n="5">
+<p>Valeurs remarquables et symétries</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-equations-sin-cos" data-chap="2" data-url="ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html" data-n="4">
+<p>Équations <span class="math inline">\(\sin x = a\)</span> et <span class="math inline">\(\cos x = a\)</span></p>
+</div>
+<div class="ae-sec" data-ae-id="sec-tangente" data-chap="2" data-url="ch2-le-cercle-trigonomet/4-la-tangente.html" data-n="2">
+<p>La tangente</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-equations-tan" data-chap="2" data-url="ch2-le-cercle-trigonomet/5-equations-tan-x-a.html" data-n="1">
+<p>Équations <span class="math inline">\(\tan x = a\)</span></p>
+</div>
+<div class="ae-sec" data-ae-id="sec-sinus-cosinus" data-chap="3" data-url="ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html" data-n="4">
+<p>Du cercle au graphique : sinus et cosinus</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-fonction-tangente" data-chap="3" data-url="ch3-les-fonctions-trigon/2-la-fonction-tangente.html" data-n="2">
+<p>La fonction tangente</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-resoudre-graphiquement" data-chap="3" data-url="ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html" data-n="1">
+<p>Résoudre graphiquement ; choisir son outil</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-a-b" data-chap="4" data-url="ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html" data-n="3">
+<p>Rôle de <span class="math inline">\(a\)</span> et de <span class="math inline">\(b\)</span></p>
+</div>
+<div class="ae-sec" data-ae-id="sec-c" data-chap="4" data-url="ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html" data-n="4">
+<p>Rôle de <span class="math inline">\(c\)</span> : phase et déphasage</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-tracer-apparier" data-chap="4" data-url="ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html" data-n="6">
+<p>Tracer, apparier, retrouver l’expression</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-equations-asin" data-chap="4" data-url="ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html" data-n="3">
+<p>Équations <span class="math inline">\(a \sin(b x + c) = k\)</span></p>
+</div>
+<div class="ae-sec" data-ae-id="sec-sinusoides-partout" data-chap="5" data-url="ch5-modeliser-des-phenom/1-des-sinusoides-partout.html" data-n="2">
+<p>Des sinusoïdes partout</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-retour-london-eye" data-chap="5" data-url="ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html" data-n="1">
+<p>Retour au London Eye ; les limites d’un modèle</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-derivees" data-chap="6" data-url="ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html" data-n="2">
+<p>Dérivées de sinus, cosinus et tangente</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-derivees-composees" data-chap="6" data-url="ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html" data-n="2">
+<p>Dérivées de composées ; vitesse d’un mouvement circulaire</p>
+</div>
+<div class="ae-obj" data-code="C1" data-cat="Connaître">
+<p>Représenter sur un cercle trigonométrique un point correspondant à un angle donné ainsi que ses nombres trigonométriques.</p>
+</div>
+<div class="ae-obj" data-code="C2" data-cat="Connaître">
+<p>Représenter graphiquement les fonctions trigonométriques.</p>
+</div>
+<div class="ae-obj" data-code="C3" data-cat="Connaître">
+<p>Associer graphiquement les nombres trigonométriques d’un angle et les images d’un réel par une fonction trigonométrique.</p>
+</div>
+<div class="ae-obj" data-code="C4" data-cat="Connaître">
+<p>Interpréter le rôle des paramètres <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> et <span class="math inline">\(c\)</span> de la fonction <span class="math inline">\(x \mapsto a \sin(b x + c)\)</span>.</p>
+</div>
+<div class="ae-obj" data-code="C5" data-cat="Connaître">
+<p>Définir période, fréquence, amplitude d’une fonction périodique.</p>
+</div>
+<div class="ae-obj" data-code="C6" data-cat="Connaître">
+<p>Décrire comment la hauteur d’un point qui tourne varie quand l’arc parcouru augmente (de plus en plus / de moins en moins vite).</p>
+</div>
+<div class="ae-obj" data-code="C7" data-cat="Connaître">
+<p>Exprimer un angle en radians comme « nombre de rayons » de l’arc intercepté ; convertir degrés ↔︎ radians.</p>
+</div>
+<div class="ae-obj" data-code="C8" data-cat="Connaître">
+<p>Lire sur le cercle les liens entre nombres trigonométriques d’angles symétriques et la relation <span class="math inline">\(\cos^{2} x + \sin^{2} x = 1\)</span>.</p>
+</div>
+<div class="ae-obj" data-code="C9" data-cat="Connaître">
+<ol start="4" type="A">
+<li>Interpréter <span class="math inline">\((\sin x)' = \cos x\)</span> sur le graphique (pente) et sur le cercle (vitesse verticale d’un point qui tourne).</li>
+</ol>
+</div>
+<div class="ae-obj" data-code="A1" data-cat="Appliquer">
+<p>Calculer une amplitude d’angle, une longueur d’arc de cercle et une aire de secteur.</p>
+</div>
+<div class="ae-obj" data-code="A2" data-cat="Appliquer">
+<p>Apparier des graphiques de transformées de fonctions trigonométriques et des expressions analytiques.</p>
+</div>
+<div class="ae-obj" data-code="A3" data-cat="Appliquer">
+<p>Trouver l’expression analytique d’une transformée simple d’une fonction trigonométrique à partir de son graphique.</p>
+</div>
+<div class="ae-obj" data-code="A4" data-cat="Appliquer">
+<p>Tracer le graphique d’une transformée simple d’une fonction trigonométrique.</p>
+</div>
+<div class="ae-obj" data-code="A5" data-cat="Appliquer">
+<p>Résoudre des équations du type <span class="math inline">\(\sin x = a\)</span>, <span class="math inline">\(\cos x = a\)</span>, <span class="math inline">\(\tan x = a\)</span> en utilisant la calculatrice, le cercle trigonométrique et les fonctions trigonométriques.</p>
+</div>
+<div class="ae-obj" data-code="A6" data-cat="Appliquer">
+<p>Résoudre graphiquement et/ou algébriquement une équation trigonométrique du type <span class="math inline">\(a \sin(b x + c) = k\)</span>.</p>
+</div>
+<div class="ae-obj" data-code="A7" data-cat="Appliquer">
+<p>Déterminer l’amplitude, la période, le déphasage et les extrémums d’une fonction trigonométrique.</p>
+</div>
+<div class="ae-obj" data-code="A8" data-cat="Appliquer">
+<ol start="4" type="A">
+<li>Calculer la dérivée d’une expression contenant des fonctions trigonométriques.</li>
+</ol>
+</div>
+<div class="ae-obj" data-code="A9" data-cat="Appliquer">
+<p>Déterminer les caractéristiques (domaine, période, ensemble image, zéros) d’une transformée simple d’une fonction trigonométrique au départ de son expression analytique.</p>
+</div>
+<div class="ae-obj" data-code="T1" data-cat="Transférer">
+<p>Résoudre un problème qui requiert l’utilisation d’une fonction du type <span class="math inline">\(x \mapsto a \sin(b x + c)\)</span>.</p>
+</div>
+<div class="ae-qa" data-ae-id="qa-rappel-ch1" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-london-eye&quot;, &quot;sec-arc-secteur&quot;, &quot;sec-radian&quot;, &quot;sec-angles-orientes&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Rappel — chapitre 1</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions de base pour commencer la séance : arcs, radians, tours.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-rappel-ch2" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-enroulement&quot;, &quot;sec-valeurs-remarquables&quot;, &quot;sec-tangente&quot;, &quot;sec-equations-sin-cos&quot;, &quot;sec-equations-tan&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Rappel — chapitre 2</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions de base : cercle, valeurs exactes, équations.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-rappel-ch3" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-sinus-cosinus&quot;, &quot;sec-fonction-tangente&quot;, &quot;sec-resoudre-graphiquement&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Rappel — chapitre 3</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions de base : graphiques, période, amplitude.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-rappel-ch4" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 3, &quot;sections&quot;: [&quot;sec-a-b&quot;, &quot;sec-c&quot;, &quot;sec-tracer-apparier&quot;, &quot;sec-equations-asin&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Rappel — chapitre 4</p>
+</div>
+<div class="ae-qa-desc">
+<p>Trois questions de base : a, b, c, tracer, équations.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-interro-1" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 12, &quot;sections&quot;: [&quot;sec-arc-secteur&quot;, &quot;sec-radian&quot;, &quot;sec-angles-orientes&quot;, &quot;sec-enroulement&quot;, &quot;sec-valeurs-remarquables&quot;, &quot;sec-tangente&quot;, &quot;sec-equations-sin-cos&quot;, &quot;sec-equations-tan&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Préparer l’interro 1 : angles et cercle</p>
+</div>
+<div class="ae-qa-desc">
+<p>Douze questions sur les chapitres 1 et 2 : radians, mesure principale, valeurs remarquables, équations.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-cercle-bases" data-spec="{&quot;questions&quot;: [&quot;tg-quadrant-signes&quot;, &quot;tg-calculatrice-degres&quot;, &quot;tg-cos-5pi-6&quot;, &quot;tg-angle-associe-pi-moins-x&quot;, &quot;tg-tan-2pi-3&quot;, &quot;tg-tan-existe&quot;, &quot;tg-relation-fondamentale&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Le cercle trigonométrique : les bases</p>
+</div>
+<div class="ae-qa-desc">
+<p>Signes, valeurs exactes, tangente.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-equations" data-spec="{&quot;questions&quot;: [&quot;tg-eq-sin-racine3&quot;, &quot;tg-eq-sin-intervalle&quot;, &quot;tg-eq-sans-solution&quot;, &quot;tg-eq-tan&quot;, &quot;tg-nombre-solutions-graphique&quot;, &quot;tg-eq-isoler&quot;, &quot;tg-eq-sin2x&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Résoudre des équations</p>
+</div>
+<div class="ae-qa-desc">
+<p>Du cercle à <span class="math inline">\(a \sin(b x + c) = k\)</span>.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-interro-2" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 12, &quot;sections&quot;: [&quot;sec-sinus-cosinus&quot;, &quot;sec-fonction-tangente&quot;, &quot;sec-resoudre-graphiquement&quot;, &quot;sec-a-b&quot;, &quot;sec-c&quot;, &quot;sec-tracer-apparier&quot;, &quot;sec-equations-asin&quot;, &quot;sec-sinusoides-partout&quot;, &quot;sec-retour-london-eye&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Préparer l’interro 2 : fonctions et modèles</p>
+</div>
+<div class="ae-qa-desc">
+<p>Douze questions sur les chapitres 3 à 5.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-bases" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Les bases, pour démarrer</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions de niveau ★ sur tout le cours.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-derivees" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 4, &quot;sections&quot;: [&quot;sec-derivees&quot;, &quot;sec-derivees-composees&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Module : dérivées trigonométriques</p>
+</div>
+<div class="ae-qa-desc">
+<p>Si le module a été vu en classe.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-cabine-premier-quart" data-type="qcm" data-section="sec-london-eye" data-obj="C6" data-niveau="1" data-id="5UAA5.q.tg-cabine-premier-quart" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une cabine d’une grande roue part du point le plus bas. On note sa hauteur toutes les 2,5 minutes pendant le premier quart de tour (7,5 minutes). Sur ces durées égales, sa hauteur augmente…</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>de plus en plus vite</p>
+</div>
+<div class="ae-fb">
+<p>Oui. Près du point le plus bas, la cabine se déplace presque horizontalement ; au niveau de l’axe, elle monte verticalement. Pour le London Eye : <span class="math inline">\(8\)</span> m, puis <span class="math inline">\(22\)</span> m, puis <span class="math inline">\(30\)</span> m.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>toujours de la même quantité</p>
+</div>
+<div class="ae-fb">
+<p>La roue tourne à vitesse constante, mais la <strong>hauteur</strong> ne varie pas de la même quantité sur des durées égales : <span class="math inline">\(8\)</span> m, puis <span class="math inline">\(22\)</span> m, puis <span class="math inline">\(30\)</span> m pour le London Eye. C’est pour cela qu’on ne relie pas les points par des segments.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>de moins en moins vite</p>
+</div>
+<div class="ae-fb">
+<p>C’est ce qui se passe pendant le <strong>deuxième</strong> quart de tour, de l’axe jusqu’au sommet. Pendant le premier, la cabine part d’un mouvement presque horizontal.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>de plus en plus vite, puis de moins en moins vite</p>
+</div>
+<div class="ae-fb">
+<p>C’est la description d’un <strong>demi</strong>-tour (du point le plus bas au sommet). La question ne porte que sur le premier quart de tour, qui s’arrête au niveau de l’axe.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-cabine-segments" data-type="ouverte" data-section="sec-london-eye" data-obj="C6" data-niveau="2" data-id="5UAA5.q.tg-cabine-segments" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>On a placé dans un repère la hauteur d’une cabine toutes les 2,5 minutes. Un élève relie les points par des segments. Explique pourquoi ce n’est pas correct, en t’appuyant sur les accroissements de la hauteur.</p>
+</div>
+<div class="ae-rep">
+<p>La cabine passe par toutes les positions intermédiaires, et sa hauteur ne varie pas de la même quantité sur des durées égales : pendant le premier quart de tour, elle augmente de plus en plus vite (<span class="math inline">\(8\)</span> m, <span class="math inline">\(22\)</span> m, <span class="math inline">\(30\)</span> m pour le London Eye), puis de moins en moins vite. Entre deux points, la hauteur ne suit donc pas un segment : on relie les points par une courbe « arrondie », plate près du sommet et du point le plus bas, la plus raide au niveau de l’axe.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai dit que la hauteur ne varie pas de la même quantité sur des durées égales.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai décrit le sens de variation : de plus en plus vite, puis de moins en moins vite.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai conclu qu’on relie les points par une courbe, plate en haut et en bas, raide au niveau de l’axe.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-arc-degres" data-type="qcm" data-section="sec-arc-secteur" data-obj="A1" data-niveau="1" data-id="5UAA5.q.tg-arc-degres" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un cercle de rayon <span class="math inline">\(10\)</span> cm, quelle est la longueur de l’arc intercepté par un angle au centre de <span class="math inline">\(72°\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(4 \pi \approx 12{,}57\)</span> cm</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\ell = \frac{72}{360} \cdot 2 \pi \cdot 10 = \frac{1}{5} \cdot 20 \pi = 4 \pi\)</span> cm.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 \pi \approx 6{,}28\)</span> cm</p>
+</div>
+<div class="ae-fb">
+<p>Tu as pris <span class="math inline">\(\pi r\)</span> au lieu du périmètre <span class="math inline">\(2 \pi r\)</span> : <span class="math inline">\(\frac{72}{360} \cdot \pi \cdot 10 = 2 \pi\)</span>. L’arc est une fraction du <strong>périmètre</strong> <span class="math inline">\(2 \pi r\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(20 \pi \approx 62{,}83\)</span> cm²</p>
+</div>
+<div class="ae-fb">
+<p>C’est l’<strong>aire du secteur</strong> : <span class="math inline">\(\frac{72}{360} \cdot \pi \cdot 10^{2} = 20 \pi\)</span>. L’arc est une longueur, fraction du périmètre <span class="math inline">\(2 \pi r\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(720\)</span> cm</p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(r \cdot \alpha\)</span> avec <span class="math inline">\(\alpha\)</span> en degrés. La formule <span class="math inline">\(\ell = r \theta\)</span> ne vaut que pour un angle en <strong>radians</strong>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-secteur-radians" data-type="qcm" data-section="sec-radian" data-obj="A1" data-niveau="1" data-id="5UAA5.q.tg-secteur-radians" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un cercle de rayon <span class="math inline">\(6\)</span> cm, quelle est l’aire du secteur délimité par un angle au centre de <span class="math inline">\(2\)</span> radians ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(36\)</span> cm²</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(A = \frac{r^{2} \theta}{2} = \frac{36 \cdot 2}{2} = 36\)</span> cm².</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(72\)</span> cm²</p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié de diviser par <span class="math inline">\(2\)</span>. Un tour (<span class="math inline">\(2 \pi\)</span> rad) correspond à <span class="math inline">\(\pi r^{2}\)</span> : un angle <span class="math inline">\(\theta\)</span> correspond à <span class="math inline">\(\frac{\theta}{2 \pi} \cdot \pi r^{2} = \frac{r^{2} \theta}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(12\)</span> cm²</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(12\)</span> cm est la <strong>longueur de l’arc</strong> : <span class="math inline">\(\ell = r \theta = 6 \cdot 2\)</span>. L’aire du secteur vaut <span class="math inline">\(\frac{r^{2} \theta}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>environ <span class="math inline">\(0{,}63\)</span> cm²</p>
+</div>
+<div class="ae-fb">
+<p>Tu as utilisé la formule en degrés, <span class="math inline">\(\frac{\alpha}{360} \cdot \pi r^{2}\)</span>, avec <span class="math inline">\(\alpha = 2\)</span>. Ici l’angle est en radians : <span class="math inline">\(A = \frac{r^{2} \theta}{2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-radian-definition" data-type="qcm" data-section="sec-radian" data-obj="C7" data-niveau="1" data-id="5UAA5.q.tg-radian-definition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans un cercle de rayon <span class="math inline">\(6\)</span> cm, un angle au centre intercepte un arc de <span class="math inline">\(15\)</span> cm. Combien mesure-t-il en radians ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(2{,}5\)</span> rad</p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’arc contient <span class="math inline">\(\frac{15}{6} = 2{,}5\)</span> rayons, donc <span class="math inline">\(\theta = \frac{\ell}{r} = 2{,}5\)</span> rad.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}4\)</span> rad</p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(\frac{r}{\ell} = \frac{6}{15}\)</span>. Un angle en radians compte combien de <strong>rayons</strong> contient l’arc : <span class="math inline">\(\theta = \frac{\ell}{r}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2{,}5 \pi\)</span> rad</p>
+</div>
+<div class="ae-fb">
+<p>Le nombre <span class="math inline">\(\pi\)</span> n’a rien à faire ici : <span class="math inline">\(\theta = \frac{\ell}{r} = \frac{15}{6}\)</span>. On voit <span class="math inline">\(\pi\)</span> apparaître seulement quand l’arc est une fraction du tour.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>environ <span class="math inline">\(143{,}2\)</span> rad</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(143{,}2\)</span> est la mesure en <strong>degrés</strong> (<span class="math inline">\(2{,}5 \cdot \frac{180}{\pi}\)</span>). En radians, l’angle vaut <span class="math inline">\(\frac{15}{6} = 2{,}5\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-degres-vers-radians" data-type="qcm" data-section="sec-radian" data-obj="C7" data-niveau="1" data-id="5UAA5.q.tg-degres-vers-radians" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la mesure en radians d’un angle de <span class="math inline">\(135°\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{3 \pi}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(135° = \frac{135}{180} \cdot \pi = \frac{3}{4} \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{4 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as inversé la fraction (<span class="math inline">\(\frac{180}{135} = \frac{4}{3}\)</span>). La mesure en radians est proportionnelle à la mesure en degrés : <span class="math inline">\(\frac{135}{180} \cdot \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(135 \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il faut diviser par <span class="math inline">\(180\)</span> : <span class="math inline">\(\pi\)</span> rad et <span class="math inline">\(180°\)</span> désignent le même angle, donc <span class="math inline">\(1° = \frac{\pi}{180}\)</span> rad.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{3}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié <span class="math inline">\(\pi\)</span> : <span class="math inline">\(\frac{3}{4}\)</span> rad vaut environ <span class="math inline">\(43°\)</span>. <span class="math inline">\(135°\)</span> est les trois quarts d’un demi-tour, donc les trois quarts de <span class="math inline">\(\pi\)</span> rad.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-radians-vers-degres" data-type="qcm" data-section="sec-radian" data-obj="C7" data-niveau="1" data-id="5UAA5.q.tg-radians-vers-degres" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la mesure en degrés d’un angle de <span class="math inline">\(\frac{7 \pi}{6}\)</span> radians ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(210°\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\pi\)</span> rad correspond à <span class="math inline">\(180°\)</span>, donc <span class="math inline">\(\frac{7 \pi}{6}\)</span> rad correspond à <span class="math inline">\(\frac{7}{6} \cdot 180° = 210°\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(420°\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as remplacé <span class="math inline">\(\pi\)</span> par <span class="math inline">\(360°\)</span>. C’est <span class="math inline">\(2 \pi\)</span> rad qui vaut <span class="math inline">\(360°\)</span> ; <span class="math inline">\(\pi\)</span> rad vaut <span class="math inline">\(180°\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(210 \pi °\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On remplace <span class="math inline">\(\pi\)</span> rad par <span class="math inline">\(180°\)</span> : le nombre <span class="math inline">\(\pi\)</span> disparaît. On n’écrit jamais « <span class="math inline">\(\pi = 180\)</span> », mais <span class="math inline">\(\pi\)</span> rad <span class="math inline">\(= 180°\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>environ <span class="math inline">\(66{,}8°\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as converti <span class="math inline">\(\frac{7}{6}\)</span> rad, en oubliant que <span class="math inline">\(\pi\)</span> fait partie de la mesure : <span class="math inline">\(\frac{7}{6} \cdot \frac{180}{\pi} \approx 66{,}8\)</span>. La mesure est <span class="math inline">\(\frac{7 \pi}{6}\)</span>, soit <span class="math inline">\(\frac{7}{6}\)</span> de demi-tour.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-mesure-principale" data-type="qcm" data-section="sec-angles-orientes" data-obj="C7" data-niveau="1" data-id="5UAA5.q.tg-mesure-principale" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la mesure principale de <span class="math inline">\(\frac{17 \pi}{4}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\pi}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{17 \pi}{4} = \frac{16 \pi}{4} + \frac{\pi}{4} = 4 \pi + \frac{\pi}{4}\)</span> (deux tours, puis <span class="math inline">\(\frac{\pi}{4}\)</span>), et <span class="math inline">\(\frac{\pi}{4} \in [0 ; 2 \pi[\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{9 \pi}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{9 \pi}{4} = 2 \pi + \frac{\pi}{4}\)</span> n’est pas dans <span class="math inline">\([0 ; 2 \pi[\)</span> : il faut encore retirer un tour.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{15 \pi}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as retiré <span class="math inline">\(\frac{2 \pi}{4}\)</span> au lieu de <span class="math inline">\(2 \pi\)</span>. Un tour vaut <span class="math inline">\(2 \pi = \frac{8 \pi}{4}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{15 \pi}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as retiré un tour de trop. La mesure principale est dans <span class="math inline">\([0 ; 2 \pi[\)</span> : elle n’est jamais négative.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-mesures-principales" data-type="ouverte" data-section="sec-angles-orientes" data-obj="C7" data-niveau="2" data-id="5UAA5.q.tg-mesures-principales" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Donne la mesure principale de <span class="math inline">\(-\frac{11 \pi}{6}\)</span> et de <span class="math inline">\(\frac{25 \pi}{3}\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(-\frac{11 \pi}{6} + 2 \pi = -\frac{11 \pi}{6} + \frac{12 \pi}{6} = \frac{\pi}{6}\)</span>.<br>
+<span class="math inline">\(\frac{25 \pi}{3} = \frac{24 \pi}{3} + \frac{\pi}{3} = 8 \pi + \frac{\pi}{3}\)</span> (quatre tours), donc la mesure principale est <span class="math inline">\(\frac{\pi}{3}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai ajouté ou retiré un nombre entier de tours <span class="math inline">\(2 \pi\)</span>, écrit avec le même dénominateur.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(\frac{\pi}{6}\)</span> et <span class="math inline">\(\frac{\pi}{3}\)</span>, tous deux dans <span class="math inline">\([0 ; 2 \pi[\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-meme-point" data-type="qcm" data-section="sec-angles-orientes" data-obj="C7" data-niveau="2" data-id="5UAA5.q.tg-meme-point" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Lequel de ces réels est associé au <strong>même point</strong> du cercle que <span class="math inline">\(\frac{2 \pi}{3}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{4 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(-\frac{4 \pi}{3} + 2 \pi = -\frac{4 \pi}{3} + \frac{6 \pi}{3} = \frac{2 \pi}{3}\)</span>. Les deux réels diffèrent d’un tour.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{2 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(P(-\frac{2 \pi}{3})\)</span> est le <strong>symétrique</strong> de <span class="math inline">\(P(\frac{2 \pi}{3})\)</span> par rapport à l’axe horizontal, pas le même point.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{5 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{5 \pi}{3} = \frac{2 \pi}{3} + \pi\)</span> : c’est un demi-tour de plus, le point diamétralement opposé.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{4 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{4 \pi}{3} = \frac{2 \pi}{3} + \frac{2 \pi}{3}\)</span>. Pour retrouver le même point, il faut ajouter ou retirer un tour, <span class="math inline">\(2 \pi = \frac{6 \pi}{3}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-quadrant-signes" data-type="qcm" data-section="sec-enroulement" data-obj="C1" data-niveau="1" data-id="5UAA5.q.tg-quadrant-signes" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour <span class="math inline">\(x = \frac{9 \pi}{7}\)</span>, on a :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\cos x &lt; 0\)</span> et <span class="math inline">\(\sin x &lt; 0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\pi = \frac{14 \pi}{14} &lt; \frac{18 \pi}{14} = \frac{9 \pi}{7} &lt; \frac{21 \pi}{14} = \frac{3 \pi}{2}\)</span> ; <span class="math inline">\(P(x)\)</span> est dans le quadrant III, à gauche de l’axe vertical et sous l’axe horizontal.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos x &lt; 0\)</span> et <span class="math inline">\(\sin x &gt; 0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le quadrant II, entre <span class="math inline">\(\frac{\pi}{2}\)</span> et <span class="math inline">\(\pi\)</span>. Or <span class="math inline">\(\frac{9 \pi}{7} &gt; \frac{7 \pi}{7} = \pi\)</span> : le point a dépassé le demi-tour.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos x &gt; 0\)</span> et <span class="math inline">\(\sin x &lt; 0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le quadrant IV, entre <span class="math inline">\(\frac{3 \pi}{2}\)</span> et <span class="math inline">\(2 \pi\)</span>. Or <span class="math inline">\(\frac{9 \pi}{7} = \frac{18 \pi}{14} &lt; \frac{21 \pi}{14} = \frac{3 \pi}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos x &gt; 0\)</span> et <span class="math inline">\(\sin x &gt; 0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as peut-être placé le réel <span class="math inline">\(\frac{9}{7} \approx 1{,}29\)</span>, sans <span class="math inline">\(\pi\)</span>. Le réel <span class="math inline">\(\frac{9 \pi}{7} \approx 4{,}04\)</span> a dépassé le demi-tour.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-calculatrice-degres" data-type="qcm" data-section="sec-enroulement" data-obj="C1" data-niveau="1" data-id="5UAA5.q.tg-calculatrice-degres" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une calculatrice affiche <span class="math inline">\(\sin 2 \approx 0{,}0349\)</span>. Que faut-il en penser ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Elle est en mode degrés : elle a calculé le sinus de <span class="math inline">\(2°\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui. <span class="math inline">\(P(2)\)</span> est dans le quadrant II, près du sommet du cercle : <span class="math inline">\(\sin 2 \approx 0{,}909\)</span>. Pour un réel, la calculatrice doit être en mode radians.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>C’est la bonne valeur de <span class="math inline">\(\sin 2\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Place <span class="math inline">\(P(2)\)</span> : <span class="math inline">\(2\)</span> rad <span class="math inline">\(\approx 115°\)</span>, le point est près du sommet du cercle, donc <span class="math inline">\(\sin 2\)</span> est proche de <span class="math inline">\(1\)</span> (<span class="math inline">\(\approx 0{,}909\)</span>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle a calculé <span class="math inline">\(\sin(2 \pi)\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\sin(2 \pi) = 0\)</span> (un tour complet ramène au point <span class="math inline">\((1 ; 0)\)</span>). La valeur affichée est le sinus de <span class="math inline">\(2°\)</span> : la calculatrice est en degrés.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle est en mode radians, mais <span class="math inline">\(\sin 2\)</span> est petit car <span class="math inline">\(2\)</span> est petit.</p>
+</div>
+<div class="ae-fb">
+<p>En radians, <span class="math inline">\(2\)</span> n’est pas « petit » : c’est un arc de deux rayons, plus d’un quart de tour. La calculatrice est en degrés.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-hauteur-london-eye" data-type="ouverte" data-section="sec-enroulement" data-obj="C1" data-niveau="2" data-id="5UAA5.q.tg-hauteur-london-eye" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Une cabine du London Eye (rayon <span class="math inline">\(60\)</span> m, axe à <span class="math inline">\(75\)</span> m du sol) est repérée par l’angle <span class="math inline">\(\theta = 2\)</span> rad, mesuré depuis le rayon horizontal de droite dans le sens trigonométrique. À quelle hauteur au-dessus du sol est-elle (au cm) ?</p>
+</div>
+<div class="ae-rep">
+<p>Hauteur au-dessus de l’axe : <span class="math inline">\(60 \sin 2 \approx 54{,}56\)</span> m (calculatrice en radians). Hauteur au-dessus du sol : <span class="math inline">\(75 + 60 \sin 2 \approx 129{,}56\)</span> m.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(60 \sin 2\)</span> en mode radians.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai ajouté la hauteur de l’axe (<span class="math inline">\(75\)</span> m).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé environ <span class="math inline">\(129{,}56\)</span> m.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-cos-5pi-6" data-type="qcm" data-section="sec-valeurs-remarquables" data-obj="C1" data-niveau="1" data-id="5UAA5.q.tg-cos-5pi-6" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Que vaut <span class="math inline">\(\cos(\frac{5 \pi}{6})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{\sqrt{3}}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{5 \pi}{6} = \pi - \frac{\pi}{6}\)</span>. <span class="math inline">\(P(\frac{5 \pi}{6})\)</span> est le symétrique de <span class="math inline">\(P(\frac{\pi}{6})\)</span> par rapport à l’axe vertical : abscisse opposée, <span class="math inline">\(\cos(\frac{5 \pi}{6}) = -\cos \frac{\pi}{6} = -\frac{\sqrt{3}}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\sqrt{3}}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe : <span class="math inline">\(P(\frac{5 \pi}{6})\)</span> est dans le quadrant II, à gauche de l’axe vertical, donc son abscisse est négative.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{1}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{1}{2}\)</span> est le <strong>sinus</strong> de <span class="math inline">\(\frac{\pi}{6}\)</span> (l’ordonnée). Pour <span class="math inline">\(\frac{\pi}{6}\)</span>, le point est plus à droite qu’il n’est haut : <span class="math inline">\(\cos \frac{\pi}{6} = \frac{\sqrt{3}}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{1}{2} = \sin(\frac{5 \pi}{6})\)</span>, l’ordonnée du point. Le cosinus est l’<strong>abscisse</strong> : <span class="math inline">\(-\frac{\sqrt{3}}{2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-valeurs-exactes" data-type="ouverte" data-section="sec-valeurs-remarquables" data-obj="C1" data-niveau="2" data-id="5UAA5.q.tg-valeurs-exactes" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Donne la valeur exacte de <span class="math inline">\(\cos(\frac{2 \pi}{3})\)</span>, <span class="math inline">\(\sin(-\frac{\pi}{6})\)</span> et <span class="math inline">\(\cos(\frac{7 \pi}{4})\)</span>, en dessinant chaque fois <span class="math inline">\(P(x)\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(\frac{2 \pi}{3} = \pi - \frac{\pi}{3}\)</span> (symétrie d’axe vertical) : <span class="math inline">\(\cos(\frac{2 \pi}{3}) = -\frac{1}{2}\)</span>.<br>
+<span class="math inline">\(P(-\frac{\pi}{6})\)</span> est le symétrique de <span class="math inline">\(P(\frac{\pi}{6})\)</span> par rapport à l’axe horizontal : <span class="math inline">\(\sin(-\frac{\pi}{6}) = -\frac{1}{2}\)</span>.<br>
+<span class="math inline">\(\frac{7 \pi}{4} = 2 \pi - \frac{\pi}{4}\)</span>, même point que <span class="math inline">\(-\frac{\pi}{4}\)</span> : <span class="math inline">\(\cos(\frac{7 \pi}{4}) = \cos \frac{\pi}{4} = \frac{\sqrt{2}}{2}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai placé chaque point et repéré la symétrie qui le relie à un point du premier quadrant.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai les trois valeurs : <span class="math inline">\(-\frac{1}{2}\)</span> ; <span class="math inline">\(-\frac{1}{2}\)</span> ; <span class="math inline">\(\frac{\sqrt{2}}{2}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai vérifié chaque signe par la position du point (gauche/droite, haut/bas).</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-relation-fondamentale" data-type="qcm" data-section="sec-valeurs-remarquables" data-obj="C8" data-niveau="2" data-id="5UAA5.q.tg-relation-fondamentale" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On sait que <span class="math inline">\(\sin x = 0{,}8\)</span> et que <span class="math inline">\(P(x)\)</span> est dans le deuxième quadrant. Que vaut <span class="math inline">\(\cos x\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-0{,}6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\cos^{2} x = 1 - 0{,}64 = 0{,}36\)</span>, donc <span class="math inline">\(\cos x = \pm 0{,}6\)</span> ; dans le quadrant II, l’abscisse est négative.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le calcul est juste, mais le signe ne l’est pas : dans le quadrant II, <span class="math inline">\(P(x)\)</span> est à gauche de l’axe vertical, <span class="math inline">\(\cos x &lt; 0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La relation porte sur les <strong>carrés</strong> : <span class="math inline">\(\cos^{2} x + \sin^{2} x = 1\)</span>, pas <span class="math inline">\(\cos x + \sin x = 1\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-0{,}2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe est bon, mais la relation porte sur les <strong>carrés</strong> : <span class="math inline">\(\cos^{2} x = 1 - \sin^{2} x = 0{,}36\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-angle-associe-pi-moins-x" data-type="qcm" data-section="sec-valeurs-remarquables" data-obj="C8" data-niveau="1" data-id="5UAA5.q.tg-angle-associe-pi-moins-x" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour tout réel <span class="math inline">\(x\)</span>, <span class="math inline">\(\cos(\pi - x)\)</span> est égal à :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-\cos x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(P(\pi - x)\)</span> est le symétrique de <span class="math inline">\(P(x)\)</span> par rapport à l’axe vertical. Même ordonnée, abscisse opposée.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Dessine <span class="math inline">\(P(x)\)</span> et <span class="math inline">\(P(\pi - x)\)</span> : ils sont de part et d’autre de l’axe vertical, leurs abscisses sont opposées. C’est le <strong>sinus</strong> qui ne change pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\sin x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il n’y a pas d’échange entre abscisse et ordonnée ici : <span class="math inline">\(P(\pi - x)\)</span> est le symétrique de <span class="math inline">\(P(x)\)</span> par rapport à l’axe vertical.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos(-x)\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\cos(-x) = \cos x\)</span> (symétrie d’axe horizontal). Or <span class="math inline">\(P(\pi - x)\)</span> est le symétrique de <span class="math inline">\(P(x)\)</span> par rapport à l’axe <strong>vertical</strong> : son abscisse est <span class="math inline">\(-\cos x\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-ranger-cosinus" data-type="ouverte" data-section="sec-valeurs-remarquables" data-obj="C8" data-niveau="3" data-id="5UAA5.q.tg-ranger-cosinus" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Sans calculatrice, range dans l’ordre croissant : <span class="math inline">\(\cos 1\)</span>, <span class="math inline">\(\cos 2\)</span>, <span class="math inline">\(\cos 3\)</span>, <span class="math inline">\(\cos 5\)</span>. Justifie à l’aide du cercle.</p>
+</div>
+<div class="ae-rep">
+<p>Sur <span class="math inline">\([0 ; \pi]\)</span>, quand <span class="math inline">\(x\)</span> augmente, <span class="math inline">\(P(x)\)</span> se déplace vers la gauche : son abscisse diminue. Comme <span class="math inline">\(0 &lt; 1 &lt; 2 &lt; 3 &lt; \pi\)</span> : <span class="math inline">\(\cos 3 &lt; \cos 2 &lt; \cos 1\)</span>.<br>
+<span class="math inline">\(P(5)\)</span> est dans le quadrant IV (<span class="math inline">\(\frac{3 \pi}{2} \approx 4{,}71 &lt; 5 &lt; 2 \pi\)</span>) : c’est le même point que <span class="math inline">\(5 - 2 \pi \approx -1{,}28\)</span>, symétrique de <span class="math inline">\(P(2 \pi - 5)\)</span> par rapport à l’axe horizontal, donc <span class="math inline">\(\cos 5 = \cos(2 \pi - 5) \approx \cos 1{,}28\)</span>. Comme <span class="math inline">\(1 &lt; 1{,}28 &lt; \frac{\pi}{2}\)</span> : <span class="math inline">\(0 &lt; \cos 5 &lt; \cos 1\)</span>. Et <span class="math inline">\(\cos 2 &lt; 0\)</span> (<span class="math inline">\(2 &gt; \frac{\pi}{2}\)</span>).<br>
+Donc <span class="math inline">\(\cos 3 &lt; \cos 2 &lt; \cos 5 &lt; \cos 1\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai expliqué que l’abscisse diminue quand <span class="math inline">\(x\)</span> va de <span class="math inline">\(0\)</span> à <span class="math inline">\(\pi\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai ramené <span class="math inline">\(\cos 5\)</span> à <span class="math inline">\(\cos(2 \pi - 5)\)</span> par la symétrie d’axe horizontal.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai le bon ordre : <span class="math inline">\(\cos 3 &lt; \cos 2 &lt; \cos 5 &lt; \cos 1\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-tan-2pi-3" data-type="qcm" data-section="sec-tangente" data-obj="C1" data-niveau="1" data-id="5UAA5.q.tg-tan-2pi-3" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Que vaut <span class="math inline">\(\tan(\frac{2 \pi}{3})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-\sqrt{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\tan(\frac{2 \pi}{3}) = \frac{\sin(\frac{2 \pi}{3})}{\cos(\frac{2 \pi}{3})} = \frac{\frac{\sqrt{3}}{2}}{-\frac{1}{2}} = -\sqrt{3}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\sqrt{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe : <span class="math inline">\(P(\frac{2 \pi}{3})\)</span> est dans le quadrant II ; la droite <span class="math inline">\(O P(x)\)</span> descend vers la droite, sa pente est négative.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{\sqrt{3}}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(\cos \frac{x}{\sin} x\)</span>. La tangente est la pente de <span class="math inline">\(O P(x)\)</span> : <span class="math inline">\(\sin \frac{x}{\cos} x\)</span> (ce dont on monte divisé par ce dont on avance).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-1\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(-1 = \tan(\frac{3 \pi}{4})\)</span> : <span class="math inline">\(P(\frac{3 \pi}{4})\)</span> est sur la bissectrice. <span class="math inline">\(P(\frac{2 \pi}{3})\)</span> est plus haut qu’il n’est à gauche : la pente vaut <span class="math inline">\(-\sqrt{3}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-tan-existe" data-type="qcm" data-section="sec-tangente" data-obj="C1" data-niveau="1" data-id="5UAA5.q.tg-tan-existe" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour lequel de ces réels <span class="math inline">\(\tan x\)</span> n’existe-t-il pas ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{3 \pi}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\cos(\frac{3 \pi}{2}) = 0\)</span>. La droite <span class="math inline">\(O P(\frac{3 \pi}{2})\)</span> est verticale : elle n’a pas de pente et ne coupe pas l’axe des tangentes.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan \pi = \frac{0}{-1} = 0\)</span> : la droite <span class="math inline">\(O P(\pi)\)</span> est horizontale. C’est le <strong>sinus</strong> qui s’annule en <span class="math inline">\(\pi\)</span>, pas le cosinus.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan 0 = 0\)</span> : la droite <span class="math inline">\(O P(0)\)</span> est l’axe horizontal, de pente nulle.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\pi}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan \frac{\pi}{4} = 1\)</span> : <span class="math inline">\(P(\frac{\pi}{4})\)</span> est sur la bissectrice, de pente <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-sin-racine3" data-type="qcm" data-section="sec-equations-sin-cos" data-obj="A5" data-niveau="1" data-id="5UAA5.q.tg-eq-sin-racine3" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelles sont les solutions réelles de <span class="math inline">\(\sin x = \frac{\sqrt{3}}{2}\)</span> ? (<span class="math inline">\(k \in \mathbb{Z}\)</span>)</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{3} + 2 k \pi\)</span> ou <span class="math inline">\(x = \frac{2 \pi}{3} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\sin \frac{\pi}{3} = \frac{\sqrt{3}}{2}\)</span> ; le second point de même ordonnée est <span class="math inline">\(P(\pi - \frac{\pi}{3}) = P(\frac{2 \pi}{3})\)</span> ; les tours donnent toutes les autres solutions.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{3} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il manque des solutions : la droite <span class="math inline">\(y = \frac{\sqrt{3}}{2}\)</span> coupe le cercle en <strong>deux</strong> points, <span class="math inline">\(P(\frac{\pi}{3})\)</span> et <span class="math inline">\(P(\frac{2 \pi}{3})\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{3} + 2 k \pi\)</span> ou <span class="math inline">\(x = -\frac{\pi}{3} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la règle du <strong>cosinus</strong> (symétrie d’axe horizontal). Pour le sinus, les deux points de même ordonnée sont symétriques par rapport à l’axe vertical : <span class="math inline">\(\alpha\)</span> et <span class="math inline">\(\pi - \alpha\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{6} + 2 k \pi\)</span> ou <span class="math inline">\(x = \frac{5 \pi}{6} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\sin \frac{\pi}{6} = \frac{1}{2}\)</span>, pas <span class="math inline">\(\frac{\sqrt{3}}{2}\)</span> : c’est <span class="math inline">\(\cos \frac{\pi}{6}\)</span> qui vaut <span class="math inline">\(\frac{\sqrt{3}}{2}\)</span>. Pour <span class="math inline">\(\frac{\pi}{3}\)</span>, le point est plus haut qu’il n’est à droite.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-cos-calculatrice" data-type="ouverte" data-section="sec-equations-sin-cos" data-obj="A5" data-niveau="2" data-id="5UAA5.q.tg-eq-cos-calculatrice" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Résous <span class="math inline">\(\cos x = 0{,}4\)</span> dans <span class="math inline">\([0 ; 2 \pi]\)</span> (quatre décimales).</p>
+</div>
+<div class="ae-rep">
+<p>La calculatrice (en radians) donne <span class="math inline">\(\alpha = \cos^{-1}(0{,}4) \approx 1{,}1593\)</span>. Le second point de même abscisse est <span class="math inline">\(P(-\alpha)\)</span>, soit, dans <span class="math inline">\([0 ; 2 \pi]\)</span>, <span class="math inline">\(2 \pi - \alpha \approx 5{,}1239\)</span>. Solutions : <span class="math inline">\(x \approx 1{,}1593\)</span> et <span class="math inline">\(x \approx 5{,}1239\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai obtenu <span class="math inline">\(\alpha \approx 1{,}1593\)</span> à la calculatrice, en mode radians.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé le second point par symétrie d’axe horizontal (<span class="math inline">\(-\alpha\)</span>), puis ajouté un tour.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai donné exactement deux solutions, toutes deux dans <span class="math inline">\([0 ; 2 \pi]\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-sin-intervalle" data-type="qcm" data-section="sec-equations-sin-cos" data-obj="A5" data-niveau="2" data-id="5UAA5.q.tg-eq-sin-intervalle" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelles sont les solutions de <span class="math inline">\(\sin x = -\frac{1}{2}\)</span> dans <span class="math inline">\([0 ; 2 \pi]\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{7 \pi}{6}\)</span> et <span class="math inline">\(\frac{11 \pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\alpha = -\frac{\pi}{6}\)</span>, hors de l’intervalle : on ajoute un tour, <span class="math inline">\(-\frac{\pi}{6} + 2 \pi = \frac{11 \pi}{6}\)</span>. Le second point : <span class="math inline">\(\pi - (-\frac{\pi}{6}) = \frac{7 \pi}{6}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{\pi}{6}\)</span> et <span class="math inline">\(\frac{7 \pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(-\frac{\pi}{6}\)</span> n’appartient pas à <span class="math inline">\([0 ; 2 \pi]\)</span> : il faut lui ajouter un tour (<span class="math inline">\(2 \pi\)</span>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\pi}{6}\)</span> et <span class="math inline">\(\frac{5 \pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ce sont les solutions de <span class="math inline">\(\sin x = \frac{1}{2}\)</span>. Pour <span class="math inline">\(-\frac{1}{2}\)</span>, les points sont <strong>sous</strong> l’axe horizontal.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{7 \pi}{6}\)</span> et <span class="math inline">\(\frac{5 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\sin(\frac{5 \pi}{3}) = -\frac{\sqrt{3}}{2}\)</span>, pas <span class="math inline">\(-\frac{1}{2}\)</span>. Les deux points d’ordonnée <span class="math inline">\(-\frac{1}{2}\)</span> sont symétriques par rapport à l’axe vertical : <span class="math inline">\(\frac{7 \pi}{6}\)</span> et <span class="math inline">\(\frac{11 \pi}{6}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-sans-solution" data-type="qcm" data-section="sec-equations-sin-cos" data-obj="A5" data-niveau="2" data-id="5UAA5.q.tg-eq-sans-solution" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Laquelle de ces équations n’a <strong>aucune</strong> solution réelle ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\cos x = \frac{\pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{\pi}{3} \approx 1{,}05 &gt; 1\)</span>, et <span class="math inline">\(\cos x\)</span> est toujours compris entre <span class="math inline">\(-1\)</span> et <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\tan x = 5\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La droite de pente <span class="math inline">\(5\)</span> passant par <span class="math inline">\(O\)</span> coupe toujours le cercle : <span class="math inline">\(\tan x = a\)</span> a des solutions pour <strong>tout</strong> réel <span class="math inline">\(a\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\sin x = -0{,}99\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(-1 \leq -0{,}99 \leq 1\)</span> : la droite <span class="math inline">\(y = -0{,}99\)</span> coupe le cercle en deux points, très proches de <span class="math inline">\(P(\frac{3 \pi}{2})\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3 \cos x = 2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On isole le cosinus : <span class="math inline">\(\cos x = \frac{2}{3}\)</span>, qui est entre <span class="math inline">\(-1\)</span> et <span class="math inline">\(1\)</span>. Il y a des solutions.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-tan" data-type="qcm" data-section="sec-equations-tan" data-obj="A5" data-niveau="1" data-id="5UAA5.q.tg-eq-tan" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelles sont les solutions réelles de <span class="math inline">\(\tan x = -1\)</span> ? (<span class="math inline">\(k \in \mathbb{Z}\)</span>)</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(x = -\frac{\pi}{4} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\tan(-\frac{\pi}{4}) = -1\)</span> ; la droite de pente <span class="math inline">\(-1\)</span> coupe le cercle en deux points diamétralement opposés, qui correspondent à des réels distants de <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = -\frac{\pi}{4} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il manque la moitié des solutions : le point diamétralement opposé, <span class="math inline">\(P(-\frac{\pi}{4} + \pi) = P(\frac{3 \pi}{4})\)</span>, est aussi sur la droite. La tangente a pour période <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{4} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan \frac{\pi}{4} = 1\)</span>, pas <span class="math inline">\(-1\)</span>. La droite de pente <span class="math inline">\(-1\)</span> descend vers la droite : elle passe par <span class="math inline">\(P(-\frac{\pi}{4})\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = -\frac{\pi}{4} + 2 k \pi\)</span> ou <span class="math inline">\(x = \frac{5 \pi}{4} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as appliqué la règle du sinus (<span class="math inline">\(\pi - \alpha\)</span>). Pour la tangente, le second point est diamétralement opposé : <span class="math inline">\(\alpha + \pi = \frac{3 \pi}{4}\)</span>, et <span class="math inline">\(\tan(\frac{5 \pi}{4}) = 1\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-lire-sin-graphique" data-type="qcm" data-section="sec-sinus-cosinus" data-obj="C3" data-niveau="1" data-id="5UAA5.q.tg-lire-sin-graphique" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Sur le graphique de la fonction <span class="math inline">\(\sin\)</span>, comment lit-on <span class="math inline">\(\sin(\frac{2 \pi}{3})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>C’est l’ordonnée du point de la courbe d’abscisse <span class="math inline">\(\frac{2 \pi}{3}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : le graphique reporte, au-dessus de chaque réel <span class="math inline">\(x\)</span>, l’ordonnée de <span class="math inline">\(P(x)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>C’est l’abscisse du point de la courbe d’ordonnée <span class="math inline">\(\frac{2 \pi}{3}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Les rôles sont inversés : <span class="math inline">\(x\)</span> est en abscisse, <span class="math inline">\(\sin x\)</span> en ordonnée. De plus, <span class="math inline">\(\frac{2 \pi}{3} &gt; 1\)</span> : aucun point de la courbe n’a cette ordonnée.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>C’est la longueur de l’arc de courbe entre <span class="math inline">\(0\)</span> et <span class="math inline">\(\frac{2 \pi}{3}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>L’arc de longueur <span class="math inline">\(\frac{2 \pi}{3}\)</span> est sur le <strong>cercle</strong> ; sur le graphique, il est déroulé sur l’axe horizontal. La valeur <span class="math inline">\(\sin(\frac{2 \pi}{3})\)</span> est une hauteur.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>C’est la pente de la courbe au point d’abscisse <span class="math inline">\(\frac{2 \pi}{3}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>La pente de la courbe est une autre information (voir le module dérivées). <span class="math inline">\(\sin(\frac{2 \pi}{3})\)</span> est la <strong>hauteur</strong> du point de la courbe.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-periode-definition" data-type="qcm" data-section="sec-sinus-cosinus" data-obj="C5" data-niveau="1" data-id="5UAA5.q.tg-periode-definition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une fonction <span class="math inline">\(f\)</span> est périodique de période <span class="math inline">\(4\)</span>, et <span class="math inline">\(f(1) = 3\)</span>. Que peut-on affirmer ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(f(9) = 3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(9 = 1 + 2 \cdot 4\)</span> ; en avançant de deux périodes, on retrouve la même valeur.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(f(4) = 3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La période dit que <span class="math inline">\(f(x + 4) = f(x)\)</span> : on retrouve <span class="math inline">\(3\)</span> en <span class="math inline">\(1 + 4 = 5\)</span>, pas en <span class="math inline">\(4\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(f(5) = 7\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On ajoute la période à la <strong>variable</strong>, pas à la valeur : <span class="math inline">\(f(1 + 4) = f(1) = 3\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(f(-1) = 3\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(-1 = 1 - 2\)</span> : on n’a reculé que d’une demi-période. On retrouve <span class="math inline">\(3\)</span> en <span class="math inline">\(1 - 4 = -3\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-amplitude-definition" data-type="qcm" data-section="sec-sinus-cosinus" data-obj="C5" data-niveau="1" data-id="5UAA5.q.tg-amplitude-definition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une grandeur périodique varie entre un minimum de <span class="math inline">\(2\)</span> et un maximum de <span class="math inline">\(10\)</span>. Quelle est son amplitude ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(4\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’amplitude est le demi-écart entre le maximum et le minimum, <span class="math inline">\(\frac{10 - 2}{2} = 4\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(8\)</span> est l’écart total entre le maximum et le minimum. L’amplitude en est la <strong>moitié</strong>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(10\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(10\)</span> est le maximum. L’amplitude mesure l’écart à la valeur moyenne : <span class="math inline">\(\frac{10 - 2}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(6\)</span> est la valeur moyenne, <span class="math inline">\(\frac{10 + 2}{2}\)</span>. L’amplitude est le demi-écart, <span class="math inline">\(\frac{10 - 2}{2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-frequence" data-type="qcm" data-section="sec-sinus-cosinus" data-obj="C5" data-niveau="1" data-id="5UAA5.q.tg-frequence" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Un phénomène périodique a une période de <span class="math inline">\(0{,}02\)</span> seconde. Quelle est sa fréquence ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(50\)</span> par seconde</p>
+</div>
+<div class="ae-fb">
+<p>Oui : la fréquence est l’inverse de la période, <span class="math inline">\(\frac{1}{0{,}02} = \frac{100}{2} = 50\)</span> périodes par seconde.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}02\)</span> par seconde</p>
+</div>
+<div class="ae-fb">
+<p>C’est la période. La fréquence est le nombre de périodes par unité de temps : <span class="math inline">\(\frac{1}{T}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(5\)</span> par seconde</p>
+</div>
+<div class="ae-fb">
+<p>Erreur de calcul : <span class="math inline">\(\frac{1}{0{,}02} = \frac{100}{2} = 50\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>environ <span class="math inline">\(314\)</span> par seconde</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{2 \pi}{0{,}02} \approx 314\)</span> est la <strong>pulsation</strong> (en rad/s), pas la fréquence : <span class="math inline">\(f = \frac{1}{T}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-tan-asymptotes" data-type="qcm" data-section="sec-fonction-tangente" data-obj="C2" data-niveau="1" data-id="5UAA5.q.tg-tan-asymptotes" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Le graphique de la fonction <span class="math inline">\(\tan\)</span> a des asymptotes verticales d’équations : (<span class="math inline">\(k \in \mathbb{Z}\)</span>)</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{2} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : en ces réels, <span class="math inline">\(\cos x = 0\)</span>, <span class="math inline">\(\tan x\)</span> n’existe pas, et la pente de <span class="math inline">\(O P(x)\)</span> devient aussi grande qu’on veut à l’approche.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>En <span class="math inline">\(k \pi\)</span>, <span class="math inline">\(\tan x = 0\)</span> : ce sont les <strong>zéros</strong> de <span class="math inline">\(\tan\)</span>, où la courbe coupe l’axe horizontal.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{2} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il en manque la moitié : <span class="math inline">\(\cos x = 0\)</span> aussi en <span class="math inline">\(\frac{3 \pi}{2}\)</span>, <span class="math inline">\(-\frac{\pi}{2}\)</span>… Les asymptotes sont espacées de <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>aucune : <span class="math inline">\(\tan\)</span> est définie pour tout réel</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan x = \sin \frac{x}{\cos} x\)</span> n’existe pas lorsque <span class="math inline">\(\cos x = 0\)</span>, c’est-à-dire pour <span class="math inline">\(x = \frac{\pi}{2} + k \pi\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-tan-periode" data-type="qcm" data-section="sec-fonction-tangente" data-obj="C2" data-niveau="1" data-id="5UAA5.q.tg-tan-periode" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la période de la fonction <span class="math inline">\(\tan\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(P(x + \pi)\)</span> est diamétralement opposé à <span class="math inline">\(P(x)\)</span>, sur la même droite passant par <span class="math inline">\(O\)</span> : même pente, donc <span class="math inline">\(\tan(x + \pi) = \tan x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan(x + 2 \pi) = \tan x\)</span>, mais il y a plus court : <span class="math inline">\(\tan(x + \pi) = \tan x\)</span>. La période est le <strong>plus petit</strong> <span class="math inline">\(T &gt; 0\)</span> qui convient.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\pi}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\tan(\frac{\pi}{4}) = 1\)</span> mais <span class="math inline">\(\tan(\frac{\pi}{4} + \frac{\pi}{2}) = \tan(\frac{3 \pi}{4}) = -1\)</span> : <span class="math inline">\(\frac{\pi}{2}\)</span> ne convient pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\tan\)</span> n’est pas périodique, car elle n’est pas bornée</p>
+</div>
+<div class="ae-fb">
+<p>Une fonction périodique peut ne pas être bornée : il suffit que <span class="math inline">\(f(x + T) = f(x)\)</span>. C’est le cas de <span class="math inline">\(\tan\)</span> avec <span class="math inline">\(T = \pi\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-nombre-solutions-graphique" data-type="qcm" data-section="sec-resoudre-graphiquement" data-obj="A5" data-niveau="2" data-id="5UAA5.q.tg-nombre-solutions-graphique" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Combien de solutions l’équation <span class="math inline">\(\cos x = 0{,}3\)</span> a-t-elle dans <span class="math inline">\([0 ; 3 \pi]\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui. Sur le graphique de <span class="math inline">\(\cos\)</span>, la droite <span class="math inline">\(y = 0{,}3\)</span> coupe la courbe deux fois sur <span class="math inline">\([0 ; 2 \pi]\)</span>, puis une fois sur <span class="math inline">\([2 \pi ; 3 \pi]\)</span> (la courbe descend de <span class="math inline">\(1\)</span> à <span class="math inline">\(-1\)</span>). Par le calcul : <span class="math inline">\(1{,}2661\)</span> ; <span class="math inline">\(5{,}0171\)</span> ; <span class="math inline">\(7{,}5493\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le nombre de solutions sur un seul tour. L’intervalle <span class="math inline">\([0 ; 3 \pi]\)</span> fait un tour et demi.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(3 \pi\)</span> fait un tour et <strong>demi</strong>, pas deux tours. La quatrième valeur, <span class="math inline">\(4 \pi - 1{,}2661 \approx 11{,}30\)</span>, dépasse <span class="math inline">\(3 \pi \approx 9{,}42\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La calculatrice ne donne qu’une solution ; le cercle (ou le graphique) donne les autres.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-amplitude-periode" data-type="qcm" data-section="sec-a-b" data-obj="C4" data-niveau="1" data-id="5UAA5.q.tg-amplitude-periode" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelles sont l’amplitude et la période de <span class="math inline">\(f(x) = 3 \sin(4 x)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(3\)</span>, période <span class="math inline">\(\frac{\pi}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : amplitude <span class="math inline">\(|a| = 3\)</span> ; période <span class="math inline">\(\frac{2 \pi}{4} = \frac{\pi}{2}\)</span> (l’argument <span class="math inline">\(4 x\)</span> fait un tour quand <span class="math inline">\(x\)</span> parcourt un intervalle de longueur <span class="math inline">\(\frac{\pi}{2}\)</span>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(3\)</span>, période <span class="math inline">\(4\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(b = 4\)</span> n’est pas la période : c’est le nombre de tours de l’argument quand <span class="math inline">\(x\)</span> avance de <span class="math inline">\(2 \pi\)</span>. La période vaut <span class="math inline">\(\frac{2 \pi}{b}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(4\)</span>, période <span class="math inline">\(\frac{2 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les rôles de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont échangés : le facteur devant <span class="math inline">\(\sin\)</span> agit sur l’amplitude, celui dans l’argument sur la période.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(3\)</span>, période <span class="math inline">\(8 \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as multiplié <span class="math inline">\(2 \pi\)</span> par <span class="math inline">\(4\)</span>. L’argument tourne <span class="math inline">\(4\)</span> fois plus vite : la période est <span class="math inline">\(4\)</span> fois plus <strong>courte</strong>, <span class="math inline">\(\frac{2 \pi}{4}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-amplitude-negative" data-type="qcm" data-section="sec-a-b" data-obj="C4" data-niveau="2" data-id="5UAA5.q.tg-amplitude-negative" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelles sont l’amplitude et la période de <span class="math inline">\(f(x) = -2 \sin(\frac{x}{3})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(2\)</span>, période <span class="math inline">\(6 \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : amplitude <span class="math inline">\(|-2| = 2\)</span> (la courbe est en plus retournée) ; période <span class="math inline">\(\frac{2 \pi}{\frac{1}{3}} = 6 \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(-2\)</span>, période <span class="math inline">\(6 \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Une amplitude est un demi-écart : elle est positive. Elle vaut <span class="math inline">\(|a| = 2\)</span> ; le signe <span class="math inline">\(-\)</span> retourne la courbe.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(2\)</span>, période <span class="math inline">\(\frac{2 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(b = \frac{1}{3}\)</span>, pas <span class="math inline">\(3\)</span> : <span class="math inline">\(\frac{2 \pi}{\frac{1}{3}} = 2 \pi \cdot 3 = 6 \pi\)</span>. L’argument <span class="math inline">\(\frac{x}{3}\)</span> tourne trois fois moins vite que <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>amplitude <span class="math inline">\(-2\)</span>, période <span class="math inline">\(\frac{2 \pi}{3}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Deux erreurs : l’amplitude vaut <span class="math inline">\(|a| = 2\)</span>, et <span class="math inline">\(b = \frac{1}{3}\)</span> donne la période <span class="math inline">\(\frac{2 \pi}{\frac{1}{3}} = 6 \pi\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-ecrire-roue-axe" data-type="ouverte" data-section="sec-a-b" data-obj="C4" data-niveau="2" data-id="5UAA5.q.tg-ecrire-roue-axe" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Une grande roue a un rayon de <span class="math inline">\(40\)</span> m et fait un tour en <span class="math inline">\(20\)</span> minutes. Une cabine est au niveau de l’axe et monte à l’instant <span class="math inline">\(t = 0\)</span>. Écris sa hauteur au-dessus de l’axe sous la forme <span class="math inline">\(h(t) = a \sin(b t)\)</span> (<span class="math inline">\(t\)</span> en min, <span class="math inline">\(h\)</span> en m), et vérifie avec deux valeurs de <span class="math inline">\(t\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p>Amplitude : le rayon, <span class="math inline">\(a = 40\)</span>. Période : <span class="math inline">\(20\)</span> min, donc <span class="math inline">\(\frac{2 \pi}{b} = 20\)</span> et <span class="math inline">\(b = \frac{\pi}{10}\)</span>. Donc <span class="math inline">\(h(t) = 40 \sin(\frac{\pi}{10} t)\)</span>.<br>
+Vérification : <span class="math inline">\(h(5) = 40 \sin(\frac{\pi}{2}) = 40\)</span> (sommet après un quart de tour) ; <span class="math inline">\(h(10) = 40 \sin \pi = 0\)</span> (niveau de l’axe après un demi-tour).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai pris <span class="math inline">\(a = 40\)</span> (le rayon).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(b\)</span> par <span class="math inline">\(\frac{2 \pi}{b} = 20\)</span>, donc <span class="math inline">\(b = \frac{\pi}{10}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai vérifié avec deux instants dont je connais la position (quart de tour, demi-tour).</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-sens-decalage" data-type="qcm" data-section="sec-c" data-obj="C4" data-niveau="1" data-id="5UAA5.q.tg-sens-decalage" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Le graphique de <span class="math inline">\(f(x) = \sin(x - \frac{\pi}{4})\)</span> est celui de <span class="math inline">\(\sin\)</span>…</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>translaté de <span class="math inline">\(\frac{\pi}{4}\)</span> vers la droite</p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’argument <span class="math inline">\(x - \frac{\pi}{4}\)</span> vaut <span class="math inline">\(0\)</span> en <span class="math inline">\(x = \frac{\pi}{4}\)</span>. La courbe « commence » en <span class="math inline">\(\frac{\pi}{4}\)</span> au lieu de <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>translaté de <span class="math inline">\(\frac{\pi}{4}\)</span> vers la gauche</p>
+</div>
+<div class="ae-fb">
+<p>Cherche quand l’argument vaut <span class="math inline">\(0\)</span> : <span class="math inline">\(x - \frac{\pi}{4} = 0\)</span> pour <span class="math inline">\(x = \frac{\pi}{4} &gt; 0\)</span>. Le décalage est vers la droite.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>translaté de <span class="math inline">\(\frac{\pi}{4}\)</span> vers le bas</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{\pi}{4}\)</span> est retranché à <span class="math inline">\(x\)</span>, dans l’argument : il agit horizontalement. Une translation verticale ajouterait un nombre à <span class="math inline">\(\sin x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>translaté de <span class="math inline">\(4 \pi\)</span> vers la droite</p>
+</div>
+<div class="ae-fb">
+<p>Le décalage est la valeur de <span class="math inline">\(x\)</span> qui annule l’argument : <span class="math inline">\(x = \frac{\pi}{4}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-dephasage-b" data-type="qcm" data-section="sec-c" data-obj="A7" data-niveau="2" data-id="5UAA5.q.tg-dephasage-b" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quel est le déphasage de <span class="math inline">\(g(x) = 2 \sin(3 x + \frac{\pi}{2})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{\pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’argument s’annule quand <span class="math inline">\(3 x + \frac{\pi}{2} = 0\)</span>, c’est-à-dire <span class="math inline">\(x = -\frac{\pi}{6}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{\pi}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il faut diviser par <span class="math inline">\(b = 3\)</span> : <span class="math inline">\(3 x = -\frac{\pi}{2}\)</span> donne <span class="math inline">\(x = -\frac{\pi}{6}\)</span>. Le déphasage vaut <span class="math inline">\(-\frac{c}{b}\)</span>, pas <span class="math inline">\(-c\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe : <span class="math inline">\(3 x + \frac{\pi}{2} = 0\)</span> donne <span class="math inline">\(x = -\frac{\pi}{6}\)</span>, négatif. La courbe est décalée vers la gauche.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{3 \pi}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as multiplié par <span class="math inline">\(3\)</span> au lieu de diviser : <span class="math inline">\(3 x = -\frac{\pi}{2}\)</span> donne <span class="math inline">\(x = -\frac{\pi}{2} : 3 = -\frac{\pi}{6}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-maximum" data-type="qcm" data-section="sec-c" data-obj="A7" data-niveau="2" data-id="5UAA5.q.tg-maximum" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour quels réels <span class="math inline">\(f(x) = 3 \sin(2 x - \frac{\pi}{2})\)</span> atteint-elle son maximum ? (<span class="math inline">\(k \in \mathbb{Z}\)</span>)</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{2} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : le maximum <span class="math inline">\(3\)</span> est atteint quand <span class="math inline">\(2 x - \frac{\pi}{2} = \frac{\pi}{2} + 2 k \pi\)</span>, soit <span class="math inline">\(2 x = \pi + 2 k \pi\)</span> et <span class="math inline">\(x = \frac{\pi}{2} + k \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{2} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il faut diviser <strong>tout</strong> le membre par <span class="math inline">\(2\)</span>, y compris <span class="math inline">\(2 k \pi\)</span> : <span class="math inline">\(x = \frac{\pi}{2} + k \pi\)</span>. Les maximums sont espacés d’une période, <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{4} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié <span class="math inline">\(c\)</span> : ce sont les maximums de <span class="math inline">\(3 \sin(2 x)\)</span>. Ici, il faut que <span class="math inline">\(2 x - \frac{\pi}{2}\)</span> vaille <span class="math inline">\(\frac{\pi}{2} + 2 k \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>En <span class="math inline">\(x = 0\)</span>, l’argument vaut <span class="math inline">\(-\frac{\pi}{2}\)</span> : <span class="math inline">\(f(0) = 3 \sin(-\frac{\pi}{2}) = -3\)</span>. Ce sont les <strong>minimums</strong>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-ecrire-roue-sommet" data-type="ouverte" data-section="sec-c" data-obj="C4" data-niveau="3" data-id="5UAA5.q.tg-ecrire-roue-sommet" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Une grande roue de rayon <span class="math inline">\(50\)</span> m fait un tour en <span class="math inline">\(24\)</span> minutes. Une cabine part du <strong>sommet</strong> à <span class="math inline">\(t = 0\)</span>. Écris sa hauteur au-dessus de l’axe sous la forme <span class="math inline">\(h(t) = a \sin(b t + c)\)</span> et vérifie avec trois valeurs de <span class="math inline">\(t\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(a = 50\)</span> ; <span class="math inline">\(\frac{2 \pi}{b} = 24\)</span>, donc <span class="math inline">\(b = \frac{\pi}{12}\)</span>. À <span class="math inline">\(t = 0\)</span>, la cabine est au sommet : l’argument doit valoir <span class="math inline">\(\frac{\pi}{2}\)</span>, donc <span class="math inline">\(c = \frac{\pi}{2}\)</span>. Ainsi <span class="math inline">\(h(t) = 50 \sin(\frac{\pi}{12} t + \frac{\pi}{2})\)</span>.<br>
+Vérification : <span class="math inline">\(h(0) = 50 \sin(\frac{\pi}{2}) = 50\)</span> (sommet) ; <span class="math inline">\(h(6) = 50 \sin \pi = 0\)</span> (axe, un quart de tour plus tard) ; <span class="math inline">\(h(12) = 50 \sin(\frac{3 \pi}{2}) = -50\)</span> (point bas).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(a = 50\)</span> et <span class="math inline">\(b = \frac{\pi}{12}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai déterminé <span class="math inline">\(c\)</span> par la position de départ (argument <span class="math inline">\(\frac{\pi}{2}\)</span> au sommet), et trouvé <span class="math inline">\(c = \frac{\pi}{2}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai vérifié au moins trois instants (sommet, axe, point bas).</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-apparier-sin2x" data-type="qcm" data-section="sec-tracer-apparier" data-obj="A2" data-niveau="1" data-id="5UAA5.q.tg-apparier-sin2x" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Le graphique de <span class="math inline">\(f(x) = \sin(2 x)\)</span>…</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>a une période de <span class="math inline">\(\pi\)</span> et varie entre <span class="math inline">\(-1\)</span> et <span class="math inline">\(1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : le <span class="math inline">\(2\)</span> dans l’argument agit sur la période, <span class="math inline">\(\frac{2 \pi}{2} = \pi\)</span> ; l’amplitude reste <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>a une période de <span class="math inline">\(4 \pi\)</span> et varie entre <span class="math inline">\(-1\)</span> et <span class="math inline">\(1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>L’argument <span class="math inline">\(2 x\)</span> tourne deux fois plus vite que <span class="math inline">\(x\)</span> : la période est deux fois plus <strong>courte</strong>, <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>a une période de <span class="math inline">\(2 \pi\)</span> et varie entre <span class="math inline">\(-2\)</span> et <span class="math inline">\(2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le graphique de <span class="math inline">\(2 \sin x\)</span>. Piège : <span class="math inline">\(\sin(2 x) \neq 2 \sin x\)</span> ; le <span class="math inline">\(2\)</span> dans l’argument agit sur la période.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>est celui de <span class="math inline">\(\sin\)</span> décalé de <span class="math inline">\(2\)</span> vers la gauche</p>
+</div>
+<div class="ae-fb">
+<p>Ce serait <span class="math inline">\(\sin(x + 2)\)</span>. Dans <span class="math inline">\(\sin(2 x)\)</span>, le <span class="math inline">\(2\)</span> multiplie <span class="math inline">\(x\)</span> : il change la période.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-retrouver-expression" data-type="qcm" data-section="sec-tracer-apparier" data-obj="A3" data-niveau="2" data-id="5UAA5.q.tg-retrouver-expression" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle expression correspond à ce graphique ?</p>
+<div class="typst-fig">
+<p><img src="_figures/fa7c918d16da7c.svg" class="img-fluid" alt="Figure du cours"></p>
+</div>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(2 \sin(\frac{x}{2})\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : la courbe varie entre <span class="math inline">\(-2\)</span> et <span class="math inline">\(2\)</span> (<span class="math inline">\(a = 2\)</span>) ; deux maximums successifs en <span class="math inline">\(\pi\)</span> et <span class="math inline">\(5 \pi\)</span> : <span class="math inline">\(T = 4 \pi\)</span>, <span class="math inline">\(b = \frac{2 \pi}{4 \pi} = \frac{1}{2}\)</span> ; elle passe par <span class="math inline">\(0\)</span> en montant en <span class="math inline">\(x = 0\)</span> : <span class="math inline">\(c = 0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 \sin(2 x)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La période lue est <span class="math inline">\(4 \pi\)</span> : <span class="math inline">\(b = \frac{2 \pi}{T} = \frac{2 \pi}{4 \pi} = \frac{1}{2}\)</span>. Avec <span class="math inline">\(b = 2\)</span>, la période serait <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4 \sin(\frac{x}{2})\)</span></p>
+</div>
+<div class="ae-fb">
+<p>L’amplitude est le <strong>demi</strong>-écart entre maximum et minimum : <span class="math inline">\(\frac{2 - (-2)}{2} = 2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 \sin(\frac{x}{2} + \pi)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La courbe passe par <span class="math inline">\(0\)</span> <strong>en montant</strong> en <span class="math inline">\(x = 0\)</span> : l’argument doit y valoir <span class="math inline">\(0\)</span>, donc <span class="math inline">\(c = 0\)</span>. Avec <span class="math inline">\(c = \pi\)</span>, la courbe serait retournée.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-cinq-points" data-type="qcm" data-section="sec-tracer-apparier" data-obj="A4" data-niveau="1" data-id="5UAA5.q.tg-cinq-points" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour tracer <span class="math inline">\(f(x) = 2 \sin(x + \frac{\pi}{2})\)</span> par la méthode des cinq points, quel est le point où l’argument vaut <span class="math inline">\(0\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\((-\frac{\pi}{2} ; 0)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(x + \frac{\pi}{2} = 0\)</span> pour <span class="math inline">\(x = -\frac{\pi}{2}\)</span>, et <span class="math inline">\(f(-\frac{\pi}{2}) = 2 \sin 0 = 0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((\frac{\pi}{2} ; 0)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe : <span class="math inline">\(x + \frac{\pi}{2} = 0\)</span> donne <span class="math inline">\(x = -\frac{\pi}{2}\)</span>. Le décalage est vers la gauche.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((0 ; 2)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>En <span class="math inline">\(x = 0\)</span>, l’argument vaut <span class="math inline">\(\frac{\pi}{2}\)</span> : c’est le point du <strong>maximum</strong>, le deuxième des cinq points.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((-\frac{\pi}{2} ; 2)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Quand l’argument vaut <span class="math inline">\(0\)</span>, <span class="math inline">\(\sin 0 = 0\)</span> : l’ordonnée vaut <span class="math inline">\(0\)</span>, pas <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-tracer-3sin2x" data-type="ouverte" data-section="sec-tracer-apparier" data-obj="A4" data-niveau="2" data-id="5UAA5.q.tg-tracer-3sin2x" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Trace, sur une période, le graphique de <span class="math inline">\(f(x) = 3 \sin(2 x)\)</span> par la méthode des cinq points.</p>
+</div>
+<div class="ae-rep">
+<p>L’argument <span class="math inline">\(2 x\)</span> vaut <span class="math inline">\(0\)</span> ; <span class="math inline">\(\frac{\pi}{2}\)</span> ; <span class="math inline">\(\pi\)</span> ; <span class="math inline">\(\frac{3 \pi}{2}\)</span> ; <span class="math inline">\(2 \pi\)</span> pour <span class="math inline">\(x = 0\)</span> ; <span class="math inline">\(\frac{\pi}{4}\)</span> ; <span class="math inline">\(\frac{\pi}{2}\)</span> ; <span class="math inline">\(\frac{3 \pi}{4}\)</span> ; <span class="math inline">\(\pi\)</span>. Points : <span class="math inline">\((0 ; 0)\)</span>, <span class="math inline">\((\frac{\pi}{4} ; 3)\)</span>, <span class="math inline">\((\frac{\pi}{2} ; 0)\)</span>, <span class="math inline">\((\frac{3 \pi}{4} ; -3)\)</span>, <span class="math inline">\((\pi ; 0)\)</span>, reliés par une courbe arrondie.</p>
+<div class="typst-fig">
+<p><img src="_figures/14cee83dc9c08c.svg" class="img-fluid" alt="Figure du cours"></p>
+</div>
+</div>
+<div class="ae-crit">
+<p>J’ai cherché les <span class="math inline">\(x\)</span> pour lesquels l’argument <span class="math inline">\(2 x\)</span> vaut <span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span>, <span class="math inline">\(\frac{3 \pi}{2}\)</span>, <span class="math inline">\(2 \pi\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai placé les cinq points avec les bonnes ordonnées (<span class="math inline">\(0\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(-3\)</span>, <span class="math inline">\(0\)</span>).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai relié par une courbe arrondie (plate aux extremums), sur une période de longueur <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-ensemble-image" data-type="qcm" data-section="sec-tracer-apparier" data-obj="A9" data-niveau="1" data-id="5UAA5.q.tg-ensemble-image" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quel est l’ensemble image de <span class="math inline">\(f(x) = -4 \sin(3 x + \frac{\pi}{6})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\([-4 ; 4]\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\sin\)</span> prend toutes les valeurs de <span class="math inline">\([-1 ; 1]\)</span> ; multipliées par <span class="math inline">\(-4\)</span>, elles remplissent <span class="math inline">\([-4 ; 4]\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\([-1 ; 1]\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est l’ensemble image de <span class="math inline">\(\sin\)</span>. Le facteur <span class="math inline">\(-4\)</span> multiplie toutes les valeurs.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\([-3 ; 3]\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(3\)</span> agit dans l’argument, sur la période : il ne change pas les valeurs prises.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\([-4 ; 0]\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe <span class="math inline">\(-\)</span> retourne la courbe, mais <span class="math inline">\(-4 \sin u\)</span> prend aussi des valeurs positives (quand <span class="math inline">\(\sin u &lt; 0\)</span>).</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-zeros-transformee" data-type="ouverte" data-section="sec-tracer-apparier" data-obj="A9" data-niveau="2" data-id="5UAA5.q.tg-zeros-transformee" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Détermine les zéros de <span class="math inline">\(f(x) = 2 \sin(\frac{x}{3} - \frac{\pi}{4})\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(f(x) = 0\)</span> ssi <span class="math inline">\(\sin(\frac{x}{3} - \frac{\pi}{4}) = 0\)</span> ssi <span class="math inline">\(\frac{x}{3} - \frac{\pi}{4} = k \pi\)</span>, donc <span class="math inline">\(\frac{x}{3} = \frac{\pi}{4} + k \pi\)</span> et <span class="math inline">\(x = \frac{3 \pi}{4} + 3 k \pi\)</span> (<span class="math inline">\(k \in \mathbb{Z}\)</span>).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai écrit que l’argument vaut <span class="math inline">\(k \pi\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai multiplié tout par <span class="math inline">\(3\)</span>, y compris <span class="math inline">\(k \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-isoler" data-type="qcm" data-section="sec-equations-asin" data-obj="A6" data-niveau="1" data-id="5UAA5.q.tg-eq-isoler" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour résoudre <span class="math inline">\(4 \sin(x - \frac{\pi}{3}) = 2\)</span>, la première étape donne :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\sin(x - \frac{\pi}{3}) = \frac{1}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : on isole le sinus en divisant par <span class="math inline">\(4\)</span>, puis on résout <span class="math inline">\(\sin u = \frac{1}{2}\)</span> pour l’argument <span class="math inline">\(u = x - \frac{\pi}{3}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\sin(x - \frac{\pi}{3}) = 8\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On divise par <span class="math inline">\(4\)</span>, on ne multiplie pas. D’ailleurs <span class="math inline">\(\sin u = 8\)</span> n’aurait aucune solution.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\sin(x - \frac{\pi}{3}) = -2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le <span class="math inline">\(4\)</span> multiplie le sinus : on divise par <span class="math inline">\(4\)</span>, on ne le retranche pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x - \frac{\pi}{3} = \frac{1}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{1}{2}\)</span> est la valeur du <strong>sinus</strong> de l’argument, pas celle de l’argument : il faut résoudre <span class="math inline">\(\sin u = \frac{1}{2}\)</span>, ce qui donne <span class="math inline">\(u = \frac{\pi}{6} + 2 k \pi\)</span> ou <span class="math inline">\(u = \frac{5 \pi}{6} + 2 k \pi\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-sin2x" data-type="qcm" data-section="sec-equations-asin" data-obj="A6" data-niveau="2" data-id="5UAA5.q.tg-eq-sin2x" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelles sont les solutions réelles de <span class="math inline">\(\sin(2 x) = \frac{1}{2}\)</span> ? (<span class="math inline">\(k \in \mathbb{Z}\)</span>)</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{12} + k \pi\)</span> ou <span class="math inline">\(x = \frac{5 \pi}{12} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(2 x = \frac{\pi}{6} + 2 k \pi\)</span> ou <span class="math inline">\(2 x = \frac{5 \pi}{6} + 2 k \pi\)</span> ; on divise tout par <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{12} + 2 k \pi\)</span> ou <span class="math inline">\(x = \frac{5 \pi}{12} + 2 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le <span class="math inline">\(2 k \pi\)</span> aussi se divise par <span class="math inline">\(2\)</span> : il devient <span class="math inline">\(k \pi\)</span>. Les solutions sont plus serrées parce que la période vaut <span class="math inline">\(\pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{3} + 4 k \pi\)</span> ou <span class="math inline">\(x = \frac{5 \pi}{3} + 4 k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as multiplié par <span class="math inline">\(2\)</span> au lieu de diviser. De <span class="math inline">\(2 x = \frac{\pi}{6} + 2 k \pi\)</span>, on tire <span class="math inline">\(x = \frac{\pi}{12} + k \pi\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(x = \frac{\pi}{12} + k \pi\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il manque la seconde famille : <span class="math inline">\(\sin u = \frac{1}{2}\)</span> a deux points sur le cercle, <span class="math inline">\(u = \frac{\pi}{6}\)</span> et <span class="math inline">\(u = \pi - \frac{\pi}{6} = \frac{5 \pi}{6}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-eq-2sin3x" data-type="ouverte" data-section="sec-equations-asin" data-obj="A6" data-niveau="3" data-id="5UAA5.q.tg-eq-2sin3x" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Résous <span class="math inline">\(2 \sin(3 x) = \sqrt{3}\)</span> dans <span class="math inline">\([0 ; \pi]\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(\sin(3 x) = \frac{\sqrt{3}}{2}\)</span>, donc <span class="math inline">\(3 x = \frac{\pi}{3} + 2 k \pi\)</span> ou <span class="math inline">\(3 x = \frac{2 \pi}{3} + 2 k \pi\)</span> (<span class="math inline">\(k \in \mathbb{Z}\)</span>), soit <span class="math inline">\(x = \frac{\pi}{9} + \frac{2 k \pi}{3}\)</span> ou <span class="math inline">\(x = \frac{2 \pi}{9} + \frac{2 k \pi}{3}\)</span>.<br>
+Dans <span class="math inline">\([0 ; \pi] = [0 ; \frac{9 \pi}{9}]\)</span>, avec <span class="math inline">\(\frac{2 \pi}{3} = \frac{6 \pi}{9}\)</span> : <span class="math inline">\(k = 0\)</span> donne <span class="math inline">\(\frac{\pi}{9}\)</span> et <span class="math inline">\(\frac{2 \pi}{9}\)</span> ; <span class="math inline">\(k = 1\)</span> donne <span class="math inline">\(\frac{7 \pi}{9}\)</span> et <span class="math inline">\(\frac{8 \pi}{9}\)</span> ; <span class="math inline">\(k = 2\)</span> donne des valeurs supérieures à <span class="math inline">\(\pi\)</span>.<br>
+Solutions : <span class="math inline">\(\frac{\pi}{9}\)</span> ; <span class="math inline">\(\frac{2 \pi}{9}\)</span> ; <span class="math inline">\(\frac{7 \pi}{9}\)</span> ; <span class="math inline">\(\frac{8 \pi}{9}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai isolé le sinus et écrit les deux familles pour l’argument <span class="math inline">\(3 x\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai divisé tout par <span class="math inline">\(3\)</span>, y compris <span class="math inline">\(2 k \pi\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé les quatre solutions de <span class="math inline">\([0 ; \pi]\)</span>, et pas plus.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-london-eye-105m" data-type="ouverte" data-section="sec-retour-london-eye" data-obj="T1" data-niveau="3" data-id="5UAA5.q.tg-london-eye-105m" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>La hauteur au-dessus du sol d’une cabine du London Eye vaut <span class="math inline">\(75 + 60 \sin(\frac{\pi}{15} t - \frac{\pi}{2})\)</span> (en m, <span class="math inline">\(t\)</span> en min, départ au point le plus bas). Pendant combien de temps, sur un tour, la cabine est-elle à plus de <span class="math inline">\(105\)</span> m du sol ?</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(75 + 60 \sin(\frac{\pi}{15} t - \frac{\pi}{2}) = 105\)</span> ssi <span class="math inline">\(\sin(\frac{\pi}{15} t - \frac{\pi}{2}) = \frac{1}{2}\)</span>. Avec <span class="math inline">\(u = \frac{\pi}{15} t - \frac{\pi}{2}\)</span> : sur un tour (<span class="math inline">\(t \in [0 ; 30]\)</span>), <span class="math inline">\(u\)</span> parcourt <span class="math inline">\([-\frac{\pi}{2} ; \frac{3 \pi}{2}]\)</span>, et <span class="math inline">\(\sin u = \frac{1}{2}\)</span> pour <span class="math inline">\(u = \frac{\pi}{6}\)</span> ou <span class="math inline">\(u = \frac{5 \pi}{6}\)</span>.<br>
+<span class="math inline">\(t = (u + \frac{\pi}{2}) \cdot \frac{15}{\pi}\)</span> : <span class="math inline">\(u = \frac{\pi}{6}\)</span> donne <span class="math inline">\(t = \frac{2 \pi}{3} \cdot \frac{15}{\pi} = 10\)</span> ; <span class="math inline">\(u = \frac{5 \pi}{6}\)</span> donne <span class="math inline">\(t = \frac{4 \pi}{3} \cdot \frac{15}{\pi} = 20\)</span>.<br>
+Entre ces deux instants, la cabine est au-dessus de <span class="math inline">\(105\)</span> m (elle passe au sommet à <span class="math inline">\(t = 15\)</span>). Elle y reste <span class="math inline">\(20 - 10 = 10\)</span> minutes par tour.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai ramené le problème à <span class="math inline">\(\sin u = \frac{1}{2}\)</span> pour l’argument <span class="math inline">\(u\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé les deux instants <span class="math inline">\(t = 10\)</span> et <span class="math inline">\(t = 20\)</span> min.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai justifié que la cabine est au-dessus de <span class="math inline">\(105\)</span> m <strong>entre</strong> ces instants, et conclu : <span class="math inline">\(10\)</span> minutes par tour.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-oscillations" data-type="qcm" data-section="sec-sinusoides-partout" data-obj="T1" data-niveau="2" data-id="5UAA5.q.tg-oscillations" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><em>(Situation imaginée.)</em> La position d’un point qui oscille vaut <span class="math inline">\(y(t) = 5 \sin(2 \pi t)\)</span> (<span class="math inline">\(y\)</span> en cm, <span class="math inline">\(t\)</span> en s). Combien d’oscillations complètes fait-il en <span class="math inline">\(3\)</span> secondes ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : la période vaut <span class="math inline">\(\frac{2 \pi}{2 \pi} = 1\)</span> s ; en <span class="math inline">\(3\)</span> s, le point fait <span class="math inline">\(3\)</span> oscillations.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le facteur <span class="math inline">\(2\)</span> de <span class="math inline">\(2 \pi\)</span> ne compte pas des oscillations : la période vaut <span class="math inline">\(\frac{2 \pi}{b} = \frac{2 \pi}{2 \pi} = 1\)</span> s.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>environ <span class="math inline">\(18{,}85\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(2 \pi \cdot 3 \approx 18{,}85\)</span> est l’angle parcouru par l’argument (en radians). Une oscillation correspond à <span class="math inline">\(2 \pi\)</span> rad : <span class="math inline">\(\frac{6 \pi}{2 \pi} = 3\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(15\)</span></p>
+</div>
+<div class="ae-fb">
+<p>L’amplitude <span class="math inline">\(5\)</span> cm ne dit rien du nombre d’oscillations : elle donne l’écart maximal à la position d’équilibre.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-modele-parametres" data-type="qcm" data-section="sec-sinusoides-partout" data-obj="T1" data-niveau="2" data-id="5UAA5.q.tg-modele-parametres" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p><em>(Situation imaginée.)</em> Le niveau de l’eau dans un port varie entre <span class="math inline">\(1\)</span> m et <span class="math inline">\(5\)</span> m, avec une période de <span class="math inline">\(12\)</span> h. On modélise l’écart au niveau moyen par <span class="math inline">\(E(t) = a \sin(b t + c)\)</span> (<span class="math inline">\(t\)</span> en h). Que valent <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> (<span class="math inline">\(a &gt; 0\)</span>, <span class="math inline">\(b &gt; 0\)</span>) ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(a = 2\)</span> et <span class="math inline">\(b = \frac{\pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(a = \frac{5 - 1}{2} = 2\)</span> ; <span class="math inline">\(\frac{2 \pi}{b} = 12\)</span>, donc <span class="math inline">\(b = \frac{\pi}{6}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(a = 4\)</span> et <span class="math inline">\(b = \frac{\pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(4\)</span> est l’écart total. L’amplitude est le <strong>demi</strong>-écart : <span class="math inline">\(\frac{5 - 1}{2} = 2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(a = 2\)</span> et <span class="math inline">\(b = 12\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(12\)</span> h est la période <span class="math inline">\(T\)</span> ; <span class="math inline">\(b\)</span> s’en déduit par <span class="math inline">\(\frac{2 \pi}{b} = T\)</span>, donc <span class="math inline">\(b = \frac{2 \pi}{12} = \frac{\pi}{6}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(a = 3\)</span> et <span class="math inline">\(b = \frac{\pi}{6}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(3\)</span> m est le niveau <strong>moyen</strong>, <span class="math inline">\(\frac{5 + 1}{2}\)</span>. L’écart à ce niveau varie entre <span class="math inline">\(-2\)</span> et <span class="math inline">\(2\)</span> : <span class="math inline">\(a = 2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-pente-sinus" data-type="qcm" data-section="sec-derivees" data-obj="C9" data-niveau="1" data-id="5UAA5.q.tg-pente-sinus" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la pente de la courbe <span class="math inline">\(y = \sin x\)</span> au point d’abscisse <span class="math inline">\(\frac{\pi}{3}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : la pente de la courbe de <span class="math inline">\(\sin\)</span> en <span class="math inline">\(x\)</span> vaut <span class="math inline">\((\sin x)' = \cos x\)</span>, et <span class="math inline">\(\cos \frac{\pi}{3} = \frac{1}{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{\sqrt{3}}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(\frac{\sqrt{3}}{2} = \sin \frac{\pi}{3}\)</span> : c’est la <strong>hauteur</strong> du point de la courbe, pas sa pente.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\frac{\sqrt{3}}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(-\sin \frac{\pi}{3}\)</span> est la pente de la courbe de <strong>cosinus</strong> en <span class="math inline">\(\frac{\pi}{3}\)</span> : <span class="math inline">\((\cos x)' = -\sin x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La pente est nulle au sommet, en <span class="math inline">\(\frac{\pi}{2}\)</span>. En <span class="math inline">\(\frac{\pi}{3}\)</span>, la courbe monte encore : <span class="math inline">\(\cos \frac{\pi}{3} = \frac{1}{2} &gt; 0\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-derivee-produit" data-type="qcm" data-section="sec-derivees" data-obj="A8" data-niveau="1" data-id="5UAA5.q.tg-derivee-produit" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la dérivée de <span class="math inline">\(f(x) = x^{2} \sin x\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(2 x \sin x + x^{2} \cos x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : règle du produit, <span class="math inline">\((u v)' = u' v + u v'\)</span> avec <span class="math inline">\(u = x^{2}\)</span> et <span class="math inline">\(v = \sin x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 x \cos x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La dérivée d’un produit n’est pas le produit des dérivées : <span class="math inline">\((u v)' = u' v + u v'\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 x \sin x - x^{2} \cos x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe : <span class="math inline">\((\sin x)' = \cos x\)</span>, sans signe <span class="math inline">\(-\)</span>. C’est <span class="math inline">\((\cos x)'\)</span> qui vaut <span class="math inline">\(-\sin x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2 x + \cos x\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as dérivé comme une <strong>somme</strong> <span class="math inline">\(x^{2} + \sin x\)</span>. Ici, c’est un produit : <span class="math inline">\((u v)' = u' v + u v'\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-derivee-composee" data-type="qcm" data-section="sec-derivees-composees" data-obj="A8" data-niveau="2" data-id="5UAA5.q.tg-derivee-composee" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la dérivée de <span class="math inline">\(f(x) = \sin(3 x^{2})\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(6 x \cos(3 x^{2})\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\((\sin g(x))' = \cos g(x) \cdot g'(x)\)</span> avec <span class="math inline">\(g(x) = 3 x^{2}\)</span> et <span class="math inline">\(g'(x) = 6 x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos(3 x^{2})\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il manque le facteur <span class="math inline">\(g'(x) = 6 x\)</span> : <span class="math inline">\((\sin g(x))' = \cos g(x) \cdot g'(x)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\cos(6 x)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On ne remplace pas <span class="math inline">\(g(x)\)</span> par sa dérivée dans le cosinus : on garde <span class="math inline">\(\cos(3 x^{2})\)</span> et on multiplie par <span class="math inline">\(g'(x) = 6 x\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-6 x \cos(3 x^{2})\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le signe <span class="math inline">\(-\)</span> apparaît dans la dérivée du <strong>cosinus</strong>. <span class="math inline">\((\sin u)' = \cos u \cdot u'\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="tg-vitesse-max" data-type="ouverte" data-section="sec-derivees-composees" data-obj="A8" data-niveau="3" data-id="5UAA5.q.tg-vitesse-max" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>La hauteur au-dessus de l’axe d’une cabine vaut <span class="math inline">\(h(t) = 50 \sin(\frac{\pi}{12} t)\)</span> (<span class="math inline">\(h\)</span> en m, <span class="math inline">\(t\)</span> en min). Calcule <span class="math inline">\(h'(t)\)</span>, puis la vitesse de montée maximale et l’instant où elle est atteinte pendant le premier tour.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(h'(t) = 50 \cdot \frac{\pi}{12} \cos(\frac{\pi}{12} t) = \frac{25 \pi}{6} \cos(\frac{\pi}{12} t)\)</span> (en m/min).<br>
+Elle est maximale quand <span class="math inline">\(\cos(\frac{\pi}{12} t) = 1\)</span>, c’est-à-dire <span class="math inline">\(\frac{\pi}{12} t = 2 k \pi\)</span>, soit <span class="math inline">\(t = 24 k\)</span> ; pendant le premier tour (<span class="math inline">\(t \in [0 ; 24[\)</span>) : <span class="math inline">\(t = 0\)</span>, quand la cabine passe au niveau de l’axe en montant.<br>
+Vitesse de montée maximale : <span class="math inline">\(\frac{25 \pi}{6} \approx 13{,}09\)</span> m/min.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai dérivé la composée : <span class="math inline">\(h'(t) = 50 \cdot \frac{\pi}{12} \cos(\frac{\pi}{12} t)\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé le maximum quand <span class="math inline">\(\cos(\frac{\pi}{12} t) = 1\)</span>, à <span class="math inline">\(t = 0\)</span> (niveau de l’axe).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai donné la vitesse avec son unité : <span class="math inline">\(\frac{25 \pi}{6} \approx 13{,}09\)</span> m/min.</p>
+</div>
+</div>
+</div>
+<script type="application/json" id="ae-exos">[{"num": "1.1", "url": "ch1-tourner-angles-arcs/1-la-cabine-du-london-eye.html#exercice-1-1", "obj": ["C6"], "page": "6", "niveau": 2, "section": "La cabine du London Eye"}, {"num": "1.2", "url": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#exercice-1-2", "obj": ["A1"], "page": "8", "niveau": 1, "section": "Longueur d’un arc, aire d’un secteur"}, {"num": "1.3", "url": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#exercice-1-3", "obj": ["A1"], "page": "9", "niveau": 1, "section": "Longueur d’un arc, aire d’un secteur"}, {"num": "1.4", "url": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#exercice-1-4", "obj": ["A1"], "page": "9", "niveau": 2, "section": "Longueur d’un arc, aire d’un secteur"}, {"num": "1.5", "url": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#exercice-1-5", "obj": ["A1"], "page": "9", "niveau": 2, "section": "Longueur d’un arc, aire d’un secteur"}, {"num": "1.6", "url": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#exercice-1-6", "obj": ["A1"], "page": "9", "niveau": 3, "section": "Longueur d’un arc, aire d’un secteur"}, {"num": "1.7", "url": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#exercice-1-7", "obj": ["C7"], "page": "12", "niveau": 1, "section": "Le radian : mesurer un arc en rayons"}, {"num": "1.8", "url": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#exercice-1-8", "obj": ["C7"], "page": "12", "niveau": 1, "section": "Le radian : mesurer un arc en rayons"}, {"num": "1.9", "url": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#exercice-1-9", "obj": ["C7"], "page": "12", "niveau": 1, "section": "Le radian : mesurer un arc en rayons"}, {"num": "1.10", "url": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#exercice-1-10", "obj": ["A1"], "page": "13", "niveau": 2, "section": "Le radian : mesurer un arc en rayons"}, {"num": "1.11", "url": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#exercice-1-11", "obj": ["C7"], "page": "14", "niveau": 1, "section": "Angles orientés, plusieurs tours"}, {"num": "1.12", "url": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#exercice-1-12", "obj": ["C7"], "page": "14", "niveau": 2, "section": "Angles orientés, plusieurs tours"}, {"num": "1.13", "url": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#exercice-1-13", "obj": ["A1"], "page": "15", "niveau": 2, "section": "Angles orientés, plusieurs tours"}, {"num": "1.14", "url": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#exercice-1-14", "obj": ["A1"], "page": "15", "niveau": 2, "section": "Angles orientés, plusieurs tours"}, {"num": "1.15", "url": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#exercice-1-15", "obj": ["A1"], "page": "15", "niveau": 2, "section": "Angles orientés, plusieurs tours"}, {"num": "1.16", "url": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#exercice-1-16", "obj": ["C7"], "page": "15", "niveau": 2, "section": "Angles orientés, plusieurs tours"}, {"num": "2.1", "url": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#exercice-2-1", "obj": ["C1"], "page": "19", "niveau": 1, "section": "Enrouler la droite réelle sur le cercle"}, {"num": "2.2", "url": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#exercice-2-2", "obj": ["C1"], "page": "20", "niveau": 1, "section": "Enrouler la droite réelle sur le cercle"}, {"num": "2.3", "url": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#exercice-2-3", "obj": ["C1"], "page": "20", "niveau": 2, "section": "Enrouler la droite réelle sur le cercle"}, {"num": "2.4", "url": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#exercice-2-4", "obj": ["C1"], "page": "23", "niveau": 1, "section": "Valeurs remarquables et symétries"}, {"num": "2.5", "url": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#exercice-2-5", "obj": ["C8"], "page": "23", "niveau": 2, "section": "Valeurs remarquables et symétries"}, {"num": "2.6", "url": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#exercice-2-6", "obj": ["C8"], "page": "23", "niveau": 2, "section": "Valeurs remarquables et symétries"}, {"num": "2.7", "url": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#exercice-2-7", "obj": ["C8"], "page": "24", "niveau": 3, "section": "Valeurs remarquables et symétries"}, {"num": "2.8", "url": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#exercice-2-8", "obj": ["A5"], "page": "26", "niveau": 2, "section": "Équations $\\sin x = a$ et $\\cos x = a$"}, {"num": "2.9", "url": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#exercice-2-9", "obj": ["A5"], "page": "26", "niveau": 3, "section": "Équations $\\sin x = a$ et $\\cos x = a$"}, {"num": "2.10", "url": "ch2-le-cercle-trigonomet/4-la-tangente.html#exercice-2-10", "obj": ["C1"], "page": "27", "niveau": 1, "section": "La tangente"}, {"num": "2.11", "url": "ch2-le-cercle-trigonomet/4-la-tangente.html#exercice-2-11", "obj": ["C1"], "page": "27", "niveau": 2, "section": "La tangente"}, {"num": "2.12", "url": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#exercice-2-12", "obj": ["A5"], "page": "28", "niveau": 1, "section": "Équations $\\tan x = a$"}, {"num": "2.13", "url": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#exercice-2-13", "obj": ["A5"], "page": "28", "niveau": 2, "section": "Équations $\\tan x = a$"}, {"num": "2.14", "url": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#exercice-2-14", "obj": ["A5"], "page": "28", "niveau": 2, "section": "Équations $\\tan x = a$"}, {"num": "3.1", "url": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#exercice-3-1", "obj": ["C2"], "page": "33", "niveau": 1, "section": "Du cercle au graphique : sinus et cosinus"}, {"num": "3.2", "url": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#exercice-3-2", "obj": ["C2"], "page": "34", "niveau": 1, "section": "Du cercle au graphique : sinus et cosinus"}, {"num": "3.3", "url": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#exercice-3-3", "obj": ["C5"], "page": "34", "niveau": 2, "section": "Du cercle au graphique : sinus et cosinus"}, {"num": "3.4", "url": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#exercice-3-4", "obj": ["C5"], "page": "34", "niveau": 1, "section": "Du cercle au graphique : sinus et cosinus"}, {"num": "3.5", "url": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#exercice-3-5", "obj": ["C2"], "page": "36", "niveau": 2, "section": "La fonction tangente"}, {"num": "3.6", "url": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#exercice-3-6", "obj": ["C3"], "page": "36", "niveau": 2, "section": "La fonction tangente"}, {"num": "3.7", "url": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#exercice-3-7", "obj": ["C3"], "page": "37", "niveau": 2, "section": "La fonction tangente"}, {"num": "3.8", "url": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html#exercice-3-8", "obj": ["A5"], "page": "38", "niveau": 1, "section": "Résoudre graphiquement ; choisir son outil"}, {"num": "3.9", "url": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html#exercice-3-9", "obj": ["A5"], "page": "38", "niveau": 2, "section": "Résoudre graphiquement ; choisir son outil"}, {"num": "4.1", "url": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html#exercice-4-1", "obj": ["C4"], "page": "40", "niveau": 1, "section": "Rôle de $a$ et de $b$"}, {"num": "4.2", "url": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html#exercice-4-2", "obj": ["C4"], "page": "41", "niveau": 2, "section": "Rôle de $a$ et de $b$"}, {"num": "4.3", "url": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#exercice-4-3", "obj": ["A7"], "page": "42", "niveau": 1, "section": "Rôle de $c$ : phase et déphasage"}, {"num": "4.4", "url": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#exercice-4-4", "obj": ["A7"], "page": "42", "niveau": 2, "section": "Rôle de $c$ : phase et déphasage"}, {"num": "4.5", "url": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#exercice-4-5", "obj": ["C4"], "page": "43", "niveau": 2, "section": "Rôle de $c$ : phase et déphasage"}, {"num": "4.6", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-6", "obj": ["A4"], "page": "43", "niveau": 1, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.7", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-7", "obj": ["A4"], "page": "44", "niveau": 2, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.8", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-8", "obj": ["A2"], "page": "44", "niveau": 1, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.9", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-9", "obj": ["A2"], "page": "45", "niveau": 2, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.10", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-10", "obj": ["A3"], "page": "46", "niveau": 2, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.11", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-11", "obj": ["A3"], "page": "46", "niveau": 2, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.12", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-12", "obj": ["A9"], "page": "46", "niveau": 2, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.13", "url": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#exercice-4-13", "obj": ["A9"], "page": "47", "niveau": 3, "section": "Tracer, apparier, retrouver l’expression"}, {"num": "4.14", "url": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#exercice-4-14", "obj": ["A6"], "page": "47", "niveau": 1, "section": "Équations $a \\sin(b x + c) = k$"}, {"num": "4.15", "url": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#exercice-4-15", "obj": ["A6"], "page": "48", "niveau": 2, "section": "Équations $a \\sin(b x + c) = k$"}, {"num": "4.16", "url": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#exercice-4-16", "obj": ["A6"], "page": "48", "niveau": 3, "section": "Équations $a \\sin(b x + c) = k$"}, {"num": "5.1", "url": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#exercice-5-1", "obj": ["T1"], "page": "52", "niveau": 2, "section": "Retour au London Eye ; les limites d’un modèle"}, {"num": "5.2", "url": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#exercice-5-2", "obj": ["T1"], "page": "52", "niveau": 2, "section": "Retour au London Eye ; les limites d’un modèle"}, {"num": "5.3", "url": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#exercice-5-3", "obj": ["T1"], "page": "52", "niveau": 3, "section": "Retour au London Eye ; les limites d’un modèle"}, {"num": "6.1", "url": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#exercice-6-1", "obj": ["C9"], "page": "55", "niveau": 1, "section": "Dérivées de sinus, cosinus et tangente"}, {"num": "6.2", "url": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#exercice-6-2", "obj": ["A8"], "page": "55", "niveau": 1, "section": "Dérivées de sinus, cosinus et tangente"}, {"num": "6.3", "url": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#exercice-6-3", "obj": ["A8"], "page": "55", "niveau": 2, "section": "Dérivées de sinus, cosinus et tangente"}, {"num": "6.4", "url": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#exercice-6-4", "obj": ["C9"], "page": "55", "niveau": 2, "section": "Dérivées de sinus, cosinus et tangente"}, {"num": "6.5", "url": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html#exercice-6-5", "obj": ["A8"], "page": "56", "niveau": 1, "section": "Dérivées de composées ; vitesse d’un mouvement circulaire"}, {"num": "6.6", "url": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html#exercice-6-6", "obj": ["A8"], "page": "56", "niveau": 2, "section": "Dérivées de composées ; vitesse d’un mouvement circulaire"}]</script>
+
+
+
+</main> <!-- /main -->
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "trigo", "uaa": "5UAA5", "pdf": "trigo.pdf", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "trigo.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses écrites en gras", "fichier": "trigo-corrige.pdf"}, {"titre": "Exercices supplémentaires — chapitre 1", "detail": "", "fichier": "trigo-ch1-suppl.pdf"}, {"titre": "Exercices supplémentaires — chapitre 2", "detail": "", "fichier": "trigo-ch2-suppl.pdf"}, {"titre": "Exercices supplémentaires — chapitre 3", "detail": "", "fichier": "trigo-ch3-suppl.pdf"}, {"titre": "Exercices supplémentaires — chapitre 4", "detail": "", "fichier": "trigo-ch4-suppl.pdf"}, {"titre": "Exercices supplémentaires — chapitre 5", "detail": "", "fichier": "trigo-ch5-suppl.pdf"}, {"titre": "Exercices supplémentaires — module dérivées", "detail": "", "fichier": "trigo-derivees-suppl.pdf"}], "portail": "https://qlambotte.github.io/5e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20], "reprise": {"ancien": "/trigo-cours/", "nouveau": "/5e/trigo/"}};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  /* Reprise après déménagement du site (ancienne adresse → nouvelle) : les annotations
+     (lim-annot:v1:<chemin>) et les relevés de dés (pb-releve:<chemin>:n) sont rangés
+     par chemin de page ; on recopie, une fois par appareil, les anciennes clés sous les
+     nouvelles (sans écraser ni effacer). Les autres données (suivi, autoévaluation,
+     couche prof) sont rangées par cours et n'ont pas besoin de reprise. */
+  (function (R) {
+    if (!R || location.pathname.indexOf(R.nouveau) !== 0) return;      // seulement depuis la nouvelle adresse
+    try {
+      var fait = "typweb.reprise:" + R.ancien;
+      if (localStorage.getItem(fait)) return;
+      var a = [], i, k;
+      for (i = 0; i < localStorage.length; i++) {
+        k = localStorage.key(i);
+        ["lim-annot:v1:", "pb-releve:"].forEach(function (p) {
+          if (k && k.indexOf(p + R.ancien) === 0) a.push([k, p + R.nouveau + k.slice((p + R.ancien).length)]);
+        });
+      }
+      a.forEach(function (x) { if (localStorage.getItem(x[1]) === null) localStorage.setItem(x[1], localStorage.getItem(x[0])); });
+      localStorage.setItem(fait, String(Date.now()));
+    } catch (e) {}
+  })(window.TYPWEB.reprise);
+  /* Ancien mode hors-ligne (avant le site unique) : son service worker (portée = ancienne adresse) et
+     ses caches « typweb-<10 chiffres hexa> » ne servent plus ; ménage une fois la page chargée. */
+  if (window.TYPWEB.reprise && "serviceWorker" in navigator) window.addEventListener("load", function () {
+    try {
+      navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { if (new URL(r.scope).pathname.indexOf(window.TYPWEB.reprise.ancien) === 0) r.unregister(); });
+      }).catch(function () {});
+      if (window.caches) caches.keys().then(function (ks) {
+        ks.forEach(function (k) { if (/^typweb-[0-9a-f]{10}$/.test(k)) caches.delete(k); });
+      }).catch(function () {});
+    } catch (e) {}
+  });
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css", "js/interactif.css", "js/trigo.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/interactif.js", "js/trigo.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>
+<script>
+// Menu « Aa » : taille du texte (toujours) et styles du site à l'essai. Le choix est
+// mémorisé dans ce navigateur (localStorage « typweb-style »). À retirer quand
+// un style est retenu (typweb.toml : [site] styles-essai = false).
+(function () {
+  var STYLES = [
+    ["", "Actuel"],
+    ["epure", "1 · Épure"],
+    ["epure-types", "2 · Épure, couleurs de type"],
+    ["manuel", "3 · Manuel moderne"],
+    ["cahier", "4 · Cahier"],
+    ["ardoise", "7 · Ardoise"],
+    ["lecture", "8 · Lecture concentrée"],
+    ["fiches", "9 · Fiches numérotées"]
+  ];
+  function courant() { try { return localStorage.getItem("typweb-style") || ""; } catch (e) { return ""; } }
+  function appliquer(s) {
+    if (s) document.documentElement.setAttribute("data-style", s);
+    else document.documentElement.removeAttribute("data-style");
+    try { if (s) localStorage.setItem("typweb-style", s); else localStorage.removeItem("typweb-style"); } catch (e) {}
+    document.querySelectorAll(".st-panneau button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); });
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  var TAILLES = [0.85, 0.92, 1, 1.08, 1.16, 1.25, 1.35, 1.5];
+  function tailleCourante() { try { return parseFloat(localStorage.getItem("typweb-taille")) || 1; } catch (e) { return 1; } }
+  function poserTaille(t) {
+    document.documentElement.style.fontSize = t === 1 ? "" : (100 * t) + "%";
+    try { if (t === 1) localStorage.removeItem("typweb-taille"); else localStorage.setItem("typweb-taille", t); } catch (e) {}
+    var l = document.querySelector(".st-taille span"); if (l) l.textContent = Math.round(t * 100) + " %";
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  function pas(d) {
+    var t = tailleCourante(), k = 0;
+    TAILLES.forEach(function (x, j) { if (Math.abs(x - t) < Math.abs(TAILLES[k] - t)) k = j; });
+    poserTaille(TAILLES[Math.max(0, Math.min(TAILLES.length - 1, k + d))]);
+  }
+  function build() {
+    if (document.querySelector(".st-menu")) return;
+    var essai = !window.TYPWEB || window.TYPWEB.stylesEssai !== false;
+    var m = document.createElement("div"); m.className = "st-menu";
+    var b = document.createElement("button"); b.className = "st-btn"; b.type = "button"; b.textContent = "Aa";
+    b.title = "Taille du texte" + (essai ? " et style du site" : ""); b.setAttribute("aria-label", b.title);
+    var p = document.createElement("div"); p.className = "st-panneau"; p.hidden = true;
+    p.innerHTML = "<p>Taille du texte</p>";
+    var tl = document.createElement("div"); tl.className = "st-taille";
+    var moins = document.createElement("button"); moins.type = "button"; moins.textContent = "A−"; moins.title = "Réduire le texte";
+    var val = document.createElement("span"); val.textContent = Math.round(tailleCourante() * 100) + " %";
+    val.title = "Revenir à 100 %"; val.style.cursor = "pointer";
+    var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "A+"; plus.title = "Agrandir le texte";
+    moins.addEventListener("click", function () { pas(-1); });
+    plus.addEventListener("click", function () { pas(1); });
+    val.addEventListener("click", function () { poserTaille(1); });
+    tl.appendChild(moins); tl.appendChild(val); tl.appendChild(plus);
+    p.appendChild(tl);
+    if (essai) {
+      var sep = document.createElement("div"); sep.className = "st-sep"; p.appendChild(sep);
+      var t = document.createElement("p"); t.textContent = "Style du site (mode clair)"; p.appendChild(t);
+      STYLES.forEach(function (s) {
+        var x = document.createElement("button"); x.type = "button"; x.dataset.s = s[0]; x.textContent = s[1];
+        x.addEventListener("click", function () { appliquer(s[0]); });
+        p.appendChild(x);
+      });
+    }
+    b.addEventListener("click", function () { p.hidden = !p.hidden; });
+    document.addEventListener("click", function (e) { if (!m.contains(e.target)) p.hidden = true; });
+    m.appendChild(p); m.appendChild(b); document.body.appendChild(m);
+    if (essai) appliquer(courant());
+  }
+  if (document.readyState !== "loading") build(); else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qlambotte\.github\.io\/5e\/trigo\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./essentiel.html" class="pagination-link" aria-label="L'essentiel">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">L’essentiel</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./nouveautes.html" class="pagination-link" aria-label="Quoi de neuf ?">
+        <span class="nav-page-text"><span class="chapter-title">Quoi de neuf ?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Fonctions trigonométriques — cours &amp; exercices</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© Quentin Lambotte</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

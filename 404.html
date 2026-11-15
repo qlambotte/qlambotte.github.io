@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable</title>
+<script>
+/* GÉNÉRÉ par typweb site. Anciennes adresses des cours → nouvelles (reste du chemin, ?… et #… conservés). */
+(function () {
+  var DEMENAGES = {"/limites-cours/": "/5e/limites/", "/stats2v-cours/": "/5e/stats2v/", "/suites-cours/": "/5e/suites/", "/trigo-cours/": "/5e/trigo/", "/exp-log-cours/": "/6e/exp-log/", "/integrales-cours/": "/6e/integrales/", "/proba-cours/": "/6e/proba/"};
+  var p = location.pathname;
+  for (var a in DEMENAGES) {
+    if (p === a.slice(0, -1) || p.indexOf(a) === 0) {
+      location.replace(DEMENAGES[a] + p.slice(a.length) + location.search + location.hash);
+      return;
+    }
+  }
+})();
+</script>
+<style>body{font:1.1rem/1.5 system-ui,sans-serif;max-width:36rem;margin:3rem auto;padding:0 1rem}</style>
+</head><body>
+<h1>Page introuvable</h1>
+<p>Cette adresse n'existe pas (ou plus). Tous les cours sont sur la page d'accueil :
+<a href="/">https://qlambotte.github.io/</a>.</p>
+</body></html>

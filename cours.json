@@ -1,0 +1,48 @@
+{
+ "format": "typweb-cours/1",
+ "_note": "GÉNÉRÉ par typweb site : adresse de chaque cours dans ce site (chemin relatif à la racine).",
+ "cours": {
+  "5UAA3": {
+   "titre": "Limites et asymptotes",
+   "annee": "5e",
+   "chemin": "5e/limites/",
+   "ancienne": "https://qlambotte.github.io/limites-cours/"
+  },
+  "5UAA1": {
+   "titre": "Statistiques à deux variables",
+   "annee": "5e",
+   "chemin": "5e/stats2v/",
+   "ancienne": "https://qlambotte.github.io/stats2v-cours/"
+  },
+  "5UAA2": {
+   "titre": "Les suites",
+   "annee": "5e",
+   "chemin": "5e/suites/",
+   "ancienne": "https://qlambotte.github.io/suites-cours/"
+  },
+  "5UAA5": {
+   "titre": "Fonctions trigonométriques",
+   "annee": "5e",
+   "chemin": "5e/trigo/",
+   "ancienne": "https://qlambotte.github.io/trigo-cours/"
+  },
+  "6UAA4": {
+   "titre": "Exponentielles et logarithmes",
+   "annee": "6e",
+   "chemin": "6e/exp-log/",
+   "ancienne": "https://qlambotte.github.io/exp-log-cours/"
+  },
+  "6UAA3": {
+   "titre": "Intégrales",
+   "annee": "6e",
+   "chemin": "6e/integrales/",
+   "ancienne": "https://qlambotte.github.io/integrales-cours/"
+  },
+  "6UAA1": {
+   "titre": "Probabilités",
+   "annee": "6e",
+   "chemin": "6e/proba/",
+   "ancienne": "https://qlambotte.github.io/proba-cours/"
+  }
+ }
+}

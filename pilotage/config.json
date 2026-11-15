@@ -12,25 +12,25 @@
         {
           "uaa": "5UAA1",
           "titre": "Statistiques à deux variables",
-          "url": "https://qlambotte.github.io/stats2v-cours/",
+          "url": "https://qlambotte.github.io/5e/stats2v/",
           "index": "index.json"
         },
         {
           "uaa": "5UAA2",
           "titre": "Les suites",
-          "url": "https://qlambotte.github.io/suites-cours/",
+          "url": "https://qlambotte.github.io/5e/suites/",
           "index": "index.json"
         },
         {
           "uaa": "5UAA3",
           "titre": "Limites et asymptotes",
-          "url": "https://qlambotte.github.io/limites-cours/",
+          "url": "https://qlambotte.github.io/5e/limites/",
           "index": "index.json"
         },
         {
           "uaa": "5UAA5",
           "titre": "Fonctions trigonométriques",
-          "url": "https://qlambotte.github.io/trigo-cours/",
+          "url": "https://qlambotte.github.io/5e/trigo/",
           "index": "index.json"
         }
       ],
@@ -47,13 +47,13 @@
         {
           "uaa": "6UAA1",
           "titre": "Probabilités",
-          "url": "https://qlambotte.github.io/proba-cours/",
+          "url": "https://qlambotte.github.io/6e/proba/",
           "index": "index.json"
         },
         {
           "uaa": "6UAA4",
           "titre": "Exponentielles et logarithmes",
-          "url": "https://qlambotte.github.io/exp-log-cours/",
+          "url": "https://qlambotte.github.io/6e/exp-log/",
           "index": "index.json"
         }
       ],

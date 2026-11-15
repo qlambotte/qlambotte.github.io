@@ -1,0 +1,2152 @@
+{
+ "format": 1,
+ "cours": "Fonctions trigonométriques",
+ "uaa": "5UAA5",
+ "annee": "5e",
+ "cle": "trigo",
+ "empreinte": "2384da7b95b2",
+ "genere": "2026-11-14",
+ "elements": [
+  {
+   "id": "5UAA5.tourner-angles-arcs-radians",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — Tourner : angles, arcs et radians",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.cabine-london-eye",
+   "type": "section",
+   "titre": "La cabine du London Eye",
+   "parent": "5UAA5.tourner-angles-arcs-radians",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/1-la-cabine-du-london-eye.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.quelle-hauteur-est-cabine",
+   "type": "activite",
+   "titre": "Activité 1.1 — à quelle hauteur est la cabine ?",
+   "parent": "5UAA5.cabine-london-eye",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/1-la-cabine-du-london-eye.html#5UAA5.quelle-hauteur-est-cabine",
+   "num": "1.1",
+   "page": 4
+  },
+  {
+   "id": "5UAA5.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "5UAA5.cabine-london-eye",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/1-la-cabine-du-london-eye.html#5UAA5.ex.001",
+   "num": "1.1",
+   "page": 6
+  },
+  {
+   "id": "5UAA5.longueur-arc-aire-secteur",
+   "type": "section",
+   "titre": "Longueur d’un arc, aire d’un secteur",
+   "parent": "5UAA5.tourner-angles-arcs-radians",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.eplucher-disque",
+   "type": "activite",
+   "titre": "Activité 1.2 — éplucher le disque",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.eplucher-disque",
+   "num": "1.2",
+   "page": 6
+  },
+  {
+   "id": "5UAA5.aire-disque",
+   "type": "propriete",
+   "titre": "Propriété 1.1 — aire du disque",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.aire-disque",
+   "num": "1.1",
+   "page": 8
+  },
+  {
+   "id": "5UAA5.faire-emerger-formules",
+   "type": "activite",
+   "titre": "Activité 1.3 — faire émerger les formules",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.faire-emerger-formules",
+   "num": "1.3",
+   "page": 8
+  },
+  {
+   "id": "5UAA5.arc-secteur-angle-degres",
+   "type": "propriete",
+   "titre": "Propriété 1.2 — arc et secteur, angle en degrés",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.arc-secteur-angle-degres",
+   "num": "1.2",
+   "page": 8
+  },
+  {
+   "id": "5UAA5.exm.001",
+   "type": "exemple",
+   "titre": "Exemple 1.1",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.exm.001",
+   "num": "1.1",
+   "page": 8
+  },
+  {
+   "id": "5UAA5.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.ex.002",
+   "num": "1.2",
+   "page": 8
+  },
+  {
+   "id": "5UAA5.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.ex.003",
+   "num": "1.3",
+   "page": 9
+  },
+  {
+   "id": "5UAA5.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.ex.004",
+   "num": "1.4",
+   "page": 9
+  },
+  {
+   "id": "5UAA5.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 1.5",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.ex.005",
+   "num": "1.5",
+   "page": 9
+  },
+  {
+   "id": "5UAA5.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 1.6",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-tourner-angles-arcs/2-longueur-dun-arc-aire-dun.html#5UAA5.ex.006",
+   "num": "1.6",
+   "page": 9
+  },
+  {
+   "id": "5UAA5.radian-mesurer-arc-rayons",
+   "type": "section",
+   "titre": "Le radian : mesurer un arc en rayons",
+   "parent": "5UAA5.tourner-angles-arcs-radians",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "5UAA5.trois-cercles-meme-angle",
+   "type": "activite",
+   "titre": "Activité 1.4 — trois cercles, un même angle",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.trois-cercles-meme-angle",
+   "num": "1.4",
+   "page": 9
+  },
+  {
+   "id": "5UAA5.combien-rayons-tour",
+   "type": "activite",
+   "titre": "Activité 1.5 — combien de rayons dans un tour ?",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.combien-rayons-tour",
+   "num": "1.5",
+   "page": 10
+  },
+  {
+   "id": "5UAA5.radian",
+   "type": "definition",
+   "titre": "Définition 1.1 — radian",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.radian",
+   "num": "1.1",
+   "page": 11
+  },
+  {
+   "id": "5UAA5.arc-secteur-angle-radians",
+   "type": "propriete",
+   "titre": "Propriété 1.3 — arc et secteur, angle en radians",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.arc-secteur-angle-radians",
+   "num": "1.3",
+   "page": 11
+  },
+  {
+   "id": "5UAA5.exm.002",
+   "type": "exemple",
+   "titre": "Exemple 1.2",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.exm.002",
+   "num": "1.2",
+   "page": 12
+  },
+  {
+   "id": "5UAA5.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 1.7",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.ex.007",
+   "num": "1.7",
+   "page": 12
+  },
+  {
+   "id": "5UAA5.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 1.8",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.ex.008",
+   "num": "1.8",
+   "page": 12
+  },
+  {
+   "id": "5UAA5.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 1.9",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.ex.009",
+   "num": "1.9",
+   "page": 12
+  },
+  {
+   "id": "5UAA5.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 1.10",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-tourner-angles-arcs/3-le-radian-mesurer-un-arc.html#5UAA5.ex.010",
+   "num": "1.10",
+   "page": 13
+  },
+  {
+   "id": "5UAA5.angles-orientes-plusieurs-tours",
+   "type": "section",
+   "titre": "Angles orientés, plusieurs tours",
+   "parent": "5UAA5.tourner-angles-arcs-radians",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "5UAA5.angle-oriente",
+   "type": "definition",
+   "titre": "Définition 1.2 — angle orienté",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.angle-oriente",
+   "num": "1.2",
+   "page": 13
+  },
+  {
+   "id": "5UAA5.mesures-angle-oriente",
+   "type": "definition",
+   "titre": "Définition 1.3 — mesures d’un angle orienté",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.mesures-angle-oriente",
+   "num": "1.3",
+   "page": 14
+  },
+  {
+   "id": "5UAA5.exm.003",
+   "type": "exemple",
+   "titre": "Exemple 1.3",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.exm.003",
+   "num": "1.3",
+   "page": 14
+  },
+  {
+   "id": "5UAA5.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.rem.001",
+   "num": "1.1",
+   "page": 14
+  },
+  {
+   "id": "5UAA5.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 1.11",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.ex.011",
+   "num": "1.11",
+   "page": 14
+  },
+  {
+   "id": "5UAA5.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 1.12",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.ex.012",
+   "num": "1.12",
+   "page": 14
+  },
+  {
+   "id": "5UAA5.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 1.13",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.ex.013",
+   "num": "1.13",
+   "page": 15
+  },
+  {
+   "id": "5UAA5.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 1.14",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.ex.014",
+   "num": "1.14",
+   "page": 15
+  },
+  {
+   "id": "5UAA5.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 1.15",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.ex.015",
+   "num": "1.15",
+   "page": 15
+  },
+  {
+   "id": "5UAA5.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 1.16",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-tourner-angles-arcs/4-angles-orientes-plusieurs-tours.html#5UAA5.ex.016",
+   "num": "1.16",
+   "page": 15
+  },
+  {
+   "id": "5UAA5.cercle-trigonometrique",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Le cercle trigonométrique",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.enrouler-droite-reelle-cercle",
+   "type": "section",
+   "titre": "Enrouler la droite réelle sur le cercle",
+   "parent": "5UAA5.cercle-trigonometrique",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.enrouler-droite-graduee",
+   "type": "activite",
+   "titre": "Activité 2.1 — enrouler une droite graduée",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.enrouler-droite-graduee",
+   "num": "2.1",
+   "page": 16
+  },
+  {
+   "id": "5UAA5.cercle-trigonometrique-2",
+   "type": "definition",
+   "titre": "Définition 2.1 — cercle trigonométrique",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.cercle-trigonometrique-2",
+   "num": "2.1",
+   "page": 17
+  },
+  {
+   "id": "5UAA5.cosinus-sinus-reel",
+   "type": "definition",
+   "titre": "Définition 2.2 — cosinus et sinus d’un réel",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.cosinus-sinus-reel",
+   "num": "2.2",
+   "page": 18
+  },
+  {
+   "id": "5UAA5.rappel-3-e",
+   "type": "remarque",
+   "titre": "Remarque 2.1",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.rappel-3-e",
+   "num": "2.1",
+   "page": 18
+  },
+  {
+   "id": "5UAA5.rayon-est-unite",
+   "type": "remarque",
+   "titre": "Remarque 2.2",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.rayon-est-unite",
+   "num": "2.2",
+   "page": 18
+  },
+  {
+   "id": "5UAA5.signe-se-lit-axes",
+   "type": "activite",
+   "titre": "Activité 2.2 — le signe se lit sur les axes",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.signe-se-lit-axes",
+   "num": "2.2",
+   "page": 19
+  },
+  {
+   "id": "5UAA5.exm.004",
+   "type": "exemple",
+   "titre": "Exemple 2.1",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.exm.004",
+   "num": "2.1",
+   "page": 19
+  },
+  {
+   "id": "5UAA5.ex.017",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.ex.017",
+   "num": "2.1",
+   "page": 19
+  },
+  {
+   "id": "5UAA5.ex.018",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.ex.018",
+   "num": "2.2",
+   "page": 20
+  },
+  {
+   "id": "5UAA5.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/1-enrouler-la-droite-reelle-sur.html#5UAA5.ex.019",
+   "num": "2.3",
+   "page": 20
+  },
+  {
+   "id": "5UAA5.valeurs-remarquables-symetries",
+   "type": "section",
+   "titre": "Valeurs remarquables et symétries",
+   "parent": "5UAA5.cercle-trigonometrique",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.relation-fondamentale",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — relation fondamentale",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.relation-fondamentale",
+   "num": "2.1",
+   "page": 21
+  },
+  {
+   "id": "5UAA5.carre-triangle-equilateral",
+   "type": "activite",
+   "titre": "Activité 2.3 — le carré et le triangle équilatéral",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.carre-triangle-equilateral",
+   "num": "2.3",
+   "page": 21
+  },
+  {
+   "id": "5UAA5.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 2.3",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.rem.002",
+   "num": "2.3",
+   "page": 21
+  },
+  {
+   "id": "5UAA5.symetries-cercle",
+   "type": "activite",
+   "titre": "Activité 2.4 — les symétries du cercle",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.symetries-cercle",
+   "num": "2.4",
+   "page": 22
+  },
+  {
+   "id": "5UAA5.angles-associes-lus-cercle",
+   "type": "propriete",
+   "titre": "Propriété 2.2 — angles associés, lus sur le cercle",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.angles-associes-lus-cercle",
+   "num": "2.2",
+   "page": 22
+  },
+  {
+   "id": "5UAA5.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 2.4",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.rem.003",
+   "num": "2.4",
+   "page": 22
+  },
+  {
+   "id": "5UAA5.exm.005",
+   "type": "exemple",
+   "titre": "Exemple 2.2",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.exm.005",
+   "num": "2.2",
+   "page": 23
+  },
+  {
+   "id": "5UAA5.seize-points-remarquables",
+   "type": "activite",
+   "titre": "Activité 2.5 — seize points remarquables",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.seize-points-remarquables",
+   "num": "2.5",
+   "page": 23
+  },
+  {
+   "id": "5UAA5.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.ex.020",
+   "num": "2.4",
+   "page": 23
+  },
+  {
+   "id": "5UAA5.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.ex.021",
+   "num": "2.5",
+   "page": 23
+  },
+  {
+   "id": "5UAA5.ex.022",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.ex.022",
+   "num": "2.6",
+   "page": 23
+  },
+  {
+   "id": "5UAA5.ex.023",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-le-cercle-trigonomet/2-valeurs-remarquables-et-symetries.html#5UAA5.ex.023",
+   "num": "2.7",
+   "page": 24
+  },
+  {
+   "id": "5UAA5.equations",
+   "type": "section",
+   "titre": "Équations sin x = a et cos x = a",
+   "parent": "5UAA5.cercle-trigonometrique",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "5UAA5.combien-points",
+   "type": "activite",
+   "titre": "Activité 2.6 — combien de points ?",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.combien-points",
+   "num": "2.6",
+   "page": 24
+  },
+  {
+   "id": "5UAA5.calculatrice-deux-reponses",
+   "type": "activite",
+   "titre": "Activité 2.7 — une calculatrice, deux réponses",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.calculatrice-deux-reponses",
+   "num": "2.7",
+   "page": 24
+  },
+  {
+   "id": "5UAA5.equations-2",
+   "type": "propriete",
+   "titre": "Propriété 2.3 — équations sin x = a et cos x = a",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.equations-2",
+   "num": "2.3",
+   "page": 25
+  },
+  {
+   "id": "5UAA5.valeur-remarquable",
+   "type": "exemple",
+   "titre": "Exemple 2.3 — valeur remarquable",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.valeur-remarquable",
+   "num": "2.3",
+   "page": 25
+  },
+  {
+   "id": "5UAA5.calculatrice-intervalle",
+   "type": "exemple",
+   "titre": "Exemple 2.4 — avec la calculatrice, dans un intervalle",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.calculatrice-intervalle",
+   "num": "2.4",
+   "page": 25
+  },
+  {
+   "id": "5UAA5.ex.024",
+   "type": "exercice",
+   "titre": "Exercice 2.8",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.ex.024",
+   "num": "2.8",
+   "page": 26
+  },
+  {
+   "id": "5UAA5.ex.025",
+   "type": "exercice",
+   "titre": "Exercice 2.9",
+   "parent": "5UAA5.equations",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-le-cercle-trigonomet/3-equations-sin-x-a-et.html#5UAA5.ex.025",
+   "num": "2.9",
+   "page": 26
+  },
+  {
+   "id": "5UAA5.tangente",
+   "type": "section",
+   "titre": "La tangente",
+   "parent": "5UAA5.cercle-trigonometrique",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/4-la-tangente.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "5UAA5.tangente-reel",
+   "type": "definition",
+   "titre": "Définition 2.3 — tangente d’un réel",
+   "parent": "5UAA5.tangente",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/4-la-tangente.html#5UAA5.tangente-reel",
+   "num": "2.3",
+   "page": 26
+  },
+  {
+   "id": "5UAA5.valeurs-signes-tangente",
+   "type": "activite",
+   "titre": "Activité 2.8 — valeurs et signes de la tangente",
+   "parent": "5UAA5.tangente",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/4-la-tangente.html#5UAA5.valeurs-signes-tangente",
+   "num": "2.8",
+   "page": 26
+  },
+  {
+   "id": "5UAA5.ex.026",
+   "type": "exercice",
+   "titre": "Exercice 2.10",
+   "parent": "5UAA5.tangente",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/4-la-tangente.html#5UAA5.ex.026",
+   "num": "2.10",
+   "page": 27
+  },
+  {
+   "id": "5UAA5.ex.027",
+   "type": "exercice",
+   "titre": "Exercice 2.11",
+   "parent": "5UAA5.tangente",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/4-la-tangente.html#5UAA5.ex.027",
+   "num": "2.11",
+   "page": 27
+  },
+  {
+   "id": "5UAA5.equations-3",
+   "type": "section",
+   "titre": "Équations tan x = a",
+   "parent": "5UAA5.cercle-trigonometrique",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html",
+   "num": "2.5",
+   "page": null
+  },
+  {
+   "id": "5UAA5.equation-tan",
+   "type": "propriete",
+   "titre": "Propriété 2.4 — équation tan x = a",
+   "parent": "5UAA5.equations-3",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#5UAA5.equation-tan",
+   "num": "2.4",
+   "page": 28
+  },
+  {
+   "id": "5UAA5.exm.006",
+   "type": "exemple",
+   "titre": "Exemple 2.5",
+   "parent": "5UAA5.equations-3",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#5UAA5.exm.006",
+   "num": "2.5",
+   "page": 28
+  },
+  {
+   "id": "5UAA5.ex.028",
+   "type": "exercice",
+   "titre": "Exercice 2.12",
+   "parent": "5UAA5.equations-3",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#5UAA5.ex.028",
+   "num": "2.12",
+   "page": 28
+  },
+  {
+   "id": "5UAA5.ex.029",
+   "type": "exercice",
+   "titre": "Exercice 2.13",
+   "parent": "5UAA5.equations-3",
+   "etiquettes": [],
+   "ancre": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#5UAA5.ex.029",
+   "num": "2.13",
+   "page": 28
+  },
+  {
+   "id": "5UAA5.ex.030",
+   "type": "exercice",
+   "titre": "Exercice 2.14",
+   "parent": "5UAA5.equations-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-le-cercle-trigonomet/5-equations-tan-x-a.html#5UAA5.ex.030",
+   "num": "2.14",
+   "page": 28
+  },
+  {
+   "id": "5UAA5.fonctions-trigonometriques",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Les fonctions trigonométriques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "5UAA5.cercle-graphique-sinus-cosinus",
+   "type": "section",
+   "titre": "Du cercle au graphique : sinus et cosinus",
+   "parent": "5UAA5.fonctions-trigonometriques",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.derouler-cercle",
+   "type": "activite",
+   "titre": "Activité 3.1 — dérouler le cercle",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.derouler-cercle",
+   "num": "3.1",
+   "page": 31
+  },
+  {
+   "id": "5UAA5.cosinus-sinus-meme-courbe",
+   "type": "activite",
+   "titre": "Activité 3.2 — cosinus et sinus : la même courbe ?",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.cosinus-sinus-meme-courbe",
+   "num": "3.2",
+   "page": 32
+  },
+  {
+   "id": "5UAA5.fonction-periodique",
+   "type": "definition",
+   "titre": "Définition 3.1 — fonction périodique",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.fonction-periodique",
+   "num": "3.1",
+   "page": 32
+  },
+  {
+   "id": "5UAA5.exm.007",
+   "type": "exemple",
+   "titre": "Exemple 3.1",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.exm.007",
+   "num": "3.1",
+   "page": 32
+  },
+  {
+   "id": "5UAA5.ex.031",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.ex.031",
+   "num": "3.1",
+   "page": 33
+  },
+  {
+   "id": "5UAA5.ex.032",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.ex.032",
+   "num": "3.2",
+   "page": 34
+  },
+  {
+   "id": "5UAA5.ex.033",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.ex.033",
+   "num": "3.3",
+   "page": 34
+  },
+  {
+   "id": "5UAA5.ex.034",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/1-du-cercle-au-graphique-sinus.html#5UAA5.ex.034",
+   "num": "3.4",
+   "page": 34
+  },
+  {
+   "id": "5UAA5.fonction-tangente",
+   "type": "section",
+   "titre": "La fonction tangente",
+   "parent": "5UAA5.fonctions-trigonometriques",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.pente-bras",
+   "type": "activite",
+   "titre": "Activité 3.3 — la pente du bras",
+   "parent": "5UAA5.fonction-tangente",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#5UAA5.pente-bras",
+   "num": "3.3",
+   "page": 35
+  },
+  {
+   "id": "5UAA5.ex.035",
+   "type": "exercice",
+   "titre": "Exercice 3.5",
+   "parent": "5UAA5.fonction-tangente",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#5UAA5.ex.035",
+   "num": "3.5",
+   "page": 36
+  },
+  {
+   "id": "5UAA5.ex.036",
+   "type": "exercice",
+   "titre": "Exercice 3.6",
+   "parent": "5UAA5.fonction-tangente",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#5UAA5.ex.036",
+   "num": "3.6",
+   "page": 36
+  },
+  {
+   "id": "5UAA5.ex.037",
+   "type": "exercice",
+   "titre": "Exercice 3.7",
+   "parent": "5UAA5.fonction-tangente",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/2-la-fonction-tangente.html#5UAA5.ex.037",
+   "num": "3.7",
+   "page": 37
+  },
+  {
+   "id": "5UAA5.resoudre-graphiquement-choisir-son-outil",
+   "type": "section",
+   "titre": "Résoudre graphiquement ; choisir son outil",
+   "parent": "5UAA5.fonctions-trigonometriques",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "5UAA5.graphique",
+   "type": "activite",
+   "titre": "Activité 3.4 — sin x = 0,6 sur un graphique",
+   "parent": "5UAA5.resoudre-graphiquement-choisir-son-outil",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html#5UAA5.graphique",
+   "num": "3.4",
+   "page": 37
+  },
+  {
+   "id": "5UAA5.quel-outil-quelle-question",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "5UAA5.resoudre-graphiquement-choisir-son-outil",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html#5UAA5.quel-outil-quelle-question",
+   "num": "3.1",
+   "page": 37
+  },
+  {
+   "id": "5UAA5.ex.038",
+   "type": "exercice",
+   "titre": "Exercice 3.8",
+   "parent": "5UAA5.resoudre-graphiquement-choisir-son-outil",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html#5UAA5.ex.038",
+   "num": "3.8",
+   "page": 38
+  },
+  {
+   "id": "5UAA5.ex.039",
+   "type": "exercice",
+   "titre": "Exercice 3.9",
+   "parent": "5UAA5.resoudre-graphiquement-choisir-son-outil",
+   "etiquettes": [],
+   "ancre": "ch3-les-fonctions-trigon/3-resoudre-graphiquement-choisir-son-outil.html#5UAA5.ex.039",
+   "num": "3.9",
+   "page": 38
+  },
+  {
+   "id": "5UAA5.fonction-x-sin-bx-c",
+   "type": "chapitre",
+   "titre": "Chapitre 4 — La fonction x ↦ a sin(bx + c)",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/index.html",
+   "num": "4",
+   "page": null
+  },
+  {
+   "id": "5UAA5.role",
+   "type": "section",
+   "titre": "Rôle de a et de b",
+   "parent": "5UAA5.fonction-x-sin-bx-c",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html",
+   "num": "4.1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.predire-puis-verifier",
+   "type": "activite",
+   "titre": "Activité 4.1 — prédire, puis vérifier",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html#5UAA5.predire-puis-verifier",
+   "num": "4.1",
+   "page": 39
+  },
+  {
+   "id": "5UAA5.role-2",
+   "type": "propriete",
+   "titre": "Propriété 4.1 — rôle de a et de b",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html#5UAA5.role-2",
+   "num": "4.1",
+   "page": 40
+  },
+  {
+   "id": "5UAA5.ex.040",
+   "type": "exercice",
+   "titre": "Exercice 4.1",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html#5UAA5.ex.040",
+   "num": "4.1",
+   "page": 40
+  },
+  {
+   "id": "5UAA5.ex.041",
+   "type": "exercice",
+   "titre": "Exercice 4.2",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/1-role-de-a-et-de.html#5UAA5.ex.041",
+   "num": "4.2",
+   "page": 41
+  },
+  {
+   "id": "5UAA5.role-phase-dephasage",
+   "type": "section",
+   "titre": "Rôle de c : phase et déphasage",
+   "parent": "5UAA5.fonction-x-sin-bx-c",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html",
+   "num": "4.2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.sinusoide-commence-t-elle",
+   "type": "activite",
+   "titre": "Activité 4.2 — où la sinusoïde commence-t-elle ?",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#5UAA5.sinusoide-commence-t-elle",
+   "num": "4.2",
+   "page": 41
+  },
+  {
+   "id": "5UAA5.role-3",
+   "type": "propriete",
+   "titre": "Propriété 4.2 — rôle de c",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#5UAA5.role-3",
+   "num": "4.2",
+   "page": 41
+  },
+  {
+   "id": "5UAA5.notation-physique",
+   "type": "remarque",
+   "titre": "Remarque 4.1",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#5UAA5.notation-physique",
+   "num": "4.1",
+   "page": 42
+  },
+  {
+   "id": "5UAA5.ex.042",
+   "type": "exercice",
+   "titre": "Exercice 4.3",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#5UAA5.ex.042",
+   "num": "4.3",
+   "page": 42
+  },
+  {
+   "id": "5UAA5.ex.043",
+   "type": "exercice",
+   "titre": "Exercice 4.4",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#5UAA5.ex.043",
+   "num": "4.4",
+   "page": 42
+  },
+  {
+   "id": "5UAA5.ex.044",
+   "type": "exercice",
+   "titre": "Exercice 4.5",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/2-role-de-c-phase-et.html#5UAA5.ex.044",
+   "num": "4.5",
+   "page": 43
+  },
+  {
+   "id": "5UAA5.tracer-apparier-retrouver-expression",
+   "type": "section",
+   "titre": "Tracer, apparier, retrouver l’expression",
+   "parent": "5UAA5.fonction-x-sin-bx-c",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html",
+   "num": "4.3",
+   "page": null
+  },
+  {
+   "id": "5UAA5.exm.008",
+   "type": "exemple",
+   "titre": "Exemple 4.1 — f(x) = 3 sin(2 x - π/3)",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.exm.008",
+   "num": "4.1",
+   "page": 43
+  },
+  {
+   "id": "5UAA5.ex.045",
+   "type": "exercice",
+   "titre": "Exercice 4.6",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.045",
+   "num": "4.6",
+   "page": 43
+  },
+  {
+   "id": "5UAA5.ex.046",
+   "type": "exercice",
+   "titre": "Exercice 4.7",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.046",
+   "num": "4.7",
+   "page": 44
+  },
+  {
+   "id": "5UAA5.ex.047",
+   "type": "exercice",
+   "titre": "Exercice 4.8",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.047",
+   "num": "4.8",
+   "page": 44
+  },
+  {
+   "id": "5UAA5.ex.048",
+   "type": "exercice",
+   "titre": "Exercice 4.9",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.048",
+   "num": "4.9",
+   "page": 45
+  },
+  {
+   "id": "5UAA5.exm.009",
+   "type": "exemple",
+   "titre": "Exemple 4.2",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.exm.009",
+   "num": "4.2",
+   "page": 45
+  },
+  {
+   "id": "5UAA5.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 4.2",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.rem.004",
+   "num": "4.2",
+   "page": 45
+  },
+  {
+   "id": "5UAA5.ex.049",
+   "type": "exercice",
+   "titre": "Exercice 4.10",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.049",
+   "num": "4.10",
+   "page": 46
+  },
+  {
+   "id": "5UAA5.ex.050",
+   "type": "exercice",
+   "titre": "Exercice 4.11",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.050",
+   "num": "4.11",
+   "page": 46
+  },
+  {
+   "id": "5UAA5.exm.010",
+   "type": "exemple",
+   "titre": "Exemple 4.3",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.exm.010",
+   "num": "4.3",
+   "page": 46
+  },
+  {
+   "id": "5UAA5.ex.051",
+   "type": "exercice",
+   "titre": "Exercice 4.12",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.051",
+   "num": "4.12",
+   "page": 46
+  },
+  {
+   "id": "5UAA5.ex.052",
+   "type": "exercice",
+   "titre": "Exercice 4.13",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-la-fonction-x-a-sin/3-tracer-apparier-retrouver-lexpression.html#5UAA5.ex.052",
+   "num": "4.13",
+   "page": 47
+  },
+  {
+   "id": "5UAA5.equations-4",
+   "type": "section",
+   "titre": "Équations a sin(b x + c) = k",
+   "parent": "5UAA5.fonction-x-sin-bx-c",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html",
+   "num": "4.4",
+   "page": null
+  },
+  {
+   "id": "5UAA5.exm.011",
+   "type": "exemple",
+   "titre": "Exemple 4.4",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#5UAA5.exm.011",
+   "num": "4.4",
+   "page": 47
+  },
+  {
+   "id": "5UAA5.ex.053",
+   "type": "exercice",
+   "titre": "Exercice 4.14",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#5UAA5.ex.053",
+   "num": "4.14",
+   "page": 47
+  },
+  {
+   "id": "5UAA5.ex.054",
+   "type": "exercice",
+   "titre": "Exercice 4.15",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#5UAA5.ex.054",
+   "num": "4.15",
+   "page": 48
+  },
+  {
+   "id": "5UAA5.ex.055",
+   "type": "exercice",
+   "titre": "Exercice 4.16",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "ch4-la-fonction-x-a-sin/4-equations-a-sin-b-x.html#5UAA5.ex.055",
+   "num": "4.16",
+   "page": 48
+  },
+  {
+   "id": "5UAA5.modeliser-phenomenes-periodiques",
+   "type": "chapitre",
+   "titre": "Chapitre 5 — Modéliser des phénomènes périodiques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/index.html",
+   "num": "5",
+   "page": null
+  },
+  {
+   "id": "5UAA5.sinusoides-partout",
+   "type": "section",
+   "titre": "Des sinusoïdes partout",
+   "parent": "5UAA5.modeliser-phenomenes-periodiques",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/1-des-sinusoides-partout.html",
+   "num": "5.1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.enrouler-couper-derouler",
+   "type": "activite",
+   "titre": "Activité 5.1 — enrouler, couper, dérouler",
+   "parent": "5UAA5.sinusoides-partout",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/1-des-sinusoides-partout.html#5UAA5.enrouler-couper-derouler",
+   "num": "5.1",
+   "page": 49
+  },
+  {
+   "id": "5UAA5.rem.005",
+   "type": "remarque",
+   "titre": "Remarque 5.1",
+   "parent": "5UAA5.sinusoides-partout",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/1-des-sinusoides-partout.html#5UAA5.rem.005",
+   "num": "5.1",
+   "page": 50
+  },
+  {
+   "id": "5UAA5.modeliser-duree-jour",
+   "type": "activite",
+   "titre": "Activité 5.2 — modéliser la durée du jour",
+   "parent": "5UAA5.sinusoides-partout",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/1-des-sinusoides-partout.html#5UAA5.modeliser-duree-jour",
+   "num": "5.2",
+   "page": 50
+  },
+  {
+   "id": "5UAA5.retour-london-eye-limites-modele",
+   "type": "section",
+   "titre": "Retour au London Eye ; les limites d’un modèle",
+   "parent": "5UAA5.modeliser-phenomenes-periodiques",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html",
+   "num": "5.2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.plus-100-m-dessus-sol",
+   "type": "activite",
+   "titre": "Activité 5.3 — plus de 100 m au-dessus du sol",
+   "parent": "5UAA5.retour-london-eye-limites-modele",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#5UAA5.plus-100-m-dessus-sol",
+   "num": "5.3",
+   "page": 51
+  },
+  {
+   "id": "5UAA5.limites-modele",
+   "type": "remarque",
+   "titre": "Remarque 5.2",
+   "parent": "5UAA5.retour-london-eye-limites-modele",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#5UAA5.limites-modele",
+   "num": "5.2",
+   "page": 52
+  },
+  {
+   "id": "5UAA5.ex.056",
+   "type": "exercice",
+   "titre": "Exercice 5.1",
+   "parent": "5UAA5.retour-london-eye-limites-modele",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#5UAA5.ex.056",
+   "num": "5.1",
+   "page": 52
+  },
+  {
+   "id": "5UAA5.ex.057",
+   "type": "exercice",
+   "titre": "Exercice 5.2",
+   "parent": "5UAA5.retour-london-eye-limites-modele",
+   "etiquettes": [],
+   "ancre": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#5UAA5.ex.057",
+   "num": "5.2",
+   "page": 52
+  },
+  {
+   "id": "5UAA5.ex.058",
+   "type": "exercice",
+   "titre": "Exercice 5.3",
+   "parent": "5UAA5.retour-london-eye-limites-modele",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch5-modeliser-des-phenom/2-retour-au-london-eye-les.html#5UAA5.ex.058",
+   "num": "5.3",
+   "page": 52
+  },
+  {
+   "id": "5UAA5.module-derivees-trigonometriques",
+   "type": "chapitre",
+   "titre": "Chapitre 6 — Module : dérivées trigonométriques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/index.html",
+   "num": "6",
+   "page": null
+  },
+  {
+   "id": "5UAA5.derivees-sinus-cosinus-tangente",
+   "type": "section",
+   "titre": "Dérivées de sinus, cosinus et tangente",
+   "parent": "5UAA5.module-derivees-trigonometriques",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html",
+   "num": "6.1",
+   "page": null
+  },
+  {
+   "id": "5UAA5.pente-sinusoide",
+   "type": "activite",
+   "titre": "Activité 6.1 — la pente de la sinusoïde",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.pente-sinusoide",
+   "num": "6.1",
+   "page": 53
+  },
+  {
+   "id": "5UAA5.pourquoi-radians",
+   "type": "activite",
+   "titre": "Activité 6.2 — pourquoi les radians ?",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.pourquoi-radians",
+   "num": "6.2",
+   "page": 54
+  },
+  {
+   "id": "5UAA5.derivees",
+   "type": "propriete",
+   "titre": "Propriété 6.1 — dérivées de sin, cos, tan",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.derivees",
+   "num": "6.1",
+   "page": 54
+  },
+  {
+   "id": "5UAA5.ex.059",
+   "type": "exercice",
+   "titre": "Exercice 6.1",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.ex.059",
+   "num": "6.1",
+   "page": 55
+  },
+  {
+   "id": "5UAA5.ex.060",
+   "type": "exercice",
+   "titre": "Exercice 6.2",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.ex.060",
+   "num": "6.2",
+   "page": 55
+  },
+  {
+   "id": "5UAA5.ex.061",
+   "type": "exercice",
+   "titre": "Exercice 6.3",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.ex.061",
+   "num": "6.3",
+   "page": 55
+  },
+  {
+   "id": "5UAA5.ex.062",
+   "type": "exercice",
+   "titre": "Exercice 6.4",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch6-module-derivees-trig/1-derivees-de-sinus-cosinus-et.html#5UAA5.ex.062",
+   "num": "6.4",
+   "page": 55
+  },
+  {
+   "id": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "type": "section",
+   "titre": "Dérivées de composées ; vitesse d’un mouvement circulaire",
+   "parent": "5UAA5.module-derivees-trigonometriques",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html",
+   "num": "6.2",
+   "page": null
+  },
+  {
+   "id": "5UAA5.derivees-composees",
+   "type": "propriete",
+   "titre": "Propriété 6.2 — dérivées de composées",
+   "parent": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html#5UAA5.derivees-composees",
+   "num": "6.2",
+   "page": 55
+  },
+  {
+   "id": "5UAA5.ex.063",
+   "type": "exercice",
+   "titre": "Exercice 6.5",
+   "parent": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html#5UAA5.ex.063",
+   "num": "6.5",
+   "page": 56
+  },
+  {
+   "id": "5UAA5.ex.064",
+   "type": "exercice",
+   "titre": "Exercice 6.6",
+   "parent": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html#5UAA5.ex.064",
+   "num": "6.6",
+   "page": 56
+  },
+  {
+   "id": "5UAA5.quelle-vitesse-monte-cabine",
+   "type": "activite",
+   "titre": "Activité 6.3 — à quelle vitesse monte la cabine ?",
+   "parent": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "etiquettes": [],
+   "ancre": "ch6-module-derivees-trig/2-derivees-de-composees-vitesse-dun.html#5UAA5.quelle-vitesse-monte-cabine",
+   "num": "6.3",
+   "page": 56
+  },
+  {
+   "id": "5UAA5.q.tg-cabine-premier-quart",
+   "type": "qcm",
+   "titre": "Une cabine d’une grande roue part du point le plus bas. On note sa hauteur toutes les 2,5 minutes pe…",
+   "parent": "5UAA5.cabine-london-eye",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-cabine-segments",
+   "type": "ouverte",
+   "titre": "On a placé dans un repère la hauteur d’une cabine toutes les 2,5 minutes. Un élève relie les points …",
+   "parent": "5UAA5.cabine-london-eye",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-arc-degres",
+   "type": "qcm",
+   "titre": "Dans un cercle de rayon 10 cm, quelle est la longueur de l’arc intercepté par un angle au centre de …",
+   "parent": "5UAA5.longueur-arc-aire-secteur",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-secteur-radians",
+   "type": "qcm",
+   "titre": "Dans un cercle de rayon 6 cm, quelle est l’aire du secteur délimité par un angle au centre de 2 radi…",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-radian-definition",
+   "type": "qcm",
+   "titre": "Dans un cercle de rayon 6 cm, un angle au centre intercepte un arc de 15 cm. Combien mesure-t-il en …",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-degres-vers-radians",
+   "type": "qcm",
+   "titre": "Quelle est la mesure en radians d’un angle de 135° ?",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-radians-vers-degres",
+   "type": "qcm",
+   "titre": "Quelle est la mesure en degrés d’un angle de 7 π/6 radians ?",
+   "parent": "5UAA5.radian-mesurer-arc-rayons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-mesure-principale",
+   "type": "qcm",
+   "titre": "Quelle est la mesure principale de 17 π/4 ?",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-mesures-principales",
+   "type": "ouverte",
+   "titre": "Donne la mesure principale de -11 π/6 et de 25 π/3.",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-meme-point",
+   "type": "qcm",
+   "titre": "Lequel de ces réels est associé au même point du cercle que 2 π/3 ?",
+   "parent": "5UAA5.angles-orientes-plusieurs-tours",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-quadrant-signes",
+   "type": "qcm",
+   "titre": "Pour x = 9 π/7, on a :",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-calculatrice-degres",
+   "type": "qcm",
+   "titre": "Une calculatrice affiche sin 2 ≈ 0,0349. Que faut-il en penser ?",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-hauteur-london-eye",
+   "type": "ouverte",
+   "titre": "Une cabine du London Eye (rayon 60 m, axe à 75 m du sol) est repérée par l’angle θ = 2 rad, mesuré d…",
+   "parent": "5UAA5.enrouler-droite-reelle-cercle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-cos-5pi-6",
+   "type": "qcm",
+   "titre": "Que vaut cos(5 π/6) ?",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-valeurs-exactes",
+   "type": "ouverte",
+   "titre": "Donne la valeur exacte de cos(2 π/3), sin(-π/6) et cos(7 π/4), en dessinant chaque fois P(x).",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-relation-fondamentale",
+   "type": "qcm",
+   "titre": "On sait que sin x = 0,8 et que P(x) est dans le deuxième quadrant. Que vaut cos x ?",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-angle-associe-pi-moins-x",
+   "type": "qcm",
+   "titre": "Pour tout réel x, cos(π - x) est égal à :",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-ranger-cosinus",
+   "type": "ouverte",
+   "titre": "Sans calculatrice, range dans l’ordre croissant : cos 1, cos 2, cos 3, cos 5. Justifie à l’aide du c…",
+   "parent": "5UAA5.valeurs-remarquables-symetries",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-tan-2pi-3",
+   "type": "qcm",
+   "titre": "Que vaut tan(2 π/3) ?",
+   "parent": "5UAA5.tangente",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-tan-existe",
+   "type": "qcm",
+   "titre": "Pour lequel de ces réels tan x n’existe-t-il pas ?",
+   "parent": "5UAA5.tangente",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-sin-racine3",
+   "type": "qcm",
+   "titre": "Quelles sont les solutions réelles de sin x = frac√32 ? (k ∈ ℤ)",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-cos-calculatrice",
+   "type": "ouverte",
+   "titre": "Résous cos x = 0,4 dans [0 ; 2 π] (quatre décimales).",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-sin-intervalle",
+   "type": "qcm",
+   "titre": "Quelles sont les solutions de sin x = -1/2 dans [0 ; 2 π] ?",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-sans-solution",
+   "type": "qcm",
+   "titre": "Laquelle de ces équations n’a aucune solution réelle ?",
+   "parent": "5UAA5.equations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-tan",
+   "type": "qcm",
+   "titre": "Quelles sont les solutions réelles de tan x = -1 ? (k ∈ ℤ)",
+   "parent": "5UAA5.equations-3",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-lire-sin-graphique",
+   "type": "qcm",
+   "titre": "Sur le graphique de la fonction sin, comment lit-on sin(2 π/3) ?",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-periode-definition",
+   "type": "qcm",
+   "titre": "Une fonction f est périodique de période 4, et f(1) = 3. Que peut-on affirmer ?",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-amplitude-definition",
+   "type": "qcm",
+   "titre": "Une grandeur périodique varie entre un minimum de 2 et un maximum de 10. Quelle est son amplitude ?",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-frequence",
+   "type": "qcm",
+   "titre": "Un phénomène périodique a une période de 0,02 seconde. Quelle est sa fréquence ?",
+   "parent": "5UAA5.cercle-graphique-sinus-cosinus",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-tan-asymptotes",
+   "type": "qcm",
+   "titre": "Le graphique de la fonction tan a des asymptotes verticales d’équations : (k ∈ ℤ)",
+   "parent": "5UAA5.fonction-tangente",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-tan-periode",
+   "type": "qcm",
+   "titre": "Quelle est la période de la fonction tan ?",
+   "parent": "5UAA5.fonction-tangente",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-nombre-solutions-graphique",
+   "type": "qcm",
+   "titre": "Combien de solutions l’équation cos x = 0,3 a-t-elle dans [0 ; 3 π] ?",
+   "parent": "5UAA5.resoudre-graphiquement-choisir-son-outil",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-amplitude-periode",
+   "type": "qcm",
+   "titre": "Quelles sont l’amplitude et la période de f(x) = 3 sin(4 x) ?",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-amplitude-negative",
+   "type": "qcm",
+   "titre": "Quelles sont l’amplitude et la période de f(x) = -2 sin(x/3) ?",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-ecrire-roue-axe",
+   "type": "ouverte",
+   "titre": "Une grande roue a un rayon de 40 m et fait un tour en 20 minutes. Une cabine est au niveau de l’axe …",
+   "parent": "5UAA5.role",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-sens-decalage",
+   "type": "qcm",
+   "titre": "Le graphique de f(x) = sin(x - π/4) est celui de sin…",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-dephasage-b",
+   "type": "qcm",
+   "titre": "Quel est le déphasage de g(x) = 2 sin(3 x + π/2) ?",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-maximum",
+   "type": "qcm",
+   "titre": "Pour quels réels f(x) = 3 sin(2 x - π/2) atteint-elle son maximum ? (k ∈ ℤ)",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-ecrire-roue-sommet",
+   "type": "ouverte",
+   "titre": "Une grande roue de rayon 50 m fait un tour en 24 minutes. Une cabine part du sommet à t = 0. Écris s…",
+   "parent": "5UAA5.role-phase-dephasage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-apparier-sin2x",
+   "type": "qcm",
+   "titre": "Le graphique de f(x) = sin(2 x)…",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-retrouver-expression",
+   "type": "qcm",
+   "titre": "Quelle expression correspond à ce graphique ?",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-cinq-points",
+   "type": "qcm",
+   "titre": "Pour tracer f(x) = 2 sin(x + π/2) par la méthode des cinq points, quel est le point où l’argument va…",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-tracer-3sin2x",
+   "type": "ouverte",
+   "titre": "Trace, sur une période, le graphique de f(x) = 3 sin(2 x) par la méthode des cinq points.",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-ensemble-image",
+   "type": "qcm",
+   "titre": "Quel est l’ensemble image de f(x) = -4 sin(3 x + π/6) ?",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-zeros-transformee",
+   "type": "ouverte",
+   "titre": "Détermine les zéros de f(x) = 2 sin(x/3 - π/4).",
+   "parent": "5UAA5.tracer-apparier-retrouver-expression",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-isoler",
+   "type": "qcm",
+   "titre": "Pour résoudre 4 sin(x - π/3) = 2, la première étape donne :",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-sin2x",
+   "type": "qcm",
+   "titre": "Quelles sont les solutions réelles de sin(2 x) = 1/2 ? (k ∈ ℤ)",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-eq-2sin3x",
+   "type": "ouverte",
+   "titre": "Résous 2 sin(3 x) = √3 dans [0 ; π].",
+   "parent": "5UAA5.equations-4",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-london-eye-105m",
+   "type": "ouverte",
+   "titre": "La hauteur au-dessus du sol d’une cabine du London Eye vaut 75 + 60 sin(π/15 t - π/2) (en m, t en mi…",
+   "parent": "5UAA5.retour-london-eye-limites-modele",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-oscillations",
+   "type": "qcm",
+   "titre": "(Situation imaginée.) La position d’un point qui oscille vaut y(t) = 5 sin(2 π t) (y en cm, t en s).…",
+   "parent": "5UAA5.sinusoides-partout",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-modele-parametres",
+   "type": "qcm",
+   "titre": "(Situation imaginée.) Le niveau de l’eau dans un port varie entre 1 m et 5 m, avec une période de 12…",
+   "parent": "5UAA5.sinusoides-partout",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-pente-sinus",
+   "type": "qcm",
+   "titre": "Quelle est la pente de la courbe y = sin x au point d’abscisse π/3 ?",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-derivee-produit",
+   "type": "qcm",
+   "titre": "Quelle est la dérivée de f(x) = x² sin x ?",
+   "parent": "5UAA5.derivees-sinus-cosinus-tangente",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-derivee-composee",
+   "type": "qcm",
+   "titre": "Quelle est la dérivée de f(x) = sin(3 x²) ?",
+   "parent": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA5.q.tg-vitesse-max",
+   "type": "ouverte",
+   "titre": "La hauteur au-dessus de l’axe d’une cabine vaut h(t) = 50 sin(π/12 t) (h en m, t en min). Calcule h'…",
+   "parent": "5UAA5.derivees-composees-vitesse-mouvement-circulaire",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  }
+ ],
+ "retires": []
+}

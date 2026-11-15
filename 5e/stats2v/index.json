@@ -1,0 +1,762 @@
+{
+ "format": 1,
+ "cours": "Statistiques à deux variables",
+ "uaa": "5UAA1",
+ "annee": "5e",
+ "cle": "stats",
+ "empreinte": "ba78a678c1c6",
+ "genere": "2026-11-14",
+ "elements": [
+  {
+   "id": "5UAA1.deux-variables-nuage-points",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — Deux variables, un nuage de points",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "5UAA1.reactiver-variable-moyenne",
+   "type": "section",
+   "titre": "Réactiver : une variable, une moyenne",
+   "parent": "5UAA1.deux-variables-nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/1-reactiver-une-variable-une-moyenne.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "5UAA1.moyenne",
+   "type": "definition",
+   "titre": "Définition 1.1 — moyenne",
+   "parent": "5UAA1.reactiver-variable-moyenne",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/1-reactiver-une-variable-une-moyenne.html#5UAA1.moyenne",
+   "num": "1.1",
+   "page": 1
+  },
+  {
+   "id": "5UAA1.retrouver-moyenne",
+   "type": "activite",
+   "titre": "Activité 1.1 — retrouver une moyenne",
+   "parent": "5UAA1.reactiver-variable-moyenne",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/1-reactiver-une-variable-une-moyenne.html#5UAA1.retrouver-moyenne",
+   "num": "1.1",
+   "page": 1
+  },
+  {
+   "id": "5UAA1.serie-statistique-deux-variables",
+   "type": "section",
+   "titre": "Une série statistique à deux variables",
+   "parent": "5UAA1.deux-variables-nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/2-une-serie-statistique-a-deux.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "5UAA1.serie-statistique-deux-variables-2",
+   "type": "definition",
+   "titre": "Définition 1.2 — série statistique à deux variables",
+   "parent": "5UAA1.serie-statistique-deux-variables",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/2-une-serie-statistique-a-deux.html#5UAA1.serie-statistique-deux-variables-2",
+   "num": "1.2",
+   "page": 2
+  },
+  {
+   "id": "5UAA1.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "5UAA1.serie-statistique-deux-variables",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/2-une-serie-statistique-a-deux.html#5UAA1.rem.001",
+   "num": "1.1",
+   "page": 3
+  },
+  {
+   "id": "5UAA1.nuage-points",
+   "type": "section",
+   "titre": "Le nuage de points",
+   "parent": "5UAA1.deux-variables-nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/3-le-nuage-de-points.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "5UAA1.nuage-points-2",
+   "type": "definition",
+   "titre": "Définition 1.3 — nuage de points",
+   "parent": "5UAA1.nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/3-le-nuage-de-points.html#5UAA1.nuage-points-2",
+   "num": "1.3",
+   "page": 3
+  },
+  {
+   "id": "5UAA1.lire-nuage-revenu-esperance-vie",
+   "type": "activite",
+   "titre": "Activité 1.2 — lire le nuage revenu – espérance de vie",
+   "parent": "5UAA1.nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/3-le-nuage-de-points.html#5UAA1.lire-nuage-revenu-esperance-vie",
+   "num": "1.2",
+   "page": 3
+  },
+  {
+   "id": "5UAA1.point-moyen",
+   "type": "section",
+   "titre": "Le point moyen",
+   "parent": "5UAA1.deux-variables-nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/4-le-point-moyen.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "5UAA1.point-moyen-2",
+   "type": "definition",
+   "titre": "Définition 1.4 — point moyen",
+   "parent": "5UAA1.point-moyen",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/4-le-point-moyen.html#5UAA1.point-moyen-2",
+   "num": "1.4",
+   "page": 4
+  },
+  {
+   "id": "5UAA1.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 1.2",
+   "parent": "5UAA1.point-moyen",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/4-le-point-moyen.html#5UAA1.rem.002",
+   "num": "1.2",
+   "page": 4
+  },
+  {
+   "id": "5UAA1.decrire-nuage",
+   "type": "section",
+   "titre": "Décrire un nuage",
+   "parent": "5UAA1.deux-variables-nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/5-decrire-un-nuage.html",
+   "num": "1.5",
+   "page": null
+  },
+  {
+   "id": "5UAA1.exercices",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA1.deux-variables-nuage-points",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/6-exercices.html",
+   "num": "1.6",
+   "page": null
+  },
+  {
+   "id": "5UAA1.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "5UAA1.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/6-exercices.html#5UAA1.ex.001",
+   "num": "1.1",
+   "page": 5
+  },
+  {
+   "id": "5UAA1.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "5UAA1.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/6-exercices.html#5UAA1.ex.002",
+   "num": "1.2",
+   "page": 5
+  },
+  {
+   "id": "5UAA1.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "5UAA1.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/6-exercices.html#5UAA1.ex.003",
+   "num": "1.3",
+   "page": 6
+  },
+  {
+   "id": "5UAA1.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "5UAA1.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-deux-variables-un-nu/6-exercices.html#5UAA1.ex.004",
+   "num": "1.4",
+   "page": 6
+  },
+  {
+   "id": "5UAA1.ajuster-nuage-droite",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Ajuster un nuage par une droite",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "5UAA1.pourquoi-ajuster",
+   "type": "section",
+   "titre": "Pourquoi ajuster ?",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/1-pourquoi-ajuster.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "5UAA1.serie-evolue-ecart-salarial",
+   "type": "section",
+   "titre": "Une série qui évolue : l’écart salarial",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/2-une-serie-qui-evolue-lecart.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "5UAA1.voir-tendance",
+   "type": "activite",
+   "titre": "Activité 2.1 — voir la tendance",
+   "parent": "5UAA1.serie-evolue-ecart-salarial",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/2-une-serie-qui-evolue-lecart.html#5UAA1.voir-tendance",
+   "num": "2.1",
+   "page": 8
+  },
+  {
+   "id": "5UAA1.point-moyen-pivot-ajustement",
+   "type": "section",
+   "titre": "Le point moyen, pivot de l’ajustement",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/3-le-point-moyen-pivot-de.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "5UAA1.point-moyen-est-droite",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — le point moyen est sur la droite",
+   "parent": "5UAA1.point-moyen-pivot-ajustement",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/3-le-point-moyen-pivot-de.html#5UAA1.point-moyen-est-droite",
+   "num": "2.1",
+   "page": 8
+  },
+  {
+   "id": "5UAA1.droite-mayer",
+   "type": "section",
+   "titre": "La droite de Mayer",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/4-la-droite-de-mayer.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "5UAA1.droite-mayer-2",
+   "type": "definition",
+   "titre": "Définition 2.1 — droite de Mayer",
+   "parent": "5UAA1.droite-mayer",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/4-la-droite-de-mayer.html#5UAA1.droite-mayer-2",
+   "num": "2.1",
+   "page": 9
+  },
+  {
+   "id": "5UAA1.mayer-ecart-salarial",
+   "type": "exemple",
+   "titre": "Exemple 2.1 — Mayer sur l’écart salarial",
+   "parent": "5UAA1.droite-mayer",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/4-la-droite-de-mayer.html#5UAA1.mayer-ecart-salarial",
+   "num": "2.1",
+   "page": 9
+  },
+  {
+   "id": "5UAA1.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 2.1",
+   "parent": "5UAA1.droite-mayer",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/4-la-droite-de-mayer.html#5UAA1.rem.003",
+   "num": "2.1",
+   "page": 9
+  },
+  {
+   "id": "5UAA1.faire-parler-ecarts-moyenne",
+   "type": "section",
+   "titre": "Faire parler les écarts à la moyenne",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/5-faire-parler-les-ecarts-a.html",
+   "num": "2.5",
+   "page": null
+  },
+  {
+   "id": "5UAA1.signe-revele-sens",
+   "type": "activite",
+   "titre": "Activité 2.2 — le signe qui révèle le sens",
+   "parent": "5UAA1.faire-parler-ecarts-moyenne",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/5-faire-parler-les-ecarts-a.html#5UAA1.signe-revele-sens",
+   "num": "2.2",
+   "page": 9
+  },
+  {
+   "id": "5UAA1.covariance",
+   "type": "definition",
+   "titre": "Définition 2.2 — covariance",
+   "parent": "5UAA1.faire-parler-ecarts-moyenne",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/5-faire-parler-les-ecarts-a.html#5UAA1.covariance",
+   "num": "2.2",
+   "page": 10
+  },
+  {
+   "id": "5UAA1.methode-moindres-carres",
+   "type": "section",
+   "titre": "La méthode des moindres carrés",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html",
+   "num": "2.6",
+   "page": null
+  },
+  {
+   "id": "5UAA1.droite-regression-moindres-carres",
+   "type": "definition",
+   "titre": "Définition 2.3 — droite de régression (moindres carrés)",
+   "parent": "5UAA1.methode-moindres-carres",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html#5UAA1.droite-regression-moindres-carres",
+   "num": "2.3",
+   "page": 11
+  },
+  {
+   "id": "5UAA1.pente-droite-regression",
+   "type": "propriete",
+   "titre": "Propriété 2.2 — pente de la droite de régression",
+   "parent": "5UAA1.methode-moindres-carres",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html#5UAA1.pente-droite-regression",
+   "num": "2.2",
+   "page": 11
+  },
+  {
+   "id": "5UAA1.formules-calcul",
+   "type": "propriete",
+   "titre": "Propriété 2.3 — formules de calcul",
+   "parent": "5UAA1.methode-moindres-carres",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html#5UAA1.formules-calcul",
+   "num": "2.3",
+   "page": 11
+  },
+  {
+   "id": "5UAA1.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 2.2",
+   "parent": "5UAA1.methode-moindres-carres",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html#5UAA1.rem.004",
+   "num": "2.2",
+   "page": 11
+  },
+  {
+   "id": "5UAA1.pente-depuis-seul-tableau",
+   "type": "exemple",
+   "titre": "Exemple 2.2 — la pente depuis un seul tableau",
+   "parent": "5UAA1.methode-moindres-carres",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html#5UAA1.pente-depuis-seul-tableau",
+   "num": "2.2",
+   "page": 12
+  },
+  {
+   "id": "5UAA1.obtenir-droite-calculatrice",
+   "type": "activite",
+   "titre": "Activité 2.3 — obtenir la droite à la calculatrice",
+   "parent": "5UAA1.methode-moindres-carres",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/6-la-methode-des-moindres-carres.html#5UAA1.obtenir-droite-calculatrice",
+   "num": "2.3",
+   "page": 12
+  },
+  {
+   "id": "5UAA1.exercices-2",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA1.ajuster-nuage-droite",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/7-exercices.html",
+   "num": "2.7",
+   "page": null
+  },
+  {
+   "id": "5UAA1.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "5UAA1.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/7-exercices.html#5UAA1.ex.005",
+   "num": "2.1",
+   "page": 13
+  },
+  {
+   "id": "5UAA1.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "5UAA1.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/7-exercices.html#5UAA1.ex.006",
+   "num": "2.2",
+   "page": 13
+  },
+  {
+   "id": "5UAA1.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "5UAA1.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/7-exercices.html#5UAA1.ex.007",
+   "num": "2.3",
+   "page": 13
+  },
+  {
+   "id": "5UAA1.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "5UAA1.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-ajuster-un-nuage-par/7-exercices.html#5UAA1.ex.008",
+   "num": "2.4",
+   "page": 14
+  },
+  {
+   "id": "5UAA1.mesurer-liaison-coefficient-correlation",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Mesurer la liaison : le coefficient de corrélation",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "5UAA1.nombre-entre",
+   "type": "section",
+   "titre": "Un nombre entre -1 et 1",
+   "parent": "5UAA1.mesurer-liaison-coefficient-correlation",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/1-un-nombre-entre-1-et.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "5UAA1.coefficient-correlation-lineaire",
+   "type": "definition",
+   "titre": "Définition 3.1 — coefficient de corrélation linéaire",
+   "parent": "5UAA1.nombre-entre",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/1-un-nombre-entre-1-et.html#5UAA1.coefficient-correlation-lineaire",
+   "num": "3.1",
+   "page": 15
+  },
+  {
+   "id": "5UAA1.rem.005",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "5UAA1.nombre-entre",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/1-un-nombre-entre-1-et.html#5UAA1.rem.005",
+   "num": "3.1",
+   "page": 16
+  },
+  {
+   "id": "5UAA1.lire-nuage",
+   "type": "section",
+   "titre": "Lire r sur un nuage",
+   "parent": "5UAA1.mesurer-liaison-coefficient-correlation",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/2-lire-r-sur-un-nuage.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "5UAA1.associer-nuage-son-coefficient",
+   "type": "activite",
+   "titre": "Activité 3.1 — associer un nuage à son coefficient",
+   "parent": "5UAA1.lire-nuage",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/2-lire-r-sur-un-nuage.html#5UAA1.associer-nuage-son-coefficient",
+   "num": "3.1",
+   "page": 16
+  },
+  {
+   "id": "5UAA1.calculer",
+   "type": "section",
+   "titre": "Calculer r",
+   "parent": "5UAA1.mesurer-liaison-coefficient-correlation",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/3-calculer-r.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "5UAA1.correlation-ecart-salarial",
+   "type": "exemple",
+   "titre": "Exemple 3.1 — la corrélation de l’écart salarial",
+   "parent": "5UAA1.calculer",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/3-calculer-r.html#5UAA1.correlation-ecart-salarial",
+   "num": "3.1",
+   "page": 17
+  },
+  {
+   "id": "5UAA1.correlation-n-est-causalite",
+   "type": "section",
+   "titre": "Corrélation n’est pas causalité",
+   "parent": "5UAA1.mesurer-liaison-coefficient-correlation",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/4-correlation-nest-pas-causalite.html",
+   "num": "3.4",
+   "page": null
+  },
+  {
+   "id": "5UAA1.margarine-divorces",
+   "type": "activite",
+   "titre": "Activité 3.2 — margarine et divorces",
+   "parent": "5UAA1.correlation-n-est-causalite",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/4-correlation-nest-pas-causalite.html#5UAA1.margarine-divorces",
+   "num": "3.2",
+   "page": 17
+  },
+  {
+   "id": "5UAA1.rem.006",
+   "type": "remarque",
+   "titre": "Remarque 3.2",
+   "parent": "5UAA1.correlation-n-est-causalite",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/4-correlation-nest-pas-causalite.html#5UAA1.rem.006",
+   "num": "3.2",
+   "page": 18
+  },
+  {
+   "id": "5UAA1.exercices-3",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA1.mesurer-liaison-coefficient-correlation",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/5-exercices.html",
+   "num": "3.5",
+   "page": null
+  },
+  {
+   "id": "5UAA1.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "5UAA1.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/5-exercices.html#5UAA1.ex.009",
+   "num": "3.1",
+   "page": 18
+  },
+  {
+   "id": "5UAA1.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "5UAA1.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/5-exercices.html#5UAA1.ex.010",
+   "num": "3.2",
+   "page": 18
+  },
+  {
+   "id": "5UAA1.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "5UAA1.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/5-exercices.html#5UAA1.ex.011",
+   "num": "3.3",
+   "page": 18
+  },
+  {
+   "id": "5UAA1.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "5UAA1.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-mesurer-la-liaison-l/5-exercices.html#5UAA1.ex.012",
+   "num": "3.4",
+   "page": 19
+  },
+  {
+   "id": "5UAA1.utiliser-ajustement-critiquer",
+   "type": "chapitre",
+   "titre": "Chapitre 4 — Utiliser un ajustement, et le critiquer",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/index.html",
+   "num": "4",
+   "page": null
+  },
+  {
+   "id": "5UAA1.prevoir-interpolation-extrapolation",
+   "type": "section",
+   "titre": "Prévoir : interpolation et extrapolation",
+   "parent": "5UAA1.utiliser-ajustement-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/1-prevoir-interpolation-et-extrapolation.html",
+   "num": "4.1",
+   "page": null
+  },
+  {
+   "id": "5UAA1.interpolation-extrapolation",
+   "type": "definition",
+   "titre": "Définition 4.1 — interpolation, extrapolation",
+   "parent": "5UAA1.prevoir-interpolation-extrapolation",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/1-prevoir-interpolation-et-extrapolation.html#5UAA1.interpolation-extrapolation",
+   "num": "4.1",
+   "page": 20
+  },
+  {
+   "id": "5UAA1.prevoir-ecart-salarial",
+   "type": "exemple",
+   "titre": "Exemple 4.1 — prévoir l’écart salarial",
+   "parent": "5UAA1.prevoir-interpolation-extrapolation",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/1-prevoir-interpolation-et-extrapolation.html#5UAA1.prevoir-ecart-salarial",
+   "num": "4.1",
+   "page": 20
+  },
+  {
+   "id": "5UAA1.jusqu-prolonger-droite",
+   "type": "activite",
+   "titre": "Activité 4.1 — jusqu’où prolonger la droite ?",
+   "parent": "5UAA1.prevoir-interpolation-extrapolation",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/1-prevoir-interpolation-et-extrapolation.html#5UAA1.jusqu-prolonger-droite",
+   "num": "4.1",
+   "page": 21
+  },
+  {
+   "id": "5UAA1.limites-extrapolation",
+   "type": "section",
+   "titre": "Les limites de l’extrapolation",
+   "parent": "5UAA1.utiliser-ajustement-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/2-les-limites-de-lextrapolation.html",
+   "num": "4.2",
+   "page": null
+  },
+  {
+   "id": "5UAA1.vrai-document-critiquer",
+   "type": "section",
+   "titre": "Un vrai document à critiquer",
+   "parent": "5UAA1.utiliser-ajustement-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/3-un-vrai-document-a-critiquer.html",
+   "num": "4.3",
+   "page": null
+  },
+  {
+   "id": "5UAA1.tester-discrimination-embauche",
+   "type": "exemple",
+   "titre": "Exemple 4.2 — tester la discrimination à l’embauche",
+   "parent": "5UAA1.vrai-document-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/3-un-vrai-document-a-critiquer.html#5UAA1.tester-discrimination-embauche",
+   "num": "4.2",
+   "page": 22
+  },
+  {
+   "id": "5UAA1.quand-correlation-devient-cause",
+   "type": "propriete",
+   "titre": "Propriété 4.1 — quand la corrélation devient une cause",
+   "parent": "5UAA1.vrai-document-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/3-un-vrai-document-a-critiquer.html#5UAA1.quand-correlation-devient-cause",
+   "num": "4.1",
+   "page": 22
+  },
+  {
+   "id": "5UAA1.lire-etude-citoyen",
+   "type": "activite",
+   "titre": "Activité 4.2 — lire l’étude en citoyen",
+   "parent": "5UAA1.vrai-document-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/3-un-vrai-document-a-critiquer.html#5UAA1.lire-etude-citoyen",
+   "num": "4.2",
+   "page": 22
+  },
+  {
+   "id": "5UAA1.exercices-4",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA1.utiliser-ajustement-critiquer",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/4-exercices.html",
+   "num": "4.4",
+   "page": null
+  },
+  {
+   "id": "5UAA1.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 4.1",
+   "parent": "5UAA1.exercices-4",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/4-exercices.html#5UAA1.ex.013",
+   "num": "4.1",
+   "page": 23
+  },
+  {
+   "id": "5UAA1.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 4.2",
+   "parent": "5UAA1.exercices-4",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/4-exercices.html#5UAA1.ex.014",
+   "num": "4.2",
+   "page": 23
+  },
+  {
+   "id": "5UAA1.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 4.3",
+   "parent": "5UAA1.exercices-4",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/4-exercices.html#5UAA1.ex.015",
+   "num": "4.3",
+   "page": 23
+  },
+  {
+   "id": "5UAA1.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 4.4",
+   "parent": "5UAA1.exercices-4",
+   "etiquettes": [],
+   "ancre": "ch4-utiliser-un-ajusteme/4-exercices.html#5UAA1.ex.016",
+   "num": "4.4",
+   "page": 23
+  }
+ ],
+ "retires": []
+}

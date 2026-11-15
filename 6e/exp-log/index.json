@@ -1,0 +1,2742 @@
+{
+ "format": 1,
+ "cours": "Exponentielles et logarithmes",
+ "uaa": "6UAA4",
+ "annee": "6e",
+ "cle": "exp-log",
+ "empreinte": "aa10b016a7e6",
+ "genere": "2026-11-14",
+ "elements": [
+  {
+   "id": "6UAA4.fonctions-exponentielles",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — Fonctions exponentielles",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.croissance-exponentielle",
+   "type": "section",
+   "titre": "Croissance exponentielle",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/1-croissance-exponentielle.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.propagation-secret",
+   "type": "activite",
+   "titre": "Activité 1.1 — la propagation d’un secret",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/1-croissance-exponentielle.html#6UAA4.propagation-secret",
+   "num": "1.1",
+   "page": 2
+  },
+  {
+   "id": "6UAA4.interets-simples-interets-composes",
+   "type": "activite",
+   "titre": "Activité 1.2 — intérêts simples et intérêts composés",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/1-croissance-exponentielle.html#6UAA4.interets-simples-interets-composes",
+   "num": "1.2",
+   "page": 3
+  },
+  {
+   "id": "6UAA4.rapport-depend-ecart",
+   "type": "activite",
+   "titre": "Activité 1.3 — le rapport ne dépend que de l’écart",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/1-croissance-exponentielle.html#6UAA4.rapport-depend-ecart",
+   "num": "1.3",
+   "page": 5
+  },
+  {
+   "id": "6UAA4.croissance-exponentielle-2",
+   "type": "definition",
+   "titre": "Définition 1.1 — croissance exponentielle",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/1-croissance-exponentielle.html#6UAA4.croissance-exponentielle-2",
+   "num": "1.1",
+   "page": 6
+  },
+  {
+   "id": "6UAA4.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/1-croissance-exponentielle.html#6UAA4.rem.001",
+   "num": "1.1",
+   "page": 6
+  },
+  {
+   "id": "6UAA4.construire-fonction-exponentielle",
+   "type": "section",
+   "titre": "Construire une fonction exponentielle",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.batterie-se-decharge",
+   "type": "activite",
+   "titre": "Activité 1.4 — la batterie qui se décharge",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html#6UAA4.batterie-se-decharge",
+   "num": "1.4",
+   "page": 6
+  },
+  {
+   "id": "6UAA4.reactiver-regles-exposants",
+   "type": "activite",
+   "titre": "Activité 1.5 — réactiver les règles des exposants",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html#6UAA4.reactiver-regles-exposants",
+   "num": "1.5",
+   "page": 7
+  },
+  {
+   "id": "6UAA4.construire-exposants-fractionnaires",
+   "type": "activite",
+   "titre": "Activité 1.6 — construire les exposants fractionnaires",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html#6UAA4.construire-exposants-fractionnaires",
+   "num": "1.6",
+   "page": 7
+  },
+  {
+   "id": "6UAA4.estimer-pente-tangente",
+   "type": "activite",
+   "titre": "Activité 1.7 — estimer la pente de la tangente en 0",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html#6UAA4.estimer-pente-tangente",
+   "num": "1.7",
+   "page": 9
+  },
+  {
+   "id": "6UAA4.fonction-strictement-monotone",
+   "type": "definition",
+   "titre": "Définition 1.2 — fonction strictement monotone",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html#6UAA4.fonction-strictement-monotone",
+   "num": "1.2",
+   "page": 10
+  },
+  {
+   "id": "6UAA4.definition-fonction-exponentielle",
+   "type": "section",
+   "titre": "Définition de la fonction exponentielle",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.fonction-exponentielle-base",
+   "type": "definition",
+   "titre": "Définition 1.3 — fonction exponentielle de base a",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html#6UAA4.fonction-exponentielle-base",
+   "num": "1.3",
+   "page": 10
+  },
+  {
+   "id": "6UAA4.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html#6UAA4.ex.001",
+   "num": "1.1",
+   "page": 10
+  },
+  {
+   "id": "6UAA4.regles-calcul",
+   "type": "propriete",
+   "titre": "Propriété 1.1 — règles de calcul",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html#6UAA4.regles-calcul",
+   "num": "1.1",
+   "page": 10
+  },
+  {
+   "id": "6UAA4.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html#6UAA4.ex.002",
+   "num": "1.2",
+   "page": 11
+  },
+  {
+   "id": "6UAA4.proprietes-caracteristiques-graphiques",
+   "type": "section",
+   "titre": "Propriétés et caractéristiques graphiques",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "6UAA4.quatre-exponentielles",
+   "type": "activite",
+   "titre": "Activité 1.8 — quatre exponentielles",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#6UAA4.quatre-exponentielles",
+   "num": "1.8",
+   "page": 11
+  },
+  {
+   "id": "6UAA4.lire-exponentielle",
+   "type": "exemple",
+   "titre": "Exemple 1.1 — lire une exponentielle",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#6UAA4.lire-exponentielle",
+   "num": "1.1",
+   "page": 12
+  },
+  {
+   "id": "6UAA4.caracteristiques",
+   "type": "propriete",
+   "titre": "Propriété 1.2 — caractéristiques de f(x) = aˣ",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#6UAA4.caracteristiques",
+   "num": "1.2",
+   "page": 12
+  },
+  {
+   "id": "6UAA4.symetrie-axe",
+   "type": "propriete",
+   "titre": "Propriété 1.3 — symétrie d’axe y",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#6UAA4.symetrie-axe",
+   "num": "1.3",
+   "page": 13
+  },
+  {
+   "id": "6UAA4.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#6UAA4.ex.003",
+   "num": "1.3",
+   "page": 13
+  },
+  {
+   "id": "6UAA4.multiples-fonction-exponentielle",
+   "type": "section",
+   "titre": "Multiples d’une fonction exponentielle",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html",
+   "num": "1.5",
+   "page": null
+  },
+  {
+   "id": "6UAA4.multiple-exponentielle",
+   "type": "definition",
+   "titre": "Définition 1.4 — multiple d’une exponentielle",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.multiple-exponentielle",
+   "num": "1.4",
+   "page": 13
+  },
+  {
+   "id": "6UAA4.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 1.2",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.rem.002",
+   "num": "1.2",
+   "page": 13
+  },
+  {
+   "id": "6UAA4.lire-multiple",
+   "type": "exemple",
+   "titre": "Exemple 1.2 — lire un multiple",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.lire-multiple",
+   "num": "1.2",
+   "page": 14
+  },
+  {
+   "id": "6UAA4.lire-multiples-graphique",
+   "type": "activite",
+   "titre": "Activité 1.9 — lire des multiples sur un graphique",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.lire-multiples-graphique",
+   "num": "1.9",
+   "page": 15
+  },
+  {
+   "id": "6UAA4.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 1.3",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.rem.003",
+   "num": "1.3",
+   "page": 15
+  },
+  {
+   "id": "6UAA4.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.004",
+   "num": "1.4",
+   "page": 16
+  },
+  {
+   "id": "6UAA4.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 1.5",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.005",
+   "num": "1.5",
+   "page": 16
+  },
+  {
+   "id": "6UAA4.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 1.6",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.006",
+   "num": "1.6",
+   "page": 17
+  },
+  {
+   "id": "6UAA4.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 1.7",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.007",
+   "num": "1.7",
+   "page": 18
+  },
+  {
+   "id": "6UAA4.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 1.8",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.008",
+   "num": "1.8",
+   "page": 18
+  },
+  {
+   "id": "6UAA4.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 1.9",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.009",
+   "num": "1.9",
+   "page": 19
+  },
+  {
+   "id": "6UAA4.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 1.10",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.010",
+   "num": "1.10",
+   "page": 19
+  },
+  {
+   "id": "6UAA4.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 1.11",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.011",
+   "num": "1.11",
+   "page": 20
+  },
+  {
+   "id": "6UAA4.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 1.12",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.012",
+   "num": "1.12",
+   "page": 20
+  },
+  {
+   "id": "6UAA4.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 1.13",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.013",
+   "num": "1.13",
+   "page": 21
+  },
+  {
+   "id": "6UAA4.modeliser-situation",
+   "type": "exemple",
+   "titre": "Exemple 1.3 — modéliser une situation",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.modeliser-situation",
+   "num": "1.3",
+   "page": 21
+  },
+  {
+   "id": "6UAA4.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 1.14",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.014",
+   "num": "1.14",
+   "page": 21
+  },
+  {
+   "id": "6UAA4.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 1.15",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.015",
+   "num": "1.15",
+   "page": 21
+  },
+  {
+   "id": "6UAA4.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 1.16",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.016",
+   "num": "1.16",
+   "page": 22
+  },
+  {
+   "id": "6UAA4.ex.017",
+   "type": "exercice",
+   "titre": "Exercice 1.17",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html#6UAA4.ex.017",
+   "num": "1.17",
+   "page": 22
+  },
+  {
+   "id": "6UAA4.graphes-tous-semblables-vers-representant",
+   "type": "section",
+   "titre": "Des graphes tous semblables : vers un représentant privilégié",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/6-des-graphes-tous-semblables-vers.html",
+   "num": "1.6",
+   "page": null
+  },
+  {
+   "id": "6UAA4.changement-base",
+   "type": "propriete",
+   "titre": "Propriété 1.4 — changement de base",
+   "parent": "6UAA4.graphes-tous-semblables-vers-representant",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/6-des-graphes-tous-semblables-vers.html#6UAA4.changement-base",
+   "num": "1.4",
+   "page": 23
+  },
+  {
+   "id": "6UAA4.nombre-exponentielle-neperienne",
+   "type": "section",
+   "titre": "Le nombre e et l’exponentielle népérienne",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html",
+   "num": "1.7",
+   "page": null
+  },
+  {
+   "id": "6UAA4.derivee-exponentielle",
+   "type": "propriete",
+   "titre": "Propriété 1.5 — dérivée d’une exponentielle",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html#6UAA4.derivee-exponentielle",
+   "num": "1.5",
+   "page": 23
+  },
+  {
+   "id": "6UAA4.estimer-base-ideale",
+   "type": "activite",
+   "titre": "Activité 1.10 — estimer la base idéale",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html#6UAA4.estimer-base-ideale",
+   "num": "1.10",
+   "page": 24
+  },
+  {
+   "id": "6UAA4.nombre",
+   "type": "definition",
+   "titre": "Définition 1.5 — le nombre e",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html#6UAA4.nombre",
+   "num": "1.5",
+   "page": 24
+  },
+  {
+   "id": "6UAA4.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 1.4",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html#6UAA4.rem.004",
+   "num": "1.4",
+   "page": 24
+  },
+  {
+   "id": "6UAA4.exponentielle-neperienne",
+   "type": "definition",
+   "titre": "Définition 1.6 — exponentielle népérienne",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html#6UAA4.exponentielle-neperienne",
+   "num": "1.6",
+   "page": 25
+  },
+  {
+   "id": "6UAA4.ex.018",
+   "type": "exercice",
+   "titre": "Exercice 1.18",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html#6UAA4.ex.018",
+   "num": "1.18",
+   "page": 25
+  },
+  {
+   "id": "6UAA4.resoudre-equations-exponentielles-simples",
+   "type": "section",
+   "titre": "Résoudre des équations exponentielles simples",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html",
+   "num": "1.8",
+   "page": null
+  },
+  {
+   "id": "6UAA4.egaler-exposants",
+   "type": "propriete",
+   "titre": "Propriété 1.6 — égaler les exposants",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.egaler-exposants",
+   "num": "1.6",
+   "page": 25
+  },
+  {
+   "id": "6UAA4.rem.005",
+   "type": "remarque",
+   "titre": "Remarque 1.5",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.rem.005",
+   "num": "1.5",
+   "page": 26
+  },
+  {
+   "id": "6UAA4.deux-resolutions-modeles",
+   "type": "exemple",
+   "titre": "Exemple 1.4 — deux résolutions modèles",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.deux-resolutions-modeles",
+   "num": "1.4",
+   "page": 26
+  },
+  {
+   "id": "6UAA4.ramener-meme-base",
+   "type": "exemple",
+   "titre": "Exemple 1.5 — ramener à une même base",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.ramener-meme-base",
+   "num": "1.5",
+   "page": 26
+  },
+  {
+   "id": "6UAA4.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 1.19",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.ex.019",
+   "num": "1.19",
+   "page": 26
+  },
+  {
+   "id": "6UAA4.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 1.20",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.ex.020",
+   "num": "1.20",
+   "page": 27
+  },
+  {
+   "id": "6UAA4.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 1.21",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html#6UAA4.ex.021",
+   "num": "1.21",
+   "page": 27
+  },
+  {
+   "id": "6UAA4.exercices-supplementaires",
+   "type": "section",
+   "titre": "Exercices supplémentaires",
+   "parent": "6UAA4.fonctions-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html",
+   "num": "1.9",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.060",
+   "type": "exercice",
+   "titre": "Exercice S1.1",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.060",
+   "num": "S1.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.061",
+   "type": "exercice",
+   "titre": "Exercice S1.2",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.061",
+   "num": "S1.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.062",
+   "type": "exercice",
+   "titre": "Exercice S1.3",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.062",
+   "num": "S1.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.063",
+   "type": "exercice",
+   "titre": "Exercice S1.4",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.063",
+   "num": "S1.4",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.064",
+   "type": "exercice",
+   "titre": "Exercice S1.5",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.064",
+   "num": "S1.5",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.065",
+   "type": "exercice",
+   "titre": "Exercice S1.6",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.065",
+   "num": "S1.6",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.066",
+   "type": "exercice",
+   "titre": "Exercice S1.7",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.066",
+   "num": "S1.7",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.067",
+   "type": "exercice",
+   "titre": "Exercice S1.8",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.067",
+   "num": "S1.8",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.068",
+   "type": "exercice",
+   "titre": "Exercice S1.9",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.068",
+   "num": "S1.9",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.069",
+   "type": "exercice",
+   "titre": "Exercice S1.10",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.069",
+   "num": "S1.10",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.070",
+   "type": "exercice",
+   "titre": "Exercice S1.11",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.070",
+   "num": "S1.11",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.071",
+   "type": "exercice",
+   "titre": "Exercice S1.12",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.071",
+   "num": "S1.12",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.072",
+   "type": "exercice",
+   "titre": "Exercice S1.13",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.072",
+   "num": "S1.13",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.073",
+   "type": "exercice",
+   "titre": "Exercice S1.14",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.073",
+   "num": "S1.14",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.074",
+   "type": "exercice",
+   "titre": "Exercice S1.15",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.074",
+   "num": "S1.15",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.075",
+   "type": "exercice",
+   "titre": "Exercice S1.16",
+   "parent": "6UAA4.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions-exponentie/9-exercices-supplementaires.html#6UAA4.ex.075",
+   "num": "S1.16",
+   "page": null
+  },
+  {
+   "id": "6UAA4.fonctions-logarithmiques",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Fonctions logarithmiques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.probleme-logarithme",
+   "type": "section",
+   "titre": "Du problème eˣ = 3 au logarithme",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/1-du-probleme-e-x-3.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.lire-exponentielle-envers",
+   "type": "activite",
+   "titre": "Activité 2.1 — lire l’exponentielle « à l’envers »",
+   "parent": "6UAA4.probleme-logarithme",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/1-du-probleme-e-x-3.html#6UAA4.lire-exponentielle-envers",
+   "num": "2.1",
+   "page": 30
+  },
+  {
+   "id": "6UAA4.se-defont-autre",
+   "type": "activite",
+   "titre": "Activité 2.2 — ln et eˣ se défont l’une l’autre",
+   "parent": "6UAA4.probleme-logarithme",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/1-du-probleme-e-x-3.html#6UAA4.se-defont-autre",
+   "num": "2.2",
+   "page": 32
+  },
+  {
+   "id": "6UAA4.deux-compositions-leur-domaine",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — les deux compositions et leur domaine",
+   "parent": "6UAA4.probleme-logarithme",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/1-du-probleme-e-x-3.html#6UAA4.deux-compositions-leur-domaine",
+   "num": "2.1",
+   "page": 32
+  },
+  {
+   "id": "6UAA4.definition-logarithme-base",
+   "type": "section",
+   "titre": "Définition du logarithme de base a",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.logarithme-base",
+   "type": "definition",
+   "titre": "Définition 2.1 — logarithme de base a",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html#6UAA4.logarithme-base",
+   "num": "2.1",
+   "page": 32
+  },
+  {
+   "id": "6UAA4.calculer-logarithme-c-est-chercher",
+   "type": "exemple",
+   "titre": "Exemple 2.1 — calculer un logarithme, c’est chercher un exposant",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html#6UAA4.calculer-logarithme-c-est-chercher",
+   "num": "2.1",
+   "page": 32
+  },
+  {
+   "id": "6UAA4.calcul-mental-logarithmes",
+   "type": "activite",
+   "titre": "Activité 2.3 — calcul mental de logarithmes",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html#6UAA4.calcul-mental-logarithmes",
+   "num": "2.3",
+   "page": 33
+  },
+  {
+   "id": "6UAA4.situer-logarithme-sans-calculer",
+   "type": "activite",
+   "titre": "Activité 2.4 — situer un logarithme sans le calculer",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html#6UAA4.situer-logarithme-sans-calculer",
+   "num": "2.4",
+   "page": 33
+  },
+  {
+   "id": "6UAA4.reciprocite-valeurs-remarquables",
+   "type": "propriete",
+   "titre": "Propriété 2.2 — réciprocité et valeurs remarquables",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html#6UAA4.reciprocite-valeurs-remarquables",
+   "num": "2.2",
+   "page": 33
+  },
+  {
+   "id": "6UAA4.calculatrice",
+   "type": "exemple",
+   "titre": "Exemple 2.2 — à la calculatrice",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html#6UAA4.calculatrice",
+   "num": "2.2",
+   "page": 33
+  },
+  {
+   "id": "6UAA4.proprietes-graphiques-deduction",
+   "type": "section",
+   "titre": "Propriétés graphiques, par déduction",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.deduire-caracteristiques",
+   "type": "activite",
+   "titre": "Activité 2.5 — déduire les caractéristiques de logₐ",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.deduire-caracteristiques",
+   "num": "2.5",
+   "page": 34
+  },
+  {
+   "id": "6UAA4.caracteristiques-2",
+   "type": "propriete",
+   "titre": "Propriété 2.3 — caractéristiques de f(x) = logₐ (x)",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.caracteristiques-2",
+   "num": "2.3",
+   "page": 35
+  },
+  {
+   "id": "6UAA4.symetrie-axe-2",
+   "type": "propriete",
+   "titre": "Propriété 2.4 — symétrie d’axe x",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.symetrie-axe-2",
+   "num": "2.4",
+   "page": 35
+  },
+  {
+   "id": "6UAA4.ex.022",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.022",
+   "num": "2.1",
+   "page": 35
+  },
+  {
+   "id": "6UAA4.ex.023",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.023",
+   "num": "2.2",
+   "page": 36
+  },
+  {
+   "id": "6UAA4.ex.024",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.024",
+   "num": "2.3",
+   "page": 37
+  },
+  {
+   "id": "6UAA4.ex.025",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.025",
+   "num": "2.4",
+   "page": 37
+  },
+  {
+   "id": "6UAA4.ex.026",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.026",
+   "num": "2.5",
+   "page": 38
+  },
+  {
+   "id": "6UAA4.ex.027",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.027",
+   "num": "2.6",
+   "page": 38
+  },
+  {
+   "id": "6UAA4.ex.028",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.028",
+   "num": "2.7",
+   "page": 39
+  },
+  {
+   "id": "6UAA4.ex.029",
+   "type": "exercice",
+   "titre": "Exercice 2.8",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html#6UAA4.ex.029",
+   "num": "2.8",
+   "page": 39
+  },
+  {
+   "id": "6UAA4.proprietes-algebriques-decouvrir",
+   "type": "section",
+   "titre": "Propriétés algébriques, à découvrir",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "6UAA4.quoi-est-egal",
+   "type": "activite",
+   "titre": "Activité 2.6 — à quoi est égal logₐ (x y) ?",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.quoi-est-egal",
+   "num": "2.6",
+   "page": 40
+  },
+  {
+   "id": "6UAA4.logarithme-produit",
+   "type": "propriete",
+   "titre": "Propriété 2.5 — logarithme d’un produit",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.logarithme-produit",
+   "num": "2.5",
+   "page": 40
+  },
+  {
+   "id": "6UAA4.quoi-est-egal-2",
+   "type": "activite",
+   "titre": "Activité 2.7 — à quoi est égal logₐ (x / y) ?",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.quoi-est-egal-2",
+   "num": "2.7",
+   "page": 41
+  },
+  {
+   "id": "6UAA4.logarithme-quotient",
+   "type": "propriete",
+   "titre": "Propriété 2.6 — logarithme d’un quotient",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.logarithme-quotient",
+   "num": "2.6",
+   "page": 41
+  },
+  {
+   "id": "6UAA4.quoi-est-egal-3",
+   "type": "activite",
+   "titre": "Activité 2.8 — à quoi est égal logₐ (xᵖ) ?",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.quoi-est-egal-3",
+   "num": "2.8",
+   "page": 41
+  },
+  {
+   "id": "6UAA4.logarithme-puissance",
+   "type": "propriete",
+   "titre": "Propriété 2.7 — logarithme d’une puissance",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.logarithme-puissance",
+   "num": "2.7",
+   "page": 42
+  },
+  {
+   "id": "6UAA4.exprimer-base",
+   "type": "activite",
+   "titre": "Activité 2.9 — exprimer logₐ (x) dans une base b",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.exprimer-base",
+   "num": "2.9",
+   "page": 42
+  },
+  {
+   "id": "6UAA4.changement-base-2",
+   "type": "propriete",
+   "titre": "Propriété 2.8 — changement de base",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.changement-base-2",
+   "num": "2.8",
+   "page": 42
+  },
+  {
+   "id": "6UAA4.calculatrice-n-importe-quelle-base",
+   "type": "exemple",
+   "titre": "Exemple 2.3 — à la calculatrice, dans n’importe quelle base",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html#6UAA4.calculatrice-n-importe-quelle-base",
+   "num": "2.3",
+   "page": 43
+  },
+  {
+   "id": "6UAA4.utiliser-proprietes",
+   "type": "section",
+   "titre": "Utiliser les propriétés",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html",
+   "num": "2.5",
+   "page": null
+  },
+  {
+   "id": "6UAA4.developper",
+   "type": "exemple",
+   "titre": "Exemple 2.4 — développer",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.developper",
+   "num": "2.4",
+   "page": 43
+  },
+  {
+   "id": "6UAA4.ex.030",
+   "type": "exercice",
+   "titre": "Exercice 2.9",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.ex.030",
+   "num": "2.9",
+   "page": 43
+  },
+  {
+   "id": "6UAA4.condenser",
+   "type": "exemple",
+   "titre": "Exemple 2.5 — condenser",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.condenser",
+   "num": "2.5",
+   "page": 43
+  },
+  {
+   "id": "6UAA4.ex.031",
+   "type": "exercice",
+   "titre": "Exercice 2.10",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.ex.031",
+   "num": "2.10",
+   "page": 43
+  },
+  {
+   "id": "6UAA4.ex.032",
+   "type": "exercice",
+   "titre": "Exercice 2.11",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.ex.032",
+   "num": "2.11",
+   "page": 43
+  },
+  {
+   "id": "6UAA4.ex.033",
+   "type": "exercice",
+   "titre": "Exercice 2.12",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.ex.033",
+   "num": "2.12",
+   "page": 44
+  },
+  {
+   "id": "6UAA4.ex.034",
+   "type": "exercice",
+   "titre": "Exercice 2.13",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.ex.034",
+   "num": "2.13",
+   "page": 44
+  },
+  {
+   "id": "6UAA4.ex.035",
+   "type": "exercice",
+   "titre": "Exercice 2.14",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html#6UAA4.ex.035",
+   "num": "2.14",
+   "page": 44
+  },
+  {
+   "id": "6UAA4.equations-logarithmiques",
+   "type": "section",
+   "titre": "Équations logarithmiques",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/6-equations-logarithmiques.html",
+   "num": "2.6",
+   "page": null
+  },
+  {
+   "id": "6UAA4.quand-ignorer-domaine-fabrique-fausse",
+   "type": "exemple",
+   "titre": "Exemple 2.6 — quand ignorer le domaine fabrique une fausse solution",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/6-equations-logarithmiques.html#6UAA4.quand-ignorer-domaine-fabrique-fausse",
+   "num": "2.6",
+   "page": 45
+  },
+  {
+   "id": "6UAA4.cas-solution",
+   "type": "exemple",
+   "titre": "Exemple 2.7 — un cas avec solution",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/6-equations-logarithmiques.html#6UAA4.cas-solution",
+   "num": "2.7",
+   "page": 46
+  },
+  {
+   "id": "6UAA4.ex.036",
+   "type": "exercice",
+   "titre": "Exercice 2.15",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/6-equations-logarithmiques.html#6UAA4.ex.036",
+   "num": "2.15",
+   "page": 46
+  },
+  {
+   "id": "6UAA4.ex.037",
+   "type": "exercice",
+   "titre": "Exercice 2.16",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/6-equations-logarithmiques.html#6UAA4.ex.037",
+   "num": "2.16",
+   "page": 46
+  },
+  {
+   "id": "6UAA4.ex.038",
+   "type": "exercice",
+   "titre": "Exercice 2.17",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/6-equations-logarithmiques.html#6UAA4.ex.038",
+   "num": "2.17",
+   "page": 46
+  },
+  {
+   "id": "6UAA4.resoudre-equations-exponentielles",
+   "type": "section",
+   "titre": "Résoudre les équations exponentielles aᶠ⁽ˣ⁾ = b",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/7-resoudre-les-equations-exponentielles-a.html",
+   "num": "2.7",
+   "page": null
+  },
+  {
+   "id": "6UAA4.enfin",
+   "type": "exemple",
+   "titre": "Exemple 2.8 — et enfin, eˣ = 3",
+   "parent": "6UAA4.resoudre-equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/7-resoudre-les-equations-exponentielles-a.html#6UAA4.enfin",
+   "num": "2.8",
+   "page": 47
+  },
+  {
+   "id": "6UAA4.quatre-resolutions",
+   "type": "exemple",
+   "titre": "Exemple 2.9 — quatre résolutions",
+   "parent": "6UAA4.resoudre-equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/7-resoudre-les-equations-exponentielles-a.html#6UAA4.quatre-resolutions",
+   "num": "2.9",
+   "page": 47
+  },
+  {
+   "id": "6UAA4.ex.039",
+   "type": "exercice",
+   "titre": "Exercice 2.18",
+   "parent": "6UAA4.resoudre-equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/7-resoudre-les-equations-exponentielles-a.html#6UAA4.ex.039",
+   "num": "2.18",
+   "page": 47
+  },
+  {
+   "id": "6UAA4.modeliser-logarithmes",
+   "type": "section",
+   "titre": "Modéliser avec les logarithmes",
+   "parent": "6UAA4.fonctions-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html",
+   "num": "2.8",
+   "page": null
+  },
+  {
+   "id": "6UAA4.temps-doublement",
+   "type": "exemple",
+   "titre": "Exemple 2.10 — temps de doublement",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html#6UAA4.temps-doublement",
+   "num": "2.10",
+   "page": 47
+  },
+  {
+   "id": "6UAA4.ex.040",
+   "type": "exercice",
+   "titre": "Exercice 2.19",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html#6UAA4.ex.040",
+   "num": "2.19",
+   "page": 48
+  },
+  {
+   "id": "6UAA4.ex.041",
+   "type": "exercice",
+   "titre": "Exercice 2.20",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html#6UAA4.ex.041",
+   "num": "2.20",
+   "page": 48
+  },
+  {
+   "id": "6UAA4.ex.042",
+   "type": "exercice",
+   "titre": "Exercice 2.21",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html#6UAA4.ex.042",
+   "num": "2.21",
+   "page": 48
+  },
+  {
+   "id": "6UAA4.ex.043",
+   "type": "exercice",
+   "titre": "Exercice 2.22",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html#6UAA4.ex.043",
+   "num": "2.22",
+   "page": 48
+  },
+  {
+   "id": "6UAA4.derivees-limites",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Dérivées et limites",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.deriver-exponentielle",
+   "type": "section",
+   "titre": "Dériver l’exponentielle",
+   "parent": "6UAA4.derivees-limites",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.lire-pente",
+   "type": "activite",
+   "titre": "Activité 3.1 — lire la pente en (0,1)",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.lire-pente",
+   "num": "3.1",
+   "page": 50
+  },
+  {
+   "id": "6UAA4.derivee-exponentielle-neperienne",
+   "type": "propriete",
+   "titre": "Propriété 3.1 — dérivée de l’exponentielle népérienne",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.derivee-exponentielle-neperienne",
+   "num": "3.1",
+   "page": 50
+  },
+  {
+   "id": "6UAA4.derivee-exponentielle-composee",
+   "type": "propriete",
+   "titre": "Propriété 3.2 — dérivée d’une exponentielle composée",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.derivee-exponentielle-composee",
+   "num": "3.2",
+   "page": 50
+  },
+  {
+   "id": "6UAA4.trois-derivees-composees",
+   "type": "exemple",
+   "titre": "Exemple 3.1 — trois dérivées composées",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.trois-derivees-composees",
+   "num": "3.1",
+   "page": 50
+  },
+  {
+   "id": "6UAA4.ramener-base",
+   "type": "activite",
+   "titre": "Activité 3.2 — ramener aˣ à la base e",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.ramener-base",
+   "num": "3.2",
+   "page": 51
+  },
+  {
+   "id": "6UAA4.derivee-exponentielle-base",
+   "type": "propriete",
+   "titre": "Propriété 3.3 — dérivée d’une exponentielle de base a",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.derivee-exponentielle-base",
+   "num": "3.3",
+   "page": 51
+  },
+  {
+   "id": "6UAA4.combiner-regles",
+   "type": "exemple",
+   "titre": "Exemple 3.2 — combiner les règles",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.combiner-regles",
+   "num": "3.2",
+   "page": 51
+  },
+  {
+   "id": "6UAA4.ex.044",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/1-deriver-lexponentielle.html#6UAA4.ex.044",
+   "num": "3.1",
+   "page": 51
+  },
+  {
+   "id": "6UAA4.deriver-logarithme",
+   "type": "section",
+   "titre": "Dériver le logarithme",
+   "parent": "6UAA4.derivees-limites",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.deriver-derivant",
+   "type": "activite",
+   "titre": "Activité 3.3 — dériver ln en dérivant e^(ln x) = x",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.deriver-derivant",
+   "num": "3.3",
+   "page": 52
+  },
+  {
+   "id": "6UAA4.derivee-logarithme-neperien",
+   "type": "propriete",
+   "titre": "Propriété 3.4 — dérivée du logarithme népérien",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.derivee-logarithme-neperien",
+   "num": "3.4",
+   "page": 52
+  },
+  {
+   "id": "6UAA4.logarithme-compose-base-quelconque",
+   "type": "propriete",
+   "titre": "Propriété 3.5 — logarithme composé, et base quelconque",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.logarithme-compose-base-quelconque",
+   "num": "3.5",
+   "page": 52
+  },
+  {
+   "id": "6UAA4.deriver-logarithme-compose",
+   "type": "exemple",
+   "titre": "Exemple 3.3 — dériver un logarithme composé",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.deriver-logarithme-compose",
+   "num": "3.3",
+   "page": 53
+  },
+  {
+   "id": "6UAA4.domaine-puis-derivee",
+   "type": "exemple",
+   "titre": "Exemple 3.4 — domaine puis dérivée",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.domaine-puis-derivee",
+   "num": "3.4",
+   "page": 53
+  },
+  {
+   "id": "6UAA4.ex.045",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.ex.045",
+   "num": "3.2",
+   "page": 53
+  },
+  {
+   "id": "6UAA4.ex.046",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.ex.046",
+   "num": "3.3",
+   "page": 53
+  },
+  {
+   "id": "6UAA4.ex.047",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/2-deriver-le-logarithme.html#6UAA4.ex.047",
+   "num": "3.4",
+   "page": 54
+  },
+  {
+   "id": "6UAA4.limites-base",
+   "type": "section",
+   "titre": "Limites de base",
+   "parent": "6UAA4.derivees-limites",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.lire-limites-esquisse",
+   "type": "activite",
+   "titre": "Activité 3.4 — lire les limites sur une esquisse",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html#6UAA4.lire-limites-esquisse",
+   "num": "3.4",
+   "page": 54
+  },
+  {
+   "id": "6UAA4.limites-reference",
+   "type": "propriete",
+   "titre": "Propriété 3.6 — limites de référence",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html#6UAA4.limites-reference",
+   "num": "3.6",
+   "page": 55
+  },
+  {
+   "id": "6UAA4.ex.048",
+   "type": "exercice",
+   "titre": "Exercice 3.5",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html#6UAA4.ex.048",
+   "num": "3.5",
+   "page": 55
+  },
+  {
+   "id": "6UAA4.regles-calcul-2",
+   "type": "exemple",
+   "titre": "Exemple 3.5 — par les règles de calcul",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html#6UAA4.regles-calcul-2",
+   "num": "3.5",
+   "page": 55
+  },
+  {
+   "id": "6UAA4.ex.049",
+   "type": "exercice",
+   "titre": "Exercice 3.6",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html#6UAA4.ex.049",
+   "num": "3.6",
+   "page": 55
+  },
+  {
+   "id": "6UAA4.ex.050",
+   "type": "exercice",
+   "titre": "Exercice 3.7",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/3-limites-de-base.html#6UAA4.ex.050",
+   "num": "3.7",
+   "page": 55
+  },
+  {
+   "id": "6UAA4.croissance-comparee-theoreme-hospital",
+   "type": "section",
+   "titre": "Croissance comparée et théorème de l’Hospital",
+   "parent": "6UAA4.derivees-limites",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html",
+   "num": "3.4",
+   "page": null
+  },
+  {
+   "id": "6UAA4.croit-plus-vite",
+   "type": "activite",
+   "titre": "Activité 3.5 — qui croît le plus vite : eˣ ou x ?",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.croit-plus-vite",
+   "num": "3.5",
+   "page": 56
+  },
+  {
+   "id": "6UAA4.theoreme-hospital",
+   "type": "propriete",
+   "titre": "Propriété 3.7 — théorème de l’Hospital",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.theoreme-hospital",
+   "num": "3.7",
+   "page": 56
+  },
+  {
+   "id": "6UAA4.rem.006",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.rem.006",
+   "num": "3.1",
+   "page": 57
+  },
+  {
+   "id": "6UAA4.deux-limites-debut",
+   "type": "exemple",
+   "titre": "Exemple 3.6 — les deux limites du début",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.deux-limites-debut",
+   "num": "3.6",
+   "page": 57
+  },
+  {
+   "id": "6UAA4.confirmer-croissance-comparee",
+   "type": "exemple",
+   "titre": "Exemple 3.7 — confirmer la croissance comparée",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.confirmer-croissance-comparee",
+   "num": "3.7",
+   "page": 57
+  },
+  {
+   "id": "6UAA4.ex.051",
+   "type": "exercice",
+   "titre": "Exercice 3.8",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.ex.051",
+   "num": "3.8",
+   "page": 57
+  },
+  {
+   "id": "6UAA4.ex.052",
+   "type": "exercice",
+   "titre": "Exercice 3.9",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.ex.052",
+   "num": "3.9",
+   "page": 58
+  },
+  {
+   "id": "6UAA4.ex.053",
+   "type": "exercice",
+   "titre": "Exercice 3.10",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html#6UAA4.ex.053",
+   "num": "3.10",
+   "page": 58
+  },
+  {
+   "id": "6UAA4.echelles-logarithmiques",
+   "type": "chapitre",
+   "titre": "Chapitre 4 — Échelles logarithmiques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/index.html",
+   "num": "4",
+   "page": null
+  },
+  {
+   "id": "6UAA4.construire-echelle-logarithmique",
+   "type": "section",
+   "titre": "Construire une échelle logarithmique",
+   "parent": "6UAA4.echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/1-construire-une-echelle-logarithmique.html",
+   "num": "4.1",
+   "page": null
+  },
+  {
+   "id": "6UAA4.placer-valeurs-axe-logarithmique",
+   "type": "activite",
+   "titre": "Activité 4.1 — placer des valeurs sur un axe logarithmique",
+   "parent": "6UAA4.construire-echelle-logarithmique",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/1-construire-une-echelle-logarithmique.html#6UAA4.placer-valeurs-axe-logarithmique",
+   "num": "4.1",
+   "page": 60
+  },
+  {
+   "id": "6UAA4.rem.007",
+   "type": "remarque",
+   "titre": "Remarque 4.1",
+   "parent": "6UAA4.construire-echelle-logarithmique",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/1-construire-une-echelle-logarithmique.html#6UAA4.rem.007",
+   "num": "4.1",
+   "page": 60
+  },
+  {
+   "id": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "type": "section",
+   "titre": "Repère semi-logarithmique : la signature de l’exponentielle",
+   "parent": "6UAA4.echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html",
+   "num": "4.2",
+   "page": null
+  },
+  {
+   "id": "6UAA4.exponentielle-papier-semi-log",
+   "type": "activite",
+   "titre": "Activité 4.2 — une exponentielle sur papier semi-log",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html#6UAA4.exponentielle-papier-semi-log",
+   "num": "4.2",
+   "page": 61
+  },
+  {
+   "id": "6UAA4.semi-log-droite-exponentielle",
+   "type": "propriete",
+   "titre": "Propriété 4.1 — semi-log : droite Longleftrightarrow exponentielle",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html#6UAA4.semi-log-droite-exponentielle",
+   "num": "4.1",
+   "page": 61
+  },
+  {
+   "id": "6UAA4.retrouver-modele-partir-droite",
+   "type": "exemple",
+   "titre": "Exemple 4.1 — retrouver le modèle à partir de la droite",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html#6UAA4.retrouver-modele-partir-droite",
+   "num": "4.1",
+   "page": 62
+  },
+  {
+   "id": "6UAA4.ex.054",
+   "type": "exercice",
+   "titre": "Exercice 4.1",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html#6UAA4.ex.054",
+   "num": "4.1",
+   "page": 62
+  },
+  {
+   "id": "6UAA4.repere-log-log-signature-puissance",
+   "type": "section",
+   "titre": "Repère log-log : la signature d’une puissance",
+   "parent": "6UAA4.echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html",
+   "num": "4.3",
+   "page": null
+  },
+  {
+   "id": "6UAA4.puissance-papier-log-log",
+   "type": "activite",
+   "titre": "Activité 4.3 — une puissance sur papier log-log",
+   "parent": "6UAA4.repere-log-log-signature-puissance",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html#6UAA4.puissance-papier-log-log",
+   "num": "4.3",
+   "page": 63
+  },
+  {
+   "id": "6UAA4.log-log-droite-puissance",
+   "type": "propriete",
+   "titre": "Propriété 4.2 — log-log : droite Longleftrightarrow puissance",
+   "parent": "6UAA4.repere-log-log-signature-puissance",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html#6UAA4.log-log-droite-puissance",
+   "num": "4.2",
+   "page": 63
+  },
+  {
+   "id": "6UAA4.lire-exposant-droite-log-log",
+   "type": "exemple",
+   "titre": "Exemple 4.2 — lire l’exposant sur une droite log-log",
+   "parent": "6UAA4.repere-log-log-signature-puissance",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html#6UAA4.lire-exposant-droite-log-log",
+   "num": "4.2",
+   "page": 64
+  },
+  {
+   "id": "6UAA4.ex.055",
+   "type": "exercice",
+   "titre": "Exercice 4.2",
+   "parent": "6UAA4.repere-log-log-signature-puissance",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html#6UAA4.ex.055",
+   "num": "4.2",
+   "page": 64
+  },
+  {
+   "id": "6UAA4.choisir-bon-repere-extraire-information",
+   "type": "section",
+   "titre": "Choisir le bon repère et extraire l’information",
+   "parent": "6UAA4.echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/4-choisir-le-bon-repere-et.html",
+   "num": "4.4",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.056",
+   "type": "exercice",
+   "titre": "Exercice 4.3",
+   "parent": "6UAA4.choisir-bon-repere-extraire-information",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/4-choisir-le-bon-repere-et.html#6UAA4.ex.056",
+   "num": "4.3",
+   "page": 65
+  },
+  {
+   "id": "6UAA4.ex.057",
+   "type": "exercice",
+   "titre": "Exercice 4.4",
+   "parent": "6UAA4.choisir-bon-repere-extraire-information",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/4-choisir-le-bon-repere-et.html#6UAA4.ex.057",
+   "num": "4.4",
+   "page": 65
+  },
+  {
+   "id": "6UAA4.ex.058",
+   "type": "exercice",
+   "titre": "Exercice 4.5",
+   "parent": "6UAA4.choisir-bon-repere-extraire-information",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/4-choisir-le-bon-repere-et.html#6UAA4.ex.058",
+   "num": "4.5",
+   "page": 65
+  },
+  {
+   "id": "6UAA4.aller-plus-loin-echelles-logarithmiques",
+   "type": "section",
+   "titre": "Pour aller plus loin : les échelles logarithmiques en sciences",
+   "parent": "6UAA4.echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/5-pour-aller-plus-loin-les.html",
+   "num": "4.5",
+   "page": null
+  },
+  {
+   "id": "6UAA4.ex.059",
+   "type": "exercice",
+   "titre": "Exercice 4.6",
+   "parent": "6UAA4.aller-plus-loin-echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "ch4-echelles-logarithmiq/5-pour-aller-plus-loin-les.html#6UAA4.ex.059",
+   "num": "4.6",
+   "page": 66
+  },
+  {
+   "id": "6UAA4.q.exp-critere-tableau",
+   "type": "qcm",
+   "titre": "Pour des valeurs de x régulièrement espacées (0, 1, 2, 3), on a relevé y = 5, 10, 20, 40. Que peut-o…",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-critere-non",
+   "type": "qcm",
+   "titre": "Pour x = 1, 2, 3, 4, on a y = 2, 8, 18, 32. Cette croissance est-elle exponentielle ?",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-somme-produit",
+   "type": "qcm",
+   "titre": "Une fonction f a une croissance exponentielle. On sait que f(2) = 9 et f(3) = 27. Que vaut f(5) ?",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-interets-composes",
+   "type": "ouverte",
+   "titre": "On place 1000 € à intérêts composés au taux annuel de 3 %. Exprime le capital Cₙ après n années, pui…",
+   "parent": "6UAA4.croissance-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-exposant-fractionnaire",
+   "type": "qcm",
+   "titre": "Que vaut 8^(2/3) ?",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-exposant-negatif",
+   "type": "qcm",
+   "titre": "Que vaut 2⁻³ ?",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-batterie-demi",
+   "type": "qcm",
+   "titre": "La charge d’une batterie est multipliée par 0,64 toutes les heures. Par quel nombre est-elle multipl…",
+   "parent": "6UAA4.construire-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-reconnaitre",
+   "type": "qcm",
+   "titre": "Laquelle de ces fonctions est une fonction exponentielle ?",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-regle-produit",
+   "type": "qcm",
+   "titre": "Simplifie 3⁴ · 3⁵.",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-regles-simplifier",
+   "type": "ouverte",
+   "titre": "Écris sous la forme d’une seule puissance de a : (a^(2 x))³ · fraca⁻ˣa^(4 x).",
+   "parent": "6UAA4.definition-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-sens-variation",
+   "type": "qcm",
+   "titre": "La fonction f(x) = 0,6ˣ est :",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-image",
+   "type": "qcm",
+   "titre": "Quelle est l’image de la fonction f(x) = 5ˣ ?",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-symetrie-y",
+   "type": "qcm",
+   "titre": "Le graphique de g(x) = (1/3)ˣ s’obtient à partir de celui de f(x) = 3ˣ par :",
+   "parent": "6UAA4.proprietes-caracteristiques-graphiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-multiple-lecture",
+   "type": "qcm",
+   "titre": "Un multiple d’une exponentielle f(x) = k · aˣ passe par (0, 3) et (1, 12). Que vaut f(x) ?",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-parametres-cakt",
+   "type": "qcm",
+   "titre": "Une quantité est modélisée par Q(t) = 50 · 1,2^(t / 4) (t en années). Que signifie cette écriture ?",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-transformation-translation",
+   "type": "qcm",
+   "titre": "Le graphique de g(x) = 2^(x + 3) s’obtient à partir de celui de f(x) = 2ˣ par :",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-lire-graphique",
+   "type": "ouverte",
+   "titre": "Détermine l’expression analytique de la fonction représentée.",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-modele-choix",
+   "type": "qcm",
+   "titre": "Le prix d’un abonnement augmente de 5 € chaque année. Quel modèle convient ?",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-modele-pourcentage",
+   "type": "qcm",
+   "titre": "Une ville de 20 000 habitants perd 2 % de sa population chaque année. Quelle expression donne sa pop…",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-probleme-doublement",
+   "type": "ouverte",
+   "titre": "Une colonie de 400 bactéries double toutes les 3 heures. Donne l’expression N(t) du nombre de bactér…",
+   "parent": "6UAA4.multiples-fonction-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-changement-base",
+   "type": "qcm",
+   "titre": "On sait que aˣ = 2^(k x) pour tout x. Si a = 8, que vaut k ?",
+   "parent": "6UAA4.graphes-tous-semblables-vers-representant",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-derivee-multiple",
+   "type": "qcm",
+   "titre": "Quelle propriété caractérise la base e parmi toutes les exponentielles aˣ ?",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-e-calculatrice",
+   "type": "qcm",
+   "titre": "À la calculatrice, e² vaut environ :",
+   "parent": "6UAA4.nombre-exponentielle-neperienne",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-equation-base",
+   "type": "qcm",
+   "titre": "Résous 3^(x - 1) = 27.",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-equation-impossible",
+   "type": "qcm",
+   "titre": "Résous e^x² = 1/e.",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-justifier-etape",
+   "type": "qcm",
+   "titre": "Dans une résolution, on passe de 5^(2 x) = 5^(x + 3) à 2 x = x + 3. Quelle propriété le justifie ?",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.exp-equation-rediger",
+   "type": "ouverte",
+   "titre": "Résous 4^(x + 1) = √[3]2 en justifiant chaque étape.",
+   "parent": "6UAA4.resoudre-equations-exponentielles-simples",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-reciproque-sens",
+   "type": "qcm",
+   "titre": "Le point (2 ; 7,39) est sur le graphique de eˣ. Quel point est sur le graphique de ln x ?",
+   "parent": "6UAA4.probleme-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-composition",
+   "type": "qcm",
+   "titre": "Que vaut e^(ln 5) ?",
+   "parent": "6UAA4.probleme-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-calcul-mental",
+   "type": "qcm",
+   "titre": "Que vaut log₂ (1/8) ?",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-domaine",
+   "type": "qcm",
+   "titre": "Pour quels réels x le nombre log(x) existe-t-il ?",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-valeurs-remarquables",
+   "type": "qcm",
+   "titre": "Pour toute base a ∈ ℝ^(> 0) ∖ {1}, que vaut logₐ (1) ?",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-calculatrice-base",
+   "type": "qcm",
+   "titre": "À la calculatrice, log₃ (20) vaut environ :",
+   "parent": "6UAA4.definition-logarithme-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-graph-base",
+   "type": "qcm",
+   "titre": "La courbe d’un logarithme logₐ passe par le point (4, 1). Que vaut la base a ?",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-graph-decroissant",
+   "type": "qcm",
+   "titre": "La fonction f(x) = log_0,5 (x) est :",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-transformation",
+   "type": "qcm",
+   "titre": "Le graphique de g(x) = ln(x - 2) s’obtient à partir de celui de ln x par :",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-symetries",
+   "type": "ouverte",
+   "titre": "À partir du graphique de f(x) = log₃ (x), quelle transformation donne celui de g(x) = log_(1/3) (x) …",
+   "parent": "6UAA4.proprietes-graphiques-deduction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-produit-erreur",
+   "type": "qcm",
+   "titre": "Pour x, y > 0, laquelle de ces égalités est toujours vraie ?",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-demontrer-quotient",
+   "type": "ouverte",
+   "titre": "Démontre que, pour a ∈ ℝ^(> 0) ∖ {1} et x, y > 0 : logₐ (x/y) = logₐ (x) - logₐ (y).",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-changement-base-formule",
+   "type": "qcm",
+   "titre": "Laquelle de ces écritures est égale à log₅ (7) ?",
+   "parent": "6UAA4.proprietes-algebriques-decouvrir",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-developper",
+   "type": "qcm",
+   "titre": "Développe ln(fraca³ bc) (a, b, c > 0).",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-condenser",
+   "type": "qcm",
+   "titre": "Écris 2 log x - log y + log 3 sous la forme d’un seul logarithme.",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-simplifier",
+   "type": "qcm",
+   "titre": "Que vaut log(1000) - ln(e²) ?",
+   "parent": "6UAA4.utiliser-proprietes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-equation-simple",
+   "type": "qcm",
+   "titre": "Résous log(x + 1) = 2.",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-equation-ce",
+   "type": "qcm",
+   "titre": "En résolvant ln x + ln(x - 3) = ln 4, on obtient x² - 3 x - 4 = 0, donc x = 4 ou x = -1. Quel est l’…",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-equation-rediger",
+   "type": "ouverte",
+   "titre": "Résous log(2 x) - log(x - 1) = log 3 en justifiant chaque étape.",
+   "parent": "6UAA4.equations-logarithmiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-equation-exp",
+   "type": "qcm",
+   "titre": "Résous eˣ = 5.",
+   "parent": "6UAA4.resoudre-equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-equation-exp-isoler",
+   "type": "qcm",
+   "titre": "Résous 3 · 2ˣ = 24.",
+   "parent": "6UAA4.resoudre-equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-equation-exp-impossible",
+   "type": "qcm",
+   "titre": "Résous 5^(x + 1) = -25.",
+   "parent": "6UAA4.resoudre-equations-exponentielles",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-temps-doublement",
+   "type": "ouverte",
+   "titre": "Un capital est placé à 2 % par an (intérêts composés). Au bout de combien d’années aura-t-il doublé …",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.log-inconnue-exposant",
+   "type": "qcm",
+   "titre": "Une population suit P(t) = 2000 · 1,05ᵗ. Pour quelle question faut-il un logarithme ?",
+   "parent": "6UAA4.modeliser-logarithmes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-exp-composee",
+   "type": "qcm",
+   "titre": "La dérivée de f(x) = e^(3 x) est :",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-exp-base-a",
+   "type": "qcm",
+   "titre": "La dérivée de f(x) = 2ˣ est :",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-exp-pente-origine",
+   "type": "qcm",
+   "titre": "Quelle est la pente de la tangente à la courbe de f(x) = 3ˣ au point (0, 1) ?",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-exp-produit",
+   "type": "ouverte",
+   "titre": "Dérive f(x) = x² e⁻ˣ et écris le résultat sous forme factorisée.",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-exp-vitesse",
+   "type": "ouverte",
+   "titre": "Une culture compte N(t) = 200 e^0,1 t bactéries (t en heures). À quelle vitesse la population croît-…",
+   "parent": "6UAA4.deriver-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-ln-composee",
+   "type": "qcm",
+   "titre": "La dérivée de f(x) = ln(x² + 1) est :",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-ln-constante",
+   "type": "qcm",
+   "titre": "La dérivée de f(x) = ln(3 x) est :",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-log-base-a",
+   "type": "qcm",
+   "titre": "La dérivée de f(x) = log₂ (x) est :",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-ln-produit",
+   "type": "qcm",
+   "titre": "La dérivée de f(x) = x ln x est :",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.der-ln-domaine",
+   "type": "ouverte",
+   "titre": "Soit g(x) = ln(4 - x²). Détermine le domaine de g, puis sa dérivée.",
+   "parent": "6UAA4.deriver-logarithme",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.lim-exp-base-petite",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → -∞) 0,5ˣ ?",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.lim-ln-zero",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_x overset>→ 0 ln x ?",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.lim-regles-somme",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → +∞) (5 - 2 e⁻ˣ) ?",
+   "parent": "6UAA4.limites-base",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.hospital-quand",
+   "type": "qcm",
+   "titre": "Pour laquelle de ces limites le théorème de l’Hospital est-il utile ?",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.hospital-a-tort",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → 0) fraceˣ + 1x + 1 ?",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.hospital-ln-sur-x",
+   "type": "ouverte",
+   "titre": "Calcule limlimits_(x → +∞) ln x/x.",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.hospital-deux-fois",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → +∞) fracx²eˣ ?",
+   "parent": "6UAA4.croissance-comparee-theoreme-hospital",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.echelle-distance",
+   "type": "qcm",
+   "titre": "Sur un axe logarithmique, la distance entre 1 et 10 vaut 2 cm. Quelle est la distance entre 10 et 10…",
+   "parent": "6UAA4.construire-echelle-logarithmique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.echelle-zero",
+   "type": "qcm",
+   "titre": "Pourquoi ne peut-on pas placer la valeur 0 sur un axe logarithmique ?",
+   "parent": "6UAA4.construire-echelle-logarithmique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.echelle-milieu",
+   "type": "qcm",
+   "titre": "Sur un axe logarithmique, quel nombre est placé exactement au milieu entre 10 et 100 ?",
+   "parent": "6UAA4.construire-echelle-logarithmique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.semilog-modele",
+   "type": "qcm",
+   "titre": "Des mesures forment une droite dans un repère semi-logarithmique (x linéaire, y logarithmique). Quel…",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.semilog-pente",
+   "type": "qcm",
+   "titre": "Dans un repère semi-logarithmique, la droite représentant y = C · aˣ monte de 0,3 décade quand x aug…",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.semilog-lire-modele",
+   "type": "ouverte",
+   "titre": "Des mesures s’alignent dans le repère semi-logarithmique ci-dessous. On y lit deux points sûrs : (0,…",
+   "parent": "6UAA4.repere-semi-logarithmique-signature-exponentielle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.loglog-exposant",
+   "type": "qcm",
+   "titre": "Des données s’alignent dans un repère log-log. Quand x est multiplié par 10, y est multiplié par 100…",
+   "parent": "6UAA4.repere-log-log-signature-puissance",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.loglog-lire-modele",
+   "type": "ouverte",
+   "titre": "Des données s’alignent dans le repère log-log ci-dessous. On y lit deux points sûrs : (1, 2) et (100…",
+   "parent": "6UAA4.repere-log-log-signature-puissance",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.extraire-repere-bacteries",
+   "type": "qcm",
+   "titre": "Le nombre de bactéries d’une culture double toutes les 20 minutes. Dans quel repère les mesures form…",
+   "parent": "6UAA4.choisir-bon-repere-extraire-information",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.extraire-repere-carre",
+   "type": "qcm",
+   "titre": "On mesure l’aire A de carrés en fonction de leur côté c. Dans quel repère les points forment-ils une…",
+   "parent": "6UAA4.choisir-bon-repere-extraire-information",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.culture-decibels",
+   "type": "qcm",
+   "titre": "Le niveau sonore passe de 60 dB à 90 dB. Par combien l’intensité sonore est-elle multipliée ?",
+   "parent": "6UAA4.aller-plus-loin-echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA4.q.culture-ph",
+   "type": "qcm",
+   "titre": "Un vinaigre a un pH de 3, une eau gazeuse un pH de 5. Que peut-on dire ?",
+   "parent": "6UAA4.aller-plus-loin-echelles-logarithmiques",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  }
+ ],
+ "retires": []
+}

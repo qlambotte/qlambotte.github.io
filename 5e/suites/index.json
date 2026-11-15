@@ -1,0 +1,1752 @@
+{
+ "format": 1,
+ "cours": "Les suites",
+ "uaa": "5UAA2",
+ "annee": "5e",
+ "cle": "suites",
+ "empreinte": "642a9391cc2c",
+ "genere": "2026-11-14",
+ "elements": [
+  {
+   "id": "5UAA2.generalites-suites",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — Généralités sur les suites",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "5UAA2.deux-situations-commencer",
+   "type": "section",
+   "titre": "Deux situations pour commencer",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/1-deux-situations-pour-commencer.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "5UAA2.rumeur",
+   "type": "activite",
+   "titre": "Activité 1.1 — la rumeur",
+   "parent": "5UAA2.deux-situations-commencer",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/1-deux-situations-pour-commencer.html#5UAA2.rumeur",
+   "num": "1.1",
+   "page": 1
+  },
+  {
+   "id": "5UAA2.interets-simples-composes",
+   "type": "activite",
+   "titre": "Activité 1.2 — intérêts simples et composés",
+   "parent": "5UAA2.deux-situations-commencer",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/1-deux-situations-pour-commencer.html#5UAA2.interets-simples-composes",
+   "num": "1.2",
+   "page": 2
+  },
+  {
+   "id": "5UAA2.est-ce-suite-numerique",
+   "type": "section",
+   "titre": "Qu’est-ce qu’une suite numérique ?",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/2-quest-ce-quune-suite-numerique.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "5UAA2.suite-numerique",
+   "type": "definition",
+   "titre": "Définition 1.1 — suite numérique",
+   "parent": "5UAA2.est-ce-suite-numerique",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/2-quest-ce-quune-suite-numerique.html#5UAA2.suite-numerique",
+   "num": "1.1",
+   "page": 3
+  },
+  {
+   "id": "5UAA2.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "5UAA2.est-ce-suite-numerique",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/2-quest-ce-quune-suite-numerique.html#5UAA2.rem.001",
+   "num": "1.1",
+   "page": 3
+  },
+  {
+   "id": "5UAA2.representer-suite",
+   "type": "section",
+   "titre": "Représenter une suite",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/3-representer-une-suite.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "5UAA2.deux-dessins-meme-suite",
+   "type": "activite",
+   "titre": "Activité 1.3 — deux dessins pour une même suite",
+   "parent": "5UAA2.representer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/3-representer-une-suite.html#5UAA2.deux-dessins-meme-suite",
+   "num": "1.3",
+   "page": 4
+  },
+  {
+   "id": "5UAA2.generer-suite",
+   "type": "section",
+   "titre": "Générer une suite",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "5UAA2.formule-explicite",
+   "type": "definition",
+   "titre": "Définition 1.2 — formule explicite",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html#5UAA2.formule-explicite",
+   "num": "1.2",
+   "page": 5
+  },
+  {
+   "id": "5UAA2.puissances-2",
+   "type": "exemple",
+   "titre": "Exemple 1.1 — les puissances de 2",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html#5UAA2.puissances-2",
+   "num": "1.1",
+   "page": 5
+  },
+  {
+   "id": "5UAA2.calculer-formule-explicite",
+   "type": "activite",
+   "titre": "Activité 1.4 — calculer avec une formule explicite",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html#5UAA2.calculer-formule-explicite",
+   "num": "1.4",
+   "page": 5
+  },
+  {
+   "id": "5UAA2.se-reperer-suite",
+   "type": "activite",
+   "titre": "Activité 1.5 — se repérer dans une suite",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html#5UAA2.se-reperer-suite",
+   "num": "1.5",
+   "page": 5
+  },
+  {
+   "id": "5UAA2.relation-recurrence",
+   "type": "definition",
+   "titre": "Définition 1.3 — relation de récurrence",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html#5UAA2.relation-recurrence",
+   "num": "1.3",
+   "page": 6
+  },
+  {
+   "id": "5UAA2.exm.001",
+   "type": "exemple",
+   "titre": "Exemple 1.2",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/4-generer-une-suite.html#5UAA2.exm.001",
+   "num": "1.2",
+   "page": 6
+  },
+  {
+   "id": "5UAA2.variations-suite",
+   "type": "section",
+   "titre": "Variations d’une suite",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/5-variations-dune-suite.html",
+   "num": "1.5",
+   "page": null
+  },
+  {
+   "id": "5UAA2.observer-variation",
+   "type": "activite",
+   "titre": "Activité 1.6 — observer la variation",
+   "parent": "5UAA2.variations-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/5-variations-dune-suite.html#5UAA2.observer-variation",
+   "num": "1.6",
+   "page": 6
+  },
+  {
+   "id": "5UAA2.variation",
+   "type": "definition",
+   "titre": "Définition 1.4 — variation",
+   "parent": "5UAA2.variations-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/5-variations-dune-suite.html#5UAA2.variation",
+   "num": "1.4",
+   "page": 7
+  },
+  {
+   "id": "5UAA2.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 1.2",
+   "parent": "5UAA2.variations-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/5-variations-dune-suite.html#5UAA2.rem.002",
+   "num": "1.2",
+   "page": 7
+  },
+  {
+   "id": "5UAA2.limite-suite",
+   "type": "section",
+   "titre": "Limite d’une suite",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/6-limite-dune-suite.html",
+   "num": "1.6",
+   "page": null
+  },
+  {
+   "id": "5UAA2.conjecturer-limite",
+   "type": "activite",
+   "titre": "Activité 1.7 — conjecturer une limite",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/6-limite-dune-suite.html#5UAA2.conjecturer-limite",
+   "num": "1.7",
+   "page": 8
+  },
+  {
+   "id": "5UAA2.limite-convergence",
+   "type": "definition",
+   "titre": "Définition 1.5 — limite, convergence",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/6-limite-dune-suite.html#5UAA2.limite-convergence",
+   "num": "1.5",
+   "page": 8
+  },
+  {
+   "id": "5UAA2.exercices",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA2.generalites-suites",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html",
+   "num": "1.7",
+   "page": null
+  },
+  {
+   "id": "5UAA2.avant-te-lancer",
+   "type": "exemple",
+   "titre": "Exemple 1.3 — avant de te lancer",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.avant-te-lancer",
+   "num": "1.3",
+   "page": 9
+  },
+  {
+   "id": "5UAA2.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.001",
+   "num": "1.1",
+   "page": 9
+  },
+  {
+   "id": "5UAA2.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.002",
+   "num": "1.2",
+   "page": 9
+  },
+  {
+   "id": "5UAA2.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.003",
+   "num": "1.3",
+   "page": 9
+  },
+  {
+   "id": "5UAA2.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.004",
+   "num": "1.4",
+   "page": 10
+  },
+  {
+   "id": "5UAA2.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 1.5",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.005",
+   "num": "1.5",
+   "page": 10
+  },
+  {
+   "id": "5UAA2.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 1.6",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.006",
+   "num": "1.6",
+   "page": 10
+  },
+  {
+   "id": "5UAA2.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 1.7",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.007",
+   "num": "1.7",
+   "page": 10
+  },
+  {
+   "id": "5UAA2.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 1.8",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.008",
+   "num": "1.8",
+   "page": 11
+  },
+  {
+   "id": "5UAA2.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 1.9",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.009",
+   "num": "1.9",
+   "page": 11
+  },
+  {
+   "id": "5UAA2.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 1.10",
+   "parent": "5UAA2.exercices",
+   "etiquettes": [],
+   "ancre": "ch1-generalites-sur-les/7-exercices.html#5UAA2.ex.010",
+   "num": "1.10",
+   "page": 11
+  },
+  {
+   "id": "5UAA2.suites-arithmetiques",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Suites arithmétiques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "5UAA2.pyramide-verre",
+   "type": "section",
+   "titre": "Une pyramide de verre",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/1-une-pyramide-de-verre.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "5UAA2.pyramide-louvre",
+   "type": "activite",
+   "titre": "Activité 2.1 — la pyramide du Louvre",
+   "parent": "5UAA2.pyramide-verre",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/1-une-pyramide-de-verre.html#5UAA2.pyramide-louvre",
+   "num": "2.1",
+   "page": 12
+  },
+  {
+   "id": "5UAA2.definition",
+   "type": "section",
+   "titre": "Définition",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/2-definition.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "5UAA2.suite-arithmetique",
+   "type": "definition",
+   "titre": "Définition 2.1 — suite arithmétique",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/2-definition.html#5UAA2.suite-arithmetique",
+   "num": "2.1",
+   "page": 13
+  },
+  {
+   "id": "5UAA2.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 2.1",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/2-definition.html#5UAA2.rem.003",
+   "num": "2.1",
+   "page": 13
+  },
+  {
+   "id": "5UAA2.reconnaitre-suite-arithmetique",
+   "type": "exemple",
+   "titre": "Exemple 2.1 — reconnaître une suite arithmétique",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/2-definition.html#5UAA2.reconnaitre-suite-arithmetique",
+   "num": "2.1",
+   "page": 14
+  },
+  {
+   "id": "5UAA2.representation-variation",
+   "type": "section",
+   "titre": "Représentation et variation",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/3-representation-et-variation.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "5UAA2.variation-suite-arithmetique",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — variation d’une suite arithmétique",
+   "parent": "5UAA2.representation-variation",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/3-representation-et-variation.html#5UAA2.variation-suite-arithmetique",
+   "num": "2.1",
+   "page": 14
+  },
+  {
+   "id": "5UAA2.generer-suite-arithmetique",
+   "type": "section",
+   "titre": "Générer une suite arithmétique",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "5UAA2.generation",
+   "type": "propriete",
+   "titre": "Propriété 2.2 — génération",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.generation",
+   "num": "2.2",
+   "page": 14
+  },
+  {
+   "id": "5UAA2.exm.002",
+   "type": "exemple",
+   "titre": "Exemple 2.2",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.exm.002",
+   "num": "2.2",
+   "page": 14
+  },
+  {
+   "id": "5UAA2.42-e-terme-17-e",
+   "type": "exemple",
+   "titre": "Exemple 2.3 — du 42e terme au 17e",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.42-e-terme-17-e",
+   "num": "2.3",
+   "page": 15
+  },
+  {
+   "id": "5UAA2.58-e-terme-3-e",
+   "type": "exemple",
+   "titre": "Exemple 2.4 — du 58e terme au 3e",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.58-e-terme-3-e",
+   "num": "2.4",
+   "page": 15
+  },
+  {
+   "id": "5UAA2.generalise",
+   "type": "activite",
+   "titre": "Activité 2.2 — généralise",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.generalise",
+   "num": "2.2",
+   "page": 15
+  },
+  {
+   "id": "5UAA2.terme-autre",
+   "type": "propriete",
+   "titre": "Propriété 2.3 — d’un terme à un autre",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.terme-autre",
+   "num": "2.3",
+   "page": 15
+  },
+  {
+   "id": "5UAA2.exm.003",
+   "type": "exemple",
+   "titre": "Exemple 2.5",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.exm.003",
+   "num": "2.5",
+   "page": 15
+  },
+  {
+   "id": "5UAA2.raison-partir-deux-termes",
+   "type": "propriete",
+   "titre": "Propriété 2.4 — raison à partir de deux termes",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html#5UAA2.raison-partir-deux-termes",
+   "num": "2.4",
+   "page": 16
+  },
+  {
+   "id": "5UAA2.caracteristiques-variation-limite",
+   "type": "section",
+   "titre": "Caractéristiques : variation, limite",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/5-caracteristiques-variation-limite.html",
+   "num": "2.5",
+   "page": null
+  },
+  {
+   "id": "5UAA2.conjecturer-puis-confirmer",
+   "type": "activite",
+   "titre": "Activité 2.3 — conjecturer puis confirmer",
+   "parent": "5UAA2.caracteristiques-variation-limite",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/5-caracteristiques-variation-limite.html#5UAA2.conjecturer-puis-confirmer",
+   "num": "2.3",
+   "page": 16
+  },
+  {
+   "id": "5UAA2.limite-suite-arithmetique",
+   "type": "propriete",
+   "titre": "Propriété 2.5 — limite d’une suite arithmétique",
+   "parent": "5UAA2.caracteristiques-variation-limite",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/5-caracteristiques-variation-limite.html#5UAA2.limite-suite-arithmetique",
+   "num": "2.5",
+   "page": 16
+  },
+  {
+   "id": "5UAA2.somme-premiers-termes",
+   "type": "section",
+   "titre": "Somme des n premiers termes",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/6-somme-des-n-premiers-termes.html",
+   "num": "2.6",
+   "page": null
+  },
+  {
+   "id": "5UAA2.somme-premiers-termes-2",
+   "type": "propriete",
+   "titre": "Propriété 2.6 — somme des n premiers termes",
+   "parent": "5UAA2.somme-premiers-termes",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/6-somme-des-n-premiers-termes.html#5UAA2.somme-premiers-termes-2",
+   "num": "2.6",
+   "page": 17
+  },
+  {
+   "id": "5UAA2.exm.004",
+   "type": "exemple",
+   "titre": "Exemple 2.6",
+   "parent": "5UAA2.somme-premiers-termes",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/6-somme-des-n-premiers-termes.html#5UAA2.exm.004",
+   "num": "2.6",
+   "page": 17
+  },
+  {
+   "id": "5UAA2.exercices-2",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA2.suites-arithmetiques",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html",
+   "num": "2.7",
+   "page": null
+  },
+  {
+   "id": "5UAA2.avant-te-lancer-2",
+   "type": "exemple",
+   "titre": "Exemple 2.7 — avant de te lancer",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.avant-te-lancer-2",
+   "num": "2.7",
+   "page": 18
+  },
+  {
+   "id": "5UAA2.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.011",
+   "num": "2.1",
+   "page": 18
+  },
+  {
+   "id": "5UAA2.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.012",
+   "num": "2.2",
+   "page": 18
+  },
+  {
+   "id": "5UAA2.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.013",
+   "num": "2.3",
+   "page": 18
+  },
+  {
+   "id": "5UAA2.calculer-terme-partir-autre",
+   "type": "exemple",
+   "titre": "Exemple 2.8 — calculer un terme à partir d’un autre",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.calculer-terme-partir-autre",
+   "num": "2.8",
+   "page": 18
+  },
+  {
+   "id": "5UAA2.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.014",
+   "num": "2.4",
+   "page": 18
+  },
+  {
+   "id": "5UAA2.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.015",
+   "num": "2.5",
+   "page": 19
+  },
+  {
+   "id": "5UAA2.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.016",
+   "num": "2.6",
+   "page": 19
+  },
+  {
+   "id": "5UAA2.ex.017",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.017",
+   "num": "2.7",
+   "page": 19
+  },
+  {
+   "id": "5UAA2.ex.018",
+   "type": "exercice",
+   "titre": "Exercice 2.8",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.018",
+   "num": "2.8",
+   "page": 19
+  },
+  {
+   "id": "5UAA2.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 2.9",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.019",
+   "num": "2.9",
+   "page": 19
+  },
+  {
+   "id": "5UAA2.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 2.10",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.020",
+   "num": "2.10",
+   "page": 19
+  },
+  {
+   "id": "5UAA2.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 2.11",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.021",
+   "num": "2.11",
+   "page": 20
+  },
+  {
+   "id": "5UAA2.ex.022",
+   "type": "exercice",
+   "titre": "Exercice 2.12",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.022",
+   "num": "2.12",
+   "page": 20
+  },
+  {
+   "id": "5UAA2.ex.023",
+   "type": "exercice",
+   "titre": "Exercice 2.13",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.023",
+   "num": "2.13",
+   "page": 21
+  },
+  {
+   "id": "5UAA2.ex.024",
+   "type": "exercice",
+   "titre": "Exercice 2.14",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.024",
+   "num": "2.14",
+   "page": 21
+  },
+  {
+   "id": "5UAA2.ex.025",
+   "type": "exercice",
+   "titre": "Exercice 2.15",
+   "parent": "5UAA2.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch2-suites-arithmetiques/7-exercices.html#5UAA2.ex.025",
+   "num": "2.15",
+   "page": 21
+  },
+  {
+   "id": "5UAA2.suites-geometriques",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Suites géométriques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "5UAA2.pliage-feuille",
+   "type": "section",
+   "titre": "Le pliage d’une feuille",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/1-le-pliage-dune-feuille.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "5UAA2.plier-feuille",
+   "type": "activite",
+   "titre": "Activité 3.1 — plier une feuille",
+   "parent": "5UAA2.pliage-feuille",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/1-le-pliage-dune-feuille.html#5UAA2.plier-feuille",
+   "num": "3.1",
+   "page": 22
+  },
+  {
+   "id": "5UAA2.definition-2",
+   "type": "section",
+   "titre": "Définition",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/2-definition.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "5UAA2.suite-geometrique",
+   "type": "definition",
+   "titre": "Définition 3.1 — suite géométrique",
+   "parent": "5UAA2.definition-2",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/2-definition.html#5UAA2.suite-geometrique",
+   "num": "3.1",
+   "page": 23
+  },
+  {
+   "id": "5UAA2.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "5UAA2.definition-2",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/2-definition.html#5UAA2.rem.004",
+   "num": "3.1",
+   "page": 23
+  },
+  {
+   "id": "5UAA2.reconnaitre-suite-geometrique",
+   "type": "exemple",
+   "titre": "Exemple 3.1 — reconnaître une suite géométrique",
+   "parent": "5UAA2.definition-2",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/2-definition.html#5UAA2.reconnaitre-suite-geometrique",
+   "num": "3.1",
+   "page": 23
+  },
+  {
+   "id": "5UAA2.representation-variation-2",
+   "type": "section",
+   "titre": "Représentation et variation",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/3-representation-et-variation.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "5UAA2.variation-suite-geometrique",
+   "type": "propriete",
+   "titre": "Propriété 3.1 — variation d’une suite géométrique",
+   "parent": "5UAA2.representation-variation-2",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/3-representation-et-variation.html#5UAA2.variation-suite-geometrique",
+   "num": "3.1",
+   "page": 24
+  },
+  {
+   "id": "5UAA2.generer-suite-geometrique",
+   "type": "section",
+   "titre": "Générer une suite géométrique",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html",
+   "num": "3.4",
+   "page": null
+  },
+  {
+   "id": "5UAA2.generation-2",
+   "type": "propriete",
+   "titre": "Propriété 3.2 — génération",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.generation-2",
+   "num": "3.2",
+   "page": 24
+  },
+  {
+   "id": "5UAA2.exm.005",
+   "type": "exemple",
+   "titre": "Exemple 3.2",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.exm.005",
+   "num": "3.2",
+   "page": 24
+  },
+  {
+   "id": "5UAA2.4-e-terme-9-e",
+   "type": "exemple",
+   "titre": "Exemple 3.3 — du 4e terme au 9e",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.4-e-terme-9-e",
+   "num": "3.3",
+   "page": 24
+  },
+  {
+   "id": "5UAA2.20-e-terme-15-e",
+   "type": "exemple",
+   "titre": "Exemple 3.4 — du 20e terme au 15e",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.20-e-terme-15-e",
+   "num": "3.4",
+   "page": 25
+  },
+  {
+   "id": "5UAA2.generalise-2",
+   "type": "activite",
+   "titre": "Activité 3.2 — généralise",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.generalise-2",
+   "num": "3.2",
+   "page": 25
+  },
+  {
+   "id": "5UAA2.terme-autre-2",
+   "type": "propriete",
+   "titre": "Propriété 3.3 — d’un terme à un autre",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.terme-autre-2",
+   "num": "3.3",
+   "page": 25
+  },
+  {
+   "id": "5UAA2.trois-cas",
+   "type": "exemple",
+   "titre": "Exemple 3.5 — trois cas",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.trois-cas",
+   "num": "3.5",
+   "page": 25
+  },
+  {
+   "id": "5UAA2.raison-partir-deux-termes-2",
+   "type": "propriete",
+   "titre": "Propriété 3.4 — raison à partir de deux termes",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/4-generer-une-suite-geometrique.html#5UAA2.raison-partir-deux-termes-2",
+   "num": "3.4",
+   "page": 26
+  },
+  {
+   "id": "5UAA2.caracteristiques-variation-limite-2",
+   "type": "section",
+   "titre": "Caractéristiques : variation, limite",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/5-caracteristiques-variation-limite.html",
+   "num": "3.5",
+   "page": null
+  },
+  {
+   "id": "5UAA2.conjecturer-limite-2",
+   "type": "activite",
+   "titre": "Activité 3.3 — conjecturer la limite",
+   "parent": "5UAA2.caracteristiques-variation-limite-2",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/5-caracteristiques-variation-limite.html#5UAA2.conjecturer-limite-2",
+   "num": "3.3",
+   "page": 26
+  },
+  {
+   "id": "5UAA2.limite-suite-geometrique",
+   "type": "propriete",
+   "titre": "Propriété 3.5 — limite d’une suite géométrique",
+   "parent": "5UAA2.caracteristiques-variation-limite-2",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/5-caracteristiques-variation-limite.html#5UAA2.limite-suite-geometrique",
+   "num": "3.5",
+   "page": 27
+  },
+  {
+   "id": "5UAA2.somme-premiers-termes-3",
+   "type": "section",
+   "titre": "Somme des n premiers termes",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/6-somme-des-n-premiers-termes.html",
+   "num": "3.6",
+   "page": null
+  },
+  {
+   "id": "5UAA2.somme-premiers-termes-4",
+   "type": "propriete",
+   "titre": "Propriété 3.6 — somme des n premiers termes",
+   "parent": "5UAA2.somme-premiers-termes-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/6-somme-des-n-premiers-termes.html#5UAA2.somme-premiers-termes-4",
+   "num": "3.6",
+   "page": 27
+  },
+  {
+   "id": "5UAA2.exm.006",
+   "type": "exemple",
+   "titre": "Exemple 3.6",
+   "parent": "5UAA2.somme-premiers-termes-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/6-somme-des-n-premiers-termes.html#5UAA2.exm.006",
+   "num": "3.6",
+   "page": 27
+  },
+  {
+   "id": "5UAA2.exercices-3",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA2.suites-geometriques",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html",
+   "num": "3.7",
+   "page": null
+  },
+  {
+   "id": "5UAA2.avant-te-lancer-3",
+   "type": "exemple",
+   "titre": "Exemple 3.7 — avant de te lancer",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.avant-te-lancer-3",
+   "num": "3.7",
+   "page": 28
+  },
+  {
+   "id": "5UAA2.ex.026",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.026",
+   "num": "3.1",
+   "page": 28
+  },
+  {
+   "id": "5UAA2.ex.027",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.027",
+   "num": "3.2",
+   "page": 28
+  },
+  {
+   "id": "5UAA2.calculer-terme-partir-autre-2",
+   "type": "exemple",
+   "titre": "Exemple 3.8 — calculer un terme à partir d’un autre",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.calculer-terme-partir-autre-2",
+   "num": "3.8",
+   "page": 28
+  },
+  {
+   "id": "5UAA2.ex.028",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.028",
+   "num": "3.3",
+   "page": 28
+  },
+  {
+   "id": "5UAA2.ex.029",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.029",
+   "num": "3.4",
+   "page": 28
+  },
+  {
+   "id": "5UAA2.ex.030",
+   "type": "exercice",
+   "titre": "Exercice 3.5",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.030",
+   "num": "3.5",
+   "page": 29
+  },
+  {
+   "id": "5UAA2.ex.031",
+   "type": "exercice",
+   "titre": "Exercice 3.6",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.031",
+   "num": "3.6",
+   "page": 29
+  },
+  {
+   "id": "5UAA2.ex.032",
+   "type": "exercice",
+   "titre": "Exercice 3.7",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.032",
+   "num": "3.7",
+   "page": 29
+  },
+  {
+   "id": "5UAA2.ex.033",
+   "type": "exercice",
+   "titre": "Exercice 3.8",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.033",
+   "num": "3.8",
+   "page": 29
+  },
+  {
+   "id": "5UAA2.ex.034",
+   "type": "exercice",
+   "titre": "Exercice 3.9",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.034",
+   "num": "3.9",
+   "page": 29
+  },
+  {
+   "id": "5UAA2.ex.035",
+   "type": "exercice",
+   "titre": "Exercice 3.10",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.035",
+   "num": "3.10",
+   "page": 29
+  },
+  {
+   "id": "5UAA2.ex.036",
+   "type": "exercice",
+   "titre": "Exercice 3.11",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.036",
+   "num": "3.11",
+   "page": 30
+  },
+  {
+   "id": "5UAA2.ex.037",
+   "type": "exercice",
+   "titre": "Exercice 3.12",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.037",
+   "num": "3.12",
+   "page": 31
+  },
+  {
+   "id": "5UAA2.ex.038",
+   "type": "exercice",
+   "titre": "Exercice 3.13",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.038",
+   "num": "3.13",
+   "page": 31
+  },
+  {
+   "id": "5UAA2.ex.039",
+   "type": "exercice",
+   "titre": "Exercice 3.14",
+   "parent": "5UAA2.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch3-suites-geometriques/7-exercices.html#5UAA2.ex.039",
+   "num": "3.14",
+   "page": 31
+  },
+  {
+   "id": "5UAA2.q.gen-rumeur-famille",
+   "type": "qcm",
+   "titre": "Dans l’activité de la rumeur, le nombre de personnes au courant double chaque jour. Comment passe-t-…",
+   "parent": "5UAA2.deux-situations-commencer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-interets-simples",
+   "type": "qcm",
+   "titre": "On place 1000 € à intérêts simples, au taux annuel de 3 %. De combien dispose-t-on après 4 ans ?",
+   "parent": "5UAA2.deux-situations-commencer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-interets-composes",
+   "type": "qcm",
+   "titre": "On place 2000 € à intérêts composés, au taux annuel de 5 %. De combien dispose-t-on après 2 ans ?",
+   "parent": "5UAA2.deux-situations-commencer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-rang-terme",
+   "type": "qcm",
+   "titre": "La suite (uₙ) = (4 ; 9 ; 14 ; 19 ; …) est numérotée à partir de 0. Que vaut u₂ ?",
+   "parent": "5UAA2.est-ce-suite-numerique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-rang-du-terme",
+   "type": "qcm",
+   "titre": "La suite (vₙ) = (3 ; 6 ; 12 ; 24 ; 48 ; …) est numérotée à partir de 1. Que vaut v₃ ?",
+   "parent": "5UAA2.est-ce-suite-numerique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-successeur",
+   "type": "qcm",
+   "titre": "Comment note-t-on le successeur du terme uₙ₋₁ ?",
+   "parent": "5UAA2.est-ce-suite-numerique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-vocabulaire-traduire",
+   "type": "ouverte",
+   "titre": "Traduis en français l’égalité uₙ₊₁ = uₙ + 3, en utilisant les mots « terme », « successeur » et « ra…",
+   "parent": "5UAA2.est-ce-suite-numerique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-repere-points",
+   "type": "qcm",
+   "titre": "On représente la suite uₙ = 5 - 2n (à partir de n = 0) dans un repère. Quel point y figure ?",
+   "parent": "5UAA2.representer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-relier-points",
+   "type": "qcm",
+   "titre": "Pourquoi ne relie-t-on pas les points de la représentation d’une suite dans un repère ?",
+   "parent": "5UAA2.representer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-droite-graduee",
+   "type": "ouverte",
+   "titre": "Représente les termes u₀ à u₄ de la suite uₙ = 1/n + 1 sur une droite graduée de 0 à 1. Que montre c…",
+   "parent": "5UAA2.representer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-explicite-calcul",
+   "type": "qcm",
+   "titre": "Soit uₙ = n² - 3n. Que vaut u₅ ?",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-recurrence-calcul",
+   "type": "qcm",
+   "titre": "Soit la suite définie par u₀ = 2 et uₙ₊₁ = 3 uₙ - 1. Que vaut u₂ ?",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-explicite-ou-recurrence",
+   "type": "qcm",
+   "titre": "Laquelle de ces écritures est une relation de récurrence ?",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-deux-ecritures",
+   "type": "ouverte",
+   "titre": "Donne une formule explicite et une relation de récurrence pour la suite (10 ; 7 ; 4 ; 1 ; …), numéro…",
+   "parent": "5UAA2.generer-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-variation-definition",
+   "type": "qcm",
+   "titre": "Une suite (uₙ) vérifie uₙ₊₁ < uₙ pour tout n. Elle est :",
+   "parent": "5UAA2.variations-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-variation-quelconque",
+   "type": "qcm",
+   "titre": "Quelle est la variation de la suite uₙ = (-2)ⁿ ?",
+   "parent": "5UAA2.variations-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-limite-tableau",
+   "type": "qcm",
+   "titre": "Voici quelques termes d’une suite. Quelle limite peut-on conjecturer ?",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-limite-graphique",
+   "type": "qcm",
+   "titre": "Voici la représentation d’une suite (uₙ). Quelle limite peut-on conjecturer ?",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-limite-sens",
+   "type": "qcm",
+   "titre": "Que signifie l’écriture limlimits_(n → +∞) uₙ = 5 ?",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-limite-observer",
+   "type": "qcm",
+   "titre": "Un élève calcule u₁₀₀₀ ≈ 0,001 et affirme : « J’ai démontré que la limite vaut 0. » Qu’en penses-tu …",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-limite-rang-bande",
+   "type": "ouverte",
+   "titre": "On considère vₙ = n/n + 1, de limite 1. À partir de quel rang tous les termes sont-ils à moins de 0,…",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-pyramide-somme",
+   "type": "qcm",
+   "titre": "Avec l’astuce de Gauss, calcule 3 + 7 + 11 + … + 39 (termes d’une suite arithmétique de raison 4).",
+   "parent": "5UAA2.pyramide-verre",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-reconnaitre",
+   "type": "qcm",
+   "titre": "Laquelle de ces suites est arithmétique ?",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-raison-signe",
+   "type": "qcm",
+   "titre": "Quelle est la raison de la suite arithmétique (20 ; 14 ; 8 ; 2 ; …) ?",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-justifier",
+   "type": "ouverte",
+   "titre": "Soit la suite uₙ = 7 - 4n. Montre qu’elle est arithmétique et donne sa raison.",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-justifier-exemples",
+   "type": "qcm",
+   "titre": "Pour prouver qu’une suite donnée par une formule explicite est arithmétique, que faut-il montrer ?",
+   "parent": "5UAA2.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-variation",
+   "type": "qcm",
+   "titre": "Une suite arithmétique a pour premier terme u₀ = -8 et pour raison r = 3. Elle est :",
+   "parent": "5UAA2.representation-variation",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-graphique-raison",
+   "type": "qcm",
+   "titre": "Ces points représentent une suite arithmétique. Quels sont son premier terme et sa raison ?",
+   "parent": "5UAA2.representation-variation",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-formule-explicite",
+   "type": "qcm",
+   "titre": "Une suite arithmétique a pour premier terme u₀ = 5 et pour raison r = -3. Quel est son terme général…",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-terme-a-partir-autre",
+   "type": "qcm",
+   "titre": "Une suite arithmétique a pour raison r = 4 et vérifie u₃₀ = 50. Que vaut u₁₂ ?",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-raison-deux-termes",
+   "type": "ouverte",
+   "titre": "Une suite arithmétique vérifie u₄ = 11 et u₁₀ = 32. Calcule sa raison et son premier terme u₀.",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-limite",
+   "type": "qcm",
+   "titre": "Quelle est la limite de la suite arithmétique uₙ = 100 - 0,1 n ?",
+   "parent": "5UAA2.caracteristiques-variation-limite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-exemple-contraintes",
+   "type": "ouverte",
+   "titre": "Donne un exemple de suite arithmétique strictement décroissante dont le premier terme est u₀ = 3. Pr…",
+   "parent": "5UAA2.caracteristiques-variation-limite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-exemple-qcm",
+   "type": "qcm",
+   "titre": "Quelle suite arithmétique est croissante et a pour premier terme u₀ = -10 ?",
+   "parent": "5UAA2.caracteristiques-variation-limite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-somme-formule",
+   "type": "qcm",
+   "titre": "Une suite arithmétique a u₀ = 2 et r = 5. Que vaut S₁₀ = u₀ + u₁ + … + u₉ ?",
+   "parent": "5UAA2.somme-premiers-termes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-olympiades",
+   "type": "ouverte",
+   "titre": "Les olympiades se succèdent tous les 4 ans ; la Ire a commencé en 1896 (Jeux d’Athènes). On les comp…",
+   "parent": "5UAA2.generer-suite-arithmetique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-somme-rangs",
+   "type": "ouverte",
+   "titre": "Calcule la somme 5 + 9 + 13 + … + 101 des termes consécutifs d’une suite arithmétique.",
+   "parent": "5UAA2.somme-premiers-termes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-demontrer-somme",
+   "type": "ouverte",
+   "titre": "Démontre que la somme des n premiers termes d’une suite arithmétique vaut Sₙ = n/2 (u₀ + uₙ₋₁).",
+   "parent": "5UAA2.somme-premiers-termes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.ari-demonstration-etape",
+   "type": "qcm",
+   "titre": "Dans la démonstration de la somme arithmétique, pourquoi u₁ + uₙ₋₂ = u₀ + uₙ₋₁ ?",
+   "parent": "5UAA2.somme-premiers-termes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-pliage",
+   "type": "qcm",
+   "titre": "Une feuille de 0,1 mm d’épaisseur est pliée en deux à chaque étape. Quelle est son épaisseur après 5…",
+   "parent": "5UAA2.pliage-feuille",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-reconnaitre",
+   "type": "qcm",
+   "titre": "Laquelle de ces suites est géométrique ?",
+   "parent": "5UAA2.definition-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-raison",
+   "type": "qcm",
+   "titre": "Quelle est la raison de la suite géométrique (48 ; 12 ; 3 ; 0,75 ; …) ?",
+   "parent": "5UAA2.definition-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-justifier",
+   "type": "ouverte",
+   "titre": "Soit la suite uₙ = 5 · 3ⁿ. Montre qu’elle est géométrique et donne sa raison.",
+   "parent": "5UAA2.definition-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-variation",
+   "type": "qcm",
+   "titre": "Une suite géométrique a pour premier terme u₀ = -2 et pour raison q = 3. Elle est :",
+   "parent": "5UAA2.representation-variation-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-alignement",
+   "type": "qcm",
+   "titre": "Ces points représentent-ils une suite arithmétique ou une suite géométrique ?",
+   "parent": "5UAA2.representation-variation-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-formule-explicite",
+   "type": "qcm",
+   "titre": "Une suite géométrique a pour premier terme u₀ = 3 et pour raison q = 2. Quel est son terme général ?",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-terme-a-partir-autre",
+   "type": "qcm",
+   "titre": "Une suite géométrique a pour raison q = 2 et vérifie u₁₀ = 96. Que vaut u₇ ?",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-raison-parite",
+   "type": "ouverte",
+   "titre": "Une suite géométrique vérifie u₁ = 5 et u₅ = 405. Détermine toutes les raisons possibles et les prem…",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-limite-tableau",
+   "type": "qcm",
+   "titre": "Quelle est la limite de la suite géométrique uₙ = 8 · 0,9ⁿ ?",
+   "parent": "5UAA2.caracteristiques-variation-limite-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-limite-alterne",
+   "type": "qcm",
+   "titre": "Que peut-on dire de la limite de uₙ = 2 · (-3)ⁿ ?",
+   "parent": "5UAA2.caracteristiques-variation-limite-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-exemple-contraintes",
+   "type": "ouverte",
+   "titre": "Donne un exemple de suite géométrique de premier terme négatif qui converge vers 0. Précise u₀, q et…",
+   "parent": "5UAA2.caracteristiques-variation-limite-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-exemple-qcm",
+   "type": "qcm",
+   "titre": "Quelle suite géométrique a pour limite -∞ ?",
+   "parent": "5UAA2.caracteristiques-variation-limite-2",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-somme",
+   "type": "qcm",
+   "titre": "Que vaut S₈ = 3 + 6 + 12 + … (les 8 premiers termes de la suite géométrique u₀ = 3, q = 2) ?",
+   "parent": "5UAA2.somme-premiers-termes-3",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-demontrer-somme",
+   "type": "ouverte",
+   "titre": "Démontre que, pour une suite géométrique de raison q ≠ 1, Sₙ = u₀ + u₁ + … + uₙ₋₁ = u₀ · fracqⁿ - 1q…",
+   "parent": "5UAA2.somme-premiers-termes-3",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.geo-iode",
+   "type": "ouverte",
+   "titre": "L’iode 131, utilisé en médecine, perd la moitié de sa radioactivité tous les 8 jours environ. Un fla…",
+   "parent": "5UAA2.generer-suite-geometrique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA2.q.gen-toile",
+   "type": "ouverte",
+   "titre": "La suite (wₙ) est définie par w₀ = 0 et wₙ₊₁ = fracwₙ + 63. Calcule w₁, w₂, w₃, puis conjecture sa l…",
+   "parent": "5UAA2.limite-suite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  }
+ ],
+ "retires": []
+}

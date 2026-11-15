@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Multiples d’une fonction exponentielle – Exponentielles et logarithmes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch1-fonctions-exponentie/6-des-graphes-tous-semblables-vers.html" rel="next">
+<link href="../ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-373b88032ffeb2d8c9d3af5274f06ecf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/index.html">Chapitre 1 — Fonctions exponentielles</a></li><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html"><span class="chapter-title">Multiples d’une fonction exponentielle</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Exponentielles et logarithmes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exponentielles et logarithmes — cours &amp; exercices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch1-fonctions-exponentie/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 1 — Fonctions exponentielles</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Croissance exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/2-construire-une-fonction-exponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Construire une fonction exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition de la fonction exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés et caractéristiques graphiques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Multiples d’une fonction exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/6-des-graphes-tous-semblables-vers.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Des graphes tous semblables : vers un représentant privilégié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/7-le-nombre-e-et-lexponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Le nombre e et l’exponentielle népérienne</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/8-resoudre-des-equations-exponentielles-si.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Résoudre des équations exponentielles simples</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-fonctions-exponentie/9-exercices-supplementaires.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices supplémentaires</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch2-fonctions-logarithmi/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 2 — Fonctions logarithmiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/1-du-probleme-e-x-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Du problème eˣ = 3 au logarithme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/2-definition-du-logarithme-de-base.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition du logarithme de base a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/3-proprietes-graphiques-par-deduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés graphiques, par déduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/4-proprietes-algebriques-a-decouvrir.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés algébriques, à découvrir</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/5-utiliser-les-proprietes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Utiliser les propriétés</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/6-equations-logarithmiques.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Équations logarithmiques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/7-resoudre-les-equations-exponentielles-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Résoudre les équations exponentielles aᶠ⁽ˣ⁾ = b</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonctions-logarithmi/8-modeliser-avec-les-logarithmes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modéliser avec les logarithmes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3-derivees-et-limites/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 3 — Dérivées et limites</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/1-deriver-lexponentielle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dériver l’exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/2-deriver-le-logarithme.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dériver le logarithme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/3-limites-de-base.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites de base</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-derivees-et-limites/4-croissance-comparee-et-theoreme-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Croissance comparée et théorème de l’Hospital</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4-echelles-logarithmiq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 4 — Échelles logarithmiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/1-construire-une-echelle-logarithmique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Construire une échelle logarithmique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/2-repere-semi-logarithmique-la-signature.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repère semi-logarithmique : la signature de l’exponentielle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/3-repere-log-log-la-signature.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repère log-log : la signature d’une puissance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/4-choisir-le-bon-repere-et.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Choisir le bon repère et extraire l’information</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-echelles-logarithmiq/5-pour-aller-plus-loin-les.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pour aller plus loin : les échelles logarithmiques en sciences</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../autoeval.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">S’autoévaluer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mode-emploi.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mode d’emploi</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#modéliser-avec-une-exponentielle" id="toc-modéliser-avec-une-exponentielle" class="nav-link active" data-scroll-target="#modéliser-avec-une-exponentielle">Modéliser avec une exponentielle</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/index.html">Chapitre 1 — Fonctions exponentielles</a></li><li class="breadcrumb-item"><a href="../ch1-fonctions-exponentie/5-multiples-dune-fonction-exponentielle.html"><span class="chapter-title">Multiples d’une fonction exponentielle</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Multiples d’une fonction exponentielle</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+<p>Dans les problèmes concrets, on rencontre rarement <span class="math inline">\(a^{x}\)</span> tout seul : on rencontre plutôt un <strong>multiple</strong>, comme le capital <span class="math inline">\(C_{n} = 1000 \cdot 1{,}1^{n}\)</span>.</p>
+<div id="definition-1-4" class="theo theo-definition" data-sorte="definition" data-num="1.4" data-page="13" data-phys="15" data-id="6UAA4.multiple-exponentielle" data-type="definition" data-tags="">
+<div class="theo-head">
+<p><strong>Définition 1.4</strong> — multiple d’une exponentielle</p>
+</div>
+<div class="theo-body">
+<p>Un <strong>multiple d’une fonction exponentielle</strong> est une fonction d’expression</p>
+<p><span class="math display">\[
+f(x) = k \cdot a^{x}, \quad a \in \mathbb{R}^{&gt; 0} \setminus \{1\}, \quad k \in \mathbb{R} \setminus \{0\}.
+\]</span></p>
+</div>
+</div>
+<div id="remarque-1-2" class="theo theo-remarque" data-sorte="remarque" data-num="1.2" data-page="13" data-phys="15" data-id="6UAA4.rem.002" data-type="remarque" data-tags="">
+<div class="theo-head">
+<p><strong>Remarque 1.2</strong></p>
+</div>
+<div class="theo-body">
+<p>Le coefficient <span class="math inline">\(k\)</span> se lit immédiatement sur la courbe : <span class="math inline">\(f(0) = k \cdot a^{0} = k\)</span>, donc <span class="math inline">\(k\)</span> est l’<strong>ordonnée à l’origine</strong>. De plus <span class="math inline">\(f(1) = k \cdot a\)</span>. C’est le paramètre <span class="math inline">\(C\)</span> de l’écriture officielle <span class="math inline">\(f(t) = C \cdot a^{k t}\)</span> que tu retrouveras dans les objectifs (compétences C3, A3).</p>
+</div>
+</div>
+<div id="exemple-1-2" class="theo theo-exemple" data-sorte="exemple" data-num="1.2" data-page="14" data-phys="16" data-id="6UAA4.lire-multiple" data-type="exemple" data-tags="">
+<div class="theo-head">
+<p><strong>Exemple 1.2</strong> — lire un multiple</p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f(x) = 3 \cdot 2^{x}\)</span>. Alors <span class="math inline">\(f(0) = 3 \cdot 2^{0} = 3\)</span> et <span class="math inline">\(f(1) = 3 \cdot 2 = 6\)</span>. Comme <span class="math inline">\(k = 3 &gt; 0\)</span> et la base <span class="math inline">\(2 &gt; 1\)</span>, la fonction est strictement croissante, et part de l’ordonnée à l’origine <span class="math inline">\(3\)</span>.</p>
+</div>
+</div>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 12.0, &quot;w&quot;: 496, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;couleur&quot;: &quot;#1d6fb8&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;(3.0 * Math.pow(2.0, x))&quot;}}, {&quot;couleur&quot;: &quot;#c1002a&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;(2.0 * Math.pow(0.5, x))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 3.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 2.0}], &quot;lecture&quot;: true}"></div>
+<p><span style="color:#6a737d"><span class="math inline">\(f(x) = 3 \cdot 2^{x}\)</span> (croissante, o.à.o. <span class="math inline">\(3\)</span>) et <span class="math inline">\(g(x) = 2 \cdot (\frac{1}{2})^{x}\)</span> (décroissante, o.à.o. <span class="math inline">\(2\)</span>).</span></p>
+<p>Entraîne-toi à lire ces trois informations — l’ordonnée à l’origine <span class="math inline">\(k\)</span>, la valeur <span class="math inline">\(f(1)\)</span> et le sens de variation — directement sur les courbes.</p>
+<div id="activite-1-9" class="theo theo-activite" data-sorte="activite" data-num="1.9" data-page="15" data-phys="17" data-id="6UAA4.lire-multiples-graphique" data-type="activite" data-tags="">
+<div class="theo-head">
+<p><strong>Activité 1.9</strong> — lire des multiples sur un graphique</p>
+</div>
+<div class="theo-body">
+<p>Trois multiples d’exponentielles sont représentés ci-dessous. Pour chacun, lis <span class="math inline">\(f(0)\)</span> et <span class="math inline">\(f(1)\)</span> sur la courbe, puis complète le tableau.</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -2.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 13.0, &quot;w&quot;: 558, &quot;h&quot;: 315, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;couleur&quot;: &quot;#1d6fb8&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;(3.0 * Math.pow(2.0, x))&quot;}}, {&quot;couleur&quot;: &quot;#c1002a&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;(6.0 * Math.pow(0.5, x))&quot;}}, {&quot;couleur&quot;: &quot;#0a7d4d&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;(1.0 * Math.pow(3.0, x))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 3.0}, {&quot;x&quot;: 1.0, &quot;y&quot;: 6.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 6.0}, {&quot;x&quot;: 1.0, &quot;y&quot;: 3.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 1.0, &quot;y&quot;: 3.0}]}"></div>
+<div class="tableau">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Courbe</th>
+<th style="text-align: center;"><span class="math inline">\(f(0) = k\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(f(1)\)</span></th>
+<th style="text-align: center;">sens de variation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span style="color:#1d6fb8">■</span> <span class="math inline">\(f_{1}\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(3\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(6\)</span></span></td>
+<td style="text-align: center;"><span class="rep">croissante (base <span class="math inline">\(2 &gt; 1\)</span>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span style="color:#c1002a">■</span> <span class="math inline">\(f_{2}\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(6\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(3\)</span></span></td>
+<td style="text-align: center;"><span class="rep">décroissante (base <span class="math inline">\(\frac{1}{2} &lt; 1\)</span>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span style="color:#0a7d4d">■</span> <span class="math inline">\(f_{3}\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(3\)</span></span></td>
+<td style="text-align: center;"><span class="rep">croissante (base <span class="math inline">\(3 &gt; 1\)</span>)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Retrouve enfin l’expression de chacune sous la forme <span class="math inline">\(k \cdot a^{x}\)</span> (avec <span class="math inline">\(a = f(1) / f(0)\)</span>) :</p>
+<p><span class="math inline">\(f_{1}(x) =\)</span> <span class="rep"><span class="math inline">\(3 \cdot 2^{x}\)</span></span> <span class="math inline">\(f_{2}(x) =\)</span> <span class="rep"><span class="math inline">\(6 \cdot (\frac{1}{2})^{x}\)</span></span> <span class="math inline">\(f_{3}(x) =\)</span> <span class="rep"><span class="math inline">\(3^{x}\)</span></span></p>
+</div>
+</div>
+<div id="remarque-1-3" class="theo theo-remarque" data-sorte="remarque" data-num="1.3" data-page="15" data-phys="17" data-id="6UAA4.rem.003" data-type="remarque" data-tags="">
+<div class="theo-head">
+<p><strong>Remarque 1.3</strong></p>
+</div>
+<div class="theo-body">
+<p>Que se passe-t-il si <span class="math inline">\(k &lt; 0\)</span> ? Le facteur négatif <strong>renverse</strong> la courbe par rapport à l’axe <span class="math inline">\(x\)</span> : le graphe de <span class="math inline">\(f(x) = -2^{x}\)</span> est le symétrique de celui de <span class="math inline">\(2^{x}\)</span> (il passe alors par <span class="math inline">\((0, -1)\)</span> et reste toujours négatif).</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 2.5, &quot;ymin&quot;: -6.0, &quot;ymax&quot;: 6.0, &quot;w&quot;: 496, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;couleur&quot;: &quot;#1d6fb8&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.0, x)&quot;}}, {&quot;couleur&quot;: &quot;#c1002a&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;((-1.0) * Math.pow(2.0, x))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: -1.0}], &quot;lecture&quot;: true}"></div>
+</div>
+</div>
+<div id="exercice-1-4" class="exo" data-sorte="exercice" data-num="1.4" data-page="16" data-phys="18" data-id="6UAA4.ex.004" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.4</span> <span class="exo-meta"><span class="exo-comp" data-tip="C2 : Reconnaître, parmi un ensemble d’expressions analytiques de fonctions données, celle d’une fonction exponentielle." tabindex="0">C2</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Parmi les fonctions suivantes, lesquelles sont des fonctions exponentielles ou des multiples de fonctions exponentielles ? Justifie chaque réponse.</p>
+<div class="colonnes" style="--n:3">
+<ul>
+<li><span class="math inline">\(f(x) = 1^{x}\)</span></li>
+<li><span class="math inline">\(f(x) = -(\frac{1}{3})^{x}\)</span></li>
+<li><span class="math inline">\(f(x) = (5^{-1})^{x}\)</span></li>
+<li><span class="math inline">\(f(x) = 2 \cdot x^{5 / 3}\)</span></li>
+<li><span class="math inline">\(f(x) = 4 (-\frac{1}{3})^{x}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Relis la <a href="#definition-1-4">définition d’un multiple d’une exponentielle</a> : <span class="math inline">\(k \cdot a^{x}\)</span>, avec quelles conditions sur <span class="math inline">\(k\)</span> et sur <span class="math inline">\(a\)</span> ?</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Peux-tu réécrire chaque expression sous la forme <span class="math inline">\(k \cdot a^{x}\)</span> ? La base obtenue est-elle strictement positive et différente de <span class="math inline">\(1\)</span> ?</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><span class="math inline">\((5^{-1})^{x} = (\frac{1}{5})^{x}\)</span> et <span class="math inline">\(-(\frac{1}{3})^{x} = (-1) \cdot (\frac{1}{3})^{x}\)</span>. Pour <span class="math inline">\(4 (-\frac{1}{3})^{x}\)</span>, regarde le signe de la base.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<ul>
+<li><span class="math inline">\(1^{x}\)</span> : non, la base vaut <span class="math inline">\(1\)</span> (fonction constante).</li>
+<li><span class="math inline">\(-(\frac{1}{3})^{x} = (-1) \cdot (\frac{1}{3})^{x}\)</span> : oui, multiple d’une exponentielle (<span class="math inline">\(k = -1\)</span>, <span class="math inline">\(a = \frac{1}{3}\)</span>).</li>
+<li><span class="math inline">\((5^{-1})^{x} = (\frac{1}{5})^{x}\)</span> : oui, fonction exponentielle de base <span class="math inline">\(\frac{1}{5}\)</span>.</li>
+<li><span class="math inline">\(2 \cdot x^{5/3}\)</span> : non, l’exposant est fixe et la base varie (fonction puissance).</li>
+<li><span class="math inline">\(4 (-\frac{1}{3})^{x}\)</span> : non, la base <span class="math inline">\(-\frac{1}{3}\)</span> est négative.</li>
+</ul>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<ul>
+<li>Refuser <span class="math inline">\(-(\frac{1}{3})^{x}\)</span> à cause du signe « <span class="math inline">\(-\)</span> » : il porte sur le coefficient <span class="math inline">\(k\)</span>, pas sur la base.</li>
+<li>Accepter <span class="math inline">\(4 (-\frac{1}{3})^{x}\)</span> : ici le signe « <span class="math inline">\(-\)</span> » est dans la base.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-5" class="exo" data-sorte="exercice" data-num="1.5" data-page="16" data-phys="18" data-id="6UAA4.ex.005" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.5</span> <span class="exo-meta"><span class="exo-comp" data-tip="C5 : Vérifier qu’une croissance est exponentielle à partir d’un tableau de nombres." tabindex="0">C5</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Pour chaque tableau, précise s’il représente une croissance exponentielle. <strong>Nomme le critère</strong> que tu utilises (rapport constant pour des pas de <span class="math inline">\(x\)</span> égaux).</p>
+<div class="grille" style="--n:3">
+<div class="cellule">
+<div class="tableau">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(18\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(54\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cellule">
+<div class="tableau">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cellule">
+<div class="tableau">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Relis la <a href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html#definition-1-1">définition de la croissance exponentielle</a> et l’<a href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html#activite-1-3">activité sur l’invariant</a> : pour des pas égaux de <span class="math inline">\(x\)</span>, que doit-il se passer pour <span class="math inline">\(y\)</span> ?</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Pour chaque tableau, calcule les quotients de deux valeurs consécutives de <span class="math inline">\(y\)</span>. Sont-ils égaux ?</p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Premier tableau : <span class="math inline">\(\frac{6}{2}\)</span>, <span class="math inline">\(\frac{18}{6}\)</span>, <span class="math inline">\(\frac{54}{18}\)</span>. Deuxième tableau : calcule aussi les différences.</p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>Critère : pour des pas de <span class="math inline">\(x\)</span> égaux, la croissance est exponentielle si le quotient de deux valeurs consécutives de <span class="math inline">\(y\)</span> est constant.</p>
+<ul>
+<li>Tableau 1 : <span class="math inline">\(\frac{6}{2} = \frac{18}{6} = \frac{54}{18} = 3\)</span>. Le quotient est constant : croissance exponentielle de base <span class="math inline">\(3\)</span>.</li>
+<li>Tableau 2 : <span class="math inline">\(\frac{8}{5} \neq \frac{11}{8}\)</span>. Ce n’est pas une croissance exponentielle ; les différences sont constantes (<span class="math inline">\(+3\)</span>) : croissance affine.</li>
+<li>Tableau 3 : <span class="math inline">\(\frac{4}{1} = 4\)</span>, <span class="math inline">\(\frac{9}{4}\)</span>, <span class="math inline">\(\frac{16}{9}\)</span> : quotients différents, ce n’est pas une croissance exponentielle (ce sont les carrés <span class="math inline">\(x^{2}\)</span>).</li>
+</ul>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<ul>
+<li>Regarder les différences au lieu des quotients : des différences constantes signalent une croissance affine.</li>
+<li>Conclure après un seul quotient : il faut vérifier tous les quotients.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-6" class="exo" data-sorte="exercice" data-num="1.6" data-page="17" data-phys="19" data-id="6UAA4.ex.006" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.6</span> <span class="exo-meta"><span class="exo-comp" data-tip="A4 : Écrire l’expression analytique d’une fonction exponentielle à partir de son graphique." tabindex="0">A4</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Détermine l’expression analytique des fonctions exponentielles (ou multiples) représentées ci-dessous. Pour chacune, lis l’ordonnée à l’origine <span class="math inline">\(k = f(0)\)</span> et un second point pour trouver la base.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<ol type="a">
+<li></li>
+</ol>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 4.0, &quot;w&quot;: 372, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 1.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.5, x)&quot;}}], &quot;points&quot;: []}"></div>
+</div>
+<div class="cellule">
+<ol start="2" type="a">
+<li></li>
+</ol>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 4.0, &quot;w&quot;: 372, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 1.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(0.4, x)&quot;}}], &quot;points&quot;: []}"></div>
+</div>
+<div class="cellule">
+<ol start="3" type="a">
+<li></li>
+</ol>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: -8.0, &quot;ymax&quot;: 0.0, &quot;w&quot;: 372, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;((-2.0) * Math.pow(3.0, x))&quot;}}], &quot;points&quot;: []}"></div>
+</div>
+<div class="cellule">
+<ol start="4" type="a">
+<li></li>
+</ol>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -2.0, &quot;xmax&quot;: 4.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 4.0, &quot;w&quot;: 372, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 1.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(1.2, x)&quot;}}], &quot;points&quot;: []}"></div>
+</div>
+<div class="cellule">
+<ol start="5" type="a">
+<li></li>
+</ol>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 7.0, &quot;w&quot;: 372, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 1.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;(3.0 * Math.pow(2.0, x))&quot;}}], &quot;points&quot;: []}"></div>
+</div>
+<div class="cellule">
+<ol start="6" type="a">
+<li></li>
+</ol>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 7.0, &quot;w&quot;: 372, &quot;h&quot;: 278, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 1.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;(4.0 * Math.pow(0.5, x))&quot;}}], &quot;points&quot;: []}"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Relis l’<a href="#exemple-1-2">exemple « lire un multiple »</a> : <span class="math inline">\(f(x) = k \cdot a^{x}\)</span> avec <span class="math inline">\(k = f(0)\)</span>.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Que vaut <span class="math inline">\(f(1)\)</span> par rapport à <span class="math inline">\(f(0)\)</span> ? Par quel nombre faut-il multiplier pour passer de l’un à l’autre ?</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>Lis <span class="math inline">\(f(0) = k\)</span>, puis <span class="math inline">\(f(1)\)</span> ; la base vaut <span class="math inline">\(a = f(1) / f(0)\)</span>.</p>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<p>Pour chaque graphique, <span class="math inline">\(k = f(0)\)</span> et <span class="math inline">\(a = f(1) / f(0)\)</span>.</p>
+<ul>
+<li><ol type="a">
+<li><span class="math inline">\(f(0) = 1\)</span>, <span class="math inline">\(f(1) = 2{,}5\)</span> : <span class="math inline">\(f(x) = 2{,}5^{x}\)</span>.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><span class="math inline">\(f(0) = 1\)</span>, <span class="math inline">\(f(1) = 0{,}4\)</span> : <span class="math inline">\(f(x) = 0{,}4^{x}\)</span>.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li><span class="math inline">\(f(0) = -2\)</span>, <span class="math inline">\(f(1) = -6\)</span> : <span class="math inline">\(a = -6 / (-2) = 3\)</span>, donc <span class="math inline">\(f(x) = -2 \cdot 3^{x}\)</span>.</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li><span class="math inline">\(f(0) = 1\)</span>, <span class="math inline">\(f(1) = 1{,}2\)</span> : <span class="math inline">\(f(x) = 1{,}2^{x}\)</span>.</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li><span class="math inline">\(f(0) = 3\)</span>, <span class="math inline">\(f(1) = 6\)</span> : <span class="math inline">\(a = 2\)</span>, donc <span class="math inline">\(f(x) = 3 \cdot 2^{x}\)</span>.</li>
+</ol></li>
+<li><ol start="6" type="a">
+<li><span class="math inline">\(f(0) = 4\)</span>, <span class="math inline">\(f(1) = 2\)</span> : <span class="math inline">\(a = \frac{1}{2}\)</span>, donc <span class="math inline">\(f(x) = 4 \cdot (\frac{1}{2})^{x}\)</span>.</li>
+</ol></li>
+</ul>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<ul>
+<li>Prendre <span class="math inline">\(f(1)\)</span> comme base quand <span class="math inline">\(k \neq 1\)</span> : la base est le quotient <span class="math inline">\(f(1) / f(0)\)</span>.</li>
+<li>En c), chercher une base négative : le signe vient de <span class="math inline">\(k = -2\)</span>, la base reste positive.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-7" class="exo" data-sorte="exercice" data-num="1.7" data-page="18" data-phys="20" data-id="6UAA4.ex.007" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.7</span> <span class="exo-meta"><span class="exo-comp" data-tip="A2 : Relier le graphique d’une transformée simple d’une fonction exponentielle ou logarithme à son expression analytique." tabindex="0">A2</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Soit <span class="math inline">\(f(x) = 2^{x}\)</span>. Associe chaque expression à la transformation géométrique correspondante du graphe de <span class="math inline">\(f\)</span>, puis donne les coordonnées du point d’intersection de chaque graphe avec l’axe des ordonnées.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<ol type="1">
+<li><span class="math inline">\(g(x) = 2^{x} + 2\)</span></li>
+<li><span class="math inline">\(h(x) = 2^{x - 2}\)</span></li>
+<li><span class="math inline">\(k(x) = 2 \cdot 2^{x}\)</span></li>
+<li><span class="math inline">\(l(x) = 2^{-x}\)</span></li>
+</ol>
+</div>
+<div class="cellule">
+<ul>
+<li>translation de <span class="math inline">\(2\)</span> unités vers le haut ;</li>
+</ul>
+<ol type="1">
+<li>translation de <span class="math inline">\(2\)</span> unités vers la droite ;</li>
+<li>étirement vertical de facteur <span class="math inline">\(2\)</span> ;</li>
+<li>symétrie par rapport à l’axe des ordonnées.</li>
+</ol>
+</div>
+</div>
+<div class="rep-bloc">
+<p><span class="math inline">\(g\)</span> ⟶ (a) translation vers le haut, o.à.o. <span class="math inline">\((0, 3)\)</span>. <span class="math inline">\(h\)</span> ⟶ (b) translation vers la droite, o.à.o. <span class="math inline">\((0, 1/4)\)</span>. <span class="math inline">\(k = 2^{x + 1}\)</span> ⟶ (c) étirement vertical, o.à.o. <span class="math inline">\((0, 2)\)</span>. <span class="math inline">\(l\)</span> ⟶ (d) symétrie d’axe <span class="math inline">\(y\)</span>, o.à.o. <span class="math inline">\((0, 1)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Relis la <a href="../ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#propriete-1-2">propriété de symétrie d’axe <span class="math inline">\(y\)</span></a> et la <a href="#definition-1-4">définition des multiples</a> <span class="math inline">\(k \cdot a^{x}\)</span>.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Dans chaque expression, où a-t-on modifié <span class="math inline">\(2^{x}\)</span> : on ajoute quelque chose au résultat, on change <span class="math inline">\(x\)</span>, ou on multiplie le résultat ?</p>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Calcule <span class="math inline">\(g(0)\)</span>, <span class="math inline">\(h(0)\)</span>, <span class="math inline">\(k(0)\)</span> et <span class="math inline">\(l(0)\)</span> pour trouver les points sur l’axe des ordonnées.</p>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<ul>
+<li><span class="math inline">\(g(x) = 2^{x} + 2\)</span> : on ajoute <span class="math inline">\(2\)</span> à chaque image, translation de <span class="math inline">\(2\)</span> unités vers le haut (1). <span class="math inline">\(g(0) = 3\)</span> : point <span class="math inline">\((0, 3)\)</span>.</li>
+<li><span class="math inline">\(h(x) = 2^{x - 2}\)</span> : on remplace <span class="math inline">\(x\)</span> par <span class="math inline">\(x - 2\)</span>, translation de <span class="math inline">\(2\)</span> unités vers la droite (2). <span class="math inline">\(h(0) = 2^{-2} = \frac{1}{4}\)</span> : point <span class="math inline">\((0, \frac{1}{4})\)</span>.</li>
+<li><span class="math inline">\(k(x) = 2 \cdot 2^{x}\)</span> : chaque image est multipliée par <span class="math inline">\(2\)</span>, étirement vertical de facteur <span class="math inline">\(2\)</span> (3). <span class="math inline">\(k(0) = 2\)</span> : point <span class="math inline">\((0, 2)\)</span>.</li>
+<li><span class="math inline">\(l(x) = 2^{-x}\)</span> : on remplace <span class="math inline">\(x\)</span> par <span class="math inline">\(-x\)</span>, symétrie d’axe <span class="math inline">\(y\)</span> (4). <span class="math inline">\(l(0) = 1\)</span> : point <span class="math inline">\((0, 1)\)</span>.</li>
+</ul>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
+<ul>
+<li>Croire que <span class="math inline">\(2^{x - 2}\)</span> déplace la courbe vers la gauche : on remplace <span class="math inline">\(x\)</span> par <span class="math inline">\(x - 2\)</span>, la courbe se déplace vers la droite.</li>
+<li>Confondre <span class="math inline">\(2 \cdot 2^{x}\)</span> et <span class="math inline">\(2^{2 x}\)</span> : <span class="math inline">\(2 \cdot 2^{x} = 2^{x + 1}\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-8" class="exo" data-sorte="exercice" data-num="1.8" data-page="18" data-phys="20" data-id="6UAA4.ex.008" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.8</span> <span class="exo-meta"><span class="exo-comp" data-tip="A2 : Relier le graphique d’une transformée simple d’une fonction exponentielle ou logarithme à son expression analytique." tabindex="0">A2</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>La courbe de référence <span class="math inline">\(f(x) = 2^{x}\)</span> est tracée en pointillés. Les courbes <strong>A</strong>, <strong>B</strong>, <strong>C</strong> en sont des transformées simples. Pour chacune, donne son expression analytique et nomme la transformation appliquée à <span class="math inline">\(f\)</span>.</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -3.0, &quot;xmax&quot;: 3.0, &quot;ymin&quot;: -6.0, &quot;ymax&quot;: 8.0, &quot;w&quot;: 558, &quot;h&quot;: 340, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 2.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;couleur&quot;: &quot;#6a737d&quot;, &quot;pointille&quot;: true, &quot;ep&quot;: 1.0, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.0, x)&quot;}}, {&quot;couleur&quot;: &quot;#1d6fb8&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;(Math.pow(2.0, x) + 2.0)&quot;}}, {&quot;couleur&quot;: &quot;#c1002a&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.0, (-x))&quot;}}, {&quot;couleur&quot;: &quot;#0a7d4d&quot;, &quot;pointille&quot;: false, &quot;ep&quot;: 1.3, &quot;f&quot;: {&quot;js&quot;: &quot;((-1.0) * Math.pow(2.0, x))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 3.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: -1.0}]}"></div>
+<p><span style="color:#1d6fb8">■</span> A <span style="color:#c1002a">■</span> B <span style="color:#0a7d4d">■</span> C <span style="color:#6a737d">- - -</span> référence <span class="math inline">\(2^{x}\)</span></p>
+<div class="rep-bloc">
+<p><strong>A</strong> <span class="math inline">\(= 2^{x} + 2\)</span> : translation verticale vers le haut (asymptote <span class="math inline">\(y = 2\)</span>, o.à.o. <span class="math inline">\(3\)</span>). <strong>B</strong> <span class="math inline">\(= 2^{-x} = (1/2)^{x}\)</span> : symétrie d’axe <span class="math inline">\(y\)</span> (décroissante). <strong>C</strong> <span class="math inline">\(= -2^{x}\)</span> : symétrie d’axe <span class="math inline">\(x\)</span> (o.à.o. <span class="math inline">\(-1\)</span>).</p>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-5" role="tab" aria-controls="tabset-5-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Relis la <a href="../ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html#propriete-1-2">propriété de symétrie d’axe <span class="math inline">\(y\)</span></a> et la <a href="#definition-1-4">définition des multiples</a>.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>Pour chaque courbe, où coupe-t-elle l’axe des ordonnées ? Est-elle croissante ou décroissante ? Au-dessus ou en dessous de l’axe des <span class="math inline">\(x\)</span> ?</p>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<p>La courbe A passe par <span class="math inline">\((0, 3)\)</span> et a l’allure de <span class="math inline">\(2^{x}\)</span> : que faut-il ajouter à <span class="math inline">\(2^{x}\)</span> ?</p>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<ul>
+<li>A : même allure que <span class="math inline">\(2^{x}\)</span>, décalée de <span class="math inline">\(2\)</span> vers le haut (elle passe par <span class="math inline">\((0, 3)\)</span> et s’approche de la droite <span class="math inline">\(y = 2\)</span>). A <span class="math inline">\(= 2^{x} + 2\)</span> : translation de <span class="math inline">\(2\)</span> unités vers le haut.</li>
+<li>B : passe par <span class="math inline">\((0, 1)\)</span> et décroît. B <span class="math inline">\(= 2^{-x} = (\frac{1}{2})^{x}\)</span> : symétrie d’axe <span class="math inline">\(y\)</span>.</li>
+<li>C : sous l’axe des <span class="math inline">\(x\)</span>, passe par <span class="math inline">\((0, -1)\)</span>. C <span class="math inline">\(= -2^{x}\)</span> : symétrie d’axe <span class="math inline">\(x\)</span>.</li>
+</ul>
+</div>
+<div id="tabset-5-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-5-tab">
+<ul>
+<li>Écrire B <span class="math inline">\(= -2^{x}\)</span> : le symétrique par rapport à l’axe <span class="math inline">\(y\)</span> reste au-dessus de l’axe des <span class="math inline">\(x\)</span>.</li>
+<li>Écrire A <span class="math inline">\(= 3 \cdot 2^{x}\)</span> parce qu’elle passe par <span class="math inline">\((0, 3)\)</span> : regarde aussi vers quoi elle tend à gauche (<span class="math inline">\(y = 2\)</span>, pas <span class="math inline">\(0\)</span>).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-9" class="exo" data-sorte="exercice" data-num="1.9" data-page="19" data-phys="21" data-id="6UAA4.ex.009" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.9</span> <span class="exo-meta"><span class="exo-comp" data-tip="A3 : Relier l’expression analytique d’une fonction exponentielle de type f(t) = C · a^(k t) à son graphique." tabindex="0">A3</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Associe chaque expression analytique au graphique correspondant (I à IV).</p>
+<div class="grille" style="--n:4">
+<div class="cellule">
+<p>I</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -2.5, &quot;xmax&quot;: 2.5, &quot;ymin&quot;: -3.0, &quot;ymax&quot;: 6.0, &quot;w&quot;: 320, &quot;h&quot;: 350, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 3.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;(3.0 * Math.pow(2.0, x))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 3.0}]}"></div>
+</div>
+<div class="cellule">
+<p>II</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -2.5, &quot;xmax&quot;: 2.5, &quot;ymin&quot;: -3.0, &quot;ymax&quot;: 6.0, &quot;w&quot;: 320, &quot;h&quot;: 350, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 3.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(2.0, x)&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}]}"></div>
+</div>
+<div class="cellule">
+<p>III</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -2.5, &quot;xmax&quot;: 2.5, &quot;ymin&quot;: -3.0, &quot;ymax&quot;: 6.0, &quot;w&quot;: 320, &quot;h&quot;: 350, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 3.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;Math.pow(0.5, x)&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 1.0}]}"></div>
+</div>
+<div class="cellule">
+<p>IV</p>
+<div class="ia" data-ia="graphe" data-cfg="{&quot;xmin&quot;: -2.5, &quot;xmax&quot;: 2.5, &quot;ymin&quot;: -3.0, &quot;ymax&quot;: 6.0, &quot;w&quot;: 320, &quot;h&quot;: 350, &quot;xpas&quot;: 1.0, &quot;ypas&quot;: 3.0, &quot;xlabel&quot;: &quot;x&quot;, &quot;ylabel&quot;: &quot;y&quot;, &quot;courbes&quot;: [{&quot;pointille&quot;: false, &quot;ep&quot;: 1.4, &quot;f&quot;: {&quot;js&quot;: &quot;((-1.0) * Math.pow(2.0, x))&quot;}}], &quot;points&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: -1.0}]}"></div>
+</div>
+</div>
+<p>Expressions à placer : <span class="math inline">\(f(x) = 2^{x}\)</span> <span class="math inline">\(g(x) = 3 \cdot 2^{x}\)</span> <span class="math inline">\(h(x) = (\frac{1}{2})^{x}\)</span> <span class="math inline">\(k(x) = -2^{x}\)</span></p>
+<div class="rep-bloc">
+<p>I <span class="math inline">\(= g = 3 \cdot 2^{x}\)</span> (o.à.o. <span class="math inline">\(3\)</span>) ; II <span class="math inline">\(= f = 2^{x}\)</span> (o.à.o. <span class="math inline">\(1\)</span>) ; III <span class="math inline">\(= h = (1/2)^{x}\)</span> (décroissante) ; IV <span class="math inline">\(= k = -2^{x}\)</span> (sous l’axe, o.à.o. <span class="math inline">\(-1\)</span>).</p>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-4" role="tab" aria-controls="tabset-6-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-5" role="tab" aria-controls="tabset-6-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Relis l’<a href="#exemple-1-2">exemple « lire un multiple »</a> : <span class="math inline">\(k = f(0)\)</span> se lit sur l’axe des ordonnées.</p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Pour chaque graphique : où la courbe coupe-t-elle l’axe des ordonnées ? Croît-elle ou décroît-elle ?</p>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<p>Calcule <span class="math inline">\(f(0)\)</span>, <span class="math inline">\(g(0)\)</span>, <span class="math inline">\(h(0)\)</span> et <span class="math inline">\(k(0)\)</span>, puis compare avec les graphiques.</p>
+</div>
+<div id="tabset-6-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-4-tab">
+<p><span class="math inline">\(f(0) = 1\)</span>, <span class="math inline">\(g(0) = 3\)</span>, <span class="math inline">\(h(0) = 1\)</span>, <span class="math inline">\(k(0) = -1\)</span>.</p>
+<ul>
+<li>I passe par <span class="math inline">\((0, 3)\)</span> : I <span class="math inline">\(= g\)</span>, <span class="math inline">\(g(x) = 3 \cdot 2^{x}\)</span>.</li>
+<li>II passe par <span class="math inline">\((0, 1)\)</span> et croît : II <span class="math inline">\(= f\)</span>, <span class="math inline">\(f(x) = 2^{x}\)</span>.</li>
+<li>III passe par <span class="math inline">\((0, 1)\)</span> et décroît (base <span class="math inline">\(\frac{1}{2} &lt; 1\)</span>) : III <span class="math inline">\(= h\)</span>, <span class="math inline">\(h(x) = (\frac{1}{2})^{x}\)</span>.</li>
+<li>IV est sous l’axe des <span class="math inline">\(x\)</span> et passe par <span class="math inline">\((0, -1)\)</span> : IV <span class="math inline">\(= k\)</span>, <span class="math inline">\(k(x) = -2^{x}\)</span>.</li>
+</ul>
+</div>
+<div id="tabset-6-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-5-tab">
+<ul>
+<li>Confondre II et III : les deux passent par <span class="math inline">\((0, 1)\)</span>, c’est le sens de variation qui les distingue.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-10" class="exo" data-sorte="exercice" data-num="1.10" data-page="19" data-phys="21" data-id="6UAA4.ex.010" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.10</span> <span class="exo-meta"><span class="exo-comp" data-tip="C4 : Déterminer la base d’une fonction exponentielle à partir de son expression analytique, d’un graphique, d’un tableau de nombres ou d’une condition." tabindex="0">C4</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>On considère une fonction exponentielle de la forme</p>
+<p><span class="math inline">\(f(x) = C \cdot a^{x}\)</span></p>
+<p>et on sait que <span class="math inline">\(f(0) = 400\)</span> et <span class="math inline">\(f(3) = 500\)</span>.</p>
+<ol type="1">
+<li>Détermine la valeur de <span class="math inline">\(C\)</span>.</li>
+<li>En utilisant la valeur de <span class="math inline">\(f(3)\)</span>, établis une équation permettant de déterminer la base <span class="math inline">\(a\)</span>.</li>
+<li>Détermine la valeur de <span class="math inline">\(a\)</span> à l’aide de la calculatrice.</li>
+<li>Donne finalement l’expression analytique de <span class="math inline">\(f\)</span>.</li>
+</ol>
+<div class="rep-bloc">
+<ol type="1">
+<li><span class="math inline">\(C = f(0) = 400\)</span>. 2) <span class="math inline">\(400 \cdot a^{3} = 500 ⟹ a^{3} = 1{,}25\)</span>. 3) <span class="math inline">\(a = \sqrt[3]{1{,}25} \approx 1{,}0772\)</span>. 4) <span class="math inline">\(f(x) = 400 \cdot 1{,}0772^{x}\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" role="tab" aria-controls="tabset-7-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-4" role="tab" aria-controls="tabset-7-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-5" role="tab" aria-controls="tabset-7-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Relis la <a href="#definition-1-4">définition des multiples</a> : que vaut <span class="math inline">\(f(0)\)</span> pour <span class="math inline">\(f(x) = C \cdot a^{x}\)</span> ?</p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p>Que vaut <span class="math inline">\(a^{0}\)</span> ? Et que devient l’égalité <span class="math inline">\(f(3) = 500\)</span> quand tu remplaces <span class="math inline">\(C\)</span> par sa valeur ?</p>
+</div>
+<div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
+<p><span class="math inline">\(400 \cdot a^{3} = 500\)</span>, donc <span class="math inline">\(a^{3} = 500 / 400\)</span>. La base est la racine cubique de ce nombre.</p>
+</div>
+<div id="tabset-7-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-4-tab">
+<ol type="1">
+<li><span class="math inline">\(f(0) = C \cdot a^{0} = C\)</span>, donc <span class="math inline">\(C = 400\)</span>.</li>
+<li><span class="math inline">\(f(3) = 500\)</span> donne <span class="math inline">\(400 \cdot a^{3} = 500\)</span>, soit <span class="math inline">\(a^{3} = \frac{500}{400} = 1{,}25\)</span>.</li>
+<li><span class="math inline">\(a = \sqrt[3]{1{,}25} \approx 1{,}0772\)</span> (la base est positive).</li>
+<li><span class="math inline">\(f(x) = 400 \cdot 1{,}0772^{x}\)</span>.</li>
+</ol>
+</div>
+<div id="tabset-7-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-5-tab">
+<ul>
+<li>Diviser <span class="math inline">\(500\)</span> par <span class="math inline">\(3\)</span> au lieu de prendre une racine cubique : <span class="math inline">\(a^{3} = 1{,}25\)</span> ne donne pas <span class="math inline">\(a = 1{,}25 / 3\)</span>.</li>
+<li>Oublier <span class="math inline">\(C\)</span> dans l’équation : <span class="math inline">\(a^{3} = 500\)</span> est faux.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-11" class="exo" data-sorte="exercice" data-num="1.11" data-page="20" data-phys="22" data-id="6UAA4.ex.011" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.11</span> <span class="exo-meta"><span class="exo-comp" data-tip="A1 : Déterminer l’image d’un réel par une fonction exponentielle ou logarithme en base quelconque avec la calculatrice." tabindex="0">A1</span> ★☆☆</span></p>
+</div>
+<div class="exo-corps">
+<p>On considère la fonction <span class="math inline">\(f(x) = 250 \cdot 1{,}08^{x}\)</span>. À l’aide de la calculatrice, calcule les valeurs suivantes. Donne chaque résultat au dixième près.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<ol type="1">
+<li><span class="math inline">\(f(0)\)</span></li>
+<li><span class="math inline">\(f(2)\)</span></li>
+<li><span class="math inline">\(f(5)\)</span></li>
+<li><span class="math inline">\(f(10)\)</span></li>
+</ol>
+</div>
+<div class="cellule">
+<ol start="5" type="1">
+<li><span class="math inline">\(f(1{,}5)\)</span></li>
+<li><span class="math inline">\(f(7{,}25)\)</span></li>
+<li><span class="math inline">\(f(-2)\)</span></li>
+<li><span class="math inline">\(f(12{,}5)\)</span></li>
+</ol>
+</div>
+</div>
+<p>Que remarques-tu concernant les valeurs obtenues lorsque l’exposant n’est pas entier ?</p>
+<div class="rep-bloc">
+<p><span class="math inline">\(f(0) = 250\)</span> ; <span class="math inline">\(f(2) \approx 291{,}6\)</span> ; <span class="math inline">\(f(5) \approx 367{,}3\)</span> ; <span class="math inline">\(f(10) \approx 539{,}7\)</span> ; <span class="math inline">\(f(1{,}5) \approx 280{,}6\)</span> ; <span class="math inline">\(f(7{,}25) \approx 436{,}8\)</span> ; <span class="math inline">\(f(-2) \approx 214{,}3\)</span> ; <span class="math inline">\(f(12{,}5) \approx 654{,}2\)</span>. L’exponentielle est définie pour <strong>tout</strong> réel : un exposant non entier (ou négatif) donne une valeur parfaitement définie — la courbe est <strong>continue</strong>.</p>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-3" role="tab" aria-controls="tabset-8-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-4" role="tab" aria-controls="tabset-8-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-5" role="tab" aria-controls="tabset-8-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>Relis la <a href="../ch1-fonctions-exponentie/3-definition-de-la-fonction-exponentielle.html#definition-1-3">définition de la fonction exponentielle</a> : pour quels réels <span class="math inline">\(x\)</span> est-elle définie ?</p>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<p>Comment saisir un exposant non entier ou négatif sur ta calculatrice (touche <span class="math inline">\(x^{y}\)</span> ou <code>^</code>) ?</p>
+</div>
+<div id="tabset-8-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-3-tab">
+<p>Calcule d’abord <span class="math inline">\(1{,}08^{x}\)</span>, puis multiplie par <span class="math inline">\(250\)</span> ; arrondis seulement à la fin.</p>
+</div>
+<div id="tabset-8-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-4-tab">
+<p><span class="math inline">\(f(0) = 250\)</span> ; <span class="math inline">\(f(2) \approx 291{,}6\)</span> ; <span class="math inline">\(f(5) \approx 367{,}3\)</span> ; <span class="math inline">\(f(10) \approx 539{,}7\)</span> ; <span class="math inline">\(f(1{,}5) \approx 280{,}6\)</span> ; <span class="math inline">\(f(7{,}25) \approx 436{,}8\)</span> ; <span class="math inline">\(f(-2) \approx 214{,}3\)</span> ; <span class="math inline">\(f(12{,}5) \approx 654{,}2\)</span>.</p>
+<p>Les exposants non entiers ou négatifs donnent des valeurs bien définies, situées entre les valeurs voisines (<span class="math inline">\(f(1{,}5)\)</span> est entre <span class="math inline">\(f(1)\)</span> et <span class="math inline">\(f(2)\)</span>) : la fonction est définie pour tout réel et sa courbe est continue.</p>
+</div>
+<div id="tabset-8-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-5-tab">
+<ul>
+<li>Calculer <span class="math inline">\((250 \cdot 1{,}08)^{x}\)</span> : la priorité donne <span class="math inline">\(250 \cdot (1{,}08^{x})\)</span>.</li>
+<li>Arrondir <span class="math inline">\(1{,}08^{x}\)</span> avant de multiplier par <span class="math inline">\(250\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<section id="modéliser-avec-une-exponentielle" class="level2">
+<h2 class="anchored" data-anchor-id="modéliser-avec-une-exponentielle">Modéliser avec une exponentielle</h2>
+<p>Les multiples d’exponentielles servent surtout à <strong>modéliser</strong> : dès qu’une grandeur est multipliée par un même facteur à intervalles réguliers, on l’écrit <span class="math inline">\(k \cdot a^{x}\)</span> (ou <span class="math inline">\(k \cdot a^{x / T}\)</span> si la période <span class="math inline">\(T\)</span> n’est pas <span class="math inline">\(1\)</span>).</p>
+<div id="exercice-1-12" class="exo" data-sorte="exercice" data-num="1.12" data-page="20" data-phys="22" data-id="6UAA4.ex.012" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.12</span> <span class="exo-meta"><span class="exo-comp" data-tip="C3 : Décrire la signification des paramètres d’une fonction exponentielle du type f(t) = C · a^(k t)." tabindex="0">C3</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>La quantité d’un médicament présente dans le sang d’un patient est modélisée par la fonction</p>
+<p><span class="math display">\[
+C(t) = 80 \cdot 0{,}75^{2 t},
+\]</span></p>
+<p>où <span class="math inline">\(t\)</span> est exprimé en heures et <span class="math inline">\(C(t)\)</span> en milligrammes.</p>
+<ol type="1">
+<li>Que représente le nombre <span class="math inline">\(80\)</span> dans ce modèle ?</li>
+<li>Que représente le nombre <span class="math inline">\(0{,}75\)</span> ?</li>
+<li>Que signifie le facteur <span class="math inline">\(2\)</span> présent dans l’exposant ?</li>
+<li>Par quel facteur la quantité est-elle multipliée lorsque <span class="math inline">\(t\)</span> augmente d’une heure ?</li>
+<li>La quantité diminue-t-elle de <span class="math inline">\(25 \%\)</span> par heure ? Justifie ta réponse.</li>
+</ol>
+<div class="rep-bloc">
+<ol type="1">
+<li>La dose <strong>initiale</strong> (<span class="math inline">\(t = 0\)</span>), soit <span class="math inline">\(80\)</span> mg. 2) Le facteur multiplicatif par <strong>demi-heure</strong> (quand <span class="math inline">\(t\)</span> augmente de <span class="math inline">\(0{,}5\)</span>, l’exposant augmente de <span class="math inline">\(1\)</span>). 3) Le phénomène se répète <strong>deux fois par heure</strong> : chaque heure, on multiplie deux fois par <span class="math inline">\(0{,}75\)</span>. 4) Par heure : <span class="math inline">\(0{,}75^{2} = 0{,}5625\)</span>. 5) <strong>Non</strong> : <span class="math inline">\(-25 \%\)</span> correspondrait au facteur <span class="math inline">\(0{,}75\)</span> par heure ; or le facteur horaire vaut <span class="math inline">\(0{,}5625\)</span>, soit une baisse de <span class="math inline">\(43{,}75 \%\)</span> par heure (les <span class="math inline">\(25 \%\)</span> valent par demi-heure).</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-3" role="tab" aria-controls="tabset-9-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-4" role="tab" aria-controls="tabset-9-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-5" role="tab" aria-controls="tabset-9-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p>Relis l’<a href="#exemple-1-3">exemple « modéliser une situation »</a> : dans <span class="math inline">\(C \cdot a^{x}\)</span>, que représentent <span class="math inline">\(C\)</span> et <span class="math inline">\(a\)</span> ?</p>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<p>Quand <span class="math inline">\(t\)</span> augmente de <span class="math inline">\(0{,}5\)</span>, de combien augmente l’exposant <span class="math inline">\(2 t\)</span> ? Et quand <span class="math inline">\(t\)</span> augmente de <span class="math inline">\(1\)</span> ?</p>
+</div>
+<div id="tabset-9-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-3-tab">
+<p><span class="math inline">\(C(t + 1) = 80 \cdot 0{,}75^{2 t + 2} = C(t) \cdot 0{,}75^{2}\)</span>.</p>
+</div>
+<div id="tabset-9-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-4-tab">
+<ol type="1">
+<li><span class="math inline">\(C(0) = 80 \cdot 0{,}75^{0} = 80\)</span> : <span class="math inline">\(80\)</span> mg est la quantité initiale (à <span class="math inline">\(t = 0\)</span>).</li>
+<li>Quand <span class="math inline">\(t\)</span> augmente de <span class="math inline">\(0{,}5\)</span> h, l’exposant <span class="math inline">\(2 t\)</span> augmente de <span class="math inline">\(1\)</span> : <span class="math inline">\(0{,}75\)</span> est le facteur multiplicatif par demi-heure.</li>
+<li>Le facteur <span class="math inline">\(2\)</span> signifie que la multiplication par <span class="math inline">\(0{,}75\)</span> a lieu deux fois par heure.</li>
+<li><span class="math inline">\(C(t + 1) = 80 \cdot 0{,}75^{2 t + 2} = C(t) \cdot 0{,}75^{2} = C(t) \cdot 0{,}5625\)</span> : la quantité est multipliée par <span class="math inline">\(0{,}5625\)</span> chaque heure.</li>
+<li>Non. Une diminution de <span class="math inline">\(25 \%\)</span> par heure correspondrait au facteur <span class="math inline">\(0{,}75\)</span> par heure ; le facteur horaire vaut <span class="math inline">\(0{,}5625 = 1 - 0{,}4375\)</span>, soit une diminution de <span class="math inline">\(43{,}75 \%\)</span> par heure. Les <span class="math inline">\(25 \%\)</span> valent par demi-heure.</li>
+</ol>
+</div>
+<div id="tabset-9-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-5-tab">
+<ul>
+<li>Répondre « oui, <span class="math inline">\(25 \%\)</span> par heure » en lisant seulement la base <span class="math inline">\(0{,}75\)</span> sans tenir compte du <span class="math inline">\(2\)</span> dans l’exposant.</li>
+<li>Doubler le pourcentage (<span class="math inline">\(50 \%\)</span> par heure) : deux diminutions successives de <span class="math inline">\(25 \%\)</span> ne font pas <span class="math inline">\(50 \%\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-13" class="exo" data-sorte="exercice" data-num="1.13" data-page="21" data-phys="23" data-id="6UAA4.ex.013" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.13</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Reconnaître, parmi tous ceux déjà rencontrés, le modèle adéquat à la situation." tabindex="0">T1</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Pour chacune des situations suivantes, choisis le modèle qui te semble le plus approprié parmi les modèles rencontrés en classe. Justifie ton choix.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<p><strong>Situations :</strong></p>
+<ol type="1">
+<li>Une entreprise augmente chaque année le salaire de ses employés de <span class="math inline">\(150\)</span> €.</li>
+<li>Une population de bactéries augmente de <span class="math inline">\(30 \%\)</span> chaque heure.</li>
+<li>La température d’un liquide augmente de <span class="math inline">\(2\)</span> °C par minute pendant les cinq premières minutes.</li>
+<li>La valeur d’une voiture diminue de <span class="math inline">\(12 \%\)</span> chaque année.</li>
+</ol>
+</div>
+<div class="cellule">
+<p><strong>Modèles possibles :</strong></p>
+<ul>
+<li>croissance affine ;</li>
+<li>croissance exponentielle ;</li>
+<li>décroissance affine ;</li>
+<li>décroissance exponentielle.</li>
+</ul>
+</div>
+</div>
+<p>Pour chaque situation, précise le modèle choisi et explique en une phrase ce qui justifie ton choix.</p>
+<div class="rep-bloc">
+<ol type="1">
+<li>Croissance <strong>affine</strong> : on <strong>ajoute</strong> <span class="math inline">\(150\)</span> € chaque année (montant fixe). 2) Croissance <strong>exponentielle</strong> : on <strong>multiplie</strong> par <span class="math inline">\(1{,}3\)</span> (<span class="math inline">\(+30 \%\)</span>) chaque heure. 3) Croissance <strong>affine</strong> : on ajoute <span class="math inline">\(2\)</span> °C par minute (taux constant). 4) Décroissance <strong>exponentielle</strong> : on multiplie par <span class="math inline">\(0{,}88\)</span> chaque année.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-3" role="tab" aria-controls="tabset-10-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-4" role="tab" aria-controls="tabset-10-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-5" role="tab" aria-controls="tabset-10-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p>Relis la <a href="../ch1-fonctions-exponentie/1-croissance-exponentielle.html#definition-1-1">définition de la croissance exponentielle</a> : on multiplie par un même nombre à chaque pas.</p>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<p>Dans chaque situation, à chaque pas de temps, ajoute-t-on (ou retire-t-on) un même nombre, ou multiplie-t-on par un même nombre ?</p>
+</div>
+<div id="tabset-10-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-3-tab">
+<p>Un pourcentage d’augmentation ou de diminution revient à multiplier : <span class="math inline">\(+30 \%\)</span> donne <span class="math inline">\(\times 1{,}3\)</span>.</p>
+</div>
+<div id="tabset-10-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-4-tab">
+<ol type="1">
+<li>Croissance affine : le salaire augmente chaque année du même montant (<span class="math inline">\(+150\)</span> €).</li>
+<li>Croissance exponentielle : la population est multipliée chaque heure par <span class="math inline">\(1{,}3\)</span> (<span class="math inline">\(+30 \%\)</span>).</li>
+<li>Croissance affine : la température augmente chaque minute du même nombre de degrés (<span class="math inline">\(+2\)</span> °C).</li>
+<li>Décroissance exponentielle : la valeur est multipliée chaque année par <span class="math inline">\(0{,}88\)</span> (<span class="math inline">\(-12 \%\)</span>).</li>
+</ol>
+</div>
+<div id="tabset-10-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-5-tab">
+<ul>
+<li>Classer « <span class="math inline">\(+30 \%\)</span> par heure » en affine : un pourcentage constant donne un facteur constant, donc une croissance exponentielle.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exemple-1-3" class="theo theo-exemple" data-sorte="exemple" data-num="1.3" data-page="21" data-phys="23" data-id="6UAA4.modeliser-situation" data-type="exemple" data-tags="">
+<div class="theo-head">
+<p><strong>Exemple 1.3</strong> — modéliser une situation</p>
+</div>
+<div class="theo-body">
+<p>Une population de <span class="math inline">\(500\)</span> bactéries <strong>triple</strong> toutes les heures. Modélisons son effectif <span class="math inline">\(N(t)\)</span> après <span class="math inline">\(t\)</span> heures. On multiplie par <span class="math inline">\(3\)</span> chaque heure, en partant de <span class="math inline">\(500\)</span> : donc <span class="math inline">\(N(t) = 500 \cdot 3^{t}\)</span>. Après <span class="math inline">\(4\)</span> heures : <span class="math inline">\(N(4) = 500 \cdot 3^{4} = 500 \cdot 81 = 40 \, 500\)</span> bactéries.</p>
+</div>
+</div>
+<div id="exercice-1-14" class="exo" data-sorte="exercice" data-num="1.14" data-page="21" data-phys="23" data-id="6UAA4.ex.014" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.14</span> <span class="exo-meta"><span class="exo-comp" data-tip="T2 : Modéliser une croissance exponentielle décrite dans une situation contextualisée." tabindex="0">T2</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>En <span class="math inline">\(1850\)</span>, Bourgville comptait <span class="math inline">\(100\)</span> habitants ; sa population <strong>double</strong> tous les dix ans.</p>
+<ol type="1">
+<li>Donne l’expression <span class="math inline">\(P(x)\)</span> du nombre d’habitants <span class="math inline">\(x\)</span> années après <span class="math inline">\(1850\)</span>.</li>
+<li>Combien d’habitants en <span class="math inline">\(1900\)</span>, en <span class="math inline">\(1950\)</span>, en <span class="math inline">\(2000\)</span> ?</li>
+</ol>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-3" role="tab" aria-controls="tabset-11-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-4" role="tab" aria-controls="tabset-11-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-5" role="tab" aria-controls="tabset-11-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<p>Relis l’<a href="#exemple-1-3">exemple « modéliser une situation »</a> : quand le facteur s’applique tous les <span class="math inline">\(10\)</span> ans, quel est l’exposant ?</p>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<p>Combien de fois la population a-t-elle doublé après <span class="math inline">\(x\)</span> années ?</p>
+</div>
+<div id="tabset-11-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-3-tab">
+<p>Après <span class="math inline">\(x\)</span> années, la population a doublé <span class="math inline">\(x / 10\)</span> fois : <span class="math inline">\(P(x) = 100 \cdot 2^{x / 10}\)</span>.</p>
+</div>
+<div id="tabset-11-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-4-tab">
+<ol type="1">
+<li>La population initiale vaut <span class="math inline">\(100\)</span> et elle est multipliée par <span class="math inline">\(2\)</span> tous les <span class="math inline">\(10\)</span> ans ; après <span class="math inline">\(x\)</span> années, elle a doublé <span class="math inline">\(\frac{x}{10}\)</span> fois : <span class="math inline">\(P(x) = 100 \cdot 2^{x / 10}\)</span>.</li>
+<li><ul>
+<li><p>En <span class="math inline">\(1900\)</span> (<span class="math inline">\(x = 50\)</span>) : <span class="math inline">\(P(50) = 100 \cdot 2^{5} = 3 \, 200\)</span> habitants.</p></li>
+<li><p>En <span class="math inline">\(1950\)</span> (<span class="math inline">\(x = 100\)</span>) : <span class="math inline">\(P(100) = 100 \cdot 2^{10} = 102 \, 400\)</span> habitants.</p></li>
+<li><p>En <span class="math inline">\(2000\)</span> (<span class="math inline">\(x = 150\)</span>) : <span class="math inline">\(P(150) = 100 \cdot 2^{15} = 3 \, 276 \, 800\)</span> habitants.</p></li>
+</ul></li>
+</ol>
+</div>
+<div id="tabset-11-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-5-tab">
+<ul>
+<li>Écrire <span class="math inline">\(P(x) = 100 \cdot 2^{x}\)</span> : la population doublerait chaque année.</li>
+<li>Prendre <span class="math inline">\(x = 1900\)</span> au lieu de <span class="math inline">\(x = 50\)</span> : <span class="math inline">\(x\)</span> compte les années depuis <span class="math inline">\(1850\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-15" class="exo" data-sorte="exercice" data-num="1.15" data-page="21" data-phys="23" data-id="6UAA4.ex.015" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.15</span> <span class="exo-meta"><span class="exo-comp" data-tip="T2 : Modéliser une croissance exponentielle décrite dans une situation contextualisée." tabindex="0">T2</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Dans une famille de lapins, le nombre d’individus <strong>double</strong> tous les sept jours ; elle compte actuellement <span class="math inline">\(100\)</span> lapins.</p>
+<ol type="1">
+<li>Donne l’expression <span class="math inline">\(L(t)\)</span> du nombre de lapins après <span class="math inline">\(t\)</span> jours.</li>
+<li>Combien de lapins dans un mois (<span class="math inline">\(30\)</span> jours) ? Dans trois mois (<span class="math inline">\(90\)</span> jours) ?</li>
+</ol>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-3" role="tab" aria-controls="tabset-12-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-4" role="tab" aria-controls="tabset-12-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-5" role="tab" aria-controls="tabset-12-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p>Relis l’<a href="#exemple-1-3">exemple « modéliser une situation »</a> et compare avec l’exercice de Bourgville.</p>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<p>Après <span class="math inline">\(t\)</span> jours, combien de périodes de <span class="math inline">\(7\)</span> jours se sont écoulées ?</p>
+</div>
+<div id="tabset-12-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-3-tab">
+<p><span class="math inline">\(L(t) = 100 \cdot 2^{t / 7}\)</span> ; calcule <span class="math inline">\(L(30)\)</span> et <span class="math inline">\(L(90)\)</span> à la calculatrice.</p>
+</div>
+<div id="tabset-12-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-4-tab">
+<ol type="1">
+<li>Il y a <span class="math inline">\(100\)</span> lapins au départ et leur nombre est multiplié par <span class="math inline">\(2\)</span> tous les <span class="math inline">\(7\)</span> jours : <span class="math inline">\(L(t) = 100 \cdot 2^{t / 7}\)</span>.</li>
+<li><ul>
+<li><p>Dans un mois : <span class="math inline">\(L(30) = 100 \cdot 2^{30 / 7} \approx 1 \, 950\)</span> lapins.</p></li>
+<li><p>Dans trois mois : <span class="math inline">\(L(90) = 100 \cdot 2^{90 / 7} \approx 742 \, 000\)</span> lapins.</p></li>
+</ul></li>
+</ol>
+</div>
+<div id="tabset-12-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-5-tab">
+<ul>
+<li>Calculer <span class="math inline">\(2^{30} / 7\)</span> au lieu de <span class="math inline">\(2^{30 / 7}\)</span> : mets l’exposant entre parenthèses sur la calculatrice.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-16" class="exo" data-sorte="exercice" data-num="1.16" data-page="22" data-phys="24" data-id="6UAA4.ex.016" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.16</span> <span class="exo-meta"><span class="exo-comp" data-tip="T3 : Résoudre un problème à l’aide d’une fonction exponentielle dont l’expression analytique est donnée ou non." tabindex="0">T3</span> ★★★</span></p>
+</div>
+<div class="exo-corps">
+<p>Dans un pays en crise, la monnaie (le « sou ») se déprécie de <span class="math inline">\(8{,}5 \%\)</span> par an.</p>
+<ol type="1">
+<li>Donne l’expression de la « valeur réelle » <span class="math inline">\(R(t)\)</span> d’un billet de <span class="math inline">\(1000\)</span> sous après <span class="math inline">\(t\)</span> années.</li>
+<li>Que vaudra ce billet dans <span class="math inline">\(5\)</span> ans ? Dans <span class="math inline">\(10\)</span> ans ?</li>
+</ol>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-3" role="tab" aria-controls="tabset-13-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-4" role="tab" aria-controls="tabset-13-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-5" role="tab" aria-controls="tabset-13-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
+<p>Relis l’<a href="#exemple-1-3">exemple « modéliser une situation »</a> : une diminution de <span class="math inline">\(p \%\)</span> revient à multiplier par <span class="math inline">\(1 - \frac{p}{100}\)</span>.</p>
+</div>
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
+<p>Si le billet perd <span class="math inline">\(8{,}5 \%\)</span> de sa valeur en un an, quelle part de sa valeur garde-t-il ?</p>
+</div>
+<div id="tabset-13-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-3-tab">
+<p>Le facteur annuel vaut <span class="math inline">\(1 - 0{,}085 = 0{,}915\)</span>.</p>
+</div>
+<div id="tabset-13-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-4-tab">
+<ol type="1">
+<li>Chaque année, la valeur réelle est multipliée par <span class="math inline">\(1 - 0{,}085 = 0{,}915\)</span> ; au départ elle vaut <span class="math inline">\(1000\)</span> sous : <span class="math inline">\(R(t) = 1000 \cdot 0{,}915^{t}\)</span>.</li>
+<li><ul>
+<li><p>Dans <span class="math inline">\(5\)</span> ans : <span class="math inline">\(R(5) = 1000 \cdot 0{,}915^{5} \approx 641\)</span> sous.</p></li>
+<li><p>Dans <span class="math inline">\(10\)</span> ans : <span class="math inline">\(R(10) = 1000 \cdot 0{,}915^{10} \approx 411\)</span> sous.</p></li>
+</ul></li>
+</ol>
+</div>
+<div id="tabset-13-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-5-tab">
+<ul>
+<li>Prendre <span class="math inline">\(0{,}085\)</span> comme base : c’est la part perdue, pas la part conservée.</li>
+<li>Soustraire <span class="math inline">\(10 \cdot 85\)</span> sous en <span class="math inline">\(10\)</span> ans : la perte est un pourcentage de la valeur restante, elle diminue chaque année.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-1-17" class="exo" data-sorte="exercice" data-num="1.17" data-page="22" data-phys="24" data-id="6UAA4.ex.017" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 1.17</span> <span class="exo-meta"><span class="exo-comp" data-tip="T3 : Résoudre un problème à l’aide d’une fonction exponentielle dont l’expression analytique est donnée ou non." tabindex="0">T3</span> ★★★</span></p>
+</div>
+<div class="exo-corps">
+<p>En janvier <span class="math inline">\(2017\)</span>, Jules achète une voiture à <span class="math inline">\(29 \, 850\)</span> €. Elle se <strong>déprécie</strong> d’environ <span class="math inline">\(15 \%\)</span> par an pendant les premières années.</p>
+<ol type="1">
+<li>Modélise la valeur <span class="math inline">\(V(x)\)</span> de la voiture <span class="math inline">\(x\)</span> années après l’achat.</li>
+<li>Quelle est sa valeur <span class="math inline">\(10\)</span> ans plus tard ?</li>
+<li>Peut-on parler de « bon placement » ? Justifie.</li>
+</ol>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-3" role="tab" aria-controls="tabset-14-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-4" role="tab" aria-controls="tabset-14-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-5" role="tab" aria-controls="tabset-14-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
+<p>Relis l’<a href="#exemple-1-3">exemple « modéliser une situation »</a>.</p>
+</div>
+<div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
+<p>Une dépréciation de <span class="math inline">\(15 \%\)</span> par an : par quel nombre la valeur est-elle multipliée chaque année ?</p>
+</div>
+<div id="tabset-14-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-3-tab">
+<p><span class="math inline">\(V(x) = 29 \, 850 \cdot 0{,}85^{x}\)</span> ; calcule <span class="math inline">\(V(10)\)</span>.</p>
+</div>
+<div id="tabset-14-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-4-tab">
+<ol type="1">
+<li>Chaque année, la valeur est multipliée par <span class="math inline">\(1 - 0{,}15 = 0{,}85\)</span> : <span class="math inline">\(V(x) = 29 \, 850 \cdot 0{,}85^{x}\)</span>.</li>
+<li><span class="math inline">\(V(10) = 29 \, 850 \cdot 0{,}85^{10} \approx 5 \, 877\)</span> € : après <span class="math inline">\(10\)</span> ans, la voiture ne vaut plus qu’environ <span class="math inline">\(5 \, 877\)</span> €.</li>
+<li>Non : la base <span class="math inline">\(0{,}85\)</span> est inférieure à <span class="math inline">\(1\)</span>, la valeur décroît. Après <span class="math inline">\(10\)</span> ans, elle a perdu environ <span class="math inline">\(80 \%\)</span> de son prix d’achat ; ce n’est pas un placement.</li>
+</ol>
+</div>
+<div id="tabset-14-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-5-tab">
+<ul>
+<li>Utiliser la base <span class="math inline">\(1{,}15\)</span> : une dépréciation fait diminuer la valeur.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="ae-lien">
+<p><a href="../autoeval.html#sections=sec-multiples">✔ S’autoévaluer sur cette section : test de 7 questions →</a></p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "exp-log", "uaa": "6UAA4", "pdf": "exp-log.pdf", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "exp-log.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses écrites en gras", "fichier": "exp-log-corrige.pdf"}, {"titre": "Exercices supplémentaires (ch. 1)", "detail": "à compléter", "fichier": "exercices-supp-ch1.pdf"}, {"titre": "Exercices supplémentaires (ch. 1) — corrigé", "detail": "réponses en bleu", "fichier": "exercices-supp-ch1-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20], "reprise": {"ancien": "/exp-log-cours/", "nouveau": "/6e/exp-log/"}};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  /* Reprise après déménagement du site (ancienne adresse → nouvelle) : les annotations
+     (lim-annot:v1:<chemin>) et les relevés de dés (pb-releve:<chemin>:n) sont rangés
+     par chemin de page ; on recopie, une fois par appareil, les anciennes clés sous les
+     nouvelles (sans écraser ni effacer). Les autres données (suivi, autoévaluation,
+     couche prof) sont rangées par cours et n'ont pas besoin de reprise. */
+  (function (R) {
+    if (!R || location.pathname.indexOf(R.nouveau) !== 0) return;      // seulement depuis la nouvelle adresse
+    try {
+      var fait = "typweb.reprise:" + R.ancien;
+      if (localStorage.getItem(fait)) return;
+      var a = [], i, k;
+      for (i = 0; i < localStorage.length; i++) {
+        k = localStorage.key(i);
+        ["lim-annot:v1:", "pb-releve:"].forEach(function (p) {
+          if (k && k.indexOf(p + R.ancien) === 0) a.push([k, p + R.nouveau + k.slice((p + R.ancien).length)]);
+        });
+      }
+      a.forEach(function (x) { if (localStorage.getItem(x[1]) === null) localStorage.setItem(x[1], localStorage.getItem(x[0])); });
+      localStorage.setItem(fait, String(Date.now()));
+    } catch (e) {}
+  })(window.TYPWEB.reprise);
+  /* Ancien mode hors-ligne (avant le site unique) : son service worker (portée = ancienne adresse) et
+     ses caches « typweb-<10 chiffres hexa> » ne servent plus ; ménage une fois la page chargée. */
+  if (window.TYPWEB.reprise && "serviceWorker" in navigator) window.addEventListener("load", function () {
+    try {
+      navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { if (new URL(r.scope).pathname.indexOf(window.TYPWEB.reprise.ancien) === 0) r.unregister(); });
+      }).catch(function () {});
+      if (window.caches) caches.keys().then(function (ks) {
+        ks.forEach(function (k) { if (/^typweb-[0-9a-f]{10}$/.test(k)) caches.delete(k); });
+      }).catch(function () {});
+    } catch (e) {}
+  });
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css", "js/interactif.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/interactif.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>
+<script>
+// Menu « Aa » : taille du texte (toujours) et styles du site à l'essai. Le choix est
+// mémorisé dans ce navigateur (localStorage « typweb-style »). À retirer quand
+// un style est retenu (typweb.toml : [site] styles-essai = false).
+(function () {
+  var STYLES = [
+    ["", "Actuel"],
+    ["epure", "1 · Épure"],
+    ["epure-types", "2 · Épure, couleurs de type"],
+    ["manuel", "3 · Manuel moderne"],
+    ["cahier", "4 · Cahier"],
+    ["ardoise", "7 · Ardoise"],
+    ["lecture", "8 · Lecture concentrée"],
+    ["fiches", "9 · Fiches numérotées"]
+  ];
+  function courant() { try { return localStorage.getItem("typweb-style") || ""; } catch (e) { return ""; } }
+  function appliquer(s) {
+    if (s) document.documentElement.setAttribute("data-style", s);
+    else document.documentElement.removeAttribute("data-style");
+    try { if (s) localStorage.setItem("typweb-style", s); else localStorage.removeItem("typweb-style"); } catch (e) {}
+    document.querySelectorAll(".st-panneau button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); });
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  var TAILLES = [0.85, 0.92, 1, 1.08, 1.16, 1.25, 1.35, 1.5];
+  function tailleCourante() { try { return parseFloat(localStorage.getItem("typweb-taille")) || 1; } catch (e) { return 1; } }
+  function poserTaille(t) {
+    document.documentElement.style.fontSize = t === 1 ? "" : (100 * t) + "%";
+    try { if (t === 1) localStorage.removeItem("typweb-taille"); else localStorage.setItem("typweb-taille", t); } catch (e) {}
+    var l = document.querySelector(".st-taille span"); if (l) l.textContent = Math.round(t * 100) + " %";
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  function pas(d) {
+    var t = tailleCourante(), k = 0;
+    TAILLES.forEach(function (x, j) { if (Math.abs(x - t) < Math.abs(TAILLES[k] - t)) k = j; });
+    poserTaille(TAILLES[Math.max(0, Math.min(TAILLES.length - 1, k + d))]);
+  }
+  function build() {
+    if (document.querySelector(".st-menu")) return;
+    var essai = !window.TYPWEB || window.TYPWEB.stylesEssai !== false;
+    var m = document.createElement("div"); m.className = "st-menu";
+    var b = document.createElement("button"); b.className = "st-btn"; b.type = "button"; b.textContent = "Aa";
+    b.title = "Taille du texte" + (essai ? " et style du site" : ""); b.setAttribute("aria-label", b.title);
+    var p = document.createElement("div"); p.className = "st-panneau"; p.hidden = true;
+    p.innerHTML = "<p>Taille du texte</p>";
+    var tl = document.createElement("div"); tl.className = "st-taille";
+    var moins = document.createElement("button"); moins.type = "button"; moins.textContent = "A−"; moins.title = "Réduire le texte";
+    var val = document.createElement("span"); val.textContent = Math.round(tailleCourante() * 100) + " %";
+    val.title = "Revenir à 100 %"; val.style.cursor = "pointer";
+    var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "A+"; plus.title = "Agrandir le texte";
+    moins.addEventListener("click", function () { pas(-1); });
+    plus.addEventListener("click", function () { pas(1); });
+    val.addEventListener("click", function () { poserTaille(1); });
+    tl.appendChild(moins); tl.appendChild(val); tl.appendChild(plus);
+    p.appendChild(tl);
+    if (essai) {
+      var sep = document.createElement("div"); sep.className = "st-sep"; p.appendChild(sep);
+      var t = document.createElement("p"); t.textContent = "Style du site (mode clair)"; p.appendChild(t);
+      STYLES.forEach(function (s) {
+        var x = document.createElement("button"); x.type = "button"; x.dataset.s = s[0]; x.textContent = s[1];
+        x.addEventListener("click", function () { appliquer(s[0]); });
+        p.appendChild(x);
+      });
+    }
+    b.addEventListener("click", function () { p.hidden = !p.hidden; });
+    document.addEventListener("click", function (e) { if (!m.contains(e.target)) p.hidden = true; });
+    m.appendChild(p); m.appendChild(b); document.body.appendChild(m);
+    if (essai) appliquer(courant());
+  }
+  if (document.readyState !== "loading") build(); else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qlambotte\.github\.io\/6e\/exp-log\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ch1-fonctions-exponentie/4-proprietes-et-caracteristiques-graphique.html" class="pagination-link" aria-label="Propriétés et caractéristiques graphiques">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Propriétés et caractéristiques graphiques</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ch1-fonctions-exponentie/6-des-graphes-tous-semblables-vers.html" class="pagination-link" aria-label="Des graphes tous semblables : vers un représentant privilégié">
+        <span class="nav-page-text"><span class="chapter-title">Des graphes tous semblables : vers un représentant privilégié</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Exponentielles et logarithmes — cours &amp; exercices</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© Quentin Lambotte</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

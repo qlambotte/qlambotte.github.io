@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Problèmes – Intégrales</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../sources.html" rel="next">
+<link href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-373b88032ffeb2d8c9d3af5274f06ecf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4-aires-et-volumes/index.html">Chapitre 4 — Aires et volumes</a></li><li class="breadcrumb-item"><a href="../ch4-aires-et-volumes/4-problemes.html"><span class="chapter-title">Problèmes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Intégrales</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intégrales — cours &amp; exercices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch1-lintegrale-une-accum/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 1 — L’intégrale, une accumulation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Accumuler à partir d’un débit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-lintegrale-une-accum/2-debit-variable-approximations-par-defaut.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Débit variable : approximations par défaut et par excès</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-lintegrale-une-accum/3-lintegrale-definie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’intégrale définie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés de l’intégrale</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1-lintegrale-une-accum/5-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Références</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch2-fonction-aire-et-pri/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 2 — Fonction aire et primitive</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonction-aire-et-pri/1-la-fonction-aire.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">La fonction aire</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">La pente de la fonction aire</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonction-aire-et-pri/3-primitives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Primitives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Calculer une intégrale avec une primitive</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3-calculer-des-primiti/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 3 — Calculer des primitives</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-calculer-des-primiti/1-primitives-immediates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Primitives immédiates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-calculer-des-primiti/2-fonctions-composees.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions composées</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-calculer-des-primiti/3-integration-par-parties.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intégration par parties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-calculer-des-primiti/4-calculer-des-integrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Calculer des intégrales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3-calculer-des-primiti/5-choisir-une-methode.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Choisir une méthode</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4-aires-et-volumes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 4 — Aires et volumes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-aires-et-volumes/1-aire-dune-surface-plane.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aire d’une surface plane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-aires-et-volumes/2-aire-entre-deux-courbes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aire entre deux courbes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Volume d’un solide de révolution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4-aires-et-volumes/4-problemes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Problèmes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mode-emploi.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mode d’emploi</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4-aires-et-volumes/index.html">Chapitre 4 — Aires et volumes</a></li><li class="breadcrumb-item"><a href="../ch4-aires-et-volumes/4-problemes.html"><span class="chapter-title">Problèmes</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Problèmes</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+<div id="exercice-4-10" class="exo" data-sorte="exercice" data-num="4.10" data-page="40" data-phys="43" data-id="6UAA3.ex.043" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 4.10</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Résoudre un problème nécessitant le calcul intégral (calculs d’aires ou de volumes)." tabindex="0">T1</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>En Belgique, en 2021, les femmes qui ont pris leur pension ont reçu en moyenne une pension totale (légale et complémentaire) de 1 633 € par mois, les hommes 2 121 €<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. L’écart s’explique surtout par des carrières plus souvent interrompues.</p>
+<ol type="a">
+<li><p>Calcule l’écart mensuel, puis l’écart cumulé sur 20 années de pension.</p></li>
+<li><p>On représente l’écart mensuel en fonction du temps (en mois). Que représente l’écart cumulé sur ce graphique ?</p></li>
+<li><p>Calcule l’écart en pourcentage de la pension moyenne des hommes.</p></li>
+</ol>
+<div class="rep-bloc">
+<ol type="a">
+<li><span class="math inline">\(2121 - 1633 = 488\)</span> € par mois ; sur 20 ans : <span class="math inline">\(488 \cdot 12 \cdot 20 = 117 120\)</span> €. b) L’aire du rectangle de hauteur 488 €/mois et de largeur 240 mois : l’accumulation de l’écart mensuel. c) <span class="math inline">\(\frac{488}{2121} \approx 0{,}23\)</span>, soit 23 %.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Relis la <a href="../ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#propriete-1-1">propriété 1.1</a>.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Combien de mois compte une pension de 20 ans ?</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><span class="math inline">\(20 \cdot 12 = 240\)</span> mois.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="reponse">
+<ol type="a">
+<li>488 € par mois ; 117 120 €. b) L’aire d’un rectangle. c) 23 %.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
+<ol type="a">
+<li><span class="math inline">\(2121 - 1633 = 488\)</span> € par mois. Sur 20 ans, soit 240 mois : <span class="math inline">\(488 \cdot 240 = 117 120\)</span> €. b) L’aire du rectangle de hauteur 488 €/mois et de largeur 240 mois : l’accumulation de l’écart mensuel. c) <span class="math inline">\(\frac{488}{2121} \approx 0{,}23\)</span>, soit 23 %.</li>
+</ol>
+</div>
+</details>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<ul>
+<li>Calculer le pourcentage par rapport à la pension des femmes : <span class="math inline">\(\frac{488}{1633} \approx 30\)</span> %.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-4-11" class="exo" data-sorte="exercice" data-num="4.11" data-page="41" data-phys="44" data-id="6UAA3.ex.044" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 4.11</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Résoudre un problème nécessitant le calcul intégral (calculs d’aires ou de volumes)." tabindex="0">T1</span> ★★★</span></p>
+</div>
+<div class="exo-corps">
+<p>Aux États-Unis, une étude de la Réserve fédérale de Cleveland montre que, si l’écart de revenus entre ménages noirs et blancs continue à se réduire au rythme de 1962 à 2007, il faudra environ 259 ans pour que le patrimoine moyen des ménages noirs atteigne 90 % de celui des ménages blancs<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. On modélise : l’écart de revenu annuel vaut <span class="math inline">\(e(t) = e_{0} (1 - \frac{t}{T})\)</span> pendant <span class="math inline">\(T\)</span> années, puis 0 ; une part <span class="math inline">\(s\)</span> de cet écart est épargnée. L’écart de patrimoine <span class="math inline">\(W\)</span> vérifie <span class="math inline">\(W'(t) = s \cdot e(t)\)</span>.</p>
+<ol type="a">
+<li><p>Exprime <span class="math inline">\(W(T) - W(0)\)</span> à l’aide d’une intégrale, puis calcule-la.</p></li>
+<li><p>L’écart de revenus est nul après <span class="math inline">\(T\)</span> années. L’écart de patrimoine est-il alors plus petit ou plus grand qu’au départ ? Que devient-il ensuite ?</p></li>
+<li><p>Explique avec ce modèle pourquoi un écart de patrimoine persiste longtemps après la fin d’un écart de revenus.</p></li>
+</ol>
+<div class="rep-bloc">
+<ol type="a">
+<li><span class="math inline">\(W(T) - W(0) = \int_{0}^{T} s e_{0} (1 - \frac{t}{T}) \,\mathrm{d} t = s e_{0} [t - \frac{t^{2}}{2T}]_{0}^{T} = \frac{s e_{0} T}{2}\)</span>. b) Plus grand, de <span class="math inline">\(\frac{s e_{0} T}{2}\)</span> : tant que <span class="math inline">\(e(t) &gt; 0\)</span>, <span class="math inline">\(W\)</span> augmente. Ensuite, <span class="math inline">\(W' = 0\)</span> : l’écart de patrimoine reste constant. c) Le patrimoine est l’accumulation de l’épargne. Annuler l’écart de revenus (le débit) arrête la croissance de l’écart de patrimoine, mais ne le réduit pas ; il faudrait un débit négatif pendant longtemps.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Relis la <a href="../ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#propriete-2-4">propriété 2.4</a> : <span class="math inline">\(W(T) - W(0) = \int_{0}^{T} W'(t) \,\mathrm{d} t\)</span>.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Quel est le signe de <span class="math inline">\(e(t)\)</span> entre 0 et <span class="math inline">\(T\)</span> ? Que devient <span class="math inline">\(W'\)</span> après <span class="math inline">\(T\)</span> ?</p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Une primitive de <span class="math inline">\(1 - \frac{t}{T}\)</span> est <span class="math inline">\(t - \frac{t^{2}}{2T}\)</span>.</p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="reponse">
+<ol type="a">
+<li><span class="math inline">\(\frac{s e_{0} T}{2}\)</span>. b) Plus grand ; ensuite constant. c) Le patrimoine accumule l’épargne.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
+<ol type="a">
+<li><p><span class="math inline">\(W(T) - W(0) = \int_{0}^{T} s e_{0} (1 - \frac{t}{T}) \,\mathrm{d} t = s e_{0} [t - \frac{t^{2}}{2T}]_{0}^{T} = s e_{0} (T - \frac{T}{2}) = \frac{s e_{0} T}{2}\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(0 \leq t &lt; T\)</span>, <span class="math inline">\(e(t) &gt; 0\)</span> : <span class="math inline">\(W\)</span> augmente. À la fin, l’écart de patrimoine est plus grand qu’au départ, de <span class="math inline">\(\frac{s e_{0} T}{2}\)</span>. Ensuite, <span class="math inline">\(W'(t) = 0\)</span> : il reste constant.</p></li>
+<li><p>Le patrimoine est l’accumulation de l’épargne. Annuler l’écart de revenus arrête la croissance de l’écart de patrimoine sans le réduire : il faudrait un écart de revenus en sens inverse pendant longtemps.</p></li>
+</ol>
+</div>
+</details>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<ul>
+<li>Confondre le débit (l’écart de revenus) et la quantité accumulée (l’écart de patrimoine).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-4-12" class="exo" data-sorte="exercice" data-num="4.12" data-page="41" data-phys="44" data-id="6UAA3.ex.045" data-type="exercice" data-tags="maison">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 4.12</span> <span class="exo-maison">⟵ à faire à la maison</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Résoudre un problème nécessitant le calcul intégral (calculs d’aires ou de volumes)." tabindex="0">T1</span> ★★★</span></p>
+</div>
+<div class="exo-corps">
+<p>Lors d’une épidémie, « aplatir la courbe » signifie étaler les hospitalisations dans le temps. On compare deux modèles du nombre d’hospitalisations par jour, <span class="math inline">\(t\)</span> en jours : <span class="math inline">\(f(t) = 0{,}3 t(60 - t)\)</span> sur <span class="math inline">\([0 ; 60]\)</span> et <span class="math inline">\(g(t) = 0{,}0375 t(120 - t)\)</span> sur <span class="math inline">\([0 ; 120]\)</span>.</p>
+<ol type="a">
+<li><p>Calcule le nombre total d’hospitalisations dans chaque modèle.</p></li>
+<li><p>Calcule le nombre maximal d’hospitalisations par jour dans chaque modèle.</p></li>
+<li><p>Explique ce que l’aplatissement change et ce qu’il ne change pas.</p></li>
+</ol>
+<div class="rep-bloc">
+<ol type="a">
+<li><span class="math inline">\(\int_{0}^{60} 0{,}3 (60 t - t^{2}) \,\mathrm{d} t = 0{,}3 [30 t^{2} - \frac{t^{3}}{3}]_{0}^{60} = 0{,}3 (108 000 - 72 000) = 10 800\)</span>. <span class="math inline">\(\int_{0}^{120} 0{,}0375 (120 t - t^{2}) \,\mathrm{d} t = 0{,}0375 [60 t^{2} - \frac{t^{3}}{3}]_{0}^{120} = 0{,}0375 \cdot 288 000 = 10 800\)</span>. b) Maximum au milieu : <span class="math inline">\(f(30) = 0{,}3 \cdot 900 = 270\)</span> ; <span class="math inline">\(g(60) = 0{,}0375 \cdot 3600 = 135\)</span>. c) Le nombre total d’hospitalisations (l’aire) est le même ; le maximum par jour est divisé par 2, ce qui compte pour la capacité des hôpitaux.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Relis la <a href="../ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#propriete-2-4">propriété 2.4</a> et la <a href="../ch1-lintegrale-une-accum/3-lintegrale-definie.html#propriete-1-3">propriété 1.3</a>.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Que représente l’aire sous le graphique du nombre d’hospitalisations par jour ?</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p><span class="math inline">\(0{,}3 t(60 - t) = 0{,}3 (60t - t^{2})\)</span> ; une primitive de <span class="math inline">\(60t - t^{2}\)</span> est <span class="math inline">\(30t^{2} - \frac{t^{3}}{3}\)</span>.</p>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div class="reponse">
+<ol type="a">
+<li>10 800 dans les deux modèles. b) 270 et 135. c) Même total, maximum divisé par 2.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
+<ol type="a">
+<li><p><span class="math inline">\(\int_{0}^{60} 0{,}3 (60t - t^{2}) \,\mathrm{d} t = 0{,}3 [30t^{2} - \frac{t^{3}}{3}]_{0}^{60} = 0{,}3 (108 000 - 72 000) = 10 800\)</span>. <span class="math inline">\(\int_{0}^{120} 0{,}0375 (120t - t^{2}) \,\mathrm{d} t = 0{,}0375 [60t^{2} - \frac{t^{3}}{3}]_{0}^{120} = 0{,}0375 \cdot 288 000 = 10 800\)</span>.</p></li>
+<li><p>Chaque parabole a son sommet au milieu de l’intervalle : <span class="math inline">\(f(30) = 0{,}3 \cdot 900 = 270\)</span> ; <span class="math inline">\(g(60) = 0{,}0375 \cdot 3600 = 135\)</span>.</p></li>
+<li><p>Le nombre total d’hospitalisations est le même ; le maximum par jour est divisé par 2.</p></li>
+</ol>
+</div>
+</details>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<ul>
+<li>Comparer les maximums et conclure que le modèle <span class="math inline">\(g\)</span> compte moins d’hospitalisations.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-4-13" class="exo" data-sorte="exercice" data-num="4.13" data-page="42" data-phys="45" data-id="6UAA3.ex.048" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 4.13</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Résoudre un problème nécessitant le calcul intégral (calculs d’aires ou de volumes)." tabindex="0">T1</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Au III<sup>e</sup> siècle avant notre ère, Archimède montre que l’aire d’un segment de parabole vaut <span class="math inline">\(\frac{4}{3}\)</span> de l’aire du triangle de même base et de même sommet<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. On le vérifie pour la parabole <span class="math inline">\(y = x^{2}\)</span> coupée par la droite <span class="math inline">\(y = c^{2}\)</span>, avec <span class="math inline">\(c &gt; 0\)</span>.</p>
+<ol type="a">
+<li><p>Calcule l’aire du segment de parabole, compris entre la droite et la parabole.</p></li>
+<li><p>Calcule l’aire du triangle de sommets <span class="math inline">\((-c ; c^{2})\)</span>, <span class="math inline">\((c ; c^{2})\)</span> et <span class="math inline">\((0 ; 0)\)</span>.</p></li>
+<li><p>Calcule le rapport des deux aires.</p></li>
+</ol>
+<div class="rep-bloc">
+<ol type="a">
+<li>La droite et la parabole se coupent en <span class="math inline">\(x = -c\)</span> et <span class="math inline">\(x = c\)</span> ; sur <span class="math inline">\([-c ; c]\)</span>, <span class="math inline">\(c^{2} \geq x^{2}\)</span>. Aire <span class="math inline">\(= \int_{-c}^{c} (c^{2} - x^{2}) \,\mathrm{d} x = [c^{2} x - \frac{x^{3}}{3}]_{-c}^{c} = 2c^{3} - \frac{2c^{3}}{3} = \frac{4c^{3}}{3}\)</span>. b) Base <span class="math inline">\(2c\)</span>, hauteur <span class="math inline">\(c^{2}\)</span> : aire <span class="math inline">\(= \frac{2c \cdot c^{2}}{2} = c^{3}\)</span>. c) <span class="math inline">\(\frac{\frac{4c^{3}}{3}}{c^{3}} = \frac{4}{3}\)</span>, quel que soit <span class="math inline">\(c\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Relis la <a href="../ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#propriete-4-2">propriété 4.2</a>.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Où la droite <span class="math inline">\(y = c^{2}\)</span> coupe-t-elle la parabole ? Laquelle est au-dessus ?</p>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Aire du segment : <span class="math inline">\(\int_{-c}^{c} (c^{2} - x^{2}) \,\mathrm{d} x\)</span>.</p>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div class="reponse">
+<ol type="a">
+<li><span class="math inline">\(\frac{4c^{3}}{3}\)</span>. b) <span class="math inline">\(c^{3}\)</span>. c) <span class="math inline">\(\frac{4}{3}\)</span>.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
+<ol type="a">
+<li><p><span class="math inline">\(x^{2} = c^{2}\)</span> pour <span class="math inline">\(x = -c\)</span> et <span class="math inline">\(x = c\)</span> ; sur <span class="math inline">\([-c ; c]\)</span>, <span class="math inline">\(c^{2} \geq x^{2}\)</span>. Aire <span class="math inline">\(= \int_{-c}^{c} (c^{2} - x^{2}) \,\mathrm{d} x = [c^{2} x - \frac{x^{3}}{3}]_{-c}^{c} = (c^{3} - \frac{c^{3}}{3}) - (-c^{3} + \frac{c^{3}}{3}) = \frac{4c^{3}}{3}\)</span>.</p></li>
+<li><p>Base <span class="math inline">\(2c\)</span>, hauteur <span class="math inline">\(c^{2}\)</span> : <span class="math inline">\(\frac{2c \cdot c^{2}}{2} = c^{3}\)</span>.</p></li>
+<li><p><span class="math inline">\(\frac{\frac{4c^{3}}{3}}{c^{3}} = \frac{4}{3}\)</span> : le rapport ne dépend pas de <span class="math inline">\(c\)</span>.</p></li>
+</ol>
+</div>
+</details>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
+<ul>
+<li>Calculer l’aire sous la parabole (<span class="math inline">\(\int_{-c}^{c} x^{2} \,\mathrm{d} x\)</span>) au lieu de l’aire du segment.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-4-14" class="exo" data-sorte="exercice" data-num="4.14" data-page="42" data-phys="45" data-id="6UAA3.ex.049" data-type="exercice" data-tags="maison">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 4.14</span> <span class="exo-maison">⟵ à faire à la maison</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Résoudre un problème nécessitant le calcul intégral (calculs d’aires ou de volumes)." tabindex="0">T1</span> ★★☆</span></p>
+</div>
+<div class="exo-corps">
+<p>Selon Plutarque, Archimède avait demandé que sa tombe porte une sphère inscrite dans un cylindre, avec le rapport de leurs volumes<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Cicéron rapporte avoir retrouvé cette tombe à Syracuse<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Une sphère de rayon <span class="math inline">\(r\)</span> est inscrite dans un cylindre de rayon <span class="math inline">\(r\)</span> et de hauteur <span class="math inline">\(2r\)</span>.</p>
+<ol type="a">
+<li><p>Calcule le volume du cylindre comme volume de révolution, avec <span class="math inline">\(f(x) = r\)</span> sur <span class="math inline">\([-r ; r]\)</span>.</p></li>
+<li><p>À l’aide de l’exemple 4.1, calcule le rapport entre le volume de la sphère et celui du cylindre.</p></li>
+</ol>
+<div class="rep-bloc">
+<ol type="a">
+<li><span class="math inline">\(V_{\text{cyl}} = \pi \int_{-r}^{r} r^{2} \,\mathrm{d} x = \pi r^{2} \cdot 2r = 2 \pi r^{3}\)</span>. b) <span class="math inline">\(V_{\text{sph}} = \frac{4}{3} \pi r^{3}\)</span> ; <span class="math inline">\(\frac{V_{\text{sph}}}{V_{\text{cyl}}} = \frac{\frac{4}{3} \pi r^{3}}{2 \pi r^{3}} = \frac{2}{3}\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-5" role="tab" aria-controls="tabset-5-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Relis la <a href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#propriete-4-3">propriété 4.3</a> et l’<a href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#exemple-4-1">exemple 4.1</a>.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>Quel solide engendre la rotation du segment <span class="math inline">\(y = r\)</span>, <span class="math inline">\(-r \leq x \leq r\)</span> ?</p>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<p><span class="math inline">\(\pi \int_{-r}^{r} r^{2} \,\mathrm{d} x = \pi r^{2} \cdot 2r\)</span>.</p>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<div class="reponse">
+<ol type="a">
+<li><span class="math inline">\(2 \pi r^{3}\)</span>. b) <span class="math inline">\(\frac{2}{3}\)</span>.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
+<ol type="a">
+<li><p><span class="math inline">\(V_{\text{cyl}} = \pi \int_{-r}^{r} r^{2} \,\mathrm{d} x = \pi r^{2} [x]_{-r}^{r} = 2 \pi r^{3}\)</span>.</p></li>
+<li><p>D’après l’exemple 4.1, <span class="math inline">\(V_{\text{sph}} = \frac{4}{3} \pi r^{3}\)</span>. <span class="math inline">\(\frac{V_{\text{sph}}}{V_{\text{cyl}}} = \frac{\frac{4}{3} \pi r^{3}}{2 \pi r^{3}} = \frac{2}{3}\)</span>.</p></li>
+</ol>
+</div>
+</details>
+</div>
+<div id="tabset-5-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-5-tab">
+<ul>
+<li>Prendre <span class="math inline">\(r\)</span> comme hauteur du cylindre : la hauteur est le diamètre <span class="math inline">\(2r\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="exercice-4-15" class="exo" data-sorte="exercice" data-num="4.15" data-page="43" data-phys="46" data-id="6UAA3.ex.050" data-type="exercice" data-tags="">
+<div class="exo-tete">
+<p><span class="exo-titre">✎ Exercice 4.15</span> <span class="exo-meta"><span class="exo-comp" data-tip="T1 : Résoudre un problème nécessitant le calcul intégral (calculs d’aires ou de volumes)." tabindex="0">T1</span> ★★★</span></p>
+</div>
+<div class="exo-corps">
+<p>Les règles du rugby imposent un ballon de longueur comprise entre 280 et 300 mm et de circonférence, mesurée dans la largeur, comprise entre 580 et 620 mm<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. On modélise le ballon par le solide engendré par la rotation autour de l’axe des abscisses de la demi-ellipse</p>
+<p><span class="math display">\[
+f(x) = b \sqrt{1 - \frac{x^{2}}{a^{2}}}, \quad -a \leq x \leq a,
+\]</span></p>
+<p>où <span class="math inline">\(2a\)</span> est la longueur du ballon et <span class="math inline">\(b\)</span> son rayon au milieu.</p>
+<ol type="a">
+<li><p>Montre que le volume du ballon vaut <span class="math inline">\(\frac{4}{3} \pi a b^{2}\)</span>.</p></li>
+<li><p>Calcule <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> pour un ballon de longueur 290 mm et de circonférence 600 mm, puis son volume en litres.</p></li>
+<li><p>Calcule les volumes du plus petit et du plus grand ballon autorisés.</p></li>
+</ol>
+<div class="rep-bloc">
+<ol type="a">
+<li><span class="math inline">\(V = \pi \int_{-a}^{a} b^{2} (1 - \frac{x^{2}}{a^{2}}) \,\mathrm{d} x = \pi b^{2} [x - \frac{x^{3}}{3a^{2}}]_{-a}^{a} = \pi b^{2} (2a - \frac{2a}{3}) = \frac{4}{3} \pi a b^{2}\)</span>. b) <span class="math inline">\(a = 145\)</span> mm ; <span class="math inline">\(2 \pi b = 600\)</span> donne <span class="math inline">\(b = \frac{600}{2\pi} \approx 95{,}5\)</span> mm. <span class="math inline">\(V \approx \frac{4}{3} \pi \cdot 145 \cdot 95{,}5^{2} \approx 5 538 000 \text{mm}^{3}\)</span>, soit environ <span class="math inline">\(5{,}54\)</span> L (<span class="math inline">\(1 \text{L} = 10^{6} \text{mm}^{3}\)</span>). c) Plus petit : <span class="math inline">\(a = 140\)</span>, <span class="math inline">\(b = \frac{580}{2\pi} \approx 92{,}3\)</span> : <span class="math inline">\(V \approx 5{,}00\)</span> L. Plus grand : <span class="math inline">\(a = 150\)</span>, <span class="math inline">\(b = \frac{620}{2\pi} \approx 98{,}7\)</span> : <span class="math inline">\(V \approx 6{,}12\)</span> L.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="aides">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Indice 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Indice 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false" href="">Indice 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-4" role="tab" aria-controls="tabset-6-4" aria-selected="false" href="">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-5" role="tab" aria-controls="tabset-6-5" aria-selected="false" href="">Pièges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Relis la <a href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#propriete-4-3">propriété 4.3</a> et l’<a href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#exemple-4-1">exemple 4.1</a>.</p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Que vaut <span class="math inline">\(f(x)^{2}\)</span> ? Quel est le lien entre la circonférence et le rayon <span class="math inline">\(b\)</span> ?</p>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<p><span class="math inline">\(f(x)^{2} = b^{2} (1 - \frac{x^{2}}{a^{2}})\)</span> ; une primitive de <span class="math inline">\(1 - \frac{x^{2}}{a^{2}}\)</span> est <span class="math inline">\(x - \frac{x^{3}}{3a^{2}}\)</span>.</p>
+</div>
+<div id="tabset-6-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-4-tab">
+<div class="reponse">
+<ol type="a">
+<li><span class="math inline">\(\frac{4}{3} \pi a b^{2}\)</span>. b) <span class="math inline">\(a = 145\)</span> mm, <span class="math inline">\(b \approx 95{,}5\)</span> mm, <span class="math inline">\(V \approx 5{,}54\)</span> L. c) Environ 5,00 L et 6,12 L.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
+<ol type="a">
+<li><p><span class="math inline">\(V = \pi \int_{-a}^{a} b^{2} (1 - \frac{x^{2}}{a^{2}}) \,\mathrm{d} x = \pi b^{2} [x - \frac{x^{3}}{3a^{2}}]_{-a}^{a} = \pi b^{2} (2a - \frac{2a}{3}) = \frac{4}{3} \pi a b^{2}\)</span>.</p></li>
+<li><p><span class="math inline">\(a = 290 : 2 = 145\)</span> mm. La circonférence au milieu vaut <span class="math inline">\(2 \pi b = 600\)</span>, donc <span class="math inline">\(b = \frac{600}{2 \pi} \approx 95{,}5\)</span> mm. <span class="math inline">\(V = \frac{4}{3} \pi \cdot 145 \cdot 95{,}5^{2} \approx 5 538 000 \text{mm}^{3}\)</span>. Comme <span class="math inline">\(1 \text{L} = 10^{6} \text{mm}^{3}\)</span>, <span class="math inline">\(V \approx 5{,}54\)</span> L.</p></li>
+<li><p>Plus petit ballon : <span class="math inline">\(a = 140\)</span> mm, <span class="math inline">\(b = \frac{580}{2\pi} \approx 92{,}3\)</span> mm, <span class="math inline">\(V \approx 5{,}00\)</span> L. Plus grand : <span class="math inline">\(a = 150\)</span> mm, <span class="math inline">\(b = \frac{620}{2\pi} \approx 98{,}7\)</span> mm, <span class="math inline">\(V \approx 6{,}12\)</span> L.</p></li>
+</ol>
+</div>
+</details>
+</div>
+<div id="tabset-6-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-5-tab">
+<ul>
+<li>Prendre la circonférence pour le diamètre.</li>
+<li>Confondre <span class="math inline">\(\text{mm}^{3}\)</span> et L : 1 L <span class="math inline">\(= 1 \text{dm}^{3} = 10^{6} \text{mm}^{3}\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>PensionStat.be (SFP, INASTI, Sigedis), pensions des personnes pensionnées pour la première fois en 2021, présenté par <em>Forum for the Future</em>, blog.forumforthefuture.be.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Aliprantis, D. &amp; Carroll, D. R. (2019). What Is Behind the Persistence of the Racial Wealth Gap? <em>Economic Commentary</em> 2019-03, Federal Reserve Bank of Cleveland.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Archimède, <em>La Quadrature de la parabole</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Plutarque, <em>Vie de Marcellus</em>, 17.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Cicéron, <em>Tusculanes</em>, livre V, 64-66.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>World Rugby, <em>Règles du jeu</em>, règle 2 « Le ballon ».<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "integrales", "uaa": "6UAA3", "pdf": "integrales.pdf", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "integrales.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses écrites en gras", "fichier": "integrales-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20], "reprise": {"ancien": "/integrales-cours/", "nouveau": "/6e/integrales/"}};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  /* Reprise après déménagement du site (ancienne adresse → nouvelle) : les annotations
+     (lim-annot:v1:<chemin>) et les relevés de dés (pb-releve:<chemin>:n) sont rangés
+     par chemin de page ; on recopie, une fois par appareil, les anciennes clés sous les
+     nouvelles (sans écraser ni effacer). Les autres données (suivi, autoévaluation,
+     couche prof) sont rangées par cours et n'ont pas besoin de reprise. */
+  (function (R) {
+    if (!R || location.pathname.indexOf(R.nouveau) !== 0) return;      // seulement depuis la nouvelle adresse
+    try {
+      var fait = "typweb.reprise:" + R.ancien;
+      if (localStorage.getItem(fait)) return;
+      var a = [], i, k;
+      for (i = 0; i < localStorage.length; i++) {
+        k = localStorage.key(i);
+        ["lim-annot:v1:", "pb-releve:"].forEach(function (p) {
+          if (k && k.indexOf(p + R.ancien) === 0) a.push([k, p + R.nouveau + k.slice((p + R.ancien).length)]);
+        });
+      }
+      a.forEach(function (x) { if (localStorage.getItem(x[1]) === null) localStorage.setItem(x[1], localStorage.getItem(x[0])); });
+      localStorage.setItem(fait, String(Date.now()));
+    } catch (e) {}
+  })(window.TYPWEB.reprise);
+  /* Ancien mode hors-ligne (avant le site unique) : son service worker (portée = ancienne adresse) et
+     ses caches « typweb-<10 chiffres hexa> » ne servent plus ; ménage une fois la page chargée. */
+  if (window.TYPWEB.reprise && "serviceWorker" in navigator) window.addEventListener("load", function () {
+    try {
+      navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { if (new URL(r.scope).pathname.indexOf(window.TYPWEB.reprise.ancien) === 0) r.unregister(); });
+      }).catch(function () {});
+      if (window.caches) caches.keys().then(function (ks) {
+        ks.forEach(function (k) { if (/^typweb-[0-9a-f]{10}$/.test(k)) caches.delete(k); });
+      }).catch(function () {});
+    } catch (e) {}
+  });
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css", "js/interactif.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/interactif.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>
+<script>
+// Menu « Aa » : taille du texte (toujours) et styles du site à l'essai. Le choix est
+// mémorisé dans ce navigateur (localStorage « typweb-style »). À retirer quand
+// un style est retenu (typweb.toml : [site] styles-essai = false).
+(function () {
+  var STYLES = [
+    ["", "Actuel"],
+    ["epure", "1 · Épure"],
+    ["epure-types", "2 · Épure, couleurs de type"],
+    ["manuel", "3 · Manuel moderne"],
+    ["cahier", "4 · Cahier"],
+    ["ardoise", "7 · Ardoise"],
+    ["lecture", "8 · Lecture concentrée"],
+    ["fiches", "9 · Fiches numérotées"]
+  ];
+  function courant() { try { return localStorage.getItem("typweb-style") || ""; } catch (e) { return ""; } }
+  function appliquer(s) {
+    if (s) document.documentElement.setAttribute("data-style", s);
+    else document.documentElement.removeAttribute("data-style");
+    try { if (s) localStorage.setItem("typweb-style", s); else localStorage.removeItem("typweb-style"); } catch (e) {}
+    document.querySelectorAll(".st-panneau button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); });
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  var TAILLES = [0.85, 0.92, 1, 1.08, 1.16, 1.25, 1.35, 1.5];
+  function tailleCourante() { try { return parseFloat(localStorage.getItem("typweb-taille")) || 1; } catch (e) { return 1; } }
+  function poserTaille(t) {
+    document.documentElement.style.fontSize = t === 1 ? "" : (100 * t) + "%";
+    try { if (t === 1) localStorage.removeItem("typweb-taille"); else localStorage.setItem("typweb-taille", t); } catch (e) {}
+    var l = document.querySelector(".st-taille span"); if (l) l.textContent = Math.round(t * 100) + " %";
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  function pas(d) {
+    var t = tailleCourante(), k = 0;
+    TAILLES.forEach(function (x, j) { if (Math.abs(x - t) < Math.abs(TAILLES[k] - t)) k = j; });
+    poserTaille(TAILLES[Math.max(0, Math.min(TAILLES.length - 1, k + d))]);
+  }
+  function build() {
+    if (document.querySelector(".st-menu")) return;
+    var essai = !window.TYPWEB || window.TYPWEB.stylesEssai !== false;
+    var m = document.createElement("div"); m.className = "st-menu";
+    var b = document.createElement("button"); b.className = "st-btn"; b.type = "button"; b.textContent = "Aa";
+    b.title = "Taille du texte" + (essai ? " et style du site" : ""); b.setAttribute("aria-label", b.title);
+    var p = document.createElement("div"); p.className = "st-panneau"; p.hidden = true;
+    p.innerHTML = "<p>Taille du texte</p>";
+    var tl = document.createElement("div"); tl.className = "st-taille";
+    var moins = document.createElement("button"); moins.type = "button"; moins.textContent = "A−"; moins.title = "Réduire le texte";
+    var val = document.createElement("span"); val.textContent = Math.round(tailleCourante() * 100) + " %";
+    val.title = "Revenir à 100 %"; val.style.cursor = "pointer";
+    var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "A+"; plus.title = "Agrandir le texte";
+    moins.addEventListener("click", function () { pas(-1); });
+    plus.addEventListener("click", function () { pas(1); });
+    val.addEventListener("click", function () { poserTaille(1); });
+    tl.appendChild(moins); tl.appendChild(val); tl.appendChild(plus);
+    p.appendChild(tl);
+    if (essai) {
+      var sep = document.createElement("div"); sep.className = "st-sep"; p.appendChild(sep);
+      var t = document.createElement("p"); t.textContent = "Style du site (mode clair)"; p.appendChild(t);
+      STYLES.forEach(function (s) {
+        var x = document.createElement("button"); x.type = "button"; x.dataset.s = s[0]; x.textContent = s[1];
+        x.addEventListener("click", function () { appliquer(s[0]); });
+        p.appendChild(x);
+      });
+    }
+    b.addEventListener("click", function () { p.hidden = !p.hidden; });
+    document.addEventListener("click", function (e) { if (!m.contains(e.target)) p.hidden = true; });
+    m.appendChild(p); m.appendChild(b); document.body.appendChild(m);
+    if (essai) appliquer(courant());
+  }
+  if (document.readyState !== "loading") build(); else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qlambotte\.github\.io\/6e\/integrales\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html" class="pagination-link" aria-label="Volume d’un solide de révolution">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Volume d’un solide de révolution</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../sources.html" class="pagination-link" aria-label="Sources">
+        <span class="nav-page-text"><span class="chapter-title">Sources</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Intégrales — cours &amp; exercices</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© Quentin Lambotte</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

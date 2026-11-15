@@ -521,8 +521,9 @@
     options = options || {};
     if (Pi.vues) Pi.vues.demarrer();
     if ("serviceWorker" in navigator && !options.sansSW) navigator.serviceWorker.register("sw.js").catch(function () {});
-    return (options.source || C.sourceFichier).charger().then(function (brut) {
-      var v = C.valider(brut);
+    var carte = options.carte !== undefined ? Promise.resolve(options.carte) : C.chargerCarte();
+    return Promise.all([(options.source || C.sourceFichier).charger(), carte]).then(function (rr) {
+      var brut = rr[0], v = C.valider(brut);
       if (!v.ok) {
         afficherErreurs(v.erreurs);
         if (Pi.synchro) Pi.synchro.init({ sync: window.typwebSync, toast: toast, source: C.sourceFichier, seul: true });
@@ -530,7 +531,7 @@
         if (Pi.reglages) Pi.reglages.init({ sync: window.typwebSync, toast: toast });
         return;
       }
-      A.config = v.config;
+      A.config = rr[1] ? C.appliquerCarte(v.config, rr[1].carte, rr[1].base) : v.config;    // adresses du site unique
       A.jour = Jr.dansUrl(location.search); if (A.jour === aujourdhui()) A.jour = null;
       if (!A.jour && /[?&]jour=/.test(location.search)) majUrl();            // ?jour= invalide ou égal à aujourd'hui : retiré de l'adresse
       choisirClasse();

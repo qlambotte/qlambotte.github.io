@@ -1,0 +1,3087 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>S’autoévaluer – Les suites</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./nouveautes.html" rel="next">
+<link href="./essentiel.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-373b88032ffeb2d8c9d3af5274f06ecf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./autoeval.html"><span class="chapter-title">S’autoévaluer</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Les suites</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les suites — cours &amp; exercices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch1-generalites-sur-les/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 1 — Généralités sur les suites</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/1-deux-situations-pour-commencer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Deux situations pour commencer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/2-quest-ce-quune-suite-numerique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Qu’est-ce qu’une suite numérique ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/3-representer-une-suite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Représenter une suite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/4-generer-une-suite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Générer une suite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/5-variations-dune-suite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variations d’une suite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/6-limite-dune-suite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limite d’une suite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1-generalites-sur-les/7-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch2-suites-arithmetiques/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 2 — Suites arithmétiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/1-une-pyramide-de-verre.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Une pyramide de verre</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/2-definition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/3-representation-et-variation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Représentation et variation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Générer une suite arithmétique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/5-caracteristiques-variation-limite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Caractéristiques : variation, limite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/6-somme-des-n-premiers-termes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Somme des n premiers termes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2-suites-arithmetiques/7-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ch3-suites-geometriques/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapitre 3 — Suites géométriques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/1-le-pliage-dune-feuille.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Le pliage d’une feuille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/2-definition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/3-representation-et-variation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Représentation et variation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/4-generer-une-suite-geometrique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Générer une suite géométrique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/5-caracteristiques-variation-limite.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Caractéristiques : variation, limite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/6-somme-des-n-premiers-termes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Somme des n premiers termes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3-suites-geometriques/7-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./autoeval.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">S’autoévaluer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mode-emploi.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mode d’emploi</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">S’autoévaluer</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- GÉNÉRÉ par outils/typ2site.py (autoeval.py) : NE PAS ÉDITER. -->
+<div id="ae-app" data-cle="suites">
+<div class="ae-attente">
+<p>Chargement…</p>
+</div>
+</div>
+<div id="ae-banque" class="ae-cache">
+<div class="ae-sec" data-ae-id="sec-situations" data-chap="1" data-url="ch1-generalites-sur-les/1-deux-situations-pour-commencer.html" data-n="3">
+<p>Deux situations pour commencer</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-suite" data-chap="1" data-url="ch1-generalites-sur-les/2-quest-ce-quune-suite-numerique.html" data-n="4">
+<p>Qu’est-ce qu’une suite numérique ?</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-representer" data-chap="1" data-url="ch1-generalites-sur-les/3-representer-une-suite.html" data-n="3">
+<p>Représenter une suite</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-generer" data-chap="1" data-url="ch1-generalites-sur-les/4-generer-une-suite.html" data-n="4">
+<p>Générer une suite</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-variations" data-chap="1" data-url="ch1-generalites-sur-les/5-variations-dune-suite.html" data-n="2">
+<p>Variations d’une suite</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-limite" data-chap="1" data-url="ch1-generalites-sur-les/6-limite-dune-suite.html" data-n="6">
+<p>Limite d’une suite</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-generalites-exercices" data-chap="1" data-url="ch1-generalites-sur-les/7-exercices.html" data-n="0">
+<p>Exercices</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-pyramide" data-chap="2" data-url="ch2-suites-arithmetiques/1-une-pyramide-de-verre.html" data-n="1">
+<p>Une pyramide de verre</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arith-definition" data-chap="2" data-url="ch2-suites-arithmetiques/2-definition.html" data-n="4">
+<p>Définition</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arith-representation" data-chap="2" data-url="ch2-suites-arithmetiques/3-representation-et-variation.html" data-n="2">
+<p>Représentation et variation</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arith-generer" data-chap="2" data-url="ch2-suites-arithmetiques/4-generer-une-suite-arithmetique.html" data-n="4">
+<p>Générer une suite arithmétique</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arith-limite" data-chap="2" data-url="ch2-suites-arithmetiques/5-caracteristiques-variation-limite.html" data-n="3">
+<p>Caractéristiques : variation, limite</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arith-somme" data-chap="2" data-url="ch2-suites-arithmetiques/6-somme-des-n-premiers-termes.html" data-n="4">
+<p>Somme des <span class="math inline">\(n\)</span> premiers termes</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-arith-exercices" data-chap="2" data-url="ch2-suites-arithmetiques/7-exercices.html" data-n="0">
+<p>Exercices</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-pliage" data-chap="3" data-url="ch3-suites-geometriques/1-le-pliage-dune-feuille.html" data-n="1">
+<p>Le pliage d’une feuille</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-geo-definition" data-chap="3" data-url="ch3-suites-geometriques/2-definition.html" data-n="3">
+<p>Définition</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-geo-representation" data-chap="3" data-url="ch3-suites-geometriques/3-representation-et-variation.html" data-n="2">
+<p>Représentation et variation</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-geo-generer" data-chap="3" data-url="ch3-suites-geometriques/4-generer-une-suite-geometrique.html" data-n="4">
+<p>Générer une suite géométrique</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-geo-limite" data-chap="3" data-url="ch3-suites-geometriques/5-caracteristiques-variation-limite.html" data-n="4">
+<p>Caractéristiques : variation, limite</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-geo-somme" data-chap="3" data-url="ch3-suites-geometriques/6-somme-des-n-premiers-termes.html" data-n="2">
+<p>Somme des <span class="math inline">\(n\)</span> premiers termes</p>
+</div>
+<div class="ae-sec" data-ae-id="sec-geo-exercices" data-chap="3" data-url="ch3-suites-geometriques/7-exercices.html" data-n="0">
+<p>Exercices</p>
+</div>
+<div class="ae-obj" data-code="C1" data-cat="Connaître">
+<p>Traduire des écritures indicées en utilisant le vocabulaire lié aux suites (savoir différencier le rang d’un terme et le terme).</p>
+</div>
+<div class="ae-obj" data-code="C2" data-cat="Connaître">
+<p>Reconnaître une suite arithmétique / géométrique exprimée dans des registres différents : numérique, symbolique, graphique ou au départ d’un énoncé contextualisé.</p>
+</div>
+<div class="ae-obj" data-code="C3" data-cat="Connaître">
+<p>Identifier les éléments caractéristiques (1<sup>er</sup> terme, raison, croissance) d’une suite arithmétique / géométrique exprimée dans des registres différents.</p>
+</div>
+<div class="ae-obj" data-code="C4" data-cat="Connaître">
+<p>Écrire le terme général d’une suite arithmétique / géométrique au départ de ses éléments caractéristiques.</p>
+</div>
+<div class="ae-obj" data-code="C5" data-cat="Connaître">
+<p>Donner un exemple de suites arithmétique / géométrique vérifiant des contraintes (croissance, convergence).</p>
+</div>
+<div class="ae-obj" data-code="C6" data-cat="Connaître">
+<p>Conjecturer la limite d’une suite au départ de sa représentation numérique ou graphique.</p>
+</div>
+<div class="ae-obj" data-code="C7" data-cat="Connaître">
+<p>Démontrer la formule de la somme des <span class="math inline">\(n\)</span> premiers termes d’une suite arithmétique / géométrique.</p>
+</div>
+<div class="ae-obj" data-code="A1" data-cat="Appliquer">
+<p>Représenter graphiquement une suite de nombres.</p>
+</div>
+<div class="ae-obj" data-code="A2" data-cat="Appliquer">
+<p>Justifier qu’une suite est arithmétique / géométrique.</p>
+</div>
+<div class="ae-obj" data-code="A3" data-cat="Appliquer">
+<p>Calculer les éléments caractéristiques ou un terme d’une suite arithmétique / géométrique.</p>
+</div>
+<div class="ae-obj" data-code="A4" data-cat="Appliquer">
+<p>Calculer la somme de <span class="math inline">\(n\)</span> termes consécutifs d’une suite arithmétique / géométrique.</p>
+</div>
+<div class="ae-obj" data-code="A5" data-cat="Appliquer">
+<p>Trouver le taux, l’intérêt ou la durée d’un placement à intérêts simples ou à intérêts composés.</p>
+</div>
+<div class="ae-obj" data-code="A6" data-cat="Appliquer">
+<p>Réaliser un tableau d’amortissement à l’aide de l’outil informatique.</p>
+</div>
+<div class="ae-obj" data-code="T1" data-cat="Transférer">
+<p>Résoudre un problème où interviennent des suites dans différents contextes.</p>
+</div>
+<div class="ae-qa" data-ae-id="qa-generalites" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 12, &quot;sections&quot;: [&quot;sec-situations&quot;, &quot;sec-suite&quot;, &quot;sec-representer&quot;, &quot;sec-generer&quot;, &quot;sec-variations&quot;, &quot;sec-limite&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Chapitre 1 : Généralités</p>
+</div>
+<div class="ae-qa-desc">
+<p>Douze questions tirées au hasard sur le chapitre 1 : vocabulaire, représentations, génération, variation, limite.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-arithmetiques" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [&quot;sec-pyramide&quot;, &quot;sec-arith-definition&quot;, &quot;sec-arith-representation&quot;, &quot;sec-arith-generer&quot;, &quot;sec-arith-limite&quot;, &quot;sec-arith-somme&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Chapitre 2 : Suites arithmétiques</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions tirées au hasard sur le chapitre 2.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-geometriques" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [&quot;sec-pliage&quot;, &quot;sec-geo-definition&quot;, &quot;sec-geo-representation&quot;, &quot;sec-geo-generer&quot;, &quot;sec-geo-limite&quot;, &quot;sec-geo-somme&quot;], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: []}}">
+<div class="ae-qa-titre">
+<p>Chapitre 3 : Suites géométriques</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions tirées au hasard sur le chapitre 3.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-ari-ou-geo" data-spec="{&quot;questions&quot;: [&quot;gen-rumeur-famille&quot;, &quot;ari-reconnaitre&quot;, &quot;geo-reconnaitre&quot;, &quot;ari-justifier-exemples&quot;, &quot;geo-alignement&quot;, &quot;ari-formule-explicite&quot;, &quot;geo-formule-explicite&quot;, &quot;ari-raison-signe&quot;, &quot;geo-raison&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Arithmétique ou géométrique ?</p>
+</div>
+<div class="ae-qa-desc">
+<p>Reconnaître, justifier, écrire le terme général : ne pas confondre différence et rapport.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-limites" data-spec="{&quot;questions&quot;: [&quot;gen-limite-tableau&quot;, &quot;gen-limite-graphique&quot;, &quot;gen-limite-sens&quot;, &quot;gen-limite-observer&quot;, &quot;ari-limite&quot;, &quot;geo-limite-tableau&quot;, &quot;geo-limite-alterne&quot;, &quot;geo-exemple-qcm&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Conjecturer une limite</p>
+</div>
+<div class="ae-qa-desc">
+<p>Lire une limite sur un tableau ou un graphique, et utiliser les propriétés des suites arithmétiques et géométriques.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-sommes" data-spec="{&quot;questions&quot;: [&quot;ari-pyramide-somme&quot;, &quot;ari-somme-formule&quot;, &quot;ari-somme-rangs&quot;, &quot;ari-demonstration-etape&quot;, &quot;geo-somme&quot;, &quot;ari-demontrer-somme&quot;, &quot;geo-demontrer-somme&quot;], &quot;tirage&quot;: null}">
+<div class="ae-qa-titre">
+<p>Sommes de termes</p>
+</div>
+<div class="ae-qa-desc">
+<p>Calculer et démontrer les sommes des <span class="math inline">\(n\)</span> premiers termes.</p>
+</div>
+</div>
+<div class="ae-qa" data-ae-id="qa-bases" data-spec="{&quot;questions&quot;: null, &quot;tirage&quot;: {&quot;nombre&quot;: 10, &quot;sections&quot;: [], &quot;obj&quot;: [], &quot;types&quot;: [], &quot;niveaux&quot;: [1]}}">
+<div class="ae-qa-titre">
+<p>Les bases, pour démarrer</p>
+</div>
+<div class="ae-qa-desc">
+<p>Dix questions de niveau ★ sur tout le cours.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-rumeur-famille" data-type="qcm" data-section="sec-situations" data-obj="C2" data-niveau="1" data-id="5UAA2.q.gen-rumeur-famille" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans l’activité de la rumeur, le nombre de personnes au courant double chaque jour. Comment passe-t-on d’un jour au suivant ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>On multiplie toujours par le même nombre.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : on multiplie par <span class="math inline">\(2\)</span> chaque jour. C’est le comportement des suites que le chapitre 3 appelle géométriques.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On ajoute toujours le même nombre.</p>
+</div>
+<div class="ae-fb">
+<p>Non : de <span class="math inline">\(1\)</span> à <span class="math inline">\(2\)</span> on ajoute <span class="math inline">\(1\)</span>, de <span class="math inline">\(2\)</span> à <span class="math inline">\(4\)</span> on ajoute <span class="math inline">\(2\)</span>, de <span class="math inline">\(4\)</span> à <span class="math inline">\(8\)</span> on ajoute <span class="math inline">\(4\)</span>. La différence n’est pas constante ; c’est le <strong>rapport</strong> qui l’est.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On ajoute <span class="math inline">\(2\)</span> chaque jour.</p>
+</div>
+<div class="ae-fb">
+<p>Doubler n’est pas ajouter <span class="math inline">\(2\)</span> : <span class="math inline">\(4\)</span> devient <span class="math inline">\(8\)</span>, pas <span class="math inline">\(6\)</span>. Doubler, c’est multiplier par <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On ajoute le numéro du jour.</p>
+</div>
+<div class="ae-fb">
+<p>Vérifie sur le tableau : <span class="math inline">\(u_{3} = 8\)</span> et <span class="math inline">\(u_{4} = 16\)</span> ; on a ajouté <span class="math inline">\(8\)</span>, pas <span class="math inline">\(4\)</span>. Chaque jour, on multiplie par <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-interets-simples" data-type="qcm" data-section="sec-situations" data-obj="A3" data-niveau="1" data-id="5UAA2.q.gen-interets-simples" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On place <span class="math inline">\(1000\)</span> € à intérêts <strong>simples</strong>, au taux annuel de <span class="math inline">\(3 \%\)</span>. De combien dispose-t-on après <span class="math inline">\(4\)</span> ans ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(1120\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’intérêt est calculé sur le montant de départ, <span class="math inline">\(30\)</span> € par an ; en <span class="math inline">\(4\)</span> ans, <span class="math inline">\(1000 + 4 \cdot 30 = 1120\)</span> €.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>environ <span class="math inline">\(1125{,}51\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>C’est le résultat des intérêts <strong>composés</strong> (<span class="math inline">\(1000 \cdot 1{,}03^{4}\)</span>). Aux intérêts simples, on ajoute chaque année la même somme, <span class="math inline">\(3 \%\)</span> de <span class="math inline">\(1000\)</span> €.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1030\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>C’est le capital après <span class="math inline">\(1\)</span> an. Après <span class="math inline">\(4\)</span> ans, on a ajouté <span class="math inline">\(4\)</span> fois les <span class="math inline">\(30\)</span> € d’intérêt.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1012\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>Tu as ajouté <span class="math inline">\(4 \cdot 3 = 12\)</span> € : <span class="math inline">\(3 \%\)</span> de <span class="math inline">\(1000\)</span> €, ce n’est pas <span class="math inline">\(3\)</span> €, mais <span class="math inline">\(\frac{3}{100} \cdot 1000 = 30\)</span> €.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-interets-composes" data-type="qcm" data-section="sec-situations" data-obj="A3" data-niveau="1" data-id="5UAA2.q.gen-interets-composes" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On place <span class="math inline">\(2000\)</span> € à intérêts <strong>composés</strong>, au taux annuel de <span class="math inline">\(5 \%\)</span>. De combien dispose-t-on après <span class="math inline">\(2\)</span> ans ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(2205\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>Oui : augmenter de <span class="math inline">\(5 \%\)</span>, c’est multiplier par <span class="math inline">\(1{,}05\)</span> ; en deux ans, <span class="math inline">\(2000 \cdot 1{,}05^{2} = 2205\)</span> €.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2200\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>C’est le résultat des intérêts <strong>simples</strong> (<span class="math inline">\(2000 + 2 \cdot 100\)</span>). Aux intérêts composés, la deuxième année, l’intérêt est calculé sur <span class="math inline">\(2100\)</span> € et vaut <span class="math inline">\(105\)</span> €.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2100\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>C’est le capital après <span class="math inline">\(1\)</span> an seulement.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4200\)</span> €</p>
+</div>
+<div class="ae-fb">
+<p>Tu as multiplié par <span class="math inline">\(2\)</span> au lieu d’élever au carré : <span class="math inline">\(2000 \cdot 1{,}05 \cdot 2\)</span>. Deux années, c’est deux multiplications par <span class="math inline">\(1{,}05\)</span> : <span class="math inline">\(2000 \cdot 1{,}05^{2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-rang-terme" data-type="qcm" data-section="sec-suite" data-obj="C1" data-niveau="1" data-id="5UAA2.q.gen-rang-terme" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>La suite <span class="math inline">\((u_{n}) = (4 ; 9 ; 14 ; 19 ; \ldots)\)</span> est numérotée à partir de <span class="math inline">\(0\)</span>. Que vaut <span class="math inline">\(u_{2}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(14\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{0} = 4\)</span>, <span class="math inline">\(u_{1} = 9\)</span>, <span class="math inline">\(u_{2} = 14\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(9\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(9\)</span> est le <strong>deuxième</strong> nombre de la liste, mais son rang est <span class="math inline">\(1\)</span> : la numérotation commence à <span class="math inline">\(0\)</span>. Revois la <a href="./ch1-generalites-sur-les/2-quest-ce-quune-suite-numerique.html#remarque-1-1">remarque sur le rang et le terme</a>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(2\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(2\)</span> est le rang, pas le terme. On demande la <strong>valeur</strong> qui occupe le rang <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(4 \cdot 2\)</span>. Il suffit ici de lire la liste : le terme de rang <span class="math inline">\(2\)</span> est le troisième nombre.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-rang-du-terme" data-type="qcm" data-section="sec-suite" data-obj="C1" data-niveau="1" data-id="5UAA2.q.gen-rang-du-terme" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>La suite <span class="math inline">\((v_{n}) = (3 ; 6 ; 12 ; 24 ; 48 ; \ldots)\)</span> est numérotée à partir de <span class="math inline">\(1\)</span>. Que vaut <span class="math inline">\(v_{3}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(12\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(v_{1} = 3\)</span>, <span class="math inline">\(v_{2} = 6\)</span>, <span class="math inline">\(v_{3} = 12\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(24\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as numéroté à partir de <span class="math inline">\(0\)</span> ; ici la suite commence à <span class="math inline">\(v_{1}\)</span>, le premier nombre de la liste.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(9\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(3 \cdot 3\)</span> (rang fois premier terme) : on ne calcule rien, on lit le terme qui occupe le rang <span class="math inline">\(3\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(3\)</span> est le rang demandé (et aussi le premier terme <span class="math inline">\(v_{1}\)</span>) ; on demande la <strong>valeur</strong> du terme de rang <span class="math inline">\(3\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-successeur" data-type="qcm" data-section="sec-suite" data-obj="C1" data-niveau="1" data-id="5UAA2.q.gen-successeur" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Comment note-t-on le successeur du terme <span class="math inline">\(u_{n-1}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : le successeur a le rang suivant, <span class="math inline">\(n - 1 + 1 = n\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n+1}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{n+1}\)</span> est le successeur de <span class="math inline">\(u_{n}\)</span>. Celui de <span class="math inline">\(u_{n-1}\)</span> a le rang <span class="math inline">\(n - 1 + 1 = n\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n-1} + 1\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{n-1} + 1\)</span> est le <strong>terme</strong> <span class="math inline">\(u_{n-1}\)</span> augmenté de <span class="math inline">\(1\)</span>, pas le terme suivant. C’est l’<strong>indice</strong> qui augmente de <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n-2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{n-2}\)</span> est le prédécesseur de <span class="math inline">\(u_{n-1}\)</span> : on a reculé au lieu d’avancer.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-vocabulaire-traduire" data-type="ouverte" data-section="sec-suite" data-obj="C1" data-niveau="2" data-id="5UAA2.q.gen-vocabulaire-traduire" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Traduis en français l’égalité <span class="math inline">\(u_{n+1} = u_{n} + 3\)</span>, en utilisant les mots « terme », « successeur » et « rang ».</p>
+</div>
+<div class="ae-rep">
+<p>Pour tout rang <span class="math inline">\(n\)</span>, le successeur du terme <span class="math inline">\(u_{n}\)</span> s’obtient en ajoutant <span class="math inline">\(3\)</span> à ce terme : chaque terme vaut le précédent augmenté de <span class="math inline">\(3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai dit que <span class="math inline">\(u_{n+1}\)</span> est le successeur de <span class="math inline">\(u_{n}\)</span> (le terme de rang suivant).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai dit qu’on ajoute <span class="math inline">\(3\)</span> au <strong>terme</strong>, pas au rang.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-repere-points" data-type="qcm" data-section="sec-representer" data-obj="A1" data-niveau="1" data-id="5UAA2.q.gen-repere-points" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>On représente la suite <span class="math inline">\(u_{n} = 5 - 2n\)</span> (à partir de <span class="math inline">\(n = 0\)</span>) dans un repère. Quel point y figure ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\((2 ; 1)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{2} = 5 - 4 = 1\)</span>, d’où le point <span class="math inline">\((2 ; u_{2}) = (2 ; 1)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((1 ; 2)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as inversé les coordonnées : le rang <span class="math inline">\(n\)</span> est en abscisse, le terme <span class="math inline">\(u_{n}\)</span> en ordonnée. Ici <span class="math inline">\(u_{2} = 1\)</span> donne <span class="math inline">\((2 ; 1)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((0 ; 0)\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{0} = 5 - 0 = 5\)</span> : le premier point est <span class="math inline">\((0 ; 5)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((3 ; 11)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Erreur de signe : tu as calculé <span class="math inline">\(5 + 2 \cdot 3\)</span>. Ici <span class="math inline">\(u_{3} = 5 - 6 = -1\)</span>, d’où le point <span class="math inline">\((3 ; -1)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-relier-points" data-type="qcm" data-section="sec-representer" data-obj="A1" data-niveau="1" data-id="5UAA2.q.gen-relier-points" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pourquoi ne relie-t-on pas les points de la représentation d’une suite dans un repère ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Parce qu’une suite n’est définie que pour des rangs entiers.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : entre <span class="math inline">\(n = 1\)</span> et <span class="math inline">\(n = 2\)</span>, il n’y a aucun terme. Les points sont isolés.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Parce que les points ne sont jamais alignés.</p>
+</div>
+<div class="ae-fb">
+<p>Les points d’une suite arithmétique sont alignés, et on ne les relie pas non plus. La raison est ailleurs : il n’y a pas de terme entre deux rangs entiers.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Pour que le graphique soit plus lisible.</p>
+</div>
+<div class="ae-fb">
+<p>Ce n’est pas une question de lisibilité : un trait ferait croire qu’il existe des termes de rang <span class="math inline">\(1{,}5\)</span>, <span class="math inline">\(1{,}7\)</span>…</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On peut les relier si la suite est croissante.</p>
+</div>
+<div class="ae-fb">
+<p>Même croissante, une suite n’a pas de terme entre deux rangs entiers : on ne relie jamais les points.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-droite-graduee" data-type="ouverte" data-section="sec-representer" data-obj="A1" data-niveau="2" data-id="5UAA2.q.gen-droite-graduee" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Représente les termes <span class="math inline">\(u_{0}\)</span> à <span class="math inline">\(u_{4}\)</span> de la suite <span class="math inline">\(u_{n} = \frac{1}{n + 1}\)</span> sur une droite graduée de <span class="math inline">\(0\)</span> à <span class="math inline">\(1\)</span>. Que montre ce dessin ?</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(u_{0} = 1\)</span>, <span class="math inline">\(u_{1} = \frac{1}{2}\)</span>, <span class="math inline">\(u_{2} = \frac{1}{3}\)</span>, <span class="math inline">\(u_{3} = \frac{1}{4}\)</span>, <span class="math inline">\(u_{4} = \frac{1}{5}\)</span>.</p>
+<div class="ia" data-ia="droite" data-cfg="{&quot;min&quot;: 0.0, &quot;max&quot;: 1.0, &quot;pas&quot;: 0.25, &quot;valeurs&quot;: [[1.0, [&quot;u&quot;, &quot;0&quot;]], [0.5, [&quot;u&quot;, &quot;1&quot;]], [0.333, [&quot;u&quot;, &quot;2&quot;]], [0.25, [&quot;u&quot;, &quot;3&quot;]], [0.2, [&quot;u&quot;, &quot;4&quot;]]]}"></div>
+<p>Les termes se resserrent de plus en plus près de <span class="math inline">\(0\)</span> : ils semblent s’y accumuler.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé correctement les cinq termes.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai placé des valeurs sur une seule droite, chacune avec son nom.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai remarqué que les termes s’accumulent vers <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-explicite-calcul" data-type="qcm" data-section="sec-generer" data-obj="A3" data-niveau="1" data-id="5UAA2.q.gen-explicite-calcul" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Soit <span class="math inline">\(u_{n} = n^{2} - 3n\)</span>. Que vaut <span class="math inline">\(u_{5}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(10\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{5} = 25 - 15 = 10\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-5\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(5 \cdot 2 - 15\)</span> : <span class="math inline">\(n^{2}\)</span>, c’est <span class="math inline">\(5 \cdot 5 = 25\)</span>, pas <span class="math inline">\(5 \cdot 2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(u_{4} = 16 - 12\)</span> : on demande le terme de rang <span class="math inline">\(5\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(40\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as additionné : <span class="math inline">\(25 + 15\)</span>. La formule soustrait <span class="math inline">\(3n\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-recurrence-calcul" data-type="qcm" data-section="sec-generer" data-obj="A3" data-niveau="1" data-id="5UAA2.q.gen-recurrence-calcul" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Soit la suite définie par <span class="math inline">\(u_{0} = 2\)</span> et <span class="math inline">\(u_{n+1} = 3 u_{n} - 1\)</span>. Que vaut <span class="math inline">\(u_{2}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(14\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{1} = 3 \cdot 2 - 1 = 5\)</span>, puis <span class="math inline">\(u_{2} = 3 \cdot 5 - 1 = 14\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(5\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(5\)</span>, c’est <span class="math inline">\(u_{1}\)</span>. Il faut encore une étape pour <span class="math inline">\(u_{2}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(17\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié le <span class="math inline">\(-1\)</span> à la première étape (<span class="math inline">\(u_{1} = 6\)</span>). Chaque étape applique toute la relation : <span class="math inline">\(u_{1} = 3 \cdot 2 - 1 = 5\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(15\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié le <span class="math inline">\(-1\)</span> à la deuxième étape : <span class="math inline">\(u_{2} = 3 \cdot 5 - 1 = 14\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-explicite-ou-recurrence" data-type="qcm" data-section="sec-generer" data-obj="C1" data-niveau="1" data-id="5UAA2.q.gen-explicite-ou-recurrence" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Laquelle de ces écritures est une relation de récurrence ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n+1} = \frac{u_{n}}{2}\)</span> et <span class="math inline">\(u_{0} = 64\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : chaque terme est exprimé à partir du précédent, et le premier terme est donné.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = \frac{64}{2^{n}}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est une formule explicite : <span class="math inline">\(u_{n}\)</span> se calcule directement à partir du rang <span class="math inline">\(n\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n+1} = \frac{u_{n}}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Il manque le premier terme : sans lui, la relation décrit une infinité de suites.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = \frac{n}{2}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est une formule explicite (elle ne fait pas intervenir le terme précédent).</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-deux-ecritures" data-type="ouverte" data-section="sec-generer" data-obj="C4" data-niveau="2" data-id="5UAA2.q.gen-deux-ecritures" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Donne une formule explicite et une relation de récurrence pour la suite <span class="math inline">\((10 ; 7 ; 4 ; 1 ; \ldots)\)</span>, numérotée à partir de <span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p>On retire <span class="math inline">\(3\)</span> à chaque rang : <span class="math inline">\(u_{n+1} = u_{n} - 3\)</span> avec <span class="math inline">\(u_{0} = 10\)</span>, et <span class="math inline">\(u_{n} = 10 - 3n\)</span> (vérification : <span class="math inline">\(u_{3} = 1\)</span> ✓).</p>
+</div>
+<div class="ae-crit">
+<p>Ma récurrence contient le premier terme <span class="math inline">\(u_{0} = 10\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>Ma formule explicite donne les bons premiers termes.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-variation-definition" data-type="qcm" data-section="sec-variations" data-obj="C3" data-niveau="1" data-id="5UAA2.q.gen-variation-definition" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite <span class="math inline">\((u_{n})\)</span> vérifie <span class="math inline">\(u_{n+1} &lt; u_{n}\)</span> pour tout <span class="math inline">\(n\)</span>. Elle est :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>strictement décroissante</p>
+</div>
+<div class="ae-fb">
+<p>Oui : chaque terme est strictement plus petit que le précédent.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>strictement croissante</p>
+</div>
+<div class="ae-fb">
+<p>Lis bien l’inégalité : le terme <strong>suivant</strong> <span class="math inline">\(u_{n+1}\)</span> est plus petit. La suite descend.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>décroissante, mais pas strictement</p>
+</div>
+<div class="ae-fb">
+<p>L’inégalité est stricte (<span class="math inline">\(&lt;\)</span>) : les termes ne sont jamais égaux, la décroissance est stricte.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>quelconque</p>
+</div>
+<div class="ae-fb">
+<p>« Quelconque » veut dire ni croissante, ni décroissante, ni constante. Ici, chaque terme est plus petit que le précédent : la suite a une variation bien précise.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-variation-quelconque" data-type="qcm" data-section="sec-variations" data-obj="C3" data-niveau="2" data-id="5UAA2.q.gen-variation-quelconque" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la variation de la suite <span class="math inline">\(u_{n} = (-2)^{n}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>quelconque</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(1\)</span> ; <span class="math inline">\(-2\)</span> ; <span class="math inline">\(4\)</span> ; <span class="math inline">\(-8\)</span>… les termes montent et descendent alternativement.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>strictement décroissante</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{1} = -2 &lt; u_{0} = 1\)</span>, mais <span class="math inline">\(u_{2} = 4 &gt; u_{1}\)</span> : il faut comparer <strong>chaque</strong> terme à son successeur.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>strictement croissante</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{2} = 4 &gt; u_{0} = 1\)</span>, mais <span class="math inline">\(u_{1} = -2\)</span> est plus petit que <span class="math inline">\(u_{0}\)</span>. Compare des termes <strong>consécutifs</strong>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>constante</p>
+</div>
+<div class="ae-fb">
+<p>Les termes changent à chaque rang : <span class="math inline">\(1\)</span> ; <span class="math inline">\(-2\)</span> ; <span class="math inline">\(4\)</span> ; <span class="math inline">\(-8\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-limite-tableau" data-type="qcm" data-section="sec-limite" data-obj="C6" data-niveau="1" data-id="5UAA2.q.gen-limite-tableau" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Voici quelques termes d’une suite. Quelle limite peut-on conjecturer ?</p>
+<div class="tableau">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(100\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1000\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10000\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a_{n}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3{,}5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3{,}05\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3{,}005\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3{,}0005\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3{,}00005\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(3\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’écart avec <span class="math inline">\(3\)</span> est divisé par <span class="math inline">\(10\)</span> chaque fois que <span class="math inline">\(n\)</span> est multiplié par <span class="math inline">\(10\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(3{,}00005\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est le dernier terme du tableau, pas la limite : les termes suivants s’approchent encore plus de <span class="math inline">\(3\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est l’<strong>écart</strong> avec <span class="math inline">\(3\)</span> qui se rapproche de <span class="math inline">\(0\)</span>, pas les termes eux-mêmes.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(+\infty\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les termes diminuent et restent au-dessus de <span class="math inline">\(3\)</span> : ils ne deviennent pas grands.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-limite-graphique" data-type="qcm" data-section="sec-limite" data-obj="C6" data-niveau="1" data-id="5UAA2.q.gen-limite-graphique" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Voici la représentation d’une suite <span class="math inline">\((u_{n})\)</span>. Quelle limite peut-on conjecturer ?</p>
+<div class="ia" data-ia="suite" data-cfg="{&quot;points&quot;: [[0.0, -2.0], [1.0, 0.0], [2.0, 1.0], [3.0, 1.5], [4.0, 1.75], [5.0, 1.875], [6.0, 1.94], [7.0, 1.97]], &quot;nmax&quot;: 8, &quot;ymin&quot;: -3.0, &quot;ymax&quot;: 3.0, &quot;fixe&quot;: true, &quot;ypas&quot;: 1.0, &quot;n0&quot;: 0, &quot;largeur&quot;: 520, &quot;hauteur&quot;: 334}"></div>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : les points montent de moins en moins et s’approchent de la hauteur <span class="math inline">\(2\)</span> sans la dépasser.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(+\infty\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La suite est croissante, mais elle ne devient pas aussi grande qu’on veut : elle s’aplatit sous la hauteur <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-2\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(-2\)</span> est le premier terme <span class="math inline">\(u_{0}\)</span>. La limite décrit ce qui se passe quand <span class="math inline">\(n\)</span> devient très grand.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as lu sur l’axe horizontal : la limite est une <strong>valeur</strong> des termes (lue sur l’axe vertical), pas un rang.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-limite-sens" data-type="qcm" data-section="sec-limite" data-obj="C6" data-niveau="2" data-id="5UAA2.q.gen-limite-sens" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Que signifie l’écriture <span class="math inline">\(\lim\limits_{n \to +\infty} u_{n} = 5\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Les termes <span class="math inline">\(u_{n}\)</span> se rapprochent autant qu’on veut de <span class="math inline">\(5\)</span> quand le rang <span class="math inline">\(n\)</span> est suffisamment grand.</p>
+</div>
+<div class="ae-fb">
+<p>Oui, c’est la <a href="./ch1-generalites-sur-les/6-limite-dune-suite.html#definition-1-5">définition</a> : aussi petite que soit la marge choisie autour de <span class="math inline">\(5\)</span>, tous les termes y sont à partir d’un certain rang.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Le terme <span class="math inline">\(u_{5}\)</span> est très grand.</p>
+</div>
+<div class="ae-fb">
+<p>Le <span class="math inline">\(5\)</span> n’est pas un rang : c’est la valeur dont les termes se rapprochent.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Un des termes de la suite vaut <span class="math inline">\(5\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Ce n’est pas nécessaire : les termes de <span class="math inline">\(u_{n} = 5 - \frac{1}{n}\)</span> ne valent jamais <span class="math inline">\(5\)</span>, et pourtant la limite vaut <span class="math inline">\(5\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Les termes sont tous plus petits que <span class="math inline">\(5\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Pas forcément : <span class="math inline">\(u_{n} = 5 + \frac{1}{n}\)</span> a aussi pour limite <span class="math inline">\(5\)</span>, avec des termes plus grands que <span class="math inline">\(5\)</span>. La limite parle de rapprochement, pas de position.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-limite-observer" data-type="qcm" data-section="sec-limite" data-obj="C6" data-niveau="2" data-id="5UAA2.q.gen-limite-observer" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Un élève calcule <span class="math inline">\(u_{1000} \approx 0{,}001\)</span> et affirme : « J’ai démontré que la limite vaut <span class="math inline">\(0\)</span>. » Qu’en penses-tu ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Il a seulement conjecturé la limite : un nombre fini de termes ne démontre rien.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : un tableau ou un graphique permet de <strong>conjecturer</strong> une limite, pas de l’établir avec certitude (encadré « Observer ≠ démontrer »).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Il a raison, <span class="math inline">\(u_{1000}\)</span> est très proche de <span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Un seul terme ne dit rien de tous les suivants : la suite pourrait ensuite s’éloigner de <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Il a raison s’il a aussi calculé <span class="math inline">\(u_{10000}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Même avec beaucoup de termes, on n’en observe qu’un nombre fini : on conjecture.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Il a tort : la limite vaut forcément <span class="math inline">\(0{,}001\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(0{,}001\)</span> est la valeur d’<strong>un</strong> terme, pas la limite.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-limite-rang-bande" data-type="ouverte" data-section="sec-limite" data-obj="C6" data-niveau="3" data-id="5UAA2.q.gen-limite-rang-bande" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>On considère <span class="math inline">\(v_{n} = \frac{n}{n + 1}\)</span>, de limite <span class="math inline">\(1\)</span>. À partir de quel rang tous les termes sont-ils à moins de <span class="math inline">\(0{,}05\)</span> de <span class="math inline">\(1\)</span> ? Justifie.</p>
+</div>
+<div class="ae-rep">
+<p>L’écart vaut <span class="math inline">\(1 - v_{n} = \frac{1}{n + 1}\)</span>. Il est inférieur à <span class="math inline">\(0{,}05 = \frac{1}{20}\)</span> lorsque <span class="math inline">\(n + 1 &gt; 20\)</span>, c’est-à-dire <span class="math inline">\(n &gt; 19\)</span>. À partir du rang <span class="math inline">\(20\)</span>, tous les termes sont à moins de <span class="math inline">\(0{,}05\)</span> de <span class="math inline">\(1\)</span> (et <span class="math inline">\(v_{19} = \frac{19}{20}\)</span> est exactement à <span class="math inline">\(0{,}05\)</span>).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai exprimé l’écart <span class="math inline">\(1 - v_{n}\)</span> en fonction de <span class="math inline">\(n\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé le rang <span class="math inline">\(20\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai expliqué pourquoi les termes suivants restent aussi dans la marge (l’écart diminue quand <span class="math inline">\(n\)</span> augmente).</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-pyramide-somme" data-type="qcm" data-section="sec-pyramide" data-obj="A4" data-niveau="2" data-id="5UAA2.q.ari-pyramide-somme" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Avec l’astuce de Gauss, calcule <span class="math inline">\(3 + 7 + 11 + \ldots + 39\)</span> (termes d’une suite arithmétique de raison <span class="math inline">\(4\)</span>).</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(210\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : il y a <span class="math inline">\(10\)</span> termes (<span class="math inline">\(39 = 3 + 9 \cdot 4\)</span>) ; <span class="math inline">\(\frac{10}{2} (3 + 39) = 5 \cdot 42 = 210\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(189\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as compté <span class="math inline">\(9\)</span> termes : de <span class="math inline">\(u_{0} = 3\)</span> à <span class="math inline">\(u_{9} = 39\)</span>, il y en a <span class="math inline">\(10\)</span>. <span class="math inline">\(\frac{9}{2} \cdot 42 = 189\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(420\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié de diviser par <span class="math inline">\(2\)</span> : chaque paire (premier + dernier) vaut <span class="math inline">\(42\)</span>, et il y a <span class="math inline">\(\frac{10}{2} = 5\)</span> paires.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(42\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(42\)</span>, c’est la somme d’<strong>une</strong> paire (le premier et le dernier terme). Combien y a-t-il de paires ?</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-reconnaitre" data-type="qcm" data-section="sec-arith-definition" data-obj="C2" data-niveau="1" data-id="5UAA2.q.ari-reconnaitre" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Laquelle de ces suites est arithmétique ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\((12 ; 9{,}5 ; 7 ; 4{,}5 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : on retire toujours <span class="math inline">\(2{,}5\)</span> ; la raison est <span class="math inline">\(-2{,}5\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((1 ; 4 ; 9 ; 16 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les différences valent <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(7\)</span> : elles ne sont pas constantes (ce sont les carrés).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((2 ; 6 ; 18 ; 54 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On multiplie par <span class="math inline">\(3\)</span> : le <strong>rapport</strong> est constant, pas la différence. Elle est géométrique.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((1 ; -1 ; 1 ; -1 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les différences valent <span class="math inline">\(-2\)</span> puis <span class="math inline">\(2\)</span> : elles changent de signe.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-raison-signe" data-type="qcm" data-section="sec-arith-definition" data-obj="C3" data-niveau="1" data-id="5UAA2.q.ari-raison-signe" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la raison de la suite arithmétique <span class="math inline">\((20 ; 14 ; 8 ; 2 ; \ldots)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{1} - u_{0} = 14 - 20 = -6\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(6\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La suite descend : on <strong>retire</strong> <span class="math inline">\(6\)</span>. La raison est <span class="math inline">\(u_{1} - u_{0} = -6\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(20\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(20\)</span> est le premier terme, pas la raison.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{7}{10}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé un rapport (<span class="math inline">\(\frac{14}{20}\)</span>) : pour une suite arithmétique, la raison est une <strong>différence</strong>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-justifier" data-type="ouverte" data-section="sec-arith-definition" data-obj="A2" data-niveau="2" data-id="5UAA2.q.ari-justifier" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Soit la suite <span class="math inline">\(u_{n} = 7 - 4n\)</span>. Montre qu’elle est arithmétique et donne sa raison.</p>
+</div>
+<div class="ae-rep">
+<p>Pour tout <span class="math inline">\(n\)</span> : <span class="math inline">\(u_{n+1} - u_{n} = (7 - 4(n + 1)) - (7 - 4n) = 7 - 4n - 4 - 7 + 4n = -4\)</span>. La différence entre deux termes consécutifs est constante : la suite est arithmétique, de raison <span class="math inline">\(r = -4\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(u_{n+1} - u_{n}\)</span> pour un <span class="math inline">\(n\)</span> quelconque (pas seulement sur des exemples).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai remplacé correctement <span class="math inline">\(n\)</span> par <span class="math inline">\(n + 1\)</span>, avec les parenthèses.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai conclu en citant la définition : différence constante, raison <span class="math inline">\(-4\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-justifier-exemples" data-type="qcm" data-section="sec-arith-definition" data-obj="A2" data-niveau="2" data-id="5UAA2.q.ari-justifier-exemples" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Pour prouver qu’une suite donnée par une formule explicite est arithmétique, que faut-il montrer ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Que <span class="math inline">\(u_{n+1} - u_{n}\)</span> est le même nombre pour tout <span class="math inline">\(n\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : c’est la <a href="./ch2-suites-arithmetiques/2-definition.html#definition-2-1">définition</a>, vérifiée pour un rang quelconque.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Que <span class="math inline">\(u_{1} - u_{0}\)</span> et <span class="math inline">\(u_{2} - u_{1}\)</span> sont égaux.</p>
+</div>
+<div class="ae-fb">
+<p>Deux différences égales ne suffisent pas : <span class="math inline">\(u_{n} = n^{3} - 3n^{2} + 3n\)</span> donne <span class="math inline">\(1\)</span> et <span class="math inline">\(1\)</span>, puis <span class="math inline">\(7\)</span>. Il faut un calcul valable pour tout <span class="math inline">\(n\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Que les termes augmentent.</p>
+</div>
+<div class="ae-fb">
+<p>Une suite peut augmenter sans être arithmétique (<span class="math inline">\(2\)</span> ; <span class="math inline">\(4\)</span> ; <span class="math inline">\(8\)</span> ; …), et une suite arithmétique peut diminuer.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Que <span class="math inline">\(\frac{u_{n+1}}{u_{n}}\)</span> est constant.</p>
+</div>
+<div class="ae-fb">
+<p>C’est la définition d’une suite <strong>géométrique</strong>. Pour une arithmétique, on regarde la <strong>différence</strong>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-variation" data-type="qcm" data-section="sec-arith-representation" data-obj="C3" data-niveau="1" data-id="5UAA2.q.ari-variation" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite arithmétique a pour premier terme <span class="math inline">\(u_{0} = -8\)</span> et pour raison <span class="math inline">\(r = 3\)</span>. Elle est :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>strictement croissante</p>
+</div>
+<div class="ae-fb">
+<p>Oui : la raison est positive, on ajoute <span class="math inline">\(3\)</span> à chaque rang (<a href="./ch2-suites-arithmetiques/3-representation-et-variation.html#propriete-2-1">propriété</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>strictement décroissante</p>
+</div>
+<div class="ae-fb">
+<p>Le signe du <strong>premier terme</strong> ne décide pas de la variation : c’est celui de la raison. <span class="math inline">\(r = 3 &gt; 0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>croissante puis décroissante</p>
+</div>
+<div class="ae-fb">
+<p>Une suite arithmétique varie toujours dans le même sens : on ajoute toujours le même nombre.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>constante</p>
+</div>
+<div class="ae-fb">
+<p>Elle serait constante si <span class="math inline">\(r = 0\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-graphique-raison" data-type="qcm" data-section="sec-arith-representation" data-obj="C3" data-niveau="1" data-id="5UAA2.q.ari-graphique-raison" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Ces points représentent une suite arithmétique. Quels sont son premier terme et sa raison ?</p>
+<div class="ia" data-ia="suite" data-cfg="{&quot;points&quot;: [[0.0, 7.0], [1.0, 5.0], [2.0, 3.0], [3.0, 1.0], [4.0, -1.0]], &quot;nmax&quot;: 5, &quot;ymin&quot;: -2.0, &quot;ymax&quot;: 8.0, &quot;fixe&quot;: true, &quot;ypas&quot;: 2.0, &quot;n0&quot;: 0, &quot;largeur&quot;: 520, &quot;hauteur&quot;: 334}"></div>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{0} = 7\)</span> et <span class="math inline">\(r = -2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : le premier point est à la hauteur <span class="math inline">\(7\)</span> et l’on descend de <span class="math inline">\(2\)</span> à chaque rang.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{0} = 7\)</span> et <span class="math inline">\(r = 2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les points descendent : la raison est négative.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{0} = -1\)</span> et <span class="math inline">\(r = 2\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as lu la suite de droite à gauche. Le premier terme est celui de rang <span class="math inline">\(0\)</span>, sur l’axe vertical.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{0} = 0\)</span> et <span class="math inline">\(r = 7\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(0\)</span> est le <strong>rang</strong> du premier point ; sa hauteur, <span class="math inline">\(7\)</span>, est le premier terme.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-formule-explicite" data-type="qcm" data-section="sec-arith-generer" data-obj="C4" data-niveau="1" data-id="5UAA2.q.ari-formule-explicite" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite arithmétique a pour premier terme <span class="math inline">\(u_{0} = 5\)</span> et pour raison <span class="math inline">\(r = -3\)</span>. Quel est son terme général ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 5 - 3n\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{n} = u_{0} + n r = 5 + n \cdot (-3)\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = -3 + 5n\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as inversé premier terme et raison : <span class="math inline">\(u_{0} = -3\)</span> ici, au lieu de <span class="math inline">\(5\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 5 \cdot (-3)^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la formule d’une suite <strong>géométrique</strong>. Une suite arithmétique ajoute la raison : <span class="math inline">\(u_{n} = u_{0} + n r\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 5 - 3(n - 1)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Cette formule convient si la suite commence à <span class="math inline">\(u_{1} = 5\)</span>. Ici le premier terme est <span class="math inline">\(u_{0}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-terme-a-partir-autre" data-type="qcm" data-section="sec-arith-generer" data-obj="A3" data-niveau="2" data-id="5UAA2.q.ari-terme-a-partir-autre" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite arithmétique a pour raison <span class="math inline">\(r = 4\)</span> et vérifie <span class="math inline">\(u_{30} = 50\)</span>. Que vaut <span class="math inline">\(u_{12}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-22\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{12} = u_{30} + (12 - 30) \cdot 4 = 50 - 72 = -22\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(122\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as avancé au lieu de reculer : de <span class="math inline">\(u_{30}\)</span> à <span class="math inline">\(u_{12}\)</span>, on recule de <span class="math inline">\(18\)</span> rangs, donc on <strong>retire</strong> <span class="math inline">\(18\)</span> fois la raison.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(98\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(50 + 12 \cdot 4\)</span> : le nombre de rangs est l’écart <span class="math inline">\(12 - 30 = -18\)</span>, pas <span class="math inline">\(12\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(20\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(50 \cdot \frac{12}{30}\)</span>, comme pour une proportion. Une suite arithmétique n’est pas proportionnelle : <span class="math inline">\(u_{n} = u_{p} + (n - p) r\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-raison-deux-termes" data-type="ouverte" data-section="sec-arith-generer" data-obj="A3" data-niveau="2" data-id="5UAA2.q.ari-raison-deux-termes" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Une suite arithmétique vérifie <span class="math inline">\(u_{4} = 11\)</span> et <span class="math inline">\(u_{10} = 32\)</span>. Calcule sa raison et son premier terme <span class="math inline">\(u_{0}\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(r = \frac{32 - 11}{10 - 4} = \frac{21}{6} = 3{,}5\)</span> ; puis <span class="math inline">\(u_{0} = u_{4} - 4 r = 11 - 14 = -3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai divisé la différence des termes par la différence des rangs.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(r = 3{,}5\)</span> et <span class="math inline">\(u_{0} = -3\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-limite" data-type="qcm" data-section="sec-arith-limite" data-obj="C6" data-niveau="1" data-id="5UAA2.q.ari-limite" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la limite de la suite arithmétique <span class="math inline">\(u_{n} = 100 - 0{,}1 n\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(-\infty\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : la raison <span class="math inline">\(-0{,}1\)</span> est négative ; même petite, on la retire indéfiniment (<a href="./ch2-suites-arithmetiques/5-caracteristiques-variation-limite.html#propriete-2-5">propriété</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(100\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(100\)</span> est le premier terme. La suite continue de descendre : <span class="math inline">\(u_{10000} = -900\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La raison est petite, mais c’est une <strong>différence</strong> constante : les termes passent sous <span class="math inline">\(0\)</span> et continuent (ex. <span class="math inline">\(u_{2000} = -100\)</span>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-0{,}1\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la raison, pas la limite.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-exemple-contraintes" data-type="ouverte" data-section="sec-arith-limite" data-obj="C5" data-niveau="2" data-id="5UAA2.q.ari-exemple-contraintes" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Donne un exemple de suite arithmétique strictement décroissante dont le premier terme est <span class="math inline">\(u_{0} = 3\)</span>. Précise sa raison, sa formule explicite et sa limite.</p>
+</div>
+<div class="ae-rep">
+<p>Par exemple <span class="math inline">\(r = -2\)</span> : <span class="math inline">\(u_{n} = 3 - 2n\)</span>, de limite <span class="math inline">\(-\infty\)</span> (toute raison négative convient).</p>
+</div>
+<div class="ae-crit">
+<p>Ma raison est strictement négative et mon premier terme vaut <span class="math inline">\(3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>Ma formule explicite est de la forme <span class="math inline">\(u_{n} = 3 + n r\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai donné la limite <span class="math inline">\(-\infty\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-exemple-qcm" data-type="qcm" data-section="sec-arith-limite" data-obj="C5" data-niveau="2" data-id="5UAA2.q.ari-exemple-qcm" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle suite arithmétique est croissante et a pour premier terme <span class="math inline">\(u_{0} = -10\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = -10 + 0{,}5 n\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{0} = -10\)</span> et la raison <span class="math inline">\(0{,}5\)</span> est positive.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 10 - 0{,}5 n\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Premier terme <span class="math inline">\(10\)</span> et raison négative : les deux contraintes sont fausses.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = -10 - 0{,}5 n\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le premier terme convient, mais la raison <span class="math inline">\(-0{,}5\)</span> est négative : la suite décroît.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = -10 \cdot 1{,}5^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Ce n’est pas une suite arithmétique (on multiplie par <span class="math inline">\(1{,}5\)</span>), et elle est décroissante (termes négatifs de plus en plus grands en valeur absolue).</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-somme-formule" data-type="qcm" data-section="sec-arith-somme" data-obj="A4" data-niveau="1" data-id="5UAA2.q.ari-somme-formule" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite arithmétique a <span class="math inline">\(u_{0} = 2\)</span> et <span class="math inline">\(r = 5\)</span>. Que vaut <span class="math inline">\(S_{10} = u_{0} + u_{1} + \ldots + u_{9}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(245\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{9} = 2 + 45 = 47\)</span> et <span class="math inline">\(S_{10} = \frac{10}{2} (2 + 47) = 5 \cdot 49 = 245\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(260\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as pris <span class="math inline">\(u_{10} = 52\)</span> comme dernier terme : les <span class="math inline">\(10\)</span> premiers termes vont de <span class="math inline">\(u_{0}\)</span> à <span class="math inline">\(u_{9}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(490\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié de diviser par <span class="math inline">\(2\)</span> : <span class="math inline">\(S_{n} = \frac{n}{2} (u_{0} + u_{n-1})\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(49\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(49\)</span> est la somme du premier et du dernier terme. Il y a <span class="math inline">\(5\)</span> paires de cette valeur.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-olympiades" data-type="ouverte" data-section="sec-arith-generer" data-obj="A3 T1" data-niveau="2" data-id="5UAA2.q.ari-olympiades" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Les olympiades se succèdent tous les <span class="math inline">\(4\)</span> ans ; la Ire a commencé en <span class="math inline">\(1896\)</span> (Jeux d’Athènes). On les compte même quand les Jeux n’ont pas eu lieu (guerres). En quelle année commence la XXXIIIe olympiade ? Et la XXXVe ?</p>
+</div>
+<div class="ae-rep">
+<p>L’année de la <span class="math inline">\(k\)</span><sup>e</sup> olympiade forme une suite arithmétique de raison <span class="math inline">\(4\)</span> : <span class="math inline">\(a_{k} = 1896 + 4 (k - 1)\)</span>. XXXIIIe : <span class="math inline">\(a_{33} = 1896 + 4 \cdot 32 = 2024\)</span> (Jeux de Paris). XXXVe : <span class="math inline">\(a_{35} = 1896 + 4 \cdot 34 = 2032\)</span> (Jeux de Brisbane).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai reconnu une suite arithmétique de raison <span class="math inline">\(4\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai tenu compte du fait que la numérotation commence à <span class="math inline">\(1\)</span> (on ajoute <span class="math inline">\(k - 1\)</span> fois la raison).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(2024\)</span> et <span class="math inline">\(2032\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-somme-rangs" data-type="ouverte" data-section="sec-arith-somme" data-obj="A4" data-niveau="2" data-id="5UAA2.q.ari-somme-rangs" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Calcule la somme <span class="math inline">\(5 + 9 + 13 + \ldots + 101\)</span> des termes consécutifs d’une suite arithmétique.</p>
+</div>
+<div class="ae-rep">
+<p>Raison <span class="math inline">\(4\)</span>, <span class="math inline">\(u_{0} = 5\)</span> ; <span class="math inline">\(5 + 4n = 101\)</span> donne <span class="math inline">\(n = 24\)</span> : il y a <span class="math inline">\(25\)</span> termes. Somme : <span class="math inline">\(\frac{25}{2} (5 + 101) = 25 \cdot 53 = 1325\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé le rang du dernier terme (<span class="math inline">\(24\)</span>) et donc le nombre de termes (<span class="math inline">\(25\)</span>).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai appliqué : nombre de termes divisé par <span class="math inline">\(2\)</span>, fois (premier terme + dernier terme).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(1325\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-demontrer-somme" data-type="ouverte" data-section="sec-arith-somme" data-obj="C7" data-niveau="3" data-id="5UAA2.q.ari-demontrer-somme" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Démontre que la somme des <span class="math inline">\(n\)</span> premiers termes d’une suite arithmétique vaut <span class="math inline">\(S_{n} = \frac{n}{2} (u_{0} + u_{n-1})\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p>On écrit la somme dans les deux sens :</p>
+<p><span class="math display">\[
+S_{n} = u_{0} + u_{1} + \ldots + u_{n-1},  \\ S_{n} = u_{n-1} + u_{n-2} + \ldots + u_{0}.
+\]</span></p>
+<p>Dans une colonne, les rangs sont <span class="math inline">\(k\)</span> et <span class="math inline">\(n - 1 - k\)</span> : <span class="math inline">\(u_{k} + u_{n-1-k} = (u_{0} + k r) + (u_{n-1} - k r) = u_{0} + u_{n-1}\)</span>. Les <span class="math inline">\(n\)</span> colonnes ont donc la même somme ; en additionnant les deux lignes, <span class="math inline">\(2 S_{n} = n (u_{0} + u_{n-1})\)</span>, d’où la formule.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai écrit la somme dans l’ordre et à l’envers.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai justifié que chaque colonne vaut <span class="math inline">\(u_{0} + u_{n-1}\)</span>, en utilisant la raison.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai compté <span class="math inline">\(n\)</span> colonnes et divisé par <span class="math inline">\(2\)</span> à la fin.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="ari-demonstration-etape" data-type="qcm" data-section="sec-arith-somme" data-obj="C7" data-niveau="2" data-id="5UAA2.q.ari-demonstration-etape" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Dans la démonstration de la somme arithmétique, pourquoi <span class="math inline">\(u_{1} + u_{n-2} = u_{0} + u_{n-1}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Parce que <span class="math inline">\(u_{1} = u_{0} + r\)</span> et <span class="math inline">\(u_{n-2} = u_{n-1} - r\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : on ajoute la raison d’un côté et on la retire de l’autre ; la somme ne change pas.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Parce que <span class="math inline">\(u_{1} = u_{0}\)</span> et <span class="math inline">\(u_{n-2} = u_{n-1}\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Ce serait vrai seulement si la raison était nulle.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Parce que la somme de deux termes est toujours constante.</p>
+</div>
+<div class="ae-fb">
+<p>C’est vrai pour des termes « symétriques » (<span class="math inline">\(k\)</span> et <span class="math inline">\(n - 1 - k\)</span>), pas pour deux termes quelconques : <span class="math inline">\(u_{1} + u_{2} \neq u_{0} + u_{n-1}\)</span> en général.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>On le vérifie sur la pyramide.</p>
+</div>
+<div class="ae-fb">
+<p>Un exemple illustre, il ne démontre pas : la propriété doit valoir pour toute suite arithmétique.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-pliage" data-type="qcm" data-section="sec-pliage" data-obj="C2" data-niveau="1" data-id="5UAA2.q.geo-pliage" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une feuille de <span class="math inline">\(0{,}1\)</span> mm d’épaisseur est pliée en deux à chaque étape. Quelle est son épaisseur après <span class="math inline">\(5\)</span> pliages ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(3{,}2\)</span> mm</p>
+</div>
+<div class="ae-fb">
+<p>Oui : l’épaisseur double à chaque pliage : <span class="math inline">\(0{,}1 \cdot 2^{5} = 0{,}1 \cdot 32 = 3{,}2\)</span> mm.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1\)</span> mm</p>
+</div>
+<div class="ae-fb">
+<p>Tu as multiplié par <span class="math inline">\(2 \cdot 5 = 10\)</span> : on double <strong>cinq fois de suite</strong>, soit un facteur <span class="math inline">\(2^{5} = 32\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}6\)</span> mm</p>
+</div>
+<div class="ae-fb">
+<p>Tu as ajouté <span class="math inline">\(0{,}1\)</span> mm à chaque pliage : c’est l’épaisseur qui double, on multiplie.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1{,}6\)</span> mm</p>
+</div>
+<div class="ae-fb">
+<p>C’est l’épaisseur après <span class="math inline">\(4\)</span> pliages : il en manque un.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-reconnaitre" data-type="qcm" data-section="sec-geo-definition" data-obj="C2" data-niveau="1" data-id="5UAA2.q.geo-reconnaitre" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Laquelle de ces suites est géométrique ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\((81 ; -27 ; 9 ; -3 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : chaque terme est le précédent multiplié par <span class="math inline">\(-\frac{1}{3}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((2 ; 4 ; 6 ; 8 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>On ajoute <span class="math inline">\(2\)</span> : c’est la <strong>différence</strong> qui est constante. Les rapports <span class="math inline">\(\frac{4}{2}\)</span> et <span class="math inline">\(\frac{6}{4}\)</span> sont différents.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((1 ; 2 ; 4 ; 7 ; 11 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Les rapports <span class="math inline">\(2\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(1{,}75\)</span> ne sont pas égaux (on ajoute <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\((5 ; 0 ; 0 ; 0 ; \ldots)\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Le rapport <span class="math inline">\(\frac{0}{5} = 0\)</span> est nul et <span class="math inline">\(\frac{0}{0}\)</span> n’a pas de sens : la définition exige un rapport constant <strong>non nul</strong>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-raison" data-type="qcm" data-section="sec-geo-definition" data-obj="C3" data-niveau="1" data-id="5UAA2.q.geo-raison" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la raison de la suite géométrique <span class="math inline">\((48 ; 12 ; 3 ; 0{,}75 ; \ldots)\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(\frac{1}{4}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{12}{48} = \frac{1}{4}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(4\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as divisé dans le mauvais sens (<span class="math inline">\(\frac{48}{12}\)</span>). La raison est <span class="math inline">\(\frac{u_{1}}{u_{0}}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-36\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la <strong>différence</strong> <span class="math inline">\(12 - 48\)</span>. Pour une suite géométrique, la raison est un <strong>rapport</strong>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(48\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(48\)</span> est le premier terme.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-justifier" data-type="ouverte" data-section="sec-geo-definition" data-obj="A2" data-niveau="2" data-id="5UAA2.q.geo-justifier" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Soit la suite <span class="math inline">\(u_{n} = 5 \cdot 3^{n}\)</span>. Montre qu’elle est géométrique et donne sa raison.</p>
+</div>
+<div class="ae-rep">
+<p>Aucun terme n’est nul et, pour tout <span class="math inline">\(n\)</span>, <span class="math inline">\(\frac{u_{n+1}}{u_{n}} = \frac{5 \cdot 3^{n+1}}{5 \cdot 3^{n}} = 3\)</span>. Le rapport de deux termes consécutifs est constant : la suite est géométrique de raison <span class="math inline">\(q = 3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(\frac{u_{n+1}}{u_{n}}\)</span> pour un <span class="math inline">\(n\)</span> quelconque.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai simplifié correctement : <span class="math inline">\(\frac{3^{n+1}}{3^{n}} = 3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai conclu en citant la définition : rapport constant, raison <span class="math inline">\(3\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-variation" data-type="qcm" data-section="sec-geo-representation" data-obj="C3" data-niveau="2" data-id="5UAA2.q.geo-variation" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite géométrique a pour premier terme <span class="math inline">\(u_{0} = -2\)</span> et pour raison <span class="math inline">\(q = 3\)</span>. Elle est :</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>strictement décroissante</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(-2\)</span> ; <span class="math inline">\(-6\)</span> ; <span class="math inline">\(-18\)</span>… les termes sont négatifs et de plus en plus grands en valeur absolue : ils descendent.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>strictement croissante</p>
+</div>
+<div class="ae-fb">
+<p>Avec <span class="math inline">\(q &gt; 1\)</span>, la suite « s’éloigne de <span class="math inline">\(0\)</span> » ; mais ici les termes sont négatifs : elle descend. Il faut regarder aussi le signe de <span class="math inline">\(u_{0}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>quelconque</p>
+</div>
+<div class="ae-fb">
+<p>Les termes ne changent pas de signe (<span class="math inline">\(q &gt; 0\)</span>) : la variation est régulière.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>constante</p>
+</div>
+<div class="ae-fb">
+<p>Elle serait constante si <span class="math inline">\(q = 1\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-alignement" data-type="qcm" data-section="sec-geo-representation" data-obj="A1" data-niveau="1" data-id="5UAA2.q.geo-alignement" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Ces points représentent-ils une suite arithmétique ou une suite géométrique ?</p>
+<div class="ia" data-ia="suite" data-cfg="{&quot;points&quot;: [[0.0, 1.0], [1.0, 1.5], [2.0, 2.25], [3.0, 3.375], [4.0, 5.06]], &quot;nmax&quot;: 5, &quot;ymin&quot;: 0.0, &quot;ymax&quot;: 6.0, &quot;fixe&quot;: true, &quot;ypas&quot;: 1.0, &quot;n0&quot;: 0, &quot;largeur&quot;: 520, &quot;hauteur&quot;: 334}"></div>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Géométrique : les points ne sont pas alignés, et chaque terme est <span class="math inline">\(1{,}5\)</span> fois le précédent.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(\frac{1{,}5}{1} = \frac{2{,}25}{1{,}5} = 1{,}5\)</span> ; la courbe s’incurve.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Arithmétique : la suite est croissante.</p>
+</div>
+<div class="ae-fb">
+<p>Croissante ne veut pas dire arithmétique : les montées <span class="math inline">\(0{,}5\)</span> ; <span class="math inline">\(0{,}75\)</span> ; <span class="math inline">\(1{,}125\)</span> ne sont pas égales.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Arithmétique : les points sont alignés.</p>
+</div>
+<div class="ae-fb">
+<p>Regarde les montées d’un point au suivant : elles augmentent. Les points ne sont pas alignés.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Ni l’une ni l’autre.</p>
+</div>
+<div class="ae-fb">
+<p>Calcule les rapports <span class="math inline">\(\frac{u_{1}}{u_{0}}\)</span>, <span class="math inline">\(\frac{u_{2}}{u_{1}}\)</span> : ils sont égaux.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-formule-explicite" data-type="qcm" data-section="sec-geo-generer" data-obj="C4" data-niveau="1" data-id="5UAA2.q.geo-formule-explicite" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite géométrique a pour premier terme <span class="math inline">\(u_{0} = 3\)</span> et pour raison <span class="math inline">\(q = 2\)</span>. Quel est son terme général ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 3 \cdot 2^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{n} = u_{0} \cdot q^{n}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 6^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(3 \cdot 2^{n}\)</span> n’est pas <span class="math inline">\((3 \cdot 2)^{n}\)</span> : l’exposant ne porte que sur la raison. Vérifie : <span class="math inline">\(u_{0} = 3\)</span>, alors que <span class="math inline">\(6^{0} = 1\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 3 + 2n\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est une suite <strong>arithmétique</strong> (on ajoute <span class="math inline">\(2\)</span>). Ici, on multiplie par <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 2 \cdot 3^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as inversé premier terme et raison.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-terme-a-partir-autre" data-type="qcm" data-section="sec-geo-generer" data-obj="A3" data-niveau="2" data-id="5UAA2.q.geo-terme-a-partir-autre" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Une suite géométrique a pour raison <span class="math inline">\(q = 2\)</span> et vérifie <span class="math inline">\(u_{10} = 96\)</span>. Que vaut <span class="math inline">\(u_{7}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(12\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{7} = u_{10} \cdot 2^{7 - 10} = \frac{96}{8} = 12\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(768\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as avancé au lieu de reculer : de <span class="math inline">\(u_{10}\)</span> à <span class="math inline">\(u_{7}\)</span>, on <strong>divise</strong> trois fois par <span class="math inline">\(2\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(90\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as retiré <span class="math inline">\(3 \cdot 2\)</span>, comme pour une suite arithmétique. Ici, on divise par <span class="math inline">\(2^{3}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(16\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as divisé par <span class="math inline">\(2 \cdot 3 = 6\)</span> : reculer de <span class="math inline">\(3\)</span> rangs, c’est diviser par <span class="math inline">\(2^{3} = 8\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-raison-parite" data-type="ouverte" data-section="sec-geo-generer" data-obj="A3" data-niveau="3" data-id="5UAA2.q.geo-raison-parite" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Une suite géométrique vérifie <span class="math inline">\(u_{1} = 5\)</span> et <span class="math inline">\(u_{5} = 405\)</span>. Détermine toutes les raisons possibles et les premiers termes <span class="math inline">\(u_{0}\)</span> correspondants.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(q^{4} = \frac{405}{5} = 81\)</span>. L’exposant <span class="math inline">\(4\)</span> est pair : <span class="math inline">\(q = 3\)</span> ou <span class="math inline">\(q = -3\)</span>. Si <span class="math inline">\(q = 3\)</span> : <span class="math inline">\(u_{0} = \frac{5}{3}\)</span> ; si <span class="math inline">\(q = -3\)</span> : <span class="math inline">\(u_{0} = -\frac{5}{3}\)</span>. Deux suites conviennent.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(q^{4} = 81\)</span> (et non <span class="math inline">\(q = \frac{81}{4}\)</span>).</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé les deux raisons <span class="math inline">\(3\)</span> et <span class="math inline">\(-3\)</span>, parce que l’exposant est pair.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé <span class="math inline">\(u_{0}\)</span> pour chacune, en reculant d’un rang (division par <span class="math inline">\(q\)</span>).</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-limite-tableau" data-type="qcm" data-section="sec-geo-limite" data-obj="C6" data-niveau="1" data-id="5UAA2.q.geo-limite-tableau" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle est la limite de la suite géométrique <span class="math inline">\(u_{n} = 8 \cdot 0{,}9^{n}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(0\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(-1 &lt; 0{,}9 &lt; 1\)</span> ; on multiplie sans cesse par un nombre plus petit que <span class="math inline">\(1\)</span>, les termes se rapprochent de <span class="math inline">\(0\)</span> (<a href="./ch3-suites-geometriques/5-caracteristiques-variation-limite.html#propriete-3-5">propriété</a>).</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(8\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(8\)</span> est le premier terme ; les suivants sont de plus en plus petits.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(-\infty\)</span></p>
+</div>
+<div class="ae-fb">
+<p>La suite décroît, mais ses termes restent positifs : ils ne peuvent pas devenir très négatifs.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(0{,}9\)</span></p>
+</div>
+<div class="ae-fb">
+<p>C’est la raison, pas la limite.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-limite-alterne" data-type="qcm" data-section="sec-geo-limite" data-obj="C6" data-niveau="2" data-id="5UAA2.q.geo-limite-alterne" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Que peut-on dire de la limite de <span class="math inline">\(u_{n} = 2 \cdot (-3)^{n}\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p>Elle n’existe pas : les termes changent de signe et s’éloignent de <span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(q = -3 \leq -1\)</span> ; <span class="math inline">\(2\)</span> ; <span class="math inline">\(-6\)</span> ; <span class="math inline">\(18\)</span> ; <span class="math inline">\(-54\)</span>… la suite diverge.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle vaut <span class="math inline">\(+\infty\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>La moitié des termes sont négatifs et de plus en plus grands en valeur absolue : les termes ne restent pas grands et positifs.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle vaut <span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Les termes s’éloignent de <span class="math inline">\(0\)</span> : <span class="math inline">\(|q| = 3 &gt; 1\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p>Elle vaut <span class="math inline">\(-\infty\)</span>.</p>
+</div>
+<div class="ae-fb">
+<p>Un terme sur deux est positif et très grand : la suite n’a pas de limite.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-exemple-contraintes" data-type="ouverte" data-section="sec-geo-limite" data-obj="C5" data-niveau="2" data-id="5UAA2.q.geo-exemple-contraintes" data-tags="" data-forme="courte">
+<div class="ae-enonce">
+<p>Donne un exemple de suite géométrique de premier terme négatif qui converge vers <span class="math inline">\(0\)</span>. Précise <span class="math inline">\(u_{0}\)</span>, <span class="math inline">\(q\)</span> et la formule explicite.</p>
+</div>
+<div class="ae-rep">
+<p>Par exemple <span class="math inline">\(u_{0} = -4\)</span> et <span class="math inline">\(q = \frac{1}{2}\)</span> : <span class="math inline">\(u_{n} = -4 \cdot (\frac{1}{2})^{n}\)</span>. (Toute raison vérifiant <span class="math inline">\(-1 &lt; q &lt; 1\)</span>, <span class="math inline">\(q \neq 0\)</span>, convient.)</p>
+</div>
+<div class="ae-crit">
+<p>Mon premier terme est négatif.</p>
+</div>
+<div class="ae-crit">
+<p>Ma raison vérifie <span class="math inline">\(-1 &lt; q &lt; 1\)</span> et n’est pas nulle.</p>
+</div>
+<div class="ae-crit">
+<p>Ma formule est de la forme <span class="math inline">\(u_{n} = u_{0} \cdot q^{n}\)</span>.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-exemple-qcm" data-type="qcm" data-section="sec-geo-limite" data-obj="C5" data-niveau="2" data-id="5UAA2.q.geo-exemple-qcm" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Quelle suite géométrique a pour limite <span class="math inline">\(-\infty\)</span> ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = -3 \cdot 2^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(u_{0} &lt; 0\)</span> et <span class="math inline">\(q &gt; 1\)</span> : les termes sont négatifs et deviennent aussi grands qu’on veut en valeur absolue.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 3 \cdot (-2)^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Avec <span class="math inline">\(q = -2\)</span>, les termes changent de signe : pas de limite.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = -3 \cdot (\frac{1}{2})^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Avec <span class="math inline">\(q = \frac{1}{2}\)</span>, les termes se rapprochent de <span class="math inline">\(0\)</span> : la limite vaut <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(u_{n} = 3 \cdot 2^{n}\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(u_{0} &gt; 0\)</span> et <span class="math inline">\(q &gt; 1\)</span> : la limite vaut <span class="math inline">\(+\infty\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-somme" data-type="qcm" data-section="sec-geo-somme" data-obj="A4" data-niveau="1" data-id="5UAA2.q.geo-somme" data-tags="" data-ordre="melange">
+<div class="ae-enonce">
+<p>Que vaut <span class="math inline">\(S_{8} = 3 + 6 + 12 + \ldots\)</span> (les <span class="math inline">\(8\)</span> premiers termes de la suite géométrique <span class="math inline">\(u_{0} = 3\)</span>, <span class="math inline">\(q = 2\)</span>) ?</p>
+</div>
+<div class="ae-prop ae-bonne">
+<div class="ae-r">
+<p><span class="math inline">\(765\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Oui : <span class="math inline">\(S_{8} = 3 \cdot \frac{2^{8} - 1}{2 - 1} = 3 \cdot 255 = 765\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(1533\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as calculé <span class="math inline">\(S_{9}\)</span> (<span class="math inline">\(3 \cdot (2^{9} - 1)\)</span>) : les <span class="math inline">\(8\)</span> premiers termes vont de <span class="math inline">\(u_{0}\)</span> à <span class="math inline">\(u_{7}\)</span>, et la formule utilise <span class="math inline">\(q^{8}\)</span>.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(384\)</span></p>
+</div>
+<div class="ae-fb">
+<p><span class="math inline">\(384 = u_{7}\)</span> est le dernier terme de la somme, pas la somme.</p>
+</div>
+</div>
+<div class="ae-prop">
+<div class="ae-r">
+<p><span class="math inline">\(768\)</span></p>
+</div>
+<div class="ae-fb">
+<p>Tu as oublié le <span class="math inline">\(-1\)</span> : <span class="math inline">\(3 \cdot 2^{8} = 768\)</span>. La formule est <span class="math inline">\(u_{0} \frac{q^{n} - 1}{q - 1}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-demontrer-somme" data-type="ouverte" data-section="sec-geo-somme" data-obj="C7" data-niveau="3" data-id="5UAA2.q.geo-demontrer-somme" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>Démontre que, pour une suite géométrique de raison <span class="math inline">\(q \neq 1\)</span>, <span class="math inline">\(S_{n} = u_{0} + u_{1} + \ldots + u_{n-1} = u_{0} \cdot \frac{q^{n} - 1}{q - 1}\)</span>.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math display">\[
+S_{n} = u_{0} + u_{0} q + \ldots + u_{0} q^{n-1},  \\ q S_{n} = u_{0} q + \ldots + u_{0} q^{n-1} + u_{0} q^{n}.
+\]</span></p>
+<p>En soustrayant, il ne reste que <span class="math inline">\(q S_{n} - S_{n} = u_{0} q^{n} - u_{0}\)</span>, soit <span class="math inline">\((q - 1) S_{n} = u_{0} (q^{n} - 1)\)</span>. Comme <span class="math inline">\(q \neq 1\)</span>, on divise par <span class="math inline">\(q - 1\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai écrit <span class="math inline">\(S_{n}\)</span> avec la formule explicite <span class="math inline">\(u_{k} = u_{0} q^{k}\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai multiplié par <span class="math inline">\(q\)</span> et soustrait, en montrant quels termes se simplifient.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai utilisé <span class="math inline">\(q \neq 1\)</span> pour diviser.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="geo-iode" data-type="ouverte" data-section="sec-geo-generer" data-obj="T1" data-niveau="3" data-id="5UAA2.q.geo-iode" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>L’iode 131, utilisé en médecine, perd la moitié de sa radioactivité tous les <span class="math inline">\(8\)</span> jours environ. Un flacon a une activité de <span class="math inline">\(800\)</span> unités. Quelle sera son activité après <span class="math inline">\(24\)</span> jours ? Après combien de périodes de <span class="math inline">\(8\)</span> jours passera-t-elle sous <span class="math inline">\(10\)</span> unités ?</p>
+</div>
+<div class="ae-rep">
+<p>L’activité est multipliée par <span class="math inline">\(\frac{1}{2}\)</span> tous les <span class="math inline">\(8\)</span> jours : <span class="math inline">\(a_{n} = 800 \cdot (\frac{1}{2})^{n}\)</span>, où <span class="math inline">\(n\)</span> compte les périodes de <span class="math inline">\(8\)</span> jours. Après <span class="math inline">\(24\)</span> jours (<span class="math inline">\(n = 3\)</span>) : <span class="math inline">\(a_{3} = \frac{800}{8} = 100\)</span> unités. <span class="math inline">\(a_{6} = 12{,}5\)</span> et <span class="math inline">\(a_{7} = 6{,}25\)</span> : l’activité passe sous <span class="math inline">\(10\)</span> unités après <span class="math inline">\(7\)</span> périodes, soit <span class="math inline">\(56\)</span> jours.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai modélisé par une suite géométrique de raison <span class="math inline">\(\frac{1}{2}\)</span> en comptant des périodes de <span class="math inline">\(8\)</span> jours.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(100\)</span> unités après <span class="math inline">\(24\)</span> jours.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai trouvé <span class="math inline">\(7\)</span> périodes (environ <span class="math inline">\(56\)</span> jours) en calculant les termes successifs.</p>
+</div>
+</div>
+<div class="ae-q" data-ae-id="gen-toile" data-type="ouverte" data-section="sec-limite" data-obj="A1 C6" data-niveau="3" data-id="5UAA2.q.gen-toile" data-tags="" data-forme="longue">
+<div class="ae-enonce">
+<p>La suite <span class="math inline">\((w_{n})\)</span> est définie par <span class="math inline">\(w_{0} = 0\)</span> et <span class="math inline">\(w_{n+1} = \frac{w_{n} + 6}{3}\)</span>. Calcule <span class="math inline">\(w_{1}\)</span>, <span class="math inline">\(w_{2}\)</span>, <span class="math inline">\(w_{3}\)</span>, puis conjecture sa limite. Explique comment la « toile » du cours (droites <span class="math inline">\(y = \frac{x + 6}{3}\)</span> et <span class="math inline">\(y = x\)</span>) permet de la trouver.</p>
+</div>
+<div class="ae-rep">
+<p><span class="math inline">\(w_{1} = 2\)</span>, <span class="math inline">\(w_{2} = \frac{8}{3} \approx 2{,}67\)</span>, <span class="math inline">\(w_{3} = \frac{26}{9} \approx 2{,}89\)</span> : on conjecture une limite égale à <span class="math inline">\(3\)</span>. Sur la toile, les marches se resserrent vers le point où les deux droites se croisent : <span class="math inline">\(x = \frac{x + 6}{3}\)</span> donne <span class="math inline">\(3x = x + 6\)</span>, <span class="math inline">\(x = 3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai calculé les termes de proche en proche.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai conjecturé la limite <span class="math inline">\(3\)</span>.</p>
+</div>
+<div class="ae-crit">
+<p>J’ai relié la limite à l’intersection des deux droites.</p>
+</div>
+</div>
+</div>
+<script type="application/json" id="ae-exos">[{"num": "1.1", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-1", "obj": ["C1"], "page": "9", "niveau": 1, "section": "Exercices"}, {"num": "1.2", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-2", "obj": ["A3"], "page": "9", "niveau": 1, "section": "Exercices"}, {"num": "1.3", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-3", "obj": ["C1"], "page": "9", "niveau": 1, "section": "Exercices"}, {"num": "1.4", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-4", "obj": ["C4"], "page": "10", "niveau": 1, "section": "Exercices"}, {"num": "1.5", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-5", "obj": ["C4"], "page": "10", "niveau": 2, "section": "Exercices"}, {"num": "1.6", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-6", "obj": ["A1"], "page": "10", "niveau": 2, "section": "Exercices"}, {"num": "1.7", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-7", "obj": ["C2"], "page": "10", "niveau": 2, "section": "Exercices"}, {"num": "1.8", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-8", "obj": ["C6"], "page": "11", "niveau": 2, "section": "Exercices"}, {"num": "1.9", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-9", "obj": ["C6"], "page": "11", "niveau": 2, "section": "Exercices"}, {"num": "1.10", "url": "ch1-generalites-sur-les/7-exercices.html#exercice-1-10", "obj": ["C1"], "page": "11", "niveau": 2, "section": "Exercices"}, {"num": "2.1", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-1", "obj": ["C2"], "page": "18", "niveau": 1, "section": "Exercices"}, {"num": "2.2", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-2", "obj": ["A3"], "page": "18", "niveau": 1, "section": "Exercices"}, {"num": "2.3", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-3", "obj": ["C6"], "page": "18", "niveau": 1, "section": "Exercices"}, {"num": "2.4", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-4", "obj": ["A3"], "page": "18", "niveau": 2, "section": "Exercices"}, {"num": "2.5", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-5", "obj": ["A3"], "page": "19", "niveau": 2, "section": "Exercices"}, {"num": "2.6", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-6", "obj": ["A4"], "page": "19", "niveau": 2, "section": "Exercices"}, {"num": "2.7", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-7", "obj": ["A4"], "page": "19", "niveau": 2, "section": "Exercices"}, {"num": "2.8", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-8", "obj": ["C7"], "page": "19", "niveau": 3, "section": "Exercices"}, {"num": "2.9", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-9", "obj": ["A2"], "page": "19", "niveau": 2, "section": "Exercices"}, {"num": "2.10", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-10", "obj": ["C5"], "page": "19", "niveau": 2, "section": "Exercices"}, {"num": "2.11", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-11", "obj": ["A1"], "page": "20", "niveau": 2, "section": "Exercices"}, {"num": "2.12", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-12", "obj": ["C6"], "page": "20", "niveau": 2, "section": "Exercices"}, {"num": "2.13", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-13", "obj": ["T1"], "page": "21", "niveau": 3, "section": "Exercices"}, {"num": "2.14", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-14", "obj": ["T1"], "page": "21", "niveau": 3, "section": "Exercices"}, {"num": "2.15", "url": "ch2-suites-arithmetiques/7-exercices.html#exercice-2-15", "obj": ["T1"], "page": "21", "niveau": 3, "section": "Exercices"}, {"num": "3.1", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-1", "obj": ["C2"], "page": "28", "niveau": 1, "section": "Exercices"}, {"num": "3.2", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-2", "obj": ["A3"], "page": "28", "niveau": 2, "section": "Exercices"}, {"num": "3.3", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-3", "obj": ["A3"], "page": "28", "niveau": 2, "section": "Exercices"}, {"num": "3.4", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-4", "obj": ["A3"], "page": "28", "niveau": 2, "section": "Exercices"}, {"num": "3.5", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-5", "obj": ["A4"], "page": "29", "niveau": 2, "section": "Exercices"}, {"num": "3.6", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-6", "obj": ["A3"], "page": "29", "niveau": 2, "section": "Exercices"}, {"num": "3.7", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-7", "obj": ["A2"], "page": "29", "niveau": 2, "section": "Exercices"}, {"num": "3.8", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-8", "obj": ["C7"], "page": "29", "niveau": 3, "section": "Exercices"}, {"num": "3.9", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-9", "obj": ["C5"], "page": "29", "niveau": 2, "section": "Exercices"}, {"num": "3.10", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-10", "obj": ["A1"], "page": "29", "niveau": 1, "section": "Exercices"}, {"num": "3.11", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-11", "obj": ["C6"], "page": "30", "niveau": 2, "section": "Exercices"}, {"num": "3.12", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-12", "obj": ["T1"], "page": "31", "niveau": 3, "section": "Exercices"}, {"num": "3.13", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-13", "obj": ["T1"], "page": "31", "niveau": 3, "section": "Exercices"}, {"num": "3.14", "url": "ch3-suites-geometriques/7-exercices.html#exercice-3-14", "obj": ["T1"], "page": "31", "niveau": 3, "section": "Exercices"}]</script>
+
+
+
+</main> <!-- /main -->
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "suites", "uaa": "5UAA2", "pdf": "suites.pdf", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "suites.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses écrites en gras", "fichier": "suites-corrige.pdf"}], "portail": "https://qlambotte.github.io/5e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20], "reprise": {"ancien": "/suites-cours/", "nouveau": "/5e/suites/"}};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  /* Reprise après déménagement du site (ancienne adresse → nouvelle) : les annotations
+     (lim-annot:v1:<chemin>) et les relevés de dés (pb-releve:<chemin>:n) sont rangés
+     par chemin de page ; on recopie, une fois par appareil, les anciennes clés sous les
+     nouvelles (sans écraser ni effacer). Les autres données (suivi, autoévaluation,
+     couche prof) sont rangées par cours et n'ont pas besoin de reprise. */
+  (function (R) {
+    if (!R || location.pathname.indexOf(R.nouveau) !== 0) return;      // seulement depuis la nouvelle adresse
+    try {
+      var fait = "typweb.reprise:" + R.ancien;
+      if (localStorage.getItem(fait)) return;
+      var a = [], i, k;
+      for (i = 0; i < localStorage.length; i++) {
+        k = localStorage.key(i);
+        ["lim-annot:v1:", "pb-releve:"].forEach(function (p) {
+          if (k && k.indexOf(p + R.ancien) === 0) a.push([k, p + R.nouveau + k.slice((p + R.ancien).length)]);
+        });
+      }
+      a.forEach(function (x) { if (localStorage.getItem(x[1]) === null) localStorage.setItem(x[1], localStorage.getItem(x[0])); });
+      localStorage.setItem(fait, String(Date.now()));
+    } catch (e) {}
+  })(window.TYPWEB.reprise);
+  /* Ancien mode hors-ligne (avant le site unique) : son service worker (portée = ancienne adresse) et
+     ses caches « typweb-<10 chiffres hexa> » ne servent plus ; ménage une fois la page chargée. */
+  if (window.TYPWEB.reprise && "serviceWorker" in navigator) window.addEventListener("load", function () {
+    try {
+      navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { if (new URL(r.scope).pathname.indexOf(window.TYPWEB.reprise.ancien) === 0) r.unregister(); });
+      }).catch(function () {});
+      if (window.caches) caches.keys().then(function (ks) {
+        ks.forEach(function (k) { if (/^typweb-[0-9a-f]{10}$/.test(k)) caches.delete(k); });
+      }).catch(function () {});
+    } catch (e) {}
+  });
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css", "js/interactif.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/interactif.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>
+<script>
+// Menu « Aa » : taille du texte (toujours) et styles du site à l'essai. Le choix est
+// mémorisé dans ce navigateur (localStorage « typweb-style »). À retirer quand
+// un style est retenu (typweb.toml : [site] styles-essai = false).
+(function () {
+  var STYLES = [
+    ["", "Actuel"],
+    ["epure", "1 · Épure"],
+    ["epure-types", "2 · Épure, couleurs de type"],
+    ["manuel", "3 · Manuel moderne"],
+    ["cahier", "4 · Cahier"],
+    ["ardoise", "7 · Ardoise"],
+    ["lecture", "8 · Lecture concentrée"],
+    ["fiches", "9 · Fiches numérotées"]
+  ];
+  function courant() { try { return localStorage.getItem("typweb-style") || ""; } catch (e) { return ""; } }
+  function appliquer(s) {
+    if (s) document.documentElement.setAttribute("data-style", s);
+    else document.documentElement.removeAttribute("data-style");
+    try { if (s) localStorage.setItem("typweb-style", s); else localStorage.removeItem("typweb-style"); } catch (e) {}
+    document.querySelectorAll(".st-panneau button").forEach(function (b) { b.classList.toggle("on", b.dataset.s === s); });
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  var TAILLES = [0.85, 0.92, 1, 1.08, 1.16, 1.25, 1.35, 1.5];
+  function tailleCourante() { try { return parseFloat(localStorage.getItem("typweb-taille")) || 1; } catch (e) { return 1; } }
+  function poserTaille(t) {
+    document.documentElement.style.fontSize = t === 1 ? "" : (100 * t) + "%";
+    try { if (t === 1) localStorage.removeItem("typweb-taille"); else localStorage.setItem("typweb-taille", t); } catch (e) {}
+    var l = document.querySelector(".st-taille span"); if (l) l.textContent = Math.round(t * 100) + " %";
+    window.dispatchEvent(new Event("resize"));      // figures : se redessiner
+  }
+  function pas(d) {
+    var t = tailleCourante(), k = 0;
+    TAILLES.forEach(function (x, j) { if (Math.abs(x - t) < Math.abs(TAILLES[k] - t)) k = j; });
+    poserTaille(TAILLES[Math.max(0, Math.min(TAILLES.length - 1, k + d))]);
+  }
+  function build() {
+    if (document.querySelector(".st-menu")) return;
+    var essai = !window.TYPWEB || window.TYPWEB.stylesEssai !== false;
+    var m = document.createElement("div"); m.className = "st-menu";
+    var b = document.createElement("button"); b.className = "st-btn"; b.type = "button"; b.textContent = "Aa";
+    b.title = "Taille du texte" + (essai ? " et style du site" : ""); b.setAttribute("aria-label", b.title);
+    var p = document.createElement("div"); p.className = "st-panneau"; p.hidden = true;
+    p.innerHTML = "<p>Taille du texte</p>";
+    var tl = document.createElement("div"); tl.className = "st-taille";
+    var moins = document.createElement("button"); moins.type = "button"; moins.textContent = "A−"; moins.title = "Réduire le texte";
+    var val = document.createElement("span"); val.textContent = Math.round(tailleCourante() * 100) + " %";
+    val.title = "Revenir à 100 %"; val.style.cursor = "pointer";
+    var plus = document.createElement("button"); plus.type = "button"; plus.textContent = "A+"; plus.title = "Agrandir le texte";
+    moins.addEventListener("click", function () { pas(-1); });
+    plus.addEventListener("click", function () { pas(1); });
+    val.addEventListener("click", function () { poserTaille(1); });
+    tl.appendChild(moins); tl.appendChild(val); tl.appendChild(plus);
+    p.appendChild(tl);
+    if (essai) {
+      var sep = document.createElement("div"); sep.className = "st-sep"; p.appendChild(sep);
+      var t = document.createElement("p"); t.textContent = "Style du site (mode clair)"; p.appendChild(t);
+      STYLES.forEach(function (s) {
+        var x = document.createElement("button"); x.type = "button"; x.dataset.s = s[0]; x.textContent = s[1];
+        x.addEventListener("click", function () { appliquer(s[0]); });
+        p.appendChild(x);
+      });
+    }
+    b.addEventListener("click", function () { p.hidden = !p.hidden; });
+    document.addEventListener("click", function (e) { if (!m.contains(e.target)) p.hidden = true; });
+    m.appendChild(p); m.appendChild(b); document.body.appendChild(m);
+    if (essai) appliquer(courant());
+  }
+  if (document.readyState !== "loading") build(); else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/qlambotte\.github\.io\/5e\/suites\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./essentiel.html" class="pagination-link" aria-label="L'essentiel">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">L’essentiel</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./nouveautes.html" class="pagination-link" aria-label="Quoi de neuf ?">
+        <span class="nav-page-text"><span class="chapter-title">Quoi de neuf ?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Les suites — cours &amp; exercices</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© Quentin Lambotte</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

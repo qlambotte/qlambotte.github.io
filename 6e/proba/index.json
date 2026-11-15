@@ -1,0 +1,2348 @@
+{
+ "format": 1,
+ "cours": "Probabilités",
+ "uaa": "6UAA1",
+ "annee": "6e",
+ "cle": "proba",
+ "empreinte": "9da7842f7b55",
+ "genere": "2026-11-14",
+ "elements": [
+  {
+   "id": "6UAA1.compter-petits-ensembles",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — Compter sur de petits ensembles",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.langage-ensembles",
+   "type": "section",
+   "titre": "Le langage des ensembles",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.deux-ensembles-nombres",
+   "type": "activite",
+   "titre": "Activité 1.1 — deux ensembles de nombres",
+   "parent": "6UAA1.langage-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html#6UAA1.deux-ensembles-nombres",
+   "num": "1.1",
+   "page": 2
+  },
+  {
+   "id": "6UAA1.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "6UAA1.langage-ensembles",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/1-le-langage-des-ensembles.html#6UAA1.ex.001",
+   "num": "1.1",
+   "page": 3
+  },
+  {
+   "id": "6UAA1.lister-avant-compter",
+   "type": "section",
+   "titre": "Lister avant de compter",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.quatre-questions-seul-groupe",
+   "type": "activite",
+   "titre": "Activité 1.2 — quatre questions, un seul groupe",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#6UAA1.quatre-questions-seul-groupe",
+   "num": "1.2",
+   "page": 4
+  },
+  {
+   "id": "6UAA1.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#6UAA1.rem.001",
+   "num": "1.1",
+   "page": 5
+  },
+  {
+   "id": "6UAA1.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#6UAA1.ex.002",
+   "num": "1.2",
+   "page": 5
+  },
+  {
+   "id": "6UAA1.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/2-lister-avant-de-compter.html#6UAA1.ex.003",
+   "num": "1.3",
+   "page": 5
+  },
+  {
+   "id": "6UAA1.additionner-multiplier",
+   "type": "section",
+   "titre": "Additionner, multiplier",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.arbre-compter",
+   "type": "activite",
+   "titre": "Activité 1.3 — un arbre pour compter",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.arbre-compter",
+   "num": "1.3",
+   "page": 5
+  },
+  {
+   "id": "6UAA1.principe-multiplicatif",
+   "type": "propriete",
+   "titre": "Propriété 1.1 — principe multiplicatif",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.principe-multiplicatif",
+   "num": "1.1",
+   "page": 6
+  },
+  {
+   "id": "6UAA1.plaques-belges",
+   "type": "exemple",
+   "titre": "Exemple 1.1 — plaques belges",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.plaques-belges",
+   "num": "1.1",
+   "page": 6
+  },
+  {
+   "id": "6UAA1.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 1.2",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.rem.002",
+   "num": "1.2",
+   "page": 6
+  },
+  {
+   "id": "6UAA1.compter-reunion",
+   "type": "activite",
+   "titre": "Activité 1.4 — compter une réunion",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.compter-reunion",
+   "num": "1.4",
+   "page": 7
+  },
+  {
+   "id": "6UAA1.principe-additif",
+   "type": "propriete",
+   "titre": "Propriété 1.2 — principe additif",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.principe-additif",
+   "num": "1.2",
+   "page": 7
+  },
+  {
+   "id": "6UAA1.compter-complementaire",
+   "type": "propriete",
+   "titre": "Propriété 1.3 — compter par le complémentaire",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.compter-complementaire",
+   "num": "1.3",
+   "page": 7
+  },
+  {
+   "id": "6UAA1.moins-zero",
+   "type": "exemple",
+   "titre": "Exemple 1.2 — au moins un zéro",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.moins-zero",
+   "num": "1.2",
+   "page": 8
+  },
+  {
+   "id": "6UAA1.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.ex.004",
+   "num": "1.4",
+   "page": 8
+  },
+  {
+   "id": "6UAA1.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 1.5",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.ex.005",
+   "num": "1.5",
+   "page": 8
+  },
+  {
+   "id": "6UAA1.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 1.6",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.ex.006",
+   "num": "1.6",
+   "page": 9
+  },
+  {
+   "id": "6UAA1.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 1.7",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/3-additionner-multiplier.html#6UAA1.ex.007",
+   "num": "1.7",
+   "page": 9
+  },
+  {
+   "id": "6UAA1.arrangements-permutations",
+   "type": "section",
+   "titre": "Arrangements et permutations",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "6UAA1.elire-bureau",
+   "type": "activite",
+   "titre": "Activité 1.5 — élire un bureau",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.elire-bureau",
+   "num": "1.5",
+   "page": 9
+  },
+  {
+   "id": "6UAA1.arrangements",
+   "type": "definition",
+   "titre": "Définition 1.1 — arrangements",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.arrangements",
+   "num": "1.1",
+   "page": 9
+  },
+  {
+   "id": "6UAA1.factorielle",
+   "type": "definition",
+   "titre": "Définition 1.2 — factorielle",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.factorielle",
+   "num": "1.2",
+   "page": 10
+  },
+  {
+   "id": "6UAA1.prop.001",
+   "type": "propriete",
+   "titre": "Propriété 1.4",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.prop.001",
+   "num": "1.4",
+   "page": 10
+  },
+  {
+   "id": "6UAA1.permutations",
+   "type": "definition",
+   "titre": "Définition 1.3 — permutations",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.permutations",
+   "num": "1.3",
+   "page": 10
+  },
+  {
+   "id": "6UAA1.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 1.3",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.rem.003",
+   "num": "1.3",
+   "page": 10
+  },
+  {
+   "id": "6UAA1.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 1.8",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.ex.008",
+   "num": "1.8",
+   "page": 10
+  },
+  {
+   "id": "6UAA1.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 1.9",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.ex.009",
+   "num": "1.9",
+   "page": 11
+  },
+  {
+   "id": "6UAA1.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 1.10",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.ex.010",
+   "num": "1.10",
+   "page": 11
+  },
+  {
+   "id": "6UAA1.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 1.11",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.ex.011",
+   "num": "1.11",
+   "page": 11
+  },
+  {
+   "id": "6UAA1.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 1.12",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/4-arrangements-et-permutations.html#6UAA1.ex.012",
+   "num": "1.12",
+   "page": 11
+  },
+  {
+   "id": "6UAA1.combinaisons",
+   "type": "section",
+   "titre": "Combinaisons",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html",
+   "num": "1.5",
+   "page": null
+  },
+  {
+   "id": "6UAA1.regrouper-puis-diviser",
+   "type": "activite",
+   "titre": "Activité 1.6 — regrouper puis diviser",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.regrouper-puis-diviser",
+   "num": "1.6",
+   "page": 12
+  },
+  {
+   "id": "6UAA1.combinaisons-2",
+   "type": "definition",
+   "titre": "Définition 1.4 — combinaisons",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.combinaisons-2",
+   "num": "1.4",
+   "page": 12
+  },
+  {
+   "id": "6UAA1.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 1.4",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.rem.004",
+   "num": "1.4",
+   "page": 12
+  },
+  {
+   "id": "6UAA1.symetrie",
+   "type": "propriete",
+   "titre": "Propriété 1.5 — symétrie",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.symetrie",
+   "num": "1.5",
+   "page": 12
+  },
+  {
+   "id": "6UAA1.lotto",
+   "type": "exemple",
+   "titre": "Exemple 1.3 — Lotto",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.lotto",
+   "num": "1.3",
+   "page": 13
+  },
+  {
+   "id": "6UAA1.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 1.13",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.ex.013",
+   "num": "1.13",
+   "page": 13
+  },
+  {
+   "id": "6UAA1.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 1.14",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.ex.014",
+   "num": "1.14",
+   "page": 13
+  },
+  {
+   "id": "6UAA1.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 1.15",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.ex.015",
+   "num": "1.15",
+   "page": 13
+  },
+  {
+   "id": "6UAA1.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 1.16",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/5-combinaisons.html#6UAA1.ex.016",
+   "num": "1.16",
+   "page": 14
+  },
+  {
+   "id": "6UAA1.permutations-repetition-anagrammes",
+   "type": "section",
+   "titre": "Permutations avec répétition : les anagrammes",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html",
+   "num": "1.6",
+   "page": null
+  },
+  {
+   "id": "6UAA1.anagrammes-anna",
+   "type": "activite",
+   "titre": "Activité 1.7 — les anagrammes de ANNA",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.anagrammes-anna",
+   "num": "1.7",
+   "page": 14
+  },
+  {
+   "id": "6UAA1.permutations-repetition",
+   "type": "definition",
+   "titre": "Définition 1.5 — permutations avec répétition",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.permutations-repetition",
+   "num": "1.5",
+   "page": 14
+  },
+  {
+   "id": "6UAA1.prop.002",
+   "type": "propriete",
+   "titre": "Propriété 1.6",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.prop.002",
+   "num": "1.6",
+   "page": 14
+  },
+  {
+   "id": "6UAA1.ursulines",
+   "type": "exemple",
+   "titre": "Exemple 1.4 — URSULINES",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.ursulines",
+   "num": "1.4",
+   "page": 15
+  },
+  {
+   "id": "6UAA1.ex.017",
+   "type": "exercice",
+   "titre": "Exercice 1.17",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.ex.017",
+   "num": "1.17",
+   "page": 15
+  },
+  {
+   "id": "6UAA1.ex.018",
+   "type": "exercice",
+   "titre": "Exercice 1.18",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.ex.018",
+   "num": "1.18",
+   "page": 15
+  },
+  {
+   "id": "6UAA1.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 1.19",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.ex.019",
+   "num": "1.19",
+   "page": 15
+  },
+  {
+   "id": "6UAA1.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 1.20",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/6-permutations-avec-repetition-les-anagram.html#6UAA1.ex.020",
+   "num": "1.20",
+   "page": 15
+  },
+  {
+   "id": "6UAA1.choisir-methode",
+   "type": "section",
+   "titre": "Choisir une méthode",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/7-choisir-une-methode.html",
+   "num": "1.7",
+   "page": null
+  },
+  {
+   "id": "6UAA1.rem.005",
+   "type": "remarque",
+   "titre": "Remarque 1.5",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#6UAA1.rem.005",
+   "num": "1.5",
+   "page": 16
+  },
+  {
+   "id": "6UAA1.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 1.21",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#6UAA1.ex.021",
+   "num": "1.21",
+   "page": 16
+  },
+  {
+   "id": "6UAA1.ex.022",
+   "type": "exercice",
+   "titre": "Exercice 1.22",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#6UAA1.ex.022",
+   "num": "1.22",
+   "page": 16
+  },
+  {
+   "id": "6UAA1.ex.023",
+   "type": "exercice",
+   "titre": "Exercice 1.23",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#6UAA1.ex.023",
+   "num": "1.23",
+   "page": 17
+  },
+  {
+   "id": "6UAA1.ex.024",
+   "type": "exercice",
+   "titre": "Exercice 1.24",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/7-choisir-une-methode.html#6UAA1.ex.024",
+   "num": "1.24",
+   "page": 17
+  },
+  {
+   "id": "6UAA1.exercices-supplementaires",
+   "type": "section",
+   "titre": "Exercices supplémentaires",
+   "parent": "6UAA1.compter-petits-ensembles",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html",
+   "num": "1.8",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.056",
+   "type": "exercice",
+   "titre": "Exercice S1.1",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.056",
+   "num": "S1.1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.057",
+   "type": "exercice",
+   "titre": "Exercice S1.2",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.057",
+   "num": "S1.2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.058",
+   "type": "exercice",
+   "titre": "Exercice S1.3",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.058",
+   "num": "S1.3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.059",
+   "type": "exercice",
+   "titre": "Exercice S1.4",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.059",
+   "num": "S1.4",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.060",
+   "type": "exercice",
+   "titre": "Exercice S1.5",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.060",
+   "num": "S1.5",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.061",
+   "type": "exercice",
+   "titre": "Exercice S1.6",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.061",
+   "num": "S1.6",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.062",
+   "type": "exercice",
+   "titre": "Exercice S1.7",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.062",
+   "num": "S1.7",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.063",
+   "type": "exercice",
+   "titre": "Exercice S1.8",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.063",
+   "num": "S1.8",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.064",
+   "type": "exercice",
+   "titre": "Exercice S1.9",
+   "parent": "6UAA1.exercices-supplementaires",
+   "etiquettes": [],
+   "ancre": "ch1-compter-sur-de-petit/8-exercices-supplementaires.html#6UAA1.ex.064",
+   "num": "S1.9",
+   "page": null
+  },
+  {
+   "id": "6UAA1.modeliser-hasard",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Modéliser le hasard",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.frequences-probabilite",
+   "type": "section",
+   "titre": "Fréquences et probabilité",
+   "parent": "6UAA1.modeliser-hasard",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.somme-deux",
+   "type": "activite",
+   "titre": "Activité 2.1 — la somme de deux dés",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#6UAA1.somme-deux",
+   "num": "2.1",
+   "page": 18
+  },
+  {
+   "id": "6UAA1.probabilite-posteriori",
+   "type": "definition",
+   "titre": "Définition 2.1 — probabilité a posteriori",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#6UAA1.probabilite-posteriori",
+   "num": "2.1",
+   "page": 19
+  },
+  {
+   "id": "6UAA1.nes-29-fevrier",
+   "type": "exemple",
+   "titre": "Exemple 2.1 — nés un 29 février",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#6UAA1.nes-29-fevrier",
+   "num": "2.1",
+   "page": 20
+  },
+  {
+   "id": "6UAA1.ex.025",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#6UAA1.ex.025",
+   "num": "2.1",
+   "page": 20
+  },
+  {
+   "id": "6UAA1.ex.026",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#6UAA1.ex.026",
+   "num": "2.2",
+   "page": 20
+  },
+  {
+   "id": "6UAA1.ex.027",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/1-frequences-et-probabilite.html#6UAA1.ex.027",
+   "num": "2.3",
+   "page": 20
+  },
+  {
+   "id": "6UAA1.univers-evenements",
+   "type": "section",
+   "titre": "Univers et événements",
+   "parent": "6UAA1.modeliser-hasard",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.experience-aleatoire-issue-evenement",
+   "type": "definition",
+   "titre": "Définition 2.2 — expérience aléatoire, issue, événement",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#6UAA1.experience-aleatoire-issue-evenement",
+   "num": "2.2",
+   "page": 21
+  },
+  {
+   "id": "6UAA1.exm.001",
+   "type": "exemple",
+   "titre": "Exemple 2.2 — un dé",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#6UAA1.exm.001",
+   "num": "2.2",
+   "page": 21
+  },
+  {
+   "id": "6UAA1.representer-evenements",
+   "type": "activite",
+   "titre": "Activité 2.2 — représenter des événements",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#6UAA1.representer-evenements",
+   "num": "2.2",
+   "page": 21
+  },
+  {
+   "id": "6UAA1.ex.028",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#6UAA1.ex.028",
+   "num": "2.4",
+   "page": 22
+  },
+  {
+   "id": "6UAA1.ex.029",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#6UAA1.ex.029",
+   "num": "2.5",
+   "page": 22
+  },
+  {
+   "id": "6UAA1.ex.030",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-modeliser-le-hasard/2-univers-et-evenements.html#6UAA1.ex.030",
+   "num": "2.6",
+   "page": 22
+  },
+  {
+   "id": "6UAA1.modele-equiprobabilite",
+   "type": "section",
+   "titre": "Le modèle d’équiprobabilité",
+   "parent": "6UAA1.modeliser-hasard",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.prevoir-somme-deux",
+   "type": "activite",
+   "titre": "Activité 2.3 — prévoir la somme de deux dés",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.prevoir-somme-deux",
+   "num": "2.3",
+   "page": 23
+  },
+  {
+   "id": "6UAA1.probabilite-priori-regle-laplace",
+   "type": "definition",
+   "titre": "Définition 2.3 — probabilité a priori (règle de Laplace)",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.probabilite-priori-regle-laplace",
+   "num": "2.3",
+   "page": 23
+  },
+  {
+   "id": "6UAA1.rem.006",
+   "type": "remarque",
+   "titre": "Remarque 2.1",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.rem.006",
+   "num": "2.1",
+   "page": 23
+  },
+  {
+   "id": "6UAA1.probabilite-univers-fini",
+   "type": "definition",
+   "titre": "Définition 2.4 — probabilité sur un univers fini",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.probabilite-univers-fini",
+   "num": "2.4",
+   "page": 24
+  },
+  {
+   "id": "6UAA1.issues-non-equiprobables-peut-rendre",
+   "type": "exemple",
+   "titre": "Exemple 2.3 — des issues non équiprobables… qu’on peut rendre équiprobables",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.issues-non-equiprobables-peut-rendre",
+   "num": "2.3",
+   "page": 24
+  },
+  {
+   "id": "6UAA1.probleme-duc-toscane",
+   "type": "exemple",
+   "titre": "Exemple 2.4 — le problème du duc de Toscane",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.probleme-duc-toscane",
+   "num": "2.4",
+   "page": 24
+  },
+  {
+   "id": "6UAA1.ex.031",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.ex.031",
+   "num": "2.7",
+   "page": 25
+  },
+  {
+   "id": "6UAA1.ex.032",
+   "type": "exercice",
+   "titre": "Exercice 2.8",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-modeliser-le-hasard/3-le-modele-dequiprobabilite.html#6UAA1.ex.032",
+   "num": "2.8",
+   "page": 25
+  },
+  {
+   "id": "6UAA1.proprietes-probabilites",
+   "type": "section",
+   "titre": "Propriétés des probabilités",
+   "parent": "6UAA1.modeliser-hasard",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "6UAA1.probabilite-reunion",
+   "type": "activite",
+   "titre": "Activité 2.4 — probabilité d’une réunion",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.probabilite-reunion",
+   "num": "2.4",
+   "page": 25
+  },
+  {
+   "id": "6UAA1.proprietes-probabilites-2",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — propriétés des probabilités",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.proprietes-probabilites-2",
+   "num": "2.1",
+   "page": 26
+  },
+  {
+   "id": "6UAA1.rem.007",
+   "type": "remarque",
+   "titre": "Remarque 2.2",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.rem.007",
+   "num": "2.2",
+   "page": 26
+  },
+  {
+   "id": "6UAA1.paris-chevalier-mere",
+   "type": "exemple",
+   "titre": "Exemple 2.5 — les paris du chevalier de Méré",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.paris-chevalier-mere",
+   "num": "2.5",
+   "page": 26
+  },
+  {
+   "id": "6UAA1.ex.033",
+   "type": "exercice",
+   "titre": "Exercice 2.9",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.ex.033",
+   "num": "2.9",
+   "page": 26
+  },
+  {
+   "id": "6UAA1.ex.034",
+   "type": "exercice",
+   "titre": "Exercice 2.10",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.ex.034",
+   "num": "2.10",
+   "page": 27
+  },
+  {
+   "id": "6UAA1.ex.035",
+   "type": "exercice",
+   "titre": "Exercice 2.11",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.ex.035",
+   "num": "2.11",
+   "page": 27
+  },
+  {
+   "id": "6UAA1.ex.036",
+   "type": "exercice",
+   "titre": "Exercice 2.12",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.ex.036",
+   "num": "2.12",
+   "page": 27
+  },
+  {
+   "id": "6UAA1.ex.037",
+   "type": "exercice",
+   "titre": "Exercice 2.13",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-modeliser-le-hasard/4-proprietes-des-probabilites.html#6UAA1.ex.037",
+   "num": "2.13",
+   "page": 27
+  },
+  {
+   "id": "6UAA1.denombrer-calculer",
+   "type": "section",
+   "titre": "Dénombrer pour calculer",
+   "parent": "6UAA1.modeliser-hasard",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html",
+   "num": "2.5",
+   "page": null
+  },
+  {
+   "id": "6UAA1.lotto-2",
+   "type": "exemple",
+   "titre": "Exemple 2.6 — Lotto",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.lotto-2",
+   "num": "2.6",
+   "page": 28
+  },
+  {
+   "id": "6UAA1.anniversaires",
+   "type": "exemple",
+   "titre": "Exemple 2.7 — anniversaires",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.anniversaires",
+   "num": "2.7",
+   "page": 28
+  },
+  {
+   "id": "6UAA1.ex.038",
+   "type": "exercice",
+   "titre": "Exercice 2.14",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.ex.038",
+   "num": "2.14",
+   "page": 28
+  },
+  {
+   "id": "6UAA1.ex.039",
+   "type": "exercice",
+   "titre": "Exercice 2.15",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.ex.039",
+   "num": "2.15",
+   "page": 28
+  },
+  {
+   "id": "6UAA1.ex.040",
+   "type": "exercice",
+   "titre": "Exercice 2.16",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.ex.040",
+   "num": "2.16",
+   "page": 29
+  },
+  {
+   "id": "6UAA1.ex.041",
+   "type": "exercice",
+   "titre": "Exercice 2.17",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.ex.041",
+   "num": "2.17",
+   "page": 29
+  },
+  {
+   "id": "6UAA1.ex.042",
+   "type": "exercice",
+   "titre": "Exercice 2.18",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/5-denombrer-pour-calculer.html#6UAA1.ex.042",
+   "num": "2.18",
+   "page": 29
+  },
+  {
+   "id": "6UAA1.exercices-supplementaires-2",
+   "type": "section",
+   "titre": "Exercices supplémentaires",
+   "parent": "6UAA1.modeliser-hasard",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html",
+   "num": "2.6",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.065",
+   "type": "exercice",
+   "titre": "Exercice S2.1",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.065",
+   "num": "S2.1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.066",
+   "type": "exercice",
+   "titre": "Exercice S2.2",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.066",
+   "num": "S2.2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.067",
+   "type": "exercice",
+   "titre": "Exercice S2.3",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.067",
+   "num": "S2.3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.068",
+   "type": "exercice",
+   "titre": "Exercice S2.4",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.068",
+   "num": "S2.4",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.069",
+   "type": "exercice",
+   "titre": "Exercice S2.5",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.069",
+   "num": "S2.5",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.070",
+   "type": "exercice",
+   "titre": "Exercice S2.6",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.070",
+   "num": "S2.6",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.071",
+   "type": "exercice",
+   "titre": "Exercice S2.7",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.071",
+   "num": "S2.7",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.072",
+   "type": "exercice",
+   "titre": "Exercice S2.8",
+   "parent": "6UAA1.exercices-supplementaires-2",
+   "etiquettes": [],
+   "ancre": "ch2-modeliser-le-hasard/6-exercices-supplementaires.html#6UAA1.ex.072",
+   "num": "S2.8",
+   "page": null
+  },
+  {
+   "id": "6UAA1.probabilite-conditionnelle-independance",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Probabilité conditionnelle et indépendance",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.probabilite-conditionnelle",
+   "type": "section",
+   "titre": "Probabilité conditionnelle",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.titanic",
+   "type": "activite",
+   "titre": "Activité 3.1 — le Titanic",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#6UAA1.titanic",
+   "num": "3.1",
+   "page": 30
+  },
+  {
+   "id": "6UAA1.probabilite-conditionnelle-2",
+   "type": "definition",
+   "titre": "Définition 3.1 — probabilité conditionnelle",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#6UAA1.probabilite-conditionnelle-2",
+   "num": "3.1",
+   "page": 31
+  },
+  {
+   "id": "6UAA1.rem.008",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#6UAA1.rem.008",
+   "num": "3.1",
+   "page": 31
+  },
+  {
+   "id": "6UAA1.ex.043",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#6UAA1.ex.043",
+   "num": "3.1",
+   "page": 31
+  },
+  {
+   "id": "6UAA1.ex.044",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-probabilite-conditio/1-probabilite-conditionnelle.html#6UAA1.ex.044",
+   "num": "3.2",
+   "page": 32
+  },
+  {
+   "id": "6UAA1.arbres-probabilites",
+   "type": "section",
+   "titre": "Arbres de probabilités",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/2-arbres-de-probabilites.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.effectifs-probabilites",
+   "type": "activite",
+   "titre": "Activité 3.2 — des effectifs aux probabilités",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/2-arbres-de-probabilites.html#6UAA1.effectifs-probabilites",
+   "num": "3.2",
+   "page": 32
+  },
+  {
+   "id": "6UAA1.calculer-arbre",
+   "type": "propriete",
+   "titre": "Propriété 3.1 — calculer sur un arbre",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/2-arbres-de-probabilites.html#6UAA1.calculer-arbre",
+   "num": "3.1",
+   "page": 33
+  },
+  {
+   "id": "6UAA1.ex.045",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/2-arbres-de-probabilites.html#6UAA1.ex.045",
+   "num": "3.3",
+   "page": 33
+  },
+  {
+   "id": "6UAA1.ex.046",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-probabilite-conditio/2-arbres-de-probabilites.html#6UAA1.ex.046",
+   "num": "3.4",
+   "page": 33
+  },
+  {
+   "id": "6UAA1.lire-test-depistage",
+   "type": "section",
+   "titre": "Lire un test de dépistage",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.test-positif",
+   "type": "activite",
+   "titre": "Activité 3.3 — un test positif",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#6UAA1.test-positif",
+   "num": "3.3",
+   "page": 34
+  },
+  {
+   "id": "6UAA1.rem.009",
+   "type": "remarque",
+   "titre": "Remarque 3.2",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#6UAA1.rem.009",
+   "num": "3.2",
+   "page": 35
+  },
+  {
+   "id": "6UAA1.ex.047",
+   "type": "exercice",
+   "titre": "Exercice 3.5",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#6UAA1.ex.047",
+   "num": "3.5",
+   "page": 35
+  },
+  {
+   "id": "6UAA1.ex.048",
+   "type": "exercice",
+   "titre": "Exercice 3.6",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-probabilite-conditio/3-lire-un-test-de-depistage.html#6UAA1.ex.048",
+   "num": "3.6",
+   "page": 35
+  },
+  {
+   "id": "6UAA1.independance",
+   "type": "section",
+   "titre": "Indépendance",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html",
+   "num": "3.4",
+   "page": null
+  },
+  {
+   "id": "6UAA1.information-change-t-elle-probabilite",
+   "type": "activite",
+   "titre": "Activité 3.4 — une information change-t-elle la probabilité ?",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.information-change-t-elle-probabilite",
+   "num": "3.4",
+   "page": 35
+  },
+  {
+   "id": "6UAA1.evenements-independants",
+   "type": "definition",
+   "titre": "Définition 3.2 — événements indépendants",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.evenements-independants",
+   "num": "3.2",
+   "page": 36
+  },
+  {
+   "id": "6UAA1.prop.003",
+   "type": "propriete",
+   "titre": "Propriété 3.2",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.prop.003",
+   "num": "3.2",
+   "page": 36
+  },
+  {
+   "id": "6UAA1.rem.010",
+   "type": "remarque",
+   "titre": "Remarque 3.3",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.rem.010",
+   "num": "3.3",
+   "page": 36
+  },
+  {
+   "id": "6UAA1.rem.011",
+   "type": "remarque",
+   "titre": "Remarque 3.4",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.rem.011",
+   "num": "3.4",
+   "page": 36
+  },
+  {
+   "id": "6UAA1.retour-chevalier-mere",
+   "type": "exemple",
+   "titre": "Exemple 3.1 — retour au chevalier de Méré",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.retour-chevalier-mere",
+   "num": "3.1",
+   "page": 36
+  },
+  {
+   "id": "6UAA1.ex.049",
+   "type": "exercice",
+   "titre": "Exercice 3.7",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.ex.049",
+   "num": "3.7",
+   "page": 36
+  },
+  {
+   "id": "6UAA1.ex.050",
+   "type": "exercice",
+   "titre": "Exercice 3.8",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.ex.050",
+   "num": "3.8",
+   "page": 37
+  },
+  {
+   "id": "6UAA1.ex.051",
+   "type": "exercice",
+   "titre": "Exercice 3.9",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.ex.051",
+   "num": "3.9",
+   "page": 37
+  },
+  {
+   "id": "6UAA1.ex.052",
+   "type": "exercice",
+   "titre": "Exercice 3.10",
+   "parent": "6UAA1.independance",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.ex.052",
+   "num": "3.10",
+   "page": 37
+  },
+  {
+   "id": "6UAA1.ex.053",
+   "type": "exercice",
+   "titre": "Exercice 3.11",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.ex.053",
+   "num": "3.11",
+   "page": 37
+  },
+  {
+   "id": "6UAA1.ex.054",
+   "type": "exercice",
+   "titre": "Exercice 3.12",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/4-independance.html#6UAA1.ex.054",
+   "num": "3.12",
+   "page": 37
+  },
+  {
+   "id": "6UAA1.aller-plus-loin",
+   "type": "section",
+   "titre": "Pour aller plus loin",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html",
+   "num": "3.5",
+   "page": null
+  },
+  {
+   "id": "6UAA1.probleme-monty-hall",
+   "type": "activite",
+   "titre": "Activité 3.5 — le problème de Monty Hall",
+   "parent": "6UAA1.aller-plus-loin",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html#6UAA1.probleme-monty-hall",
+   "num": "3.5",
+   "page": 38
+  },
+  {
+   "id": "6UAA1.jeux-gratter-gain-moyen",
+   "type": "activite",
+   "titre": "Activité 3.6 — jeux à gratter : gain moyen",
+   "parent": "6UAA1.aller-plus-loin",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html#6UAA1.jeux-gratter-gain-moyen",
+   "num": "3.6",
+   "page": 38
+  },
+  {
+   "id": "6UAA1.rem.012",
+   "type": "remarque",
+   "titre": "Remarque 3.5",
+   "parent": "6UAA1.aller-plus-loin",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html#6UAA1.rem.012",
+   "num": "3.5",
+   "page": 39
+  },
+  {
+   "id": "6UAA1.autre-facon-voir-probabilite-approche",
+   "type": "activite",
+   "titre": "Activité 3.7 — une autre façon de voir la probabilité : l’approche bayésienne",
+   "parent": "6UAA1.aller-plus-loin",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html#6UAA1.autre-facon-voir-probabilite-approche",
+   "num": "3.7",
+   "page": 39
+  },
+  {
+   "id": "6UAA1.ex.055",
+   "type": "exercice",
+   "titre": "Exercice 3.13",
+   "parent": "6UAA1.aller-plus-loin",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/5-pour-aller-plus-loin.html#6UAA1.ex.055",
+   "num": "3.13",
+   "page": 40
+  },
+  {
+   "id": "6UAA1.exercices-supplementaires-3",
+   "type": "section",
+   "titre": "Exercices supplémentaires",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/6-exercices-supplementaires.html",
+   "num": "3.6",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.073",
+   "type": "exercice",
+   "titre": "Exercice S3.1",
+   "parent": "6UAA1.exercices-supplementaires-3",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/6-exercices-supplementaires.html#6UAA1.ex.073",
+   "num": "S3.1",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.074",
+   "type": "exercice",
+   "titre": "Exercice S3.2",
+   "parent": "6UAA1.exercices-supplementaires-3",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/6-exercices-supplementaires.html#6UAA1.ex.074",
+   "num": "S3.2",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.075",
+   "type": "exercice",
+   "titre": "Exercice S3.3",
+   "parent": "6UAA1.exercices-supplementaires-3",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/6-exercices-supplementaires.html#6UAA1.ex.075",
+   "num": "S3.3",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.076",
+   "type": "exercice",
+   "titre": "Exercice S3.4",
+   "parent": "6UAA1.exercices-supplementaires-3",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/6-exercices-supplementaires.html#6UAA1.ex.076",
+   "num": "S3.4",
+   "page": null
+  },
+  {
+   "id": "6UAA1.ex.077",
+   "type": "exercice",
+   "titre": "Exercice S3.5",
+   "parent": "6UAA1.exercices-supplementaires-3",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/6-exercices-supplementaires.html#6UAA1.ex.077",
+   "num": "S3.5",
+   "page": null
+  },
+  {
+   "id": "6UAA1.references",
+   "type": "section",
+   "titre": "Références",
+   "parent": "6UAA1.probabilite-conditionnelle-independance",
+   "etiquettes": [],
+   "ancre": "ch3-probabilite-conditio/7-references.html",
+   "num": "3.7",
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.ens-operations",
+   "type": "qcm",
+   "titre": "Dans E = {1, 2, …, 10}, A = {2, 4, 6, 8, 10} et B = {1, 2, 3, 4}. Que vaut A ∖ B ?",
+   "parent": "6UAA1.langage-ensembles",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.ens-cardinal",
+   "type": "qcm",
+   "titre": "#A = 7, #B = 5 et #(A ∩ B) = 2. Que vaut #(A ∪ B) ?",
+   "parent": "6UAA1.langage-ensembles",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-binomes",
+   "type": "qcm",
+   "titre": "Combien de binômes différents peut-on former avec quatre élèves A, B, C, D ?",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-liste-organisee",
+   "type": "qcm",
+   "titre": "On lance deux fois une pièce (P ou F) et on note la suite obtenue. Quelle liste est complète et sans…",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-suite-ou-groupe",
+   "type": "qcm",
+   "titre": "Dans quelle situation un résultat est-il un groupe (l’ordre ne compte pas) ?",
+   "parent": "6UAA1.lister-avant-compter",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-multiplicatif-menus",
+   "type": "qcm",
+   "titre": "Un menu comprend une entrée parmi 3, un plat parmi 4 et un dessert parmi 2. Combien de menus différe…",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-additif-reunion",
+   "type": "qcm",
+   "titre": "Dans un ensemble E, #A = 12, #B = 9 et #(A ∩ B) = 4. Que vaut #(A ∪ B) ?",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-complementaire",
+   "type": "qcm",
+   "titre": "Combien de nombres de 3 chiffres (de 000 à 999) contiennent au moins un 5 ?",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-pairs-distincts",
+   "type": "ouverte",
+   "titre": "Combien existe-t-il de nombres pairs de trois chiffres distincts ?",
+   "parent": "6UAA1.additionner-multiplier",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-arrangement-podium",
+   "type": "qcm",
+   "titre": "Combien de podiums (1er, 2e, 3e) possibles avec 8 coureurs ?",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-factorielle",
+   "type": "qcm",
+   "titre": "Que vaut 9!/7! ?",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-permutation",
+   "type": "qcm",
+   "titre": "De combien de façons peut-on ranger 5 livres différents sur une étagère ?",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-factorielle-simplifier",
+   "type": "qcm",
+   "titre": "Pour n ≥ 2, que vaut n!/(n-2)! ?",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-arrangement-sens",
+   "type": "qcm",
+   "titre": "On classe les 10 coureurs d’une course. Combien de classements complets donnent le même podium (les …",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-contrainte-premier",
+   "type": "qcm",
+   "titre": "Six enfants, dont Arnaud, descendent un toboggan l’un après l’autre. Combien d’ordres de passage son…",
+   "parent": "6UAA1.arrangements-permutations",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-combinaison-lotto",
+   "type": "qcm",
+   "titre": "Au Lotto, on coche 6 numéros parmi 45. Quelle expression compte les grilles ?",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-regrouper-diviser",
+   "type": "qcm",
+   "titre": "On range les A₇³ = 210 suites de 3 élèves distincts parmi 7 en paquets : un paquet regroupe les suit…",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-symetrie",
+   "type": "qcm",
+   "titre": "Quelle égalité est vraie ?",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-comite",
+   "type": "ouverte",
+   "titre": "Un comité de 4 personnes est formé de 2 filles choisies parmi 7 et de 2 garçons choisis parmi 5. Com…",
+   "parent": "6UAA1.combinaisons",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-anagrammes",
+   "type": "qcm",
+   "titre": "Combien d’anagrammes du mot BALLE ?",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-permutation-repetition",
+   "type": "qcm",
+   "titre": "On aligne 4 jetons noirs identiques et 3 jetons blancs identiques. De quel type de groupement s’agit…",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-anagramme-radar",
+   "type": "qcm",
+   "titre": "Combien d’anagrammes du mot RADAR ?",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-groupe-mot",
+   "type": "qcm",
+   "titre": "Choisir 3 délégués parmi 5 élèves revient à compter les anagrammes de quel mot ? (O : « délégué », N…",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-anagrammes-deux-methodes",
+   "type": "ouverte",
+   "titre": "Combien d’anagrammes du mot COCCINELLE ? Réponds par deux méthodes.",
+   "parent": "6UAA1.permutations-repetition-anagrammes",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-choisir-code",
+   "type": "qcm",
+   "titre": "Code d’un cadenas à 4 roues de chiffres (0 à 9) : quelle formule ?",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-choisir-boites",
+   "type": "qcm",
+   "titre": "On place 3 lettres différentes dans 6 boîtes, au plus une lettre par boîte. Combien de placements ?",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.den-justifier-formule",
+   "type": "ouverte",
+   "titre": "Une classe de 20 élèves élit un délégué et un suppléant. Décris un résultat, dis si l’ordre compte e…",
+   "parent": "6UAA1.choisir-methode",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-frequence-stabilise",
+   "type": "qcm",
+   "titre": "On lance un grand nombre de fois une punaise. Que peut-on dire de la fréquence de « pointe en haut »…",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-simulation-suppose",
+   "type": "qcm",
+   "titre": "On simule des lancers de dé au tableur avec =ALEA.ENTRE.BORNES(1;6). Que montre cette simulation ?",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-a-posteriori-calcul",
+   "type": "qcm",
+   "titre": "Au 1er janvier 2019, 7 145 habitants sur 11 431 406 étaient nés un 29 février (Statbel). Quelle est …",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-hainaut-attendu",
+   "type": "ouverte",
+   "titre": "En Hainaut, 0,068 % des habitants sont nés un 29 février (Statbel). Parmi 50 000 Hennuyers, combien …",
+   "parent": "6UAA1.frequences-probabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-univers",
+   "type": "qcm",
+   "titre": "On lance deux pièces distinguées (une de 1 €, une de 2 €). Quel est l’univers ?",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-disjoints",
+   "type": "qcm",
+   "titre": "On lance un dé. Quels événements sont disjoints ?",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-contraire",
+   "type": "qcm",
+   "titre": "On lance deux dés. Quel est le contraire de « obtenir au moins un 6 » ?",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-difference-mots",
+   "type": "qcm",
+   "titre": "F : « l’élève fait du football » ; M : « l’élève fait de la musique ». Que signifie F ∖ M ?",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-venn-union",
+   "type": "qcm",
+   "titre": "Dans un diagramme de Venn à deux ensembles A et B, quelle zone représente A ∪ B ?",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-venn-trois",
+   "type": "ouverte",
+   "titre": "On lance un dé. A : « obtenir au moins 4 » ; B : « obtenir un nombre impair ». Écris en extension A …",
+   "parent": "6UAA1.univers-evenements",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-somme-sept",
+   "type": "qcm",
+   "titre": "On lance deux dés équilibrés. Quelle est la probabilité que la somme vaille 7 ?",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-laplace-condition",
+   "type": "qcm",
+   "titre": "Quand peut-on calculer P(A) = #A/#Ω ?",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-trois-enfants",
+   "type": "ouverte",
+   "titre": "On lance trois fois une pièce équilibrée. Quelle est la probabilité d’obtenir exactement un « pile »…",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-toscane",
+   "type": "qcm",
+   "titre": "Avec trois dés, combien de suites (dés distingués) donnent une somme de 10 ?",
+   "parent": "6UAA1.modele-equiprobabilite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-prop-contraire",
+   "type": "qcm",
+   "titre": "Si P(A) = 0,35, que vaut P(overlineA) ?",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-prop-reunion",
+   "type": "qcm",
+   "titre": "P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,3. Que vaut P(A ∪ B) ?",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-venn-probas",
+   "type": "qcm",
+   "titre": "Dans un diagramme de Venn, on lit : A seulement 0,2 ; A ∩ B : 0,15 ; B seulement 0,35. Que vaut P(B)…",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-venn-complet",
+   "type": "ouverte",
+   "titre": "On sait que P(A) = 0,45, P(B) = 0,3 et P(A ∪ B) = 0,6. Calcule P(A ∩ B), puis la probabilité de chaq…",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-de-truque",
+   "type": "qcm",
+   "titre": "Un dé est truqué : P(obtenir 6) = 1/2, et les cinq autres faces ont la même probabilité. Que vaut P(…",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-tableau-venn",
+   "type": "qcm",
+   "titre": "Dans un tableau à double entrée (A, overlineA en lignes ; B, overlineB en colonnes), quelle case cor…",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-mere",
+   "type": "qcm",
+   "titre": "On lance 3 fois un dé équilibré. Quelle est la probabilité d’obtenir au moins un 6 ?",
+   "parent": "6UAA1.proprietes-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-lotto-numero",
+   "type": "qcm",
+   "titre": "Au Lotto (6 numéros tirés parmi 45), quelle est la probabilité que le 13 soit tiré ?",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-lotto-deux-bons",
+   "type": "ouverte",
+   "titre": "Au Lotto, on coche 6 numéros parmi 45. Calcule la probabilité d’avoir exactement 2 bons numéros.",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-anniversaires",
+   "type": "qcm",
+   "titre": "Dans un groupe de 30 personnes (365 jours supposés équiprobables), quelle expression donne la probab…",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.hasard-grille-123456",
+   "type": "qcm",
+   "titre": "Un joueur affirme : « jouer 1-2-3-4-5-6 au Lotto, c’est gaspiller sa chance ». Que répondre ?",
+   "parent": "6UAA1.denombrer-calculer",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-parmi",
+   "type": "qcm",
+   "titre": "Au Titanic, S : « avoir survécu » ; C : « voyager en 1re classe ». Quelle probabilité répond à « par…",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-titanic-calcul",
+   "type": "qcm",
+   "titre": "Au Titanic, 325 personnes voyageaient en 1re classe, dont 203 ont survécu ; il y avait 711 survivant…",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-tableau-evenement",
+   "type": "qcm",
+   "titre": "Au Titanic, à quel événement correspond la probabilité 212/885 (212 survivants parmi les 885 membres…",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-definition",
+   "type": "ouverte",
+   "titre": "On sait que P(A ∩ B) = 0,12 et P(B) = 0,4. Calcule P(A | B).",
+   "parent": "6UAA1.probabilite-conditionnelle",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-arbre-chemin",
+   "type": "qcm",
+   "titre": "Sur un arbre, la branche vers B porte 0,4 et, depuis B, la branche vers A porte 0,7. Que vaut P(A ∩ …",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-arbre-branche",
+   "type": "qcm",
+   "titre": "Dans un arbre à deux niveaux (d’abord B ou overlineB, puis A ou overlineA), que représente le nombre…",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-arbre-total",
+   "type": "qcm",
+   "titre": "P(B) = 0,3, P(A | B) = 0,5, P(A | overlineB) = 0,2. Que vaut P(A) ?",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-urne-sans-remise",
+   "type": "ouverte",
+   "titre": "Une urne contient 4 boules rouges et 1 boule bleue. On tire deux boules sans remise. Construis l’arb…",
+   "parent": "6UAA1.arbres-probabilites",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-depistage-lecture",
+   "type": "qcm",
+   "titre": "Sur 1 000 femmes dépistées : 10 malades, dont 9 positives ; 990 non malades, dont 89 positives. Que …",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-fiable",
+   "type": "qcm",
+   "titre": "Un test « détecte 90 % des malades ». Une personne est positive. Que peut-on en conclure ?",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.cond-depistage-prevalence",
+   "type": "ouverte",
+   "titre": "Un test est positif chez 95 % des malades et chez 5 % des non-malades. La maladie touche 2 % des per…",
+   "parent": "6UAA1.lire-test-depistage",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.indep-definition",
+   "type": "qcm",
+   "titre": "P(A) = 0,5, P(B) = 0,4, P(A ∩ B) = 0,2. A et B sont-ils indépendants ?",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.indep-disjoints",
+   "type": "qcm",
+   "titre": "A et B sont disjoints, avec P(A) = 0,3 et P(B) = 0,2. Sont-ils indépendants ?",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.indep-joueur",
+   "type": "qcm",
+   "titre": "À la roulette, le rouge est sorti 6 fois de suite. Au tirage suivant, la probabilité du noir est :",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "6UAA1.q.indep-verifier",
+   "type": "ouverte",
+   "titre": "On lance deux dés (un rouge, un blanc). A : « le rouge donne un nombre pair » ; B : « la somme vaut …",
+   "parent": "6UAA1.independance",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  }
+ ],
+ "retires": []
+}

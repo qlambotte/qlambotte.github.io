@@ -1,0 +1,1210 @@
+{
+ "format": 1,
+ "cours": "Intégrales",
+ "uaa": "6UAA3",
+ "annee": "6e",
+ "cle": "integrales",
+ "empreinte": "1e87b9ff9ea6",
+ "genere": "2026-11-14",
+ "elements": [
+  {
+   "id": "6UAA3.integrale-accumulation",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — L’intégrale, une accumulation",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "6UAA3.accumuler-debit",
+   "type": "section",
+   "titre": "Accumuler à partir d’un débit",
+   "parent": "6UAA3.integrale-accumulation",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "6UAA3.maree-ostende",
+   "type": "activite",
+   "titre": "Activité 1.1 — la marée à Ostende",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.maree-ostende",
+   "num": "1.1",
+   "page": 2
+  },
+  {
+   "id": "6UAA3.variation-debit-constant-morceaux",
+   "type": "propriete",
+   "titre": "Propriété 1.1 — variation à débit constant par morceaux",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.variation-debit-constant-morceaux",
+   "num": "1.1",
+   "page": 4
+  },
+  {
+   "id": "6UAA3.aire-signee",
+   "type": "definition",
+   "titre": "Définition 1.1 — aire signée",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.aire-signee",
+   "num": "1.1",
+   "page": 4
+  },
+  {
+   "id": "6UAA3.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.rem.001",
+   "num": "1.1",
+   "page": 4
+  },
+  {
+   "id": "6UAA3.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.ex.001",
+   "num": "1.1",
+   "page": 5
+  },
+  {
+   "id": "6UAA3.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.ex.002",
+   "num": "1.2",
+   "page": 5
+  },
+  {
+   "id": "6UAA3.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.ex.003",
+   "num": "1.3",
+   "page": 5
+  },
+  {
+   "id": "6UAA3.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "6UAA3.accumuler-debit",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/1-accumuler-a-partir-dun-debit.html#6UAA3.ex.004",
+   "num": "1.4",
+   "page": 6
+  },
+  {
+   "id": "6UAA3.approximations-defaut-exces",
+   "type": "section",
+   "titre": "Débit variable : approximations par défaut et par excès",
+   "parent": "6UAA3.integrale-accumulation",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/2-debit-variable-approximations-par-defaut.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "6UAA3.encadrer-aire-signee",
+   "type": "activite",
+   "titre": "Activité 1.2 — encadrer une aire signée",
+   "parent": "6UAA3.approximations-defaut-exces",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/2-debit-variable-approximations-par-defaut.html#6UAA3.encadrer-aire-signee",
+   "num": "1.2",
+   "page": 6
+  },
+  {
+   "id": "6UAA3.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 1.5",
+   "parent": "6UAA3.approximations-defaut-exces",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/2-debit-variable-approximations-par-defaut.html#6UAA3.ex.005",
+   "num": "1.5",
+   "page": 8
+  },
+  {
+   "id": "6UAA3.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 1.6",
+   "parent": "6UAA3.approximations-defaut-exces",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-lintegrale-une-accum/2-debit-variable-approximations-par-defaut.html#6UAA3.ex.006",
+   "num": "1.6",
+   "page": 8
+  },
+  {
+   "id": "6UAA3.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 1.7",
+   "parent": "6UAA3.approximations-defaut-exces",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/2-debit-variable-approximations-par-defaut.html#6UAA3.ex.007",
+   "num": "1.7",
+   "page": 8
+  },
+  {
+   "id": "6UAA3.integrale-definie",
+   "type": "section",
+   "titre": "L’intégrale définie",
+   "parent": "6UAA3.integrale-accumulation",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "6UAA3.integrale-definie-2",
+   "type": "definition",
+   "titre": "Définition 1.2 — intégrale définie",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.integrale-definie-2",
+   "num": "1.2",
+   "page": 9
+  },
+  {
+   "id": "6UAA3.encadrement",
+   "type": "propriete",
+   "titre": "Propriété 1.2 — encadrement",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.encadrement",
+   "num": "1.2",
+   "page": 9
+  },
+  {
+   "id": "6UAA3.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 1.2",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.rem.002",
+   "num": "1.2",
+   "page": 9
+  },
+  {
+   "id": "6UAA3.integrale-aire-signee",
+   "type": "propriete",
+   "titre": "Propriété 1.3 — intégrale et aire signée",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.integrale-aire-signee",
+   "num": "1.3",
+   "page": 10
+  },
+  {
+   "id": "6UAA3.bornes-egales-inversees",
+   "type": "definition",
+   "titre": "Définition 1.3 — bornes égales ou inversées",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.bornes-egales-inversees",
+   "num": "1.3",
+   "page": 10
+  },
+  {
+   "id": "6UAA3.calculer-integrale-aires",
+   "type": "exemple",
+   "titre": "Exemple 1.1 — calculer une intégrale avec des aires",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.calculer-integrale-aires",
+   "num": "1.1",
+   "page": 10
+  },
+  {
+   "id": "6UAA3.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 1.8",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.ex.008",
+   "num": "1.8",
+   "page": 11
+  },
+  {
+   "id": "6UAA3.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 1.9",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.ex.009",
+   "num": "1.9",
+   "page": 11
+  },
+  {
+   "id": "6UAA3.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 1.10",
+   "parent": "6UAA3.integrale-definie",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-lintegrale-une-accum/3-lintegrale-definie.html#6UAA3.ex.010",
+   "num": "1.10",
+   "page": 12
+  },
+  {
+   "id": "6UAA3.proprietes-integrale",
+   "type": "section",
+   "titre": "Propriétés de l’intégrale",
+   "parent": "6UAA3.integrale-accumulation",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "6UAA3.conjecturer-proprietes",
+   "type": "activite",
+   "titre": "Activité 1.3 — conjecturer des propriétés",
+   "parent": "6UAA3.proprietes-integrale",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html#6UAA3.conjecturer-proprietes",
+   "num": "1.3",
+   "page": 12
+  },
+  {
+   "id": "6UAA3.proprietes-integrale-2",
+   "type": "propriete",
+   "titre": "Propriété 1.4 — propriétés de l’intégrale",
+   "parent": "6UAA3.proprietes-integrale",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html#6UAA3.proprietes-integrale-2",
+   "num": "1.4",
+   "page": 12
+  },
+  {
+   "id": "6UAA3.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 1.11",
+   "parent": "6UAA3.proprietes-integrale",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html#6UAA3.ex.011",
+   "num": "1.11",
+   "page": 13
+  },
+  {
+   "id": "6UAA3.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 1.12",
+   "parent": "6UAA3.proprietes-integrale",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html#6UAA3.ex.012",
+   "num": "1.12",
+   "page": 13
+  },
+  {
+   "id": "6UAA3.ex.051",
+   "type": "exercice",
+   "titre": "Exercice 1.13",
+   "parent": "6UAA3.proprietes-integrale",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-lintegrale-une-accum/4-proprietes-de-lintegrale.html#6UAA3.ex.051",
+   "num": "1.13",
+   "page": 13
+  },
+  {
+   "id": "6UAA3.references",
+   "type": "section",
+   "titre": "Références",
+   "parent": "6UAA3.integrale-accumulation",
+   "etiquettes": [],
+   "ancre": "ch1-lintegrale-une-accum/5-references.html",
+   "num": "1.5",
+   "page": null
+  },
+  {
+   "id": "6UAA3.fonction-aire-primitive",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Fonction aire et primitive",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "6UAA3.fonction-aire",
+   "type": "section",
+   "titre": "La fonction aire",
+   "parent": "6UAA3.fonction-aire-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/1-la-fonction-aire.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "6UAA3.fonction-aire-signee",
+   "type": "definition",
+   "titre": "Définition 2.1 — fonction aire signée",
+   "parent": "6UAA3.fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/1-la-fonction-aire.html#6UAA3.fonction-aire-signee",
+   "num": "2.1",
+   "page": 14
+  },
+  {
+   "id": "6UAA3.conjecturer-fonction-aire",
+   "type": "activite",
+   "titre": "Activité 2.1 — conjecturer l’expression de la fonction aire",
+   "parent": "6UAA3.fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/1-la-fonction-aire.html#6UAA3.conjecturer-fonction-aire",
+   "num": "2.1",
+   "page": 14
+  },
+  {
+   "id": "6UAA3.changer-borne",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — changer la borne a",
+   "parent": "6UAA3.fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/1-la-fonction-aire.html#6UAA3.changer-borne",
+   "num": "2.1",
+   "page": 16
+  },
+  {
+   "id": "6UAA3.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "6UAA3.fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/1-la-fonction-aire.html#6UAA3.ex.013",
+   "num": "2.1",
+   "page": 16
+  },
+  {
+   "id": "6UAA3.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "6UAA3.fonction-aire",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-fonction-aire-et-pri/1-la-fonction-aire.html#6UAA3.ex.014",
+   "num": "2.2",
+   "page": 17
+  },
+  {
+   "id": "6UAA3.pente-fonction-aire",
+   "type": "section",
+   "titre": "La pente de la fonction aire",
+   "parent": "6UAA3.fonction-aire-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "6UAA3.pente-valeur",
+   "type": "activite",
+   "titre": "Activité 2.2 — pente de A et valeur de f",
+   "parent": "6UAA3.pente-fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html#6UAA3.pente-valeur",
+   "num": "2.2",
+   "page": 17
+  },
+  {
+   "id": "6UAA3.theoreme-fondamental",
+   "type": "propriete",
+   "titre": "Propriété 2.2 — théorème fondamental du calcul intégral",
+   "parent": "6UAA3.pente-fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html#6UAA3.theoreme-fondamental",
+   "num": "2.2",
+   "page": 18
+  },
+  {
+   "id": "6UAA3.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "6UAA3.pente-fonction-aire",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html#6UAA3.ex.015",
+   "num": "2.3",
+   "page": 19
+  },
+  {
+   "id": "6UAA3.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "6UAA3.pente-fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html#6UAA3.ex.016",
+   "num": "2.4",
+   "page": 19
+  },
+  {
+   "id": "6UAA3.ex.017",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "6UAA3.pente-fonction-aire",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/2-la-pente-de-la-fonction.html#6UAA3.ex.017",
+   "num": "2.5",
+   "page": 19
+  },
+  {
+   "id": "6UAA3.primitives",
+   "type": "section",
+   "titre": "Primitives",
+   "parent": "6UAA3.fonction-aire-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/3-primitives.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "6UAA3.primitive",
+   "type": "definition",
+   "titre": "Définition 2.2 — primitive",
+   "parent": "6UAA3.primitives",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/3-primitives.html#6UAA3.primitive",
+   "num": "2.2",
+   "page": 20
+  },
+  {
+   "id": "6UAA3.toutes-primitives",
+   "type": "propriete",
+   "titre": "Propriété 2.3 — toutes les primitives",
+   "parent": "6UAA3.primitives",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/3-primitives.html#6UAA3.toutes-primitives",
+   "num": "2.3",
+   "page": 20
+  },
+  {
+   "id": "6UAA3.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 2.1",
+   "parent": "6UAA3.primitives",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/3-primitives.html#6UAA3.rem.003",
+   "num": "2.1",
+   "page": 20
+  },
+  {
+   "id": "6UAA3.ex.018",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "6UAA3.primitives",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/3-primitives.html#6UAA3.ex.018",
+   "num": "2.6",
+   "page": 20
+  },
+  {
+   "id": "6UAA3.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "6UAA3.primitives",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/3-primitives.html#6UAA3.ex.019",
+   "num": "2.7",
+   "page": 21
+  },
+  {
+   "id": "6UAA3.calculer-integrale-primitive",
+   "type": "section",
+   "titre": "Calculer une intégrale avec une primitive",
+   "parent": "6UAA3.fonction-aire-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "6UAA3.calcul-integrale",
+   "type": "propriete",
+   "titre": "Propriété 2.4 — calcul d’une intégrale",
+   "parent": "6UAA3.calculer-integrale-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#6UAA3.calcul-integrale",
+   "num": "2.4",
+   "page": 21
+  },
+  {
+   "id": "6UAA3.retrouver-resultats",
+   "type": "exemple",
+   "titre": "Exemple 2.1 — retrouver les résultats du chapitre 1",
+   "parent": "6UAA3.calculer-integrale-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#6UAA3.retrouver-resultats",
+   "num": "2.1",
+   "page": 21
+  },
+  {
+   "id": "6UAA3.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 2.8",
+   "parent": "6UAA3.calculer-integrale-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#6UAA3.ex.020",
+   "num": "2.8",
+   "page": 22
+  },
+  {
+   "id": "6UAA3.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 2.9",
+   "parent": "6UAA3.calculer-integrale-primitive",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#6UAA3.ex.021",
+   "num": "2.9",
+   "page": 22
+  },
+  {
+   "id": "6UAA3.ex.022",
+   "type": "exercice",
+   "titre": "Exercice 2.10",
+   "parent": "6UAA3.calculer-integrale-primitive",
+   "etiquettes": [],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#6UAA3.ex.022",
+   "num": "2.10",
+   "page": 22
+  },
+  {
+   "id": "6UAA3.ex.023",
+   "type": "exercice",
+   "titre": "Exercice 2.11",
+   "parent": "6UAA3.calculer-integrale-primitive",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-fonction-aire-et-pri/4-calculer-une-integrale-avec-une.html#6UAA3.ex.023",
+   "num": "2.11",
+   "page": 22
+  },
+  {
+   "id": "6UAA3.calculer-primitives",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Calculer des primitives",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "6UAA3.primitives-immediates",
+   "type": "section",
+   "titre": "Primitives immédiates",
+   "parent": "6UAA3.calculer-primitives",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "6UAA3.table-envers",
+   "type": "activite",
+   "titre": "Activité 3.1 — lire la table des dérivées à l’envers",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.table-envers",
+   "num": "3.1",
+   "page": 23
+  },
+  {
+   "id": "6UAA3.primitives-immediates-2",
+   "type": "propriete",
+   "titre": "Propriété 3.1 — primitives immédiates",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.primitives-immediates-2",
+   "num": "3.1",
+   "page": 24
+  },
+  {
+   "id": "6UAA3.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.rem.004",
+   "num": "3.1",
+   "page": 24
+  },
+  {
+   "id": "6UAA3.primitives-inverse",
+   "type": "activite",
+   "titre": "Activité 3.2 — les primitives de 1/x",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.primitives-inverse",
+   "num": "3.2",
+   "page": 24
+  },
+  {
+   "id": "6UAA3.rem.007",
+   "type": "remarque",
+   "titre": "Remarque 3.2",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.rem.007",
+   "num": "3.2",
+   "page": 25
+  },
+  {
+   "id": "6UAA3.ex.024",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.ex.024",
+   "num": "3.1",
+   "page": 25
+  },
+  {
+   "id": "6UAA3.ex.025",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "6UAA3.primitives-immediates",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/1-primitives-immediates.html#6UAA3.ex.025",
+   "num": "3.2",
+   "page": 25
+  },
+  {
+   "id": "6UAA3.fonctions-composees",
+   "type": "section",
+   "titre": "Fonctions composées",
+   "parent": "6UAA3.calculer-primitives",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/2-fonctions-composees.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "6UAA3.composee-envers",
+   "type": "activite",
+   "titre": "Activité 3.3 — dériver une composée, puis lire à l’envers",
+   "parent": "6UAA3.fonctions-composees",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/2-fonctions-composees.html#6UAA3.composee-envers",
+   "num": "3.3",
+   "page": 25
+  },
+  {
+   "id": "6UAA3.primitives-composees",
+   "type": "propriete",
+   "titre": "Propriété 3.2 — primitives de fonctions composées",
+   "parent": "6UAA3.fonctions-composees",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/2-fonctions-composees.html#6UAA3.primitives-composees",
+   "num": "3.2",
+   "page": 26
+  },
+  {
+   "id": "6UAA3.ex.026",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "6UAA3.fonctions-composees",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/2-fonctions-composees.html#6UAA3.ex.026",
+   "num": "3.3",
+   "page": 26
+  },
+  {
+   "id": "6UAA3.ex.027",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "6UAA3.fonctions-composees",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/2-fonctions-composees.html#6UAA3.ex.027",
+   "num": "3.4",
+   "page": 26
+  },
+  {
+   "id": "6UAA3.ex.028",
+   "type": "exercice",
+   "titre": "Exercice 3.5",
+   "parent": "6UAA3.fonctions-composees",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-calculer-des-primiti/2-fonctions-composees.html#6UAA3.ex.028",
+   "num": "3.5",
+   "page": 27
+  },
+  {
+   "id": "6UAA3.integration-parties",
+   "type": "section",
+   "titre": "Intégration par parties",
+   "parent": "6UAA3.calculer-primitives",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/3-integration-par-parties.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "6UAA3.integration-parties-2",
+   "type": "propriete",
+   "titre": "Propriété 3.3 — intégration par parties",
+   "parent": "6UAA3.integration-parties",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/3-integration-par-parties.html#6UAA3.integration-parties-2",
+   "num": "3.3",
+   "page": 27
+  },
+  {
+   "id": "6UAA3.exemple-parties",
+   "type": "exemple",
+   "titre": "Exemple 3.1 — ∫ x eˣ d x et ∫ ln x d x",
+   "parent": "6UAA3.integration-parties",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/3-integration-par-parties.html#6UAA3.exemple-parties",
+   "num": "3.1",
+   "page": 27
+  },
+  {
+   "id": "6UAA3.rem.005",
+   "type": "remarque",
+   "titre": "Remarque 3.3",
+   "parent": "6UAA3.integration-parties",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/3-integration-par-parties.html#6UAA3.rem.005",
+   "num": "3.3",
+   "page": 28
+  },
+  {
+   "id": "6UAA3.ex.029",
+   "type": "exercice",
+   "titre": "Exercice 3.6",
+   "parent": "6UAA3.integration-parties",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/3-integration-par-parties.html#6UAA3.ex.029",
+   "num": "3.6",
+   "page": 28
+  },
+  {
+   "id": "6UAA3.ex.030",
+   "type": "exercice",
+   "titre": "Exercice 3.7",
+   "parent": "6UAA3.integration-parties",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-calculer-des-primiti/3-integration-par-parties.html#6UAA3.ex.030",
+   "num": "3.7",
+   "page": 28
+  },
+  {
+   "id": "6UAA3.calculer-integrales",
+   "type": "section",
+   "titre": "Calculer des intégrales",
+   "parent": "6UAA3.calculer-primitives",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/4-calculer-des-integrales.html",
+   "num": "3.4",
+   "page": null
+  },
+  {
+   "id": "6UAA3.ex.031",
+   "type": "exercice",
+   "titre": "Exercice 3.8",
+   "parent": "6UAA3.calculer-integrales",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/4-calculer-des-integrales.html#6UAA3.ex.031",
+   "num": "3.8",
+   "page": 28
+  },
+  {
+   "id": "6UAA3.ex.032",
+   "type": "exercice",
+   "titre": "Exercice 3.9",
+   "parent": "6UAA3.calculer-integrales",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-calculer-des-primiti/4-calculer-des-integrales.html#6UAA3.ex.032",
+   "num": "3.9",
+   "page": 29
+  },
+  {
+   "id": "6UAA3.ex.033",
+   "type": "exercice",
+   "titre": "Exercice 3.10",
+   "parent": "6UAA3.calculer-integrales",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/4-calculer-des-integrales.html#6UAA3.ex.033",
+   "num": "3.10",
+   "page": 29
+  },
+  {
+   "id": "6UAA3.ex.034",
+   "type": "exercice",
+   "titre": "Exercice 3.11",
+   "parent": "6UAA3.calculer-integrales",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-calculer-des-primiti/4-calculer-des-integrales.html#6UAA3.ex.034",
+   "num": "3.11",
+   "page": 29
+  },
+  {
+   "id": "6UAA3.ex.046",
+   "type": "exercice",
+   "titre": "Exercice 3.12",
+   "parent": "6UAA3.calculer-integrales",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-calculer-des-primiti/4-calculer-des-integrales.html#6UAA3.ex.046",
+   "num": "3.12",
+   "page": 29
+  },
+  {
+   "id": "6UAA3.choisir-methode",
+   "type": "section",
+   "titre": "Choisir une méthode",
+   "parent": "6UAA3.calculer-primitives",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/5-choisir-une-methode.html",
+   "num": "3.5",
+   "page": null
+  },
+  {
+   "id": "6UAA3.ex.052",
+   "type": "exercice",
+   "titre": "Exercice 3.13",
+   "parent": "6UAA3.choisir-methode",
+   "etiquettes": [],
+   "ancre": "ch3-calculer-des-primiti/5-choisir-une-methode.html#6UAA3.ex.052",
+   "num": "3.13",
+   "page": 30
+  },
+  {
+   "id": "6UAA3.ex.053",
+   "type": "exercice",
+   "titre": "Exercice 3.14",
+   "parent": "6UAA3.choisir-methode",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-calculer-des-primiti/5-choisir-une-methode.html#6UAA3.ex.053",
+   "num": "3.14",
+   "page": 31
+  },
+  {
+   "id": "6UAA3.aires-volumes",
+   "type": "chapitre",
+   "titre": "Chapitre 4 — Aires et volumes",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/index.html",
+   "num": "4",
+   "page": null
+  },
+  {
+   "id": "6UAA3.aire-surface-plane",
+   "type": "section",
+   "titre": "Aire d’une surface plane",
+   "parent": "6UAA3.aires-volumes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/1-aire-dune-surface-plane.html",
+   "num": "4.1",
+   "page": null
+  },
+  {
+   "id": "6UAA3.integrale-et-aire",
+   "type": "activite",
+   "titre": "Activité 4.1 — intégrale et aire",
+   "parent": "6UAA3.aire-surface-plane",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/1-aire-dune-surface-plane.html#6UAA3.integrale-et-aire",
+   "num": "4.1",
+   "page": 32
+  },
+  {
+   "id": "6UAA3.aire-graphique-axe",
+   "type": "propriete",
+   "titre": "Propriété 4.1 — aire entre un graphique et l’axe des abscisses",
+   "parent": "6UAA3.aire-surface-plane",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/1-aire-dune-surface-plane.html#6UAA3.aire-graphique-axe",
+   "num": "4.1",
+   "page": 33
+  },
+  {
+   "id": "6UAA3.rem.006",
+   "type": "remarque",
+   "titre": "Remarque 4.1",
+   "parent": "6UAA3.aire-surface-plane",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/1-aire-dune-surface-plane.html#6UAA3.rem.006",
+   "num": "4.1",
+   "page": 33
+  },
+  {
+   "id": "6UAA3.ex.035",
+   "type": "exercice",
+   "titre": "Exercice 4.1",
+   "parent": "6UAA3.aire-surface-plane",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/1-aire-dune-surface-plane.html#6UAA3.ex.035",
+   "num": "4.1",
+   "page": 34
+  },
+  {
+   "id": "6UAA3.ex.036",
+   "type": "exercice",
+   "titre": "Exercice 4.2",
+   "parent": "6UAA3.aire-surface-plane",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/1-aire-dune-surface-plane.html#6UAA3.ex.036",
+   "num": "4.2",
+   "page": 34
+  },
+  {
+   "id": "6UAA3.aire-entre-courbes",
+   "type": "section",
+   "titre": "Aire entre deux courbes",
+   "parent": "6UAA3.aires-volumes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html",
+   "num": "4.2",
+   "page": null
+  },
+  {
+   "id": "6UAA3.droite-parabole",
+   "type": "activite",
+   "titre": "Activité 4.2 — aire entre une droite et une parabole",
+   "parent": "6UAA3.aire-entre-courbes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#6UAA3.droite-parabole",
+   "num": "4.2",
+   "page": 34
+  },
+  {
+   "id": "6UAA3.aire-deux-courbes",
+   "type": "propriete",
+   "titre": "Propriété 4.2 — aire entre deux courbes",
+   "parent": "6UAA3.aire-entre-courbes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#6UAA3.aire-deux-courbes",
+   "num": "4.2",
+   "page": 35
+  },
+  {
+   "id": "6UAA3.ex.037",
+   "type": "exercice",
+   "titre": "Exercice 4.3",
+   "parent": "6UAA3.aire-entre-courbes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#6UAA3.ex.037",
+   "num": "4.3",
+   "page": 36
+  },
+  {
+   "id": "6UAA3.ex.038",
+   "type": "exercice",
+   "titre": "Exercice 4.4",
+   "parent": "6UAA3.aire-entre-courbes",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#6UAA3.ex.038",
+   "num": "4.4",
+   "page": 36
+  },
+  {
+   "id": "6UAA3.ex.047",
+   "type": "exercice",
+   "titre": "Exercice 4.5",
+   "parent": "6UAA3.aire-entre-courbes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#6UAA3.ex.047",
+   "num": "4.5",
+   "page": 37
+  },
+  {
+   "id": "6UAA3.ex.039",
+   "type": "exercice",
+   "titre": "Exercice 4.6",
+   "parent": "6UAA3.aire-entre-courbes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/2-aire-entre-deux-courbes.html#6UAA3.ex.039",
+   "num": "4.6",
+   "page": 37
+  },
+  {
+   "id": "6UAA3.volume-solide-revolution",
+   "type": "section",
+   "titre": "Volume d’un solide de révolution",
+   "parent": "6UAA3.aires-volumes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html",
+   "num": "4.3",
+   "page": null
+  },
+  {
+   "id": "6UAA3.volume-cone",
+   "type": "activite",
+   "titre": "Activité 4.3 — le volume d’un cône",
+   "parent": "6UAA3.volume-solide-revolution",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#6UAA3.volume-cone",
+   "num": "4.3",
+   "page": 38
+  },
+  {
+   "id": "6UAA3.volume-revolution",
+   "type": "propriete",
+   "titre": "Propriété 4.3 — volume d’un solide de révolution",
+   "parent": "6UAA3.volume-solide-revolution",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#6UAA3.volume-revolution",
+   "num": "4.3",
+   "page": 39
+  },
+  {
+   "id": "6UAA3.volume-boule",
+   "type": "exemple",
+   "titre": "Exemple 4.1 — volume d’une boule",
+   "parent": "6UAA3.volume-solide-revolution",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#6UAA3.volume-boule",
+   "num": "4.1",
+   "page": 39
+  },
+  {
+   "id": "6UAA3.ex.040",
+   "type": "exercice",
+   "titre": "Exercice 4.7",
+   "parent": "6UAA3.volume-solide-revolution",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#6UAA3.ex.040",
+   "num": "4.7",
+   "page": 40
+  },
+  {
+   "id": "6UAA3.ex.041",
+   "type": "exercice",
+   "titre": "Exercice 4.8",
+   "parent": "6UAA3.volume-solide-revolution",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#6UAA3.ex.041",
+   "num": "4.8",
+   "page": 40
+  },
+  {
+   "id": "6UAA3.ex.042",
+   "type": "exercice",
+   "titre": "Exercice 4.9",
+   "parent": "6UAA3.volume-solide-revolution",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/3-volume-dun-solide-de-revolution.html#6UAA3.ex.042",
+   "num": "4.9",
+   "page": 40
+  },
+  {
+   "id": "6UAA3.problemes",
+   "type": "section",
+   "titre": "Problèmes",
+   "parent": "6UAA3.aires-volumes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html",
+   "num": "4.4",
+   "page": null
+  },
+  {
+   "id": "6UAA3.ex.043",
+   "type": "exercice",
+   "titre": "Exercice 4.10",
+   "parent": "6UAA3.problemes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html#6UAA3.ex.043",
+   "num": "4.10",
+   "page": 40
+  },
+  {
+   "id": "6UAA3.ex.044",
+   "type": "exercice",
+   "titre": "Exercice 4.11",
+   "parent": "6UAA3.problemes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html#6UAA3.ex.044",
+   "num": "4.11",
+   "page": 41
+  },
+  {
+   "id": "6UAA3.ex.045",
+   "type": "exercice",
+   "titre": "Exercice 4.12",
+   "parent": "6UAA3.problemes",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html#6UAA3.ex.045",
+   "num": "4.12",
+   "page": 41
+  },
+  {
+   "id": "6UAA3.ex.048",
+   "type": "exercice",
+   "titre": "Exercice 4.13",
+   "parent": "6UAA3.problemes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html#6UAA3.ex.048",
+   "num": "4.13",
+   "page": 42
+  },
+  {
+   "id": "6UAA3.ex.049",
+   "type": "exercice",
+   "titre": "Exercice 4.14",
+   "parent": "6UAA3.problemes",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html#6UAA3.ex.049",
+   "num": "4.14",
+   "page": 42
+  },
+  {
+   "id": "6UAA3.ex.050",
+   "type": "exercice",
+   "titre": "Exercice 4.15",
+   "parent": "6UAA3.problemes",
+   "etiquettes": [],
+   "ancre": "ch4-aires-et-volumes/4-problemes.html#6UAA3.ex.050",
+   "num": "4.15",
+   "page": 43
+  }
+ ],
+ "retires": []
+}
