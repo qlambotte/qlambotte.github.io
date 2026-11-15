@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Intégrales",
     "section": "",
-    "text": "Ce site accompagne le cours imprimé sur les intégrales (6e, 6UAA3). On y trouve le même texte, avec les mêmes numéros, et en plus :\n\ndes figures interactives : les sommes par défaut et par excès qui encadrent une aire, et la fonction aire construite pas à pas ;\ndes coups de pouce pour les exercices (des indices, puis la solution et les pièges).\n\nLe cours suit quatre étapes : l’intégrale comme accumulation d’un débit, la fonction aire et les primitives, le calcul de primitives, puis les aires et volumes.",
+    "text": "Ce site accompagne le cours imprimé sur les intégrales (6e, 6UAA3). On y trouve le même texte, avec les mêmes numéros, et en plus :\n\ndes figures interactives : la fonction aire qui se trace pendant qu’on déplace la borne (la hauteur d’eau d’une marée, une aire signée, la pente de la fonction aire…), et les sommes par défaut et par excès qui encadrent une aire ;\ndes coups de pouce pour chaque exercice : trois indices, puis la réponse, une solution rédigée et les pièges.\n\nLe cours suit quatre étapes : l’intégrale comme accumulation d’un débit (marées, épidémie, émissions de CO₂ : les sources sont sur la page Sources), la fonction aire et les primitives, le calcul de primitives, puis les aires et volumes.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Intégrales — cours & exercices</span>"
     ]
