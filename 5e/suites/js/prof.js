@@ -624,7 +624,13 @@
       var bouge = false;
       var marque = function () { bouge = true; };
       ["wheel", "touchstart", "keydown"].forEach(function (n) { window.addEventListener(n, marque, { passive: true, once: true }); });
-      var aller = function () { if (!bouge) el.scrollIntoView({ block: "center" }); };
+      // centré ; plus haut que l'écran (long exercice) : son titre en haut, sinon on ne le verrait pas
+      var aller = function () {
+        if (bouge) return;
+        var r = el.getBoundingClientRect();
+        if (r.height > window.innerHeight * 0.8) window.scrollTo(0, Math.max(0, r.top + window.scrollY - 70));
+        else el.scrollIntoView({ block: "center" });
+      };
       aller(); surbrillance(el);
       setTimeout(aller, 1200);                                    // après la mise en page de MathJax
       return true;
