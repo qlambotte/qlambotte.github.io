@@ -3,7 +3,7 @@
      gardée ; toutes les pages sont mises de côté à la première visite ;
    - le reste (scripts, styles, figures, polices, MathJax) : copie gardée,
      rafraîchie en arrière-plan. Les PDF ne sont pas mis de côté (trop lourds). */
-var VERSION = "015b828382";
+var VERSION = "e77586507a";
 // un cache par cours (tous les cours partagent le même domaine) : chaque cours ne vide que les siens
 var PREFIXE = "typweb-limites-";
 var CACHE = PREFIXE + VERSION;
