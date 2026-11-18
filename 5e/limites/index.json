@@ -4,7 +4,7 @@
  "uaa": "5UAA3",
  "annee": "5e",
  "cle": "limites",
- "empreinte": "9e3e0506b50e",
+ "empreinte": "90c6861f8b90",
  "genere": "2026-11-18",
  "elements": [
   {
@@ -152,26 +152,6 @@
    "page": 6
   },
   {
-   "id": "5UAA3.identifier-deux-composantes",
-   "type": "exemple",
-   "titre": "Exemple 1.1 — identifier les deux composantes",
-   "parent": "5UAA3.reconnaitre-composee",
-   "etiquettes": [],
-   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.identifier-deux-composantes",
-   "num": "1.1",
-   "page": 6
-  },
-  {
-   "id": "5UAA3.composition-redonne-bloc-connu",
-   "type": "exemple",
-   "titre": "Exemple 1.2 — une composition qui redonne un bloc connu",
-   "parent": "5UAA3.reconnaitre-composee",
-   "etiquettes": [],
-   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.composition-redonne-bloc-connu",
-   "num": "1.2",
-   "page": 7
-  },
-  {
    "id": "5UAA3.rem.002",
    "type": "remarque",
    "titre": "Remarque 1.2",
@@ -202,16 +182,6 @@
    "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.ex.005",
    "num": "1.5",
    "page": 8
-  },
-  {
-   "id": "5UAA3.decomposer-fonction",
-   "type": "exemple",
-   "titre": "Exemple 1.3 — décomposer une fonction",
-   "parent": "5UAA3.reconnaitre-composee",
-   "etiquettes": [],
-   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.decomposer-fonction",
-   "num": "1.3",
-   "page": 9
   },
   {
    "id": "5UAA3.ex.006",
@@ -494,22 +464,12 @@
   {
    "id": "5UAA3.trois-reponses-possibles",
    "type": "remarque",
-   "titre": "Remarque 2.4",
+   "titre": "Remarque 2.4 — trois réponses possibles pour une limite",
    "parent": "5UAA3.quand-limite-t-elle-sens",
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.trois-reponses-possibles",
    "num": "2.4",
    "page": 22
-  },
-  {
-   "id": "5UAA3.exm.001",
-   "type": "exemple",
-   "titre": "Exemple 2.1",
-   "parent": "5UAA3.quand-limite-t-elle-sens",
-   "etiquettes": [],
-   "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.exm.001",
-   "num": "2.1",
-   "page": 23
   },
   {
    "id": "5UAA3.limites-gauche-droite",
@@ -559,16 +519,6 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.rem.007",
    "num": "2.5",
-   "page": 25
-  },
-  {
-   "id": "5UAA3.exm.002",
-   "type": "exemple",
-   "titre": "Exemple 2.2",
-   "parent": "5UAA3.limites-gauche-droite",
-   "etiquettes": [],
-   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.exm.002",
-   "num": "2.2",
    "page": 25
   },
   {
@@ -824,16 +774,6 @@
    "page": 38
   },
   {
-   "id": "5UAA3.exm.003",
-   "type": "exemple",
-   "titre": "Exemple 3.1",
-   "parent": "5UAA3.point-domaine-rien-chercher",
-   "etiquettes": [],
-   "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.exm.003",
-   "num": "3.1",
-   "page": 38
-  },
-  {
    "id": "5UAA3.valeur-interdite-point-creux-asymptote",
    "type": "section",
    "titre": "En une valeur interdite : point creux ou asymptote verticale ?",
@@ -884,36 +824,6 @@
    "page": 39
   },
   {
-   "id": "5UAA3.exm.004",
-   "type": "exemple",
-   "titre": "Exemple 3.2",
-   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
-   "etiquettes": [],
-   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.004",
-   "num": "3.2",
-   "page": 40
-  },
-  {
-   "id": "5UAA3.exm.005",
-   "type": "exemple",
-   "titre": "Exemple 3.3",
-   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
-   "etiquettes": [],
-   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.005",
-   "num": "3.3",
-   "page": 40
-  },
-  {
-   "id": "5UAA3.exm.006",
-   "type": "exemple",
-   "titre": "Exemple 3.4",
-   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
-   "etiquettes": [],
-   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.006",
-   "num": "3.4",
-   "page": 41
-  },
-  {
    "id": "5UAA3.rem.010",
    "type": "remarque",
    "titre": "Remarque 3.2",
@@ -921,16 +831,6 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.rem.010",
    "num": "3.2",
-   "page": 41
-  },
-  {
-   "id": "5UAA3.exm.007",
-   "type": "exemple",
-   "titre": "Exemple 3.5",
-   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
-   "etiquettes": [],
-   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.007",
-   "num": "3.5",
    "page": 41
   },
   {
@@ -1092,16 +992,6 @@
    "page": 46
   },
   {
-   "id": "5UAA3.exm.008",
-   "type": "exemple",
-   "titre": "Exemple 4.1",
-   "parent": "5UAA3.polynomes-terme-emporte",
-   "etiquettes": [],
-   "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.exm.008",
-   "num": "4.1",
-   "page": 46
-  },
-  {
    "id": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
    "type": "section",
    "titre": "Les fonctions rationnelles en ±∞ : asymptote horizontale ?",
@@ -1149,16 +1039,6 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.asymptote-horizontale",
    "num": "4.1",
-   "page": 47
-  },
-  {
-   "id": "5UAA3.exm.009",
-   "type": "exemple",
-   "titre": "Exemple 4.2",
-   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
-   "etiquettes": [],
-   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.exm.009",
-   "num": "4.2",
    "page": 47
   },
   {
@@ -1232,16 +1112,6 @@
    "page": 51
   },
   {
-   "id": "5UAA3.estimer-valeur-grace-asymptote",
-   "type": "exemple",
-   "titre": "Exemple 4.3 — estimer une valeur grâce à une asymptote",
-   "parent": "5UAA3.asymptote-oblique",
-   "etiquettes": [],
-   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.estimer-valeur-grace-asymptote",
-   "num": "4.3",
-   "page": 51
-  },
-  {
    "id": "5UAA3.calcule-infini",
    "type": "section",
    "titre": "On ne calcule pas avec l’infini",
@@ -1280,16 +1150,6 @@
    "ancre": "ch4-chercher-les-asympto/5-synthese.html",
    "num": "4.5",
    "page": null
-  },
-  {
-   "id": "5UAA3.etude-complete",
-   "type": "exemple",
-   "titre": "Exemple 4.4 — une étude complète",
-   "parent": "5UAA3.synthese",
-   "etiquettes": [],
-   "ancre": "ch4-chercher-les-asympto/5-synthese.html#5UAA3.etude-complete",
-   "num": "4.4",
-   "page": 52
   },
   {
    "id": "5UAA3.exercices-3",
