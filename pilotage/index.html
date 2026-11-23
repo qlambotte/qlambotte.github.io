@@ -88,8 +88,21 @@
         <div class="doux" id="derniere"></div>
       </section>
       <section id="c5" aria-labelledby="t5">
-        <h3 class="sh" id="t5">Prochaines interros</h3>
+        <div class="sh-ligne"><h3 class="sh" id="t5">Prochaines interros</h3>
+          <button class="btn discret" id="iro-ouvrir" type="button" aria-expanded="false" aria-controls="iro-form" title="Ajoute une interro dans config/pilotage.json du dépôt privé">+ Planifier</button></div>
         <div id="interros"></div>
+        <form id="iro-form" class="iro-form" aria-label="Planifier une interro" novalidate hidden>
+          <div class="iro-champs">
+            <label>Date<input type="date" id="iro-date" required></label>
+            <label>Classe<select id="iro-classe"></select></label>
+            <label>UAA<input type="text" id="iro-uaa" list="iro-uaas" autocomplete="off" required></label>
+            <label>Type<input type="text" id="iro-type" list="iro-types" autocomplete="off" required></label>
+          </div>
+          <datalist id="iro-uaas"></datalist>
+          <datalist id="iro-types"></datalist>
+          <div class="doux" id="iro-msg" role="status"></div>
+          <div class="act fin"><button class="btn discret" id="iro-annuler" type="button">Annuler</button><button class="btn p" id="iro-enr" type="submit">Planifier</button></div>
+        </form>
       </section>
     </div>
 
@@ -154,6 +167,7 @@
 <script src="js/sync.js"></script>
 <script src="js/outils.js"></script>
 <script src="js/config.js"></script>
+<script src="js/interros.js"></script>
 <script src="js/horaire.js"></script>
 <script src="js/jour.js"></script>
 <script src="js/ev.js"></script>

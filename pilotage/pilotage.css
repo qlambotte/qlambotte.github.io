@@ -172,6 +172,15 @@ button.pastille { cursor: pointer; }
 .iro .j { font-size: 13px; color: var(--doux); white-space: nowrap; }
 .iro .j.proche { font-weight: 600; color: var(--cuf); background: var(--cut); padding: 3px 10px; border-radius: 99px; }
 .iro:has(.j.proche) .dt { background: var(--cut); color: var(--cuf); }
+.sh-ligne { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sh-ligne .btn.discret { min-height: 34px; font-size: 13px; }
+.iro .retirer { min-height: 32px; padding: 0 10px; font-size: 13px; }
+.iro-form { display: grid; gap: 10px; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--q); }
+.iro-champs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.iro-form input[type=date], .iro-form select { font: 15px var(--sans); color: var(--texte); background: var(--q); border: 0;
+  border-radius: 14px; padding: 10px 12px; min-height: 46px; width: 100%; }
+#iro-msg:empty { display: none; }
+#iro-msg.ko { color: var(--cuf); }
 
 /* journal, devoirs */
 textarea { width: 100%; font: 16px/1.55 var(--serif); color: var(--texte); background: var(--q); border: 0; border-radius: 16px;

@@ -407,8 +407,86 @@
       var f = el("span", "f"); f.appendChild(el("span", "cache", jourFr(i.date) + " · ")); f.appendChild(document.createTextNode(i.uaa + " · " + i.type));
       ligne.appendChild(f);
       ligne.appendChild(el("span", "j" + (n <= 14 ? " proche" : ""), n === 0 ? (estAujourdhui() ? "aujourd'hui" : "ce jour-là") : "J−" + n));
+      if (window.typwebSync && window.typwebSync.estConfigure && window.typwebSync.estConfigure()) ligne.appendChild(boutonRetirer(i));
       zone.appendChild(ligne);
     });
+  }
+
+  /* ---------- planifier / retirer une interro : écrit config/pilotage.json du dépôt privé ---------- */
+  var IRO = { retrait: null, minuterie: null, occupe: false };
+  function cleIro(i) { return [i.date, i.classe, i.uaa, i.type].join("|"); }
+  // null si l'écriture dans le dépôt est possible, sinon le motif (lisible).
+  function motifSansEcriture() {
+    var S = window.typwebSync;
+    if (!S || !S.estConfigure || !S.estConfigure()) return "Synchronisation non configurée : les interros sont enregistrées dans le dépôt privé (Réglages).";
+    var i = S.infos();
+    if (!i.jeton) return "Jeton absent sur cet appareil (Réglages).";
+    if (i.verrouille) return "Jeton verrouillé : déverrouille-le dans les Réglages.";
+    if (navigator.onLine === false) return "Hors ligne : planifier une interro demande le réseau.";
+    return null;
+  }
+  // Relit config/pilotage.json dans le dépôt (modifications faites depuis le PC comprises), applique f, revalide, envoie.
+  function ecrireInterros(f) {
+    var motif = motifSansEcriture();
+    if (motif) return Promise.reject(new Error(motif));
+    var S = window.typwebSync, res = null;
+    return S.configDepot().then(function (r) {
+      if (!r || !r.texte) throw new Error("config/pilotage.json est absent du dépôt privé : envoie d'abord la configuration (Réglages).");
+      res = f(r.texte);
+      if (!res.ok) throw new Error(res.erreurs.join(" "));
+      return S.publierConfig(res.texte);
+    }).then(function () { A.config.interros = res.config.interros; rendreInterros(); return res; });
+  }
+  function boutonRetirer(i) {
+    var cle = cleIro(i), arme = IRO.retrait === cle;
+    var b = el("button", "btn discret retirer", arme ? "Retirer ?" : "✕"); b.type = "button";
+    b.title = "Retirer cette interro du dépôt privé"; b.setAttribute("aria-label", arme ? "Confirmer le retrait" : "Retirer l'interro du " + jourFr(i.date));
+    b.addEventListener("click", function () {
+      clearTimeout(IRO.minuterie);
+      if (IRO.retrait !== cle) {                                    // premier clic : demande de confirmation (4 s)
+        IRO.retrait = cle; rendreInterros();
+        IRO.minuterie = setTimeout(function () { IRO.retrait = null; rendreInterros(); }, 4000);
+        return;
+      }
+      IRO.retrait = null; b.disabled = true; b.textContent = "…";
+      ecrireInterros(function (t) { return Pi.interros.retirer(t, i); })
+        .then(function () { toast("Interro retirée"); }, function (e) { toast(e.message); rendreInterros(); });
+    });
+    return b;
+  }
+  function msgIro(t, ko) { var m = $("#iro-msg"); m.textContent = t || ""; m.classList.toggle("ko", !!ko); }
+  function remplirUaaIro() {
+    var c = C.classe(A.config, $("#iro-classe").value), dl = $("#iro-uaas"), cc = C.coursEnCours(c);
+    vider(dl);
+    ((c && c.cours) || []).forEach(function (k) { var o = el("option"); o.value = k.uaa; if (k.titre) o.label = k.titre; dl.appendChild(o); });
+    $("#iro-uaa").value = cc ? cc.uaa : "";
+    $("#iro-date").value = H.jourDeCours(A.config, $("#iro-classe").value, aujourdhui(), 1) || "";   // prochain jour de cours de la classe
+  }
+  function formIro(ouvrir) {
+    $("#iro-form").hidden = !ouvrir; $("#iro-ouvrir").setAttribute("aria-expanded", String(ouvrir));
+    if (!ouvrir) { msgIro(""); $("#iro-ouvrir").focus(); return; }
+    var sel = $("#iro-classe"); vider(sel);
+    A.config.classes.forEach(function (c) { var o = el("option", "", c.code); o.value = c.code; sel.appendChild(o); });
+    sel.value = A.code;
+    var tl = $("#iro-types"); vider(tl);
+    Pi.interros.TYPES.forEach(function (t) { var o = el("option"); o.value = t; tl.appendChild(o); });
+    $("#iro-date").min = aujourdhui(); $("#iro-type").value = "";
+    remplirUaaIro();
+    var motif = motifSansEcriture(); msgIro(motif || "", !!motif);
+    $("#iro-date").focus();
+  }
+  function planifierIro(e) {
+    e.preventDefault();
+    if (IRO.occupe) return;
+    var I = Pi.interros, it = I.nettoyer({ date: $("#iro-date").value, classe: $("#iro-classe").value, uaa: $("#iro-uaa").value, type: $("#iro-type").value });
+    var o = { classes: A.config.classes.map(function (c) { return c.code; }), aujourdhui: aujourdhui() };
+    var err = I.controler(it, o);
+    if (err.length) { msgIro(err.join(" "), true); return; }
+    IRO.occupe = true; $("#iro-enr").disabled = true; msgIro("Envoi vers le dépôt privé…");
+    ecrireInterros(function (t) { return I.ajouter(t, it, o); }).then(function () {
+      toast("Interro planifiée : " + it.classe + ", " + jourFr(it.date));
+      formIro(false);
+    }, function (x) { msgIro(x.message, true); }).then(function () { IRO.occupe = false; $("#iro-enr").disabled = false; });
   }
 
   /* ---------- assemblage ---------- */
@@ -443,6 +521,11 @@
     $("#apercu-fermer").addEventListener("click", function () { feuille(false); });
     $("#apercu").addEventListener("click", function (e) { if (e.target.id === "apercu") feuille(false); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("#apercu").hidden) feuille(false); });
+    $("#iro-ouvrir").addEventListener("click", function () { formIro($("#iro-form").hidden); });
+    $("#iro-annuler").addEventListener("click", function () { formIro(false); });
+    $("#iro-classe").addEventListener("change", remplirUaaIro);
+    $("#iro-form").addEventListener("submit", planifierIro);
+    $("#iro-form").addEventListener("keydown", function (e) { if (e.key === "Escape") { e.stopPropagation(); formIro(false); } });
     $("#jdc").addEventListener("input", function () { ecrireBrouillon("jdc", $("#jdc").value); $("#jdc-sub").textContent = "Texte modifié à la main (↻ pour recalculer d'après les marques du jour)."; });
     $("#dev").addEventListener("input", function () { ecrireBrouillon("dev", $("#dev").value); $("#dev-sub").textContent = "Texte modifié à la main (↻ pour recalculer)."; });
     $("#jdc-regen").addEventListener("click", function () { ecrireBrouillon("jdc", null); rendreJournal(); });
